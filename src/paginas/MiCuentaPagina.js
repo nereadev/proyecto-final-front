@@ -1,7 +1,18 @@
 const MiCuentaPagina = () => (
   <>
-    <h1>Mi cuenta</h1>
-    <p>Detalles de mi cuenta.</p>
+    <h2>Mi cuenta</h2>
+    <ul>
+      <li>Nombre:</li>
+      <li>Apellidos:</li>
+      <li>
+        Email:
+        <button type="submit">Modificar</button>
+      </li>
+      <li>
+        Contraseña:****
+        <button type="submit">Modificar</button>
+      </li>
+    </ul>
   </>
 );
 

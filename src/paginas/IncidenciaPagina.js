@@ -1,7 +1,15 @@
 const IncidenciaPagina = () => (
   <>
-    <h1>Incidencia</h1>
-    <p>Detalle de la incidencia</p>
+    <h2>Incidencia</h2>
+    <ul>
+      <li>Nombre Incidencia:</li>
+      <li>Descripción:</li>
+      <li>Fotografía:</li>
+      <li>Tipo:</li>
+      <li>Localización:</li>
+      <li>Fecha Incidencia:</li>
+      <li>Favoritos:</li>
+    </ul>
   </>
 );
 
