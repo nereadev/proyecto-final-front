@@ -20,6 +20,7 @@ module.exports = {
   rules: {
     quotes: ["error", "double"],
     semi: "error",
+    "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "no-console": "off",
     "comma-dangle": "off",
