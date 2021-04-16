@@ -2,6 +2,7 @@ import {
   BrowserRouter as Router, Redirect, Route, Switch
 } from "react-router-dom";
 import { Container } from "react-bootstrap";
+
 import FormularioPagina from "./paginas/FormularioPagina";
 import ListaPagina from "./paginas/ListaPagina";
 import RegistroPagina from "./paginas/RegistroPagina";
