@@ -1,5 +1,5 @@
 
-.cabecera {
+.cabecera, .pie {
 background-color: #b6c9b9;
 align-items: center;
 height: 100px;
@@ -38,4 +38,25 @@ margin-bottom: auto;
 .registro:hover {
   color: white;
   background-color: #445448af;
+}
+
+.pie {
+  position: relative;
+  font-size: 0.8em;
+  color: #445448;
+  display: flex;
+  align-content: center;
+}
+
+.espacioLogo {
+  position: absolute;
+}
+
+.logoWeb {
+  height: 50px;
+}
+
+.textoFooter{
+  align-items: center;
+  text-align: center;
 }
