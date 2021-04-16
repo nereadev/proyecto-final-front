@@ -1,4 +1,3 @@
-
 .cabecera, .pie {
 background-color: #b6c9b9;
 align-items: center;
@@ -74,4 +73,25 @@ margin-bottom: auto;
   text-align: center;
   font-size: 0.8em;
   display: block;
+}
+
+//FormularioPagina
+h2 {
+  padding: 15px;
+}
+section.formulario {
+  justify-content: center;
+}
+.input-group {
+  padding-bottom: 20px;
+}
+.registro {
+  text-align: center;
+}
+.btn {
+  width: 100%;
+}
+a, a:hover {
+  color: #17a2b8;
+  cursor: pointer;
 }

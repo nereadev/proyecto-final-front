@@ -1,21 +1,23 @@
+import { Form } from "react-bootstrap";
+
 const FormularioPagina = () => (
   <>
     <h2>Formulario Incidencia</h2>
     <section>
-      <form>
-        <label htmlFor="nombre-incidenica">
+      <Form>
+        <Form.Label htmlFor="nombre-incidenica">
           Nombre Incidencia:
           <input id="nombre-incidenica" type="text" />
-        </label>
-        <label htmlFor="descripcion">
+        </Form.Label>
+        <Form.Label htmlFor="descripcion">
           Descripción:
           <input id="descripcion" type="text" />
-        </label>
-        <label htmlFor="fotografía">
+        </Form.Label>
+        <Form.Label htmlFor="fotografía">
           Fotografía:
           <input type="file" />
-        </label>
-        <label htmlFor="tipo">
+        </Form.Label>
+        <Form.Label htmlFor="tipo">
           Tipo:
           <select id="tipo-incidencias">
             <option value="medio-ambiente">Medio Ambiente</option>
@@ -25,8 +27,8 @@ const FormularioPagina = () => (
               Otros:
             </option>
           </select>
-        </label>
-        <label htmlFor="localizacion">
+        </Form.Label>
+        <Form.Label htmlFor="localizacion">
           Localización:
           <select id="tipo-localizacion">
             <option value="localizacion-manual">
@@ -46,8 +48,8 @@ const FormularioPagina = () => (
             </option>
             <option value="localizacion-ubicacion">Usar Ubicación</option>
           </select>
-        </label>
-      </form>
+        </Form.Label>
+      </Form>
     </section>
   </>
 );
