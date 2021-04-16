@@ -1,0 +1,41 @@
+
+.cabecera {
+background-color: #b6c9b9;
+align-items: center;
+height: 100px;
+}
+
+h2 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.navLista {
+display: flex;
+align-items: center;
+text-align: center;
+justify-content: center;
+margin-top: auto;
+margin-bottom: auto;
+}
+
+.navItem {
+  color:black;
+  font-size: 0.8em;
+}
+.navItem:hover{
+  color: #445448;
+  transition: ease-in-out, 0.2s;
+}
+
+.registro {
+  color: white;
+  background-color: #445448;
+  border: 0;
+  font-size: 0.9em;
+}
+
+.registro:hover {
+  color: white;
+  background-color: #445448af;
+}
