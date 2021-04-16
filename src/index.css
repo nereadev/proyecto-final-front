@@ -2,7 +2,8 @@
 .cabecera, .pie {
 background-color: #b6c9b9;
 align-items: center;
-height: 100px;
+padding-top: 10px;
+padding-bottom: 10px;
 }
 
 h2 {
@@ -42,14 +43,26 @@ margin-bottom: auto;
 
 .pie {
   position: relative;
-  font-size: 0.8em;
+  font-size: 0.9em;
   color: #445448;
   display: flex;
   align-content: center;
 }
 
+.pie .navItem {
+  color:#445448;
+}
+
 .espacioLogo {
-  position: absolute;
+  display: block;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .espacioLogo {
+    position: absolute;
+    text-align: left;
+  }
 }
 
 .logoWeb {
@@ -59,4 +72,6 @@ margin-bottom: auto;
 .textoFooter{
   align-items: center;
   text-align: center;
+  font-size: 0.8em;
+  display: block;
 }
