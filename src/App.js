@@ -1,19 +1,20 @@
 import {
   BrowserRouter as Router, Redirect, Route, Switch
 } from "react-router-dom";
-import FormularioPagina from "./Paginas/FormularioPagina";
-import ListaPagina from "./Paginas/ListaPagina";
-import RegistroPagina from "./Paginas/RegistroPagina";
-import IncidenciaPagina from "./Paginas/IncidenciaPagina";
-import MiCuentaPagina from "./Paginas/MiCuentaPagina";
-import MisIncidenciasPagina from "./Paginas/MisIncidenciasPagina";
-import ContactoPagina from "./Paginas/ContactoPagina";
-import NotFoundPagina from "./Paginas/NotFoundPagina";
-import InicioPagina from "./Paginas/InicioPagina";
+import { Container } from "react-bootstrap";
+import FormularioPagina from "./paginas/FormularioPagina";
+import ListaPagina from "./paginas/ListaPagina";
+import RegistroPagina from "./paginas/RegistroPagina";
+import IncidenciaPagina from "./paginas/IncidenciaPagina";
+import MiCuentaPagina from "./paginas/MiCuentaPagina";
+import MisIncidenciasPagina from "./paginas/MisIncidenciasPagina";
+import ContactoPagina from "./paginas/ContactoPagina";
+import NotFoundPagina from "./paginas/NotFoundPagina";
+import InicioPagina from "./paginas/InicioPagina";
 
 function App() {
   return (
-    <div className="contenedor">
+    <Container fluid>
       <Router>
         <Switch>
           <Route path="/inicio" exact>
@@ -48,7 +49,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </Container>
   );
 }
 

@@ -1,0 +1,20 @@
+h2 {
+  padding: 15px;
+}
+section.formulario {
+  justify-content: center;
+}
+.input-group {
+  padding-bottom: 20px;
+}
+.registro {
+  text-align: center;
+}
+.btn {
+  width: 100%;
+}
+a, a:hover {
+  color: #17a2b8;
+  cursor: pointer;
+}
+
