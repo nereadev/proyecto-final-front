@@ -17,11 +17,25 @@ text-align: center;
 justify-content: center;
 margin-top: auto;
 margin-bottom: auto;
-font-size: 0.8em;
+}
+
+.navItem {
+  color:black;
+  font-size: 0.8em;
+}
+.navItem:hover{
+  color: #445448;
+  transition: ease-in-out, 0.2s;
 }
 
 .registro {
+  color: white;
   background-color: #445448;
-  border-color: #445448;
-  font-size: 1em;
+  border: 0;
+  font-size: 0.9em;
+}
+
+.registro:hover {
+  color: white;
+  background-color: #445448af;
 }
