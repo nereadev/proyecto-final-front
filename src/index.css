@@ -1,7 +1,8 @@
-.cabecera {
+.cabecera, .pie {
 background-color: #b6c9b9;
 align-items: center;
-height: 100px;
+padding-top: 10px;
+padding-bottom: 10px;
 }
 
 h2 {
@@ -39,6 +40,41 @@ margin-bottom: auto;
   background-color: #445448af;
 }
 
+.pie {
+  position: relative;
+  font-size: 0.9em;
+  color: #445448;
+  display: flex;
+  align-content: center;
+}
+
+.pie .navItem {
+  color:#445448;
+}
+
+.espacioLogo {
+  display: block;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .espacioLogo {
+    position: absolute;
+    text-align: left;
+  }
+}
+
+.logoWeb {
+  height: 50px;
+}
+
+.textoFooter{
+  align-items: center;
+  text-align: center;
+  font-size: 0.8em;
+  display: block;
+}
+
 //FormularioPagina
 h2 {
   padding: 15px;
@@ -59,4 +95,3 @@ a, a:hover {
   color: #17a2b8;
   cursor: pointer;
 }
-
