@@ -1,6 +1,7 @@
 import {
   BrowserRouter as Router, Redirect, Route, Switch
 } from "react-router-dom";
+import { Container } from "react-bootstrap";
 import FormularioPagina from "./Paginas/FormularioPagina";
 import ListaPagina from "./Paginas/ListaPagina";
 import RegistroPagina from "./Paginas/RegistroPagina";
@@ -13,7 +14,7 @@ import InicioPagina from "./Paginas/InicioPagina";
 
 function App() {
   return (
-    <div className="contenedor">
+    <Container fluid>
       <Router>
         <Switch>
           <Route path="/inicio" exact>
@@ -48,7 +49,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </Container>
   );
 }
 

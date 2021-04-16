@@ -3,7 +3,7 @@ import MenuPrincipal from "./MenuPrincipal";
 
 const Cabecera = () => (
   <Row as="header">
-    <Col as="h1">
+    <Col as="h2">
       SomDev
     </Col>
     <MenuPrincipal />
