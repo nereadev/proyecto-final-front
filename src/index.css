@@ -150,3 +150,9 @@ li {
   padding-top: 10px;
 }
 
+/* MicuentaPagina */
+.btn.modificar-cuenta {
+  padding: 0;
+  width: 40%;
+}
+
