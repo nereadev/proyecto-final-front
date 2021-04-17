@@ -1,8 +1,13 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, ProgressBar } from "react-bootstrap";
 
 const IncidenciaPagina = () => (
   <>
     <Row as="h2">Incidencia nºX</Row>
+    <ProgressBar>
+      <ProgressBar variant="info" now={35} key={1} />
+      <ProgressBar variant="warning" now={35} key={2} />
+      <ProgressBar variant="success" label="Gestionada" now={35} key={3} />
+    </ProgressBar>
     <Row as="section">
       <Col className="incidencia" as="ul">
         <Row>
