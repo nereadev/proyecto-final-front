@@ -153,6 +153,15 @@ li {
 /* MicuentaPagina */
 .btn.modificar-cuenta {
   padding: 0;
-  width: 40%;
+}
+.mi-cuenta .col {
+  padding-bottom: 10px;
 }
 
+/* IncidenciaPagina */
+section {
+  padding: 15px
+}
+.incidencia .col {
+  padding-bottom: 10px;
+}
