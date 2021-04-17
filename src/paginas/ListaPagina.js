@@ -49,9 +49,9 @@ const ListaPagina = () => (
       <Col as="ul">
         <Row className="titulo-lista" as="li">
           <Col><i className="fas fa-list-ul" /></Col>
-          <Col>Nombre incidencia</Col>
-          <Col>Tipo incidencia</Col>
-          <Col>Descripción Incidencia</Col>
+          <Col>Nombre</Col>
+          <Col>Tipo</Col>
+          <Col>Descripción</Col>
           <Col><i className="fas fa-star" /></Col>
           <Col>+info</Col>
         </Row>
