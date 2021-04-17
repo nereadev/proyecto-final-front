@@ -5,7 +5,7 @@ import {
 const RegistroPagina = () => (
   <>
     <Row as="h2">Registro</Row>
-    <Row as="section" className="formulario registro">
+    <Row as="section" className="formulario registro-usuario">
       <Form as={Col} md={6}>
         <InputGroup>
           <InputGroup.Prepend>
