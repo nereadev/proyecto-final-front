@@ -112,4 +112,41 @@ a, a:hover {
   font-weight: normal;
   color: #445448;
 }
+/* ListaPagina */
+.filtro-incidencias .form-control {
+  border-radius: 100px;
+}
+.form-label {
+  padding-right: 10px;
+}
+.filtro-buscar {
+  width: 40%;
+  padding-top: 30px;
+}
+.input-group-text {
+  background-color: white;
+  border-radius: 100px;
+  height: 38px;
+}
+.fa-star {
+  color: rgb(214, 214, 36);
+}
+.fa-plus {
+  color: grey;
+}
+.fa-plus:hover {
+  cursor: pointer;
+  color: black;
+  font-size: larger;
+}
+li {
+  align-items: center;
+  text-align: center;
+}
+.titulo-lista {
+  font-weight: bold;
+  background-color: #ddedf0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 
