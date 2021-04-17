@@ -104,4 +104,12 @@ a, a:hover {
   padding-bottom: 15px;
   padding-top: 15px;
 }
+.form-label {
+  font-weight: bold;
+  color:  #17a2b8;
+}
+.introducir-datos {
+  font-weight: normal;
+  color: #445448;
+}
 

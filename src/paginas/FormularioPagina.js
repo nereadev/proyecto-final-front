@@ -35,21 +35,24 @@ const FormularioPagina = () => (
         <Form.Group>
           <Form.Label>Localización:</Form.Label>
           <Form.Check type="checkbox" label="Introducir datos" />
-          <Form.Label>Código Postal:</Form.Label>
-          <Form.Control
-            required
-            type="text"
-          />
-          <Form.Label>Dirección</Form.Label>
-          <Form.Control
-            required
-            type="text"
-          />
-          <Form.Label>Comentario:</Form.Label>
-          <Form.Control
-            required
-            type="text"
-          />
+          <Form.Group>
+            <Form.Label className="introducir-datos">Código Postal:</Form.Label>
+            <Form.Control
+              required
+              type="text"
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label className="introducir-datos">Dirección</Form.Label>
+            <Form.Control
+              required
+              type="text"
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label className="introducir-datos">Comentario:</Form.Label>
+            <Form.Control as="textarea" />
+          </Form.Group>
           <Form.Check type="checkbox" label="Usar ubicación" />
         </Form.Group>
         <Button className="boton-crear" type="submit" variant="info">Registrar</Button>
