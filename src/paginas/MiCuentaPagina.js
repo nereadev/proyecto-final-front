@@ -1,18 +1,24 @@
+import { Button, Col, Row } from "react-bootstrap";
+
 const MiCuentaPagina = () => (
   <>
-    <h2>Mi cuenta</h2>
-    <ul>
-      <li>Nombre:</li>
-      <li>Apellidos:</li>
-      <li>
+    <Row as="h2">Mi cuenta</Row>
+    <Col as="ul">
+      <Row>Nombre:</Row>
+      <Row> Apellidos:</Row>
+      <Row>
         Email:
-        <button type="submit">Modificar</button>
-      </li>
-      <li>
+        <Button className="modificar-cuenta" type="submit" variant="light">Modificar</Button>
+      </Row>
+      <Row>
         Contraseña:****
-        <button type="submit">Modificar</button>
-      </li>
-    </ul>
+        <Button className="modificar-cuenta" type="submit" variant="light">Modificar</Button>
+      </Row>
+      <Row>
+        Mis incidencias
+        <Col><i className="fas fa-plus" /></Col>
+      </Row>
+    </Col>
   </>
 );
 
