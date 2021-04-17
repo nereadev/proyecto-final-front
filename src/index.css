@@ -75,7 +75,7 @@ margin-bottom: auto;
   display: block;
 }
 
-//FormularioPagina
+/* registroPagina */
 h2 {
   padding: 15px;
 }
@@ -95,3 +95,13 @@ a, a:hover {
   color: #17a2b8;
   cursor: pointer;
 }
+
+/* FormularioPagina */
+.form-file-label {
+  color: rgb(153, 152, 152);
+}
+.form-check {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
