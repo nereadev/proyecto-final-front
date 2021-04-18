@@ -6,10 +6,8 @@ import Mapa from "../componentes/Mapa";
 const InicioPagina = () => (
   <>
     <Cabecera />
-    <div>
-      <Mapa />
-      <Listado />
-    </div>
+    <Mapa />
+    <Listado />
     <Footer />
   </>
 );

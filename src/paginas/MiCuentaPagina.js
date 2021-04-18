@@ -1,7 +1,10 @@
 import { Button, Col, Row } from "react-bootstrap";
+import Cabecera from "../componentes/Cabecera";
+import Footer from "../componentes/Footer";
 
 const MiCuentaPagina = () => (
   <>
+    <Cabecera />
     <Row as="h2">Mi cuenta</Row>
     <Col className="mi-cuenta" as="ul">
       <Row>
@@ -30,6 +33,7 @@ const MiCuentaPagina = () => (
         <Col />
       </Row>
     </Col>
+    <Footer />
   </>
 );
 
