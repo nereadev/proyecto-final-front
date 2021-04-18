@@ -19,6 +19,7 @@ padding-bottom: 10px;
 
 .cabecera .navMenu {
   justify-content: flex-end;
+  align-items: center;
 }
 
 .pie .navMenu {
@@ -96,3 +97,96 @@ justify-content: center;
   font-size: 0.8em;
   display: block;
 }
+
+
+/* registroPagina */
+h2 {
+ padding: 15px;
+}
+section.formulario {
+ justify-content: center;
+}
+.input-group {
+ padding-bottom: 20px;
+}
+.registro-usuario {
+ text-align: center;
+}
+.btn {
+ width: 100%;
+}
+a, a:hover {
+ color: #17a2b8;
+ cursor: pointer;
+}
+
+/* FormularioPagina */
+.form-file-label {
+ color: rgb(153, 152, 152);
+}
+.form-check {
+ padding-bottom: 15px;
+ padding-top: 15px;
+}
+.form-label {
+ font-weight: bold;
+ color:  #17a2b8;
+}
+.introducir-datos {
+ font-weight: normal;
+ color: #445448;
+}
+/* ListaPagina */
+.filtro-incidencias .form-control {
+ border-radius: 100px;
+}
+.form-label {
+ padding-right: 10px;
+}
+.filtro-buscar {
+ width: 40%;
+ padding-top: 30px;
+}
+.input-group-text {
+ background-color: white;
+ border-radius: 100px;
+ height: 38px;
+}
+.fa-star {
+ color: rgb(214, 214, 36);
+}
+.fa-plus {
+ color: grey;
+}
+.fa-plus:hover {
+ cursor: pointer;
+ color: black;
+ font-size: larger;
+}
+li {
+ align-items: center;
+ text-align: center;
+}
+.titulo-lista {
+ font-weight: bold;
+ background-color: #ddedf0;
+ padding-bottom: 10px;
+ padding-top: 10px;
+}
+
+/* MicuentaPagina */
+.btn.modificar-cuenta {
+ padding: 0;
+}
+.mi-cuenta .col {
+ padding-bottom: 10px;
+}
+
+/* IncidenciaPagina */
+section {
+ padding: 15px
+}
+.incidencia .col {
+ padding-bottom: 10px;
+}
+
