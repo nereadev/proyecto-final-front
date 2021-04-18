@@ -1,7 +1,9 @@
+import { Button } from "react-bootstrap";
+
 const NotFoundPagina = () => (
   <>
     <h1>No se encontró la pagina.</h1>
-    <button type="submit">Volver</button>
+    <Button href="/inicio">Volver</Button>
   </>
 );
 
