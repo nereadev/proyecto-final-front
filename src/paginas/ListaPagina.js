@@ -1,9 +1,12 @@
 import {
   Col, Collapse, Form, InputGroup, Row
 } from "react-bootstrap";
+import Cabecera from "../componentes/Cabecera";
+import Footer from "../componentes/Footer";
 
 const ListaPagina = () => (
   <>
+    <Cabecera />
     <Row as="h2">Lista de Incidencias Generales</Row>
     <Form className="filtro-incidencias" as={Row} md={10}>
       <Form.Group as={Col} className="filtro-filtrar">
@@ -65,6 +68,7 @@ const ListaPagina = () => (
         </Row>
       </Col>
     </Row>
+    <Footer />
   </>
 );
 

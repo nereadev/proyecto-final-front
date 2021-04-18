@@ -1,7 +1,10 @@
 import { Col, Row } from "react-bootstrap";
+import Cabecera from "../componentes/Cabecera";
+import Footer from "../componentes/Footer";
 
 const MisIncidenciasPagina = () => (
   <>
+    <Cabecera />
     <Row as="h2">Mis Incidenicas</Row>
     <Row as="section" className="lista-incidencias">
       <Col as="ul">
@@ -23,6 +26,7 @@ const MisIncidenciasPagina = () => (
         </Row>
       </Col>
     </Row>
+    <Footer />
   </>
 );
 

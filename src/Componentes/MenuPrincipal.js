@@ -3,8 +3,8 @@ import {
 } from "react-bootstrap";
 
 const MenuPrincipal = () => (
-  <Col xs={12} className="navMenu">
-    <Nav className="navLista">
+  <Col xs={10}>
+    <Nav className="navMenu">
       <Nav.Item className="navLista"><Nav.Link className="navItem">Nueva Incidencia</Nav.Link></Nav.Item>
       <Nav.Item className="navLista"><Nav.Link className="navItem">Mapa / Lista incidencias</Nav.Link></Nav.Item>
       <Nav.Item className="navLista"><Nav.Link className="navItem"> Mis incidencias</Nav.Link></Nav.Item>

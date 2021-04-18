@@ -15,7 +15,7 @@ import InicioPagina from "./paginas/InicioPagina";
 
 function App() {
   return (
-    <Container fluid>
+    <Container fluid className="contenedorApp">
       <Router>
         <Switch>
           <Route path="/inicio" exact>
