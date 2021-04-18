@@ -28,14 +28,14 @@ margin-bottom: auto;
   transition: ease-in-out, 0.2s;
 }
 
-.registro {
+.registroBoton {
   color: white;
   background-color: #445448;
   border: 0;
   font-size: 0.9em;
 }
 
-.registro:hover {
+.registroBoton:hover {
   color: white;
   background-color: #445448af;
 }
