@@ -11,7 +11,7 @@ const MenuPrincipal = () => (
       <Nav.Item className="navLista"><Nav.Link className="navItem"> Cómo funciona?</Nav.Link></Nav.Item>
       <Nav.Item className="navLista"><Nav.Link className="navItem">Configuración</Nav.Link></Nav.Item>
       <Nav.Item className="navLista"><Nav.Link className="navItem">Contacto</Nav.Link></Nav.Item>
-      <Nav.Item className="navLista"><Button variant="dark" className="navItem registro">Registro</Button></Nav.Item>
+      <Nav.Item className="navLista"><Button variant="dark" className="navItem registroBoton">Registro</Button></Nav.Item>
     </Nav>
   </Col>
 );
