@@ -190,3 +190,29 @@ section {
  padding-bottom: 10px;
 }
 
+/* Contenido inicio */
+.mapa-lista {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+  border-bottom: rgba(128, 128, 128, 0.74) 1px solid;
+}
+.botonMapaLista {
+  width: 100px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: black;
+  transition: 1s;
+  background-color: white;
+  border-color: #445448;
+  border: none;
+}
+
+.botonMapaLista:hover, .botonMapaLista:focus {
+  background-color: white;
+  color: #445448;
+  border: none;
+}
+.botonMapaLista::shadow {
+  border-color: black;
+}
