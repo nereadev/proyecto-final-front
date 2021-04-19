@@ -29,7 +29,7 @@ const MiCuentaPagina = () => (
       </Row>
       <Row>
         <Col>Mis incidencias</Col>
-        <Col><i className="fas fa-plus" /></Col>
+        <Col><a href="./mis-incidencias"><i className="fas fa-plus" aria-label="Mis incidencias" /></a></Col>
         <Col />
       </Row>
     </Col>

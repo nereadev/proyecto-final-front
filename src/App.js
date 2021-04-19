@@ -3,7 +3,6 @@ import {
 } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
-import FormularioPagina from "./paginas/FormularioPagina";
 import RegistroPagina from "./paginas/RegistroPagina";
 import IncidenciaPagina from "./paginas/IncidenciaPagina";
 import MiCuentaPagina from "./paginas/MiCuentaPagina";
@@ -12,6 +11,7 @@ import ContactoPagina from "./paginas/ContactoPagina";
 import NotFoundPagina from "./paginas/NotFoundPagina";
 import InicioPagina from "./paginas/InicioPagina";
 import ComoFunciona from "./paginas/ComoFunciona";
+import NuevaIncidenciaPagina from "./paginas/NuevaIncidenciaPagina";
 
 function App() {
   return (
@@ -24,11 +24,11 @@ function App() {
           <Route path="/registro" exact>
             <RegistroPagina />
           </Route>
-          <Route path="/formulario-incidencia" exact>
-            <FormularioPagina />
-          </Route>
-          <Route path="/incidencia" exact>
+          <Route path="/incidencia/:id" exact>
             <IncidenciaPagina />
+          </Route>
+          <Route path="/nueva-incidencia" exact>
+            <NuevaIncidenciaPagina />
           </Route>
           <Route path="/mi-cuenta" exact>
             <MiCuentaPagina />

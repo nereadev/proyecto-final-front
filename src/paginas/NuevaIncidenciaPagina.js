@@ -4,7 +4,7 @@ import {
 import Cabecera from "../componentes/Cabecera";
 import Footer from "../componentes/Footer";
 
-const FormularioPagina = () => (
+const NuevaIncidenciaPagina = () => (
   <>
     <Cabecera />
     <Row as="h2">Formulario Incidencia</Row>
@@ -65,4 +65,4 @@ const FormularioPagina = () => (
   </>
 );
 
-export default FormularioPagina;
+export default NuevaIncidenciaPagina;

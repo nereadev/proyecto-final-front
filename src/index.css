@@ -1,5 +1,6 @@
 .contenedorApp {
-  height: 100vh;
+ min-height: 100vh;
+ position: absolute;
 }
 
 .cabecera, .pie {
@@ -224,6 +225,10 @@ a.contrasenya, a.contrasenya:hover {
   border-color: black;
 }
 
+.detalle, .detalle:hover {
+  background-color: white;
+  border: none;
+  
 /* Componente Mapa */
 .mapa {
   height: 600px;
