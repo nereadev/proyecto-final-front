@@ -19,7 +19,7 @@ const NuevaIncidenciaPagina = () => (
         </Form.Group>
         <Form.Group>
           <Form.Label>Tipo:</Form.Label>
-          <Form.Control as="Select" defaulValue="Elige...">
+          <Form.Control as="select">
             <option>Elige...</option>
             <option>Medio Ambiente</option>
             <option>Civismo</option>
