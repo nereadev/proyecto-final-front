@@ -12,6 +12,7 @@ import MisIncidenciasPagina from "./paginas/MisIncidenciasPagina";
 import ContactoPagina from "./paginas/ContactoPagina";
 import NotFoundPagina from "./paginas/NotFoundPagina";
 import InicioPagina from "./paginas/InicioPagina";
+import ComoFunciona from "./paginas/ComoFunciona";
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route path="/contacto" exact>
             <ContactoPagina />
+          </Route>
+          <Route path="/como-funciona">
+            <ComoFunciona />
           </Route>
           <Route path="/" exact>
             <Redirect to="/inicio" />
