@@ -224,7 +224,7 @@ a.contrasenya, a.contrasenya:hover {
  padding-bottom: 10px;
 }
 /* Contenido inicio */
- .mapa-lista {
+.mapa-lista, .mapa-opciones {
   display: flex;
   justify-content: center;
   border-bottom: rgba(128, 128, 128, 0.74) 1px solid;
