@@ -1,12 +1,9 @@
 import {
   Accordion, Card, Button, Row, Col
 } from "react-bootstrap";
-import Cabecera from "../componentes/Cabecera";
-import Footer from "../componentes/Footer";
 
 const ContactoPagina = () => (
   <>
-    <Cabecera />
     <Row as="h2">Contacto</Row>
     <Accordion>
       <Card>
@@ -50,7 +47,6 @@ const ContactoPagina = () => (
         </Accordion.Collapse>
       </Card>
     </Accordion>
-    <Footer />
   </>
 );
 

@@ -1,12 +1,9 @@
 import {
   Button, Col, Container, Form, InputGroup, Row
 } from "react-bootstrap";
-import Cabecera from "../componentes/Cabecera";
-import Footer from "../componentes/Footer";
 
 const RegistroPagina = () => (
   <>
-    <Cabecera />
     <Row as="h2">Registro</Row>
     <Row as="section" className="formulario registro-usuario">
       <Form as={Col} md={6}>
@@ -36,7 +33,6 @@ const RegistroPagina = () => (
         <Button className="crear-cuenta" type="submit" variant="outline-info">Crear Cuenta</Button>
       </Form>
     </Row>
-    <Footer />
   </>
 );
 
