@@ -12,6 +12,7 @@ import ContactoPagina from "./paginas/ContactoPagina";
 import NotFoundPagina from "./paginas/NotFoundPagina";
 import InicioPagina from "./paginas/InicioPagina";
 import ComoFunciona from "./paginas/ComoFunciona";
+import NuevaIncidencia from "./paginas/NuevaIncidencia";
 
 function App() {
   return (
@@ -27,8 +28,11 @@ function App() {
           <Route path="/formulario-incidencia" exact>
             <FormularioPagina />
           </Route>
-          <Route path="/incidencia" exact>
+          <Route path="/incidencia/:id" exact>
             <IncidenciaPagina />
+          </Route>
+          <Route path="/nueva-incidencia" exact>
+            <NuevaIncidencia />
           </Route>
           <Route path="/mi-cuenta" exact>
             <MiCuentaPagina />
