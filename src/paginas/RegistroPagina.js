@@ -1,6 +1,7 @@
 import {
   Button, Col, Container, Form, InputGroup, Row
 } from "react-bootstrap";
+import RegistroCuenta from "../Componentes/RegistroCuenta";
 
 const RegistroPagina = () => (
   <>
@@ -33,6 +34,7 @@ const RegistroPagina = () => (
         <Button className="crear-cuenta" type="submit" variant="outline-info">Crear Cuenta</Button>
       </Form>
     </Row>
+    {/* <RegistroCuenta /> */}
   </>
 );
 
