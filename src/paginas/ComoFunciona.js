@@ -1,6 +1,10 @@
+import { Row } from "react-bootstrap";
+
 const ComoFunciona = () => (
   <>
-    <span>Aquí se explicará el funcionamiento de la App</span>
+    <Row as="main">
+      <span>Aquí se explicará el funcionamiento de la App</span>
+    </Row>
   </>
 );
 
