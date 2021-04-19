@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 
 const Incidencia = () => (
   <Row className="incidencia-lista">
