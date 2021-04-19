@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button, Col, Form, Row
 } from "react-bootstrap";
@@ -53,5 +54,4 @@ const RegistroCuenta = () => (
     </Row>
   </>
 );
-
 export default RegistroCuenta;
