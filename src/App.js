@@ -12,10 +12,13 @@ import NotFoundPagina from "./paginas/NotFoundPagina";
 import InicioPagina from "./paginas/InicioPagina";
 import ComoFunciona from "./paginas/ComoFunciona";
 import NuevaIncidenciaPagina from "./paginas/NuevaIncidenciaPagina";
+import Cabecera from "./componentes/Cabecera";
+import Footer from "./componentes/Footer";
 
 function App() {
   return (
     <Container fluid className="contenedorApp">
+      <Cabecera />
       <Router>
         <Switch>
           <Route path="/inicio" exact>
@@ -50,6 +53,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </Container>
   );
 }

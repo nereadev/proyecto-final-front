@@ -1,12 +1,9 @@
 import {
   Button, Col, Form, Row
 } from "react-bootstrap";
-import Cabecera from "../componentes/Cabecera";
-import Footer from "../componentes/Footer";
 
 const NuevaIncidenciaPagina = () => (
   <>
-    <Cabecera />
     <Row as="h2">Formulario Incidencia</Row>
     <Row as="section" className="formulario incidencia">
       <Form as={Col} md={10}>
@@ -61,7 +58,6 @@ const NuevaIncidenciaPagina = () => (
         <Button className="boton-crear" type="submit" variant="info">Registrar</Button>
       </Form>
     </Row>
-    <Footer />
   </>
 );
 

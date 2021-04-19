@@ -1,10 +1,7 @@
 import { Col, Row, ProgressBar } from "react-bootstrap";
-import Cabecera from "../componentes/Cabecera";
-import Footer from "../componentes/Footer";
 
 const IncidenciaPagina = () => (
   <>
-    <Cabecera />
     <Row as="h2">Incidencia nºX</Row>
     <ProgressBar>
       <ProgressBar variant="info" now={35} key={1} />
@@ -47,7 +44,6 @@ const IncidenciaPagina = () => (
         </Row>
       </Col>
     </Row>
-    <Footer />
   </>
 );
 
