@@ -1,5 +1,13 @@
+import { Row } from "react-bootstrap";
+import FiltroIncidencias from "./FiltrosIncidencias";
+import ListaIncidencias from "./ListaIncidencias";
+
 const Listado = () => (
-  <p>Lista de incidencias +</p>
+  <>
+    <Row as="h2">Lista de Incidencias Generales</Row>
+    <FiltroIncidencias />
+    <ListaIncidencias />
+  </>
 );
 
 export default Listado;

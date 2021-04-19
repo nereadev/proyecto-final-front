@@ -4,7 +4,6 @@ import {
 import { Container } from "react-bootstrap";
 
 import FormularioPagina from "./paginas/FormularioPagina";
-import ListaPagina from "./paginas/ListaPagina";
 import RegistroPagina from "./paginas/RegistroPagina";
 import IncidenciaPagina from "./paginas/IncidenciaPagina";
 import MiCuentaPagina from "./paginas/MiCuentaPagina";
@@ -26,9 +25,6 @@ function App() {
           </Route>
           <Route path="/formulario-incidencia" exact>
             <FormularioPagina />
-          </Route>
-          <Route path="/lista-incidencias" exact>
-            <ListaPagina />
           </Route>
           <Route path="/incidencia" exact>
             <IncidenciaPagina />
