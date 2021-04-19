@@ -1,6 +1,5 @@
-.contenedorApp {
- min-height: 100vh;
- position: absolute;
+main {
+  min-height: 69vh;
 }
 
 .cabecera, .pie {
@@ -18,40 +17,32 @@ padding-bottom: 10px;
   font-size: 2.6em;
 }
 
-.cabecera .navMenu {
-  justify-content: flex-end;
-  align-items: center;
-}
-
 .titulo a, .titulo a:hover {
   color: #353f38;
   text-decoration: none;
 }
 
-.pie .navMenu {
-justify-content: center;
+.navegacion {
+  display: flex;
+  justify-content:flex-end;
 }
 
-.nav-item {
-  border-right: 1px solid;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.nav-item:last-of-type, .nav-item:nth-child(6) {
-  border-right: 0;
+.menuCabecera {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: center;
 }
 
-.navMenu {
-  line-height: 0.1em;
+.menuCabecera .navItem {
+  transition: 0.6s;
 }
 
-.navItem {
-  color:black;
-  font-size: 0.8em;
-}
-.navItem:hover{
-  color: #445448;
-  transition: ease-in-out, 0.2s;
+@media(min-width: 992px) {
+  .menuCabecera {
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .registroBoton {
@@ -67,9 +58,7 @@ justify-content: center;
 }
 
 .pie {
-  position: absolute;
   bottom: 0;
-  width: 100%;
   height: max-content;
   font-size: 0.9em;
   color: #445448;
@@ -77,8 +66,24 @@ justify-content: center;
   align-content: center;
 }
 
-.pie .navItem {
+.menuFooter {
+  line-height: 0.1em;
+  justify-content: center;
+}
+
+.menuFooter .navItem {
+  font-size: 0.8em;
   color:#445448;
+  border-right: 1px solid;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.menuFooter .navItem:hover{
+  color: #445448;
+}
+
+.menuFooter .nav-item:last-of-type, .nav-item:nth-child(6) {
+  border-right: 0;
 }
 
 .espacioLogo {
@@ -87,7 +92,7 @@ justify-content: center;
   width: max-content;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 769px) {
   .espacioLogo {
     position: absolute;
     text-align: left;
@@ -103,6 +108,9 @@ justify-content: center;
   text-align: center;
   font-size: 0.8em;
   display: block;
+}
+
+.navegadorInicio {
 }
 
 
@@ -127,7 +135,7 @@ a.contrasenya, a.contrasenya:hover {
  cursor: pointer;
 }
 
-/* FormularioPagina */
+/* Nueva incidencia */
 .form-file-label {
  color: rgb(153, 152, 152);
 }
@@ -143,7 +151,7 @@ a.contrasenya, a.contrasenya:hover {
  font-weight: normal;
  color: #445448;
 }
-/* ListaIncidencias */
+/* Lista incidencias */
 .filtro-incidencias .form-control {
  border-radius: 100px;
 }
@@ -170,6 +178,12 @@ a.contrasenya, a.contrasenya:hover {
  color: black;
  font-size: larger;
 }
+.fa-circle.incidencia-recibida {
+  color:  rgb(47, 0, 255);
+}
+.fa-circle.incidencia-resuelta {
+  color: rgb(19, 252, 19);
+}
 .incidencia-lista, .titulo-lista {
  align-items: center;
  text-align: center;
@@ -180,6 +194,19 @@ a.contrasenya, a.contrasenya:hover {
  padding-bottom: 10px;
  padding-top: 10px;
 }
+.boton-info {
+  padding: 0;
+}
+.estado-info {
+  background-color: rgb(0, 0, 0, 0.6);
+  color:white;
+  border-radius: 10px;
+  width: 500px;
+}
+.estado-info.desactivada {
+  display: none;
+}
+
 
 /* MicuentaPagina */
 .btn.modificar-cuenta {
@@ -189,45 +216,26 @@ a.contrasenya, a.contrasenya:hover {
  padding-bottom: 10px;
 }
 
-/* IncidenciaPagina */
+/* Detalle incidencia */
 .detalle-incidencia {
  padding: 15px
 }
 .incidencia .col {
  padding-bottom: 10px;
 }
-
 /* Contenido inicio */
 .mapa-lista, .mapa-opciones {
   display: flex;
   justify-content: center;
-  padding-bottom: 10px;
-  padding-top: 10px;
   border-bottom: rgba(128, 128, 128, 0.74) 1px solid;
+  height: 45px;
+
 }
-.botonMapaLista {
-  width: 100px;
-  margin-left: 5px;
-  margin-right: 5px;
+.mapa-lista .navLink {
   color: black;
-  transition: 1s;
-  background-color: white;
-  border-color: #445448;
-  border: none;
 }
-
-.botonMapaLista:hover, .botonMapaLista:focus {
-  background-color: white;
+.mapa-lista .navLink:hover {
   color: #445448;
-  border: none;
-}
-.botonMapaLista::shadow {
-  border-color: black;
-}
-
-.detalle, .detalle:hover {
-  background-color: white;
-  border: none;
 }
 
 /* Componente Mapa */

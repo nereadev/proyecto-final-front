@@ -3,7 +3,7 @@ import {
 } from "react-bootstrap";
 
 const ContactoPagina = () => (
-  <>
+  <Row as="main">
     <Row as="h2">Contacto</Row>
     <Accordion>
       <Card>
@@ -47,7 +47,7 @@ const ContactoPagina = () => (
         </Accordion.Collapse>
       </Card>
     </Accordion>
-  </>
+  </Row>
 );
 
 export default ContactoPagina;
