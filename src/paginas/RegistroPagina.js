@@ -3,6 +3,7 @@ import {
 } from "react-bootstrap";
 import Cabecera from "../Componentes/Cabecera";
 import Footer from "../Componentes/Footer";
+import RegistroCuenta from "../Componentes/RegistroCuenta";
 
 const RegistroPagina = () => (
   <>
@@ -36,7 +37,8 @@ const RegistroPagina = () => (
         <Button className="boton-crear" type="submit" variant="outline-info">Crear Cuenta</Button>
       </Form>
     </Row>
-    <Footer />
+    <RegistroCuenta />
+    {/* <Footer /> */}
   </>
 );
 
