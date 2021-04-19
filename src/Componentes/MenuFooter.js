@@ -1,6 +1,7 @@
 import {
   Col, Nav
 } from "react-bootstrap";
+import MenuPrincipal from "./MenuPrincipal";
 
 const MenuFooter = () => (
   <Col xs={12}>
