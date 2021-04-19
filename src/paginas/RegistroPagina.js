@@ -1,7 +1,7 @@
 import {
   Button, Col, Container, Form, InputGroup, Row
 } from "react-bootstrap";
-import RegistroCuenta from "../Componentes/RegistroCuenta";
+import RegistroCuenta from "../componentes/RegistroCuenta";
 
 const RegistroPagina = () => (
   <>

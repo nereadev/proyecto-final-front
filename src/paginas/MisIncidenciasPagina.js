@@ -1,4 +1,4 @@
-import ListaIncidencias from "../Componentes/ListaIncidencias";
+import ListaIncidencias from "../componentes/ListaIncidencias";
 
 const MisIncidenciasPagina = () => (
   <>

@@ -127,7 +127,7 @@ a.contrasenya, a.contrasenya:hover {
  cursor: pointer;
 }
 
-/* FormularioPagina */
+/* Nueva incidencia */
 .form-file-label {
  color: rgb(153, 152, 152);
 }
@@ -143,7 +143,7 @@ a.contrasenya, a.contrasenya:hover {
  font-weight: normal;
  color: #445448;
 }
-/* ListaIncidencias */
+/* Lista incidencias */
 .filtro-incidencias .form-control {
  border-radius: 100px;
 }
@@ -170,6 +170,12 @@ a.contrasenya, a.contrasenya:hover {
  color: black;
  font-size: larger;
 }
+.fa-circle.incidencia-recibida {
+  color:  rgb(47, 0, 255);
+}
+.fa-circle.incidencia-resuelta {
+  color: rgb(19, 252, 19);
+}
 .incidencia-lista, .titulo-lista {
  align-items: center;
  text-align: center;
@@ -180,6 +186,19 @@ a.contrasenya, a.contrasenya:hover {
  padding-bottom: 10px;
  padding-top: 10px;
 }
+.boton-info {
+  padding: 0;
+}
+.estado-info {
+  background-color: rgb(0, 0, 0, 0.6);
+  color:white;
+  border-radius: 10px;
+  width: 500px;
+}
+.estado-info.desactivada {
+  display: none;
+}
+
 
 /* MicuentaPagina */
 .btn.modificar-cuenta {
@@ -189,7 +208,7 @@ a.contrasenya, a.contrasenya:hover {
  padding-bottom: 10px;
 }
 
-/* IncidenciaPagina */
+/* Detalle incidencia */
 .detalle-incidencia {
  padding: 15px
 }
