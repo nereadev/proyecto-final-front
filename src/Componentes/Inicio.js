@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-  Col, Nav
+  Col, Nav, Button
 } from "react-bootstrap";
 import Listado from "./Listado";
 import Mapa from "./Mapa";
