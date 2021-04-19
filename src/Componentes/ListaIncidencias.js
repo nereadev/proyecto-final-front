@@ -5,6 +5,7 @@ const ListaIncidencias = () => (
   <Col as="section" md={12} className="lista-incidencias">
     <Row className="titulo-lista">
       <Col><i className="fas fa-list-ul" /></Col>
+      <Col>Estado</Col>
       <Col>Nombre</Col>
       <Col>Tipo</Col>
       <Col>Código Postal</Col>

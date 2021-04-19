@@ -6,13 +6,21 @@ const IncidenciaPagina = () => (
   <>
     <Cabecera />
     <Row as="h2">Incidencia nºX</Row>
-    <ProgressBar>
+    {/*    <ProgressBar>
       <ProgressBar variant="info" now={35} key={1} />
       <ProgressBar variant="warning" now={35} key={2} />
       <ProgressBar variant="success" label="Gestionada" now={35} key={3} />
-    </ProgressBar>
+    </ProgressBar> */}
     <Row className="detalle-incidencia">
       <Col className="incidencia" as="ul">
+        <Row>
+          <Col>Estado:</Col>
+          <Col>
+            <i className="fas fa-circle" />
+            {" "}
+            ? (info)
+          </Col>
+        </Row>
         <Row>
           <Col>Nombre:</Col>
           <Col>Este es el Nombre</Col>
