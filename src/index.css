@@ -223,3 +223,8 @@ a.contrasenya, a.contrasenya:hover {
 .botonMapaLista::shadow {
   border-color: black;
 }
+
+/* Componente Mapa */
+.mapa {
+  height: 600px;
+}
