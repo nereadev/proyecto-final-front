@@ -11,7 +11,7 @@ const IncidenciaPagina = () => (
       <ProgressBar variant="warning" now={35} key={2} />
       <ProgressBar variant="success" label="Gestionada" now={35} key={3} />
     </ProgressBar>
-    <Row as="section">
+    <Row className="detalle-incidencia">
       <Col className="incidencia" as="ul">
         <Row>
           <Col>Nombre:</Col>
