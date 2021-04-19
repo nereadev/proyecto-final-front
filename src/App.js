@@ -12,8 +12,8 @@ import NotFoundPagina from "./paginas/NotFoundPagina";
 import InicioPagina from "./paginas/InicioPagina";
 import ComoFunciona from "./paginas/ComoFunciona";
 import NuevaIncidenciaPagina from "./paginas/NuevaIncidenciaPagina";
-import Cabecera from "./componentes/Cabecera";
-import Footer from "./componentes/Footer";
+import Cabecera from "./Componentes/Cabecera";
+import Footer from "./Componentes/Footer";
 
 function App() {
   return (
