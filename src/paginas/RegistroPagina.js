@@ -34,7 +34,7 @@ const RegistroPagina = () => (
         <Button className="crear-cuenta" type="submit" variant="outline-info">Crear Cuenta</Button>
       </Form>
     </Row>
-    {/* <RegistroCuenta /> */}
+    <RegistroCuenta />
   </Row>
 );
 
