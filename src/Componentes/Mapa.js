@@ -3,14 +3,18 @@ import {
 } from "react-leaflet";
 
 const Mapa = () => (
-  <MapContainer center={[41.38993034972496, 2.167612130848904]} zoom={14} scrollWheelZoom={false} className="mapa">
+  <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    <Marker position={[41.38993034972496, 2.167612130848904]}>
+    <Marker position={[51.505, -0.09]}>
       <Popup>
-        Tonto quien lo lea
+        A pretty CSS3 popup.
+        {" "}
+        <br />
+        {" "}
+        Easily customizable.
       </Popup>
     </Marker>
   </MapContainer>

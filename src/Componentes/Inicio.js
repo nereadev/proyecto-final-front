@@ -14,9 +14,7 @@ const Inicio = () => {
         <Button variant="secondary" onClick={() => setListado(false)} className="botonMapaLista">Mapa</Button>
         <Button variant="secondary" onClick={() => setListado(true)} className="botonMapaLista">Listado</Button>
       </Col>
-      <Col>
-        {listado ? <Listado /> : <Mapa />}
-      </Col>
+      { listado ? <Listado /> : <Mapa />}
     </Row>
   );
 };
