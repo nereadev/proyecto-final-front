@@ -17,7 +17,7 @@ import Footer from "./componentes/Footer";
 
 function App() {
   return (
-    <Container fluid className="contenedorApp">
+    <Container fluid>
       <Cabecera />
       <Router>
         <Switch>

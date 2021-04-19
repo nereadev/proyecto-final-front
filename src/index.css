@@ -1,6 +1,5 @@
-.contenedorApp {
- min-height: 100vh;
- position: absolute;
+main {
+  min-height: 69vh;
 }
 
 .cabecera, .pie {
@@ -18,40 +17,32 @@ padding-bottom: 10px;
   font-size: 2.6em;
 }
 
-.cabecera .navMenu {
-  justify-content: flex-end;
-  align-items: center;
-}
-
 .titulo a, .titulo a:hover {
   color: #353f38;
   text-decoration: none;
 }
 
-.pie .navMenu {
-justify-content: center;
+.navegacion {
+  display: flex;
+  justify-content:flex-end;
 }
 
-.nav-item {
-  border-right: 1px solid;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.nav-item:last-of-type, .nav-item:nth-child(6) {
-  border-right: 0;
+.menuCabecera {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: center;
 }
 
-.navMenu {
-  line-height: 0.1em;
+.menuCabecera .navItem {
+  transition: 0.6s;
 }
 
-.navItem {
-  color:black;
-  font-size: 0.8em;
-}
-.navItem:hover{
-  color: #445448;
-  transition: ease-in-out, 0.2s;
+@media(min-width: 992px) {
+  .menuCabecera {
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .registroBoton {
@@ -67,9 +58,7 @@ justify-content: center;
 }
 
 .pie {
-  position: absolute;
   bottom: 0;
-  width: 100%;
   height: max-content;
   font-size: 0.9em;
   color: #445448;
@@ -77,8 +66,24 @@ justify-content: center;
   align-content: center;
 }
 
-.pie .navItem {
+.menuFooter {
+  line-height: 0.1em;
+  justify-content: center;
+}
+
+.menuFooter .navItem {
+  font-size: 0.8em;
   color:#445448;
+  border-right: 1px solid;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.menuFooter .navItem:hover{
+  color: #445448;
+}
+
+.menuFooter .nav-item:last-of-type, .nav-item:nth-child(6) {
+  border-right: 0;
 }
 
 .espacioLogo {
@@ -87,7 +92,7 @@ justify-content: center;
   width: max-content;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 769px) {
   .espacioLogo {
     position: absolute;
     text-align: left;

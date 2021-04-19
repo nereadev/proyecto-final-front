@@ -10,21 +10,15 @@ const IncidenciaPagina = () => {
   const [info, setInfo] = useState(false);
   const mostrarInfo = () => {
     setInfo(!info);
-    console.log(info);
-  };
-
-  return (
-    <>
-      <Row as="h2">Incidencia nºX</Row>
-      <Col className={`estado-info ${info ? "desactivada" : ""}`}>
+  };      
+  return(
+   <>
+  <Row as="main">
+    <Row as="h2">Incidencia nºX</Row>
+     <Col className={`estado-info ${info ? "desactivada" : ""}`}>
         El estado azul indica que la incidencia se ha registrado.
         El estado verde indica que la incidencia se ha gestionado.
       </Col>
-      {/*    <ProgressBar>
-      <ProgressBar variant="info" now={35} key={1} />
-      <ProgressBar variant="warning" now={35} key={2} />
-      <ProgressBar variant="success" label="Gestionada" now={35} key={3} />
-    </ProgressBar> */}
       <Row className="detalle-incidencia">
         <Col className="incidencia" as="ul">
           <Row>
@@ -74,5 +68,6 @@ const IncidenciaPagina = () => {
     </>
   );
 };
+
 
 export default IncidenciaPagina;

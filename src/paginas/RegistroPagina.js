@@ -4,7 +4,7 @@ import {
 import RegistroCuenta from "../componentes/RegistroCuenta";
 
 const RegistroPagina = () => (
-  <>
+  <Row as="main">
     <Row as="h2">Registro</Row>
     <Row as="section" className="formulario registro-usuario">
       <Form as={Col} md={6}>
@@ -35,7 +35,7 @@ const RegistroPagina = () => (
       </Form>
     </Row>
     {/* <RegistroCuenta /> */}
-  </>
+  </Row>
 );
 
 export default RegistroPagina;

@@ -3,7 +3,7 @@ import {
 } from "react-bootstrap";
 
 const NuevaIncidenciaPagina = () => (
-  <>
+  <Row as="main">
     <Row as="h2">Formulario Incidencia</Row>
     <Row as="section" className="formulario incidencia">
       <Form as={Col} md={10}>
@@ -58,7 +58,7 @@ const NuevaIncidenciaPagina = () => (
         <Button className="boton-crear" type="submit" variant="info">Registrar</Button>
       </Form>
     </Row>
-  </>
+  </Row>
 );
 
 export default NuevaIncidenciaPagina;
