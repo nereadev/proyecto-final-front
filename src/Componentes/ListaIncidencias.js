@@ -8,9 +8,9 @@ const ListaIncidencias = () => (
         <Col><i className="fas fa-list-ul" /></Col>
         <Col>Nombre</Col>
         <Col>Tipo</Col>
-        <Col>Descripción</Col>
+        <Col>Código Postal</Col>
         <Col><i className="fas fa-star" /></Col>
-        <Col>+info</Col>
+        <Col>+Info</Col>
       </Row>
       <Incidencia />
     </Col>
