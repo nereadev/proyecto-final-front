@@ -1,6 +1,6 @@
-import Cabecera from "../componentes/Cabecera";
-import Footer from "../componentes/Footer";
-import Inicio from "../componentes/Inicio";
+import Cabecera from "../Componentes/Cabecera";
+import Footer from "../Componentes/Footer";
+import Inicio from "../Componentes/Inicio";
 
 const InicioPagina = () => (
   <>

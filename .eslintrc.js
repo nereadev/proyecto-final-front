@@ -30,6 +30,7 @@ module.exports = {
     "no-else-return": "off",
     "no-plusplus": "off",
     "no-debugger": "off",
+    "linebreak-style": 0,
     "prefer-destructuring": "off",
     "no-use-before-define": "off",
     "no-restricted-syntax": "off",

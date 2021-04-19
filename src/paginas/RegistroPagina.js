@@ -1,8 +1,8 @@
 import {
   Button, Col, Container, Form, InputGroup, Row
 } from "react-bootstrap";
-import Cabecera from "../componentes/Cabecera";
-import Footer from "../componentes/Footer";
+import Cabecera from "../Componentes/Cabecera";
+import Footer from "../Componentes/Footer";
 
 const RegistroPagina = () => (
   <>

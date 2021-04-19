@@ -1,8 +1,8 @@
 import {
   Accordion, Card, Button, Row, Col
 } from "react-bootstrap";
-import Cabecera from "../componentes/Cabecera";
-import Footer from "../componentes/Footer";
+import Cabecera from "../Componentes/Cabecera";
+import Footer from "../Componentes/Footer";
 
 const ContactoPagina = () => (
   <>
