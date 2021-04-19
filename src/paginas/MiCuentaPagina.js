@@ -1,7 +1,7 @@
 import { Button, Col, Row } from "react-bootstrap";
 
 const MiCuentaPagina = () => (
-  <>
+  <Row as="main">
     <Row as="h2">Mi cuenta</Row>
     <Col className="mi-cuenta" as="ul">
       <Row>
@@ -30,7 +30,7 @@ const MiCuentaPagina = () => (
         <Col />
       </Row>
     </Col>
-  </>
+  </Row>
 );
 
 export default MiCuentaPagina;

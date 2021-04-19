@@ -1,6 +1,5 @@
-.contenedorApp {
- min-height: 100vh;
- position: absolute;
+main {
+  min-height: 69vh;
 }
 
 .cabecera, .pie {
@@ -67,9 +66,7 @@ justify-content: center;
 }
 
 .pie {
-  position: absolute;
   bottom: 0;
-  width: 100%;
   height: max-content;
   font-size: 0.9em;
   color: #445448;
