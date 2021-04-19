@@ -7,7 +7,7 @@ const Incidencia = () => (
     <Col>Medio Ambiente</Col>
     <Col>Hay un árbol caído</Col>
     <Col>7</Col>
-    <Col><i className="fas fa-plus" /></Col>
+    <Col><a href="./incidencia/:id"><i className="fas fa-plus" aria-label="Detalle incidencia" /></a></Col>
   </Row>
 );
 

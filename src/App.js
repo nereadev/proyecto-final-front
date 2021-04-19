@@ -27,7 +27,7 @@ function App() {
           <Route path="/formulario-incidencia" exact>
             <FormularioPagina />
           </Route>
-          <Route path="/incidencia" exact>
+          <Route path="/incidencia/:id" exact>
             <IncidenciaPagina />
           </Route>
           <Route path="/mi-cuenta" exact>

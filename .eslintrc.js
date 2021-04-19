@@ -41,5 +41,6 @@ module.exports = {
     "space-before-function-paren": "off",
     "no-param-reassign": "off",
     "no-restricted-globals": "off",
+    "linebreak-style": 0
   },
 };
