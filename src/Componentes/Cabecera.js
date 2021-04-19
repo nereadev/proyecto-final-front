@@ -4,7 +4,7 @@ import MenuPrincipal from "./MenuPrincipal";
 const Cabecera = () => (
   <Row as="header" className="cabecera">
     <Col xs={2} as="h2" className="titulo">
-      Ciutadà Verd
+      <a href="/inicio">Ciutadà Verd</a>
     </Col>
     <MenuPrincipal />
   </Row>

@@ -22,6 +22,11 @@ padding-bottom: 10px;
   align-items: center;
 }
 
+.titulo a, .titulo a:hover {
+  color: #353f38;
+  text-decoration: none;
+}
+
 .pie .navMenu {
 justify-content: center;
 }
@@ -195,7 +200,8 @@ a.contrasenya, a.contrasenya:hover {
 .mapa-lista {
   display: flex;
   justify-content: center;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   border-bottom: rgba(128, 128, 128, 0.74) 1px solid;
 }
 .botonMapaLista {
