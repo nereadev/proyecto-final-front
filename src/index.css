@@ -112,10 +112,10 @@ section.formulario {
 .registro-usuario {
  text-align: center;
 }
-.btn {
+.btn.crear-cuenta {
  width: 100%;
 }
-a, a:hover {
+a.contrasenya, a.contrasenya:hover {
  color: #17a2b8;
  cursor: pointer;
 }
@@ -163,7 +163,7 @@ a, a:hover {
  color: black;
  font-size: larger;
 }
-li {
+.incidencia-lista, .titulo-lista {
  align-items: center;
  text-align: center;
 }
@@ -183,7 +183,7 @@ li {
 }
 
 /* IncidenciaPagina */
-section {
+.detalle-incidencia {
  padding: 15px
 }
 .incidencia .col {

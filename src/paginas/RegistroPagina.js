@@ -30,10 +30,10 @@ const RegistroPagina = () => (
             placeholder="Contraseña"
           />
         </InputGroup>
-        <Button type="submit" variant="info">Entrar</Button>
-        <Col as="a">¿Has olvidado la contraseña?</Col>
+        <Button className="crear-cuenta" type="submit" variant="info">Entrar</Button>
+        <Col className="contrasenya" as="a">¿Has olvidado la contraseña?</Col>
         <Col>- o -</Col>
-        <Button className="boton-crear" type="submit" variant="outline-info">Crear Cuenta</Button>
+        <Button className="crear-cuenta" type="submit" variant="outline-info">Crear Cuenta</Button>
       </Form>
     </Row>
     <Footer />

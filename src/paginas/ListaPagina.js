@@ -49,8 +49,8 @@ const ListaPagina = () => (
       </InputGroup>
     </Form>
     <Row as="section" className="lista-incidencias">
-      <Col as="ul">
-        <Row className="titulo-lista" as="li">
+      <Col>
+        <Row className="titulo-lista">
           <Col><i className="fas fa-list-ul" /></Col>
           <Col>Nombre</Col>
           <Col>Tipo</Col>
@@ -58,7 +58,7 @@ const ListaPagina = () => (
           <Col><i className="fas fa-star" /></Col>
           <Col>+info</Col>
         </Row>
-        <Row as="li">
+        <Row className="incidencia-lista">
           <Col>1</Col>
           <Col>Árbol caído</Col>
           <Col>Medio Ambiente</Col>
