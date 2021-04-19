@@ -1,4 +1,4 @@
-import Inicio from "../Componentes/Inicio";
+import Inicio from "../componentes/Inicio";
 
 const InicioPagina = () => (
   <>
