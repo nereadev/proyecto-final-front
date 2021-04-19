@@ -1,4 +1,4 @@
-import { Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import FiltroIncidencias from "./FiltrosIncidencias";
 import ListaIncidencias from "./ListaIncidencias";
 
