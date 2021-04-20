@@ -153,7 +153,10 @@ a.contrasenya, a.contrasenya:hover {
  font-weight: bold;
  color:  #17a2b8;
 }
-.introducir-datos {
+.introducir-datos.off {
+  display: none;
+}
+.introducir-datos .form-label {
  font-weight: normal;
  color: #445448;
 }
