@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   Button, Col, Form, Row, Toast
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const NuevaIncidenciaPagina = () => {
   const [ventana, setVentana] = useState(false);
@@ -10,6 +11,15 @@ const NuevaIncidenciaPagina = () => {
   const marcarCheck = () => {
     setMarcar(!marcar);
   };
+
+  function geoUsuario() {
+    function success(position) {
+      const latitud = position.coords.latitude;
+      const longitud = position.coords.longitude;
+    }
+    navigator.geolocation.getCurrentPosition(success);
+  }
+
   return (
     <Row as="main">
       <Col>
@@ -17,6 +27,13 @@ const NuevaIncidenciaPagina = () => {
         <Row as="section" className="nueva-incidencia">
           <Form className={`formulario ${!ventana ? "" : "oculto"}`} as={Col} md={10}>
             <Form.Group>
+              <p>
+                Antes de registrar tu nueva incidencia, por favor comprueba que ya
+                {" "}
+                <strong>no</strong>
+                {" "}
+                haya sido creada por otro usuario
+              </p>
               <Form.Label>Nombre Incidencia:</Form.Label>
               <Form.Control
                 required
@@ -39,7 +56,7 @@ const NuevaIncidenciaPagina = () => {
             </Form.Group>
             <Form.Group>
               <Form.Label>Fotografía:</Form.Label>
-              <Form.File label="(Formato perimitido: jpng .png | Tamaño 3 Mb)" />
+              <Form.File label="(Formato permitido: jpg, jpeg o png | Tamaño máximo 3 Mb)" />
             </Form.Group>
             <Form.Group>
               <Form.Label>Localización:</Form.Label>
@@ -64,7 +81,7 @@ const NuevaIncidenciaPagina = () => {
                   <Form.Control as="textarea" />
                 </Form.Group>
               </Col>
-              <Form.Check type="checkbox" label="Usar ubicación" />
+              <Form.Check type="checkbox" onChange={geoUsuario} label="Usar mi ubicación actual" />
             </Form.Group>
             <Button className="boton-crear" type="submit" variant="info" onClick={toggleVentana}>Registrar</Button>
           </Form>
