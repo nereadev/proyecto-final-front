@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import {
-  Button, Col, Form, Row
+  Button, Col, Form, Row, Toast
 } from "react-bootstrap";
+import { useHistory } from "react-router";
 import useForm from "../hooks/useForm";
 import useFetch from "../hooks/useFetch";
 import usuariosJson from "../img/usuarios.json";
 
 const CrearCuentaForm = () => {
+  const [ventana, setVentana] = useState(false);
+  const toggleVentana = () => setVentana(!ventana);
+  const history = useHistory();
+  const linkAcceder = () => {
+    history.push("/registro/acceder");
+  };
   // Esta es una forma cutre de realizar el formulario, abajo del export se encuentra el código a refactorizar para dejarlo funcionando
   const [usuario, setUsuario] = useState([]);
   const [nombre, setNombre] = useState("");
@@ -18,7 +25,7 @@ const CrearCuentaForm = () => {
   const [codigoPostal, setCodigoPostal] = useState("");
   const { datos, pideDatos } = useFetch();
   const usuariosApi = datos?.body.usuarios;
-  console.log(usuariosApi);
+  /* console.log(usuariosApi); */
 
   const url = ("https://api-incidencias.herokuapp.com/usuarios");
 
@@ -70,7 +77,7 @@ const CrearCuentaForm = () => {
     <>
       <Row as="h2">Crea tu cuenta</Row>
       <Row as="section" className="formulario-incidencia">
-        <Form as={Col} onSubmit={nuevoUsuario}>
+        <Form className={`crear-cuenta ${!ventana ? "" : "oculto"}`} as={Col} onSubmit={nuevoUsuario}>
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label>Nombre:</Form.Label>
@@ -110,8 +117,19 @@ const CrearCuentaForm = () => {
               <Form.Control required id="codigoPostal" value={codigoPostal} onChange={getCodigoPostal} />
             </Form.Group>
           </Form.Row>
-          <Button as={Col} md={3} className="boton-crear" onClick={nuevoUsuario} type="submit" variant="info">Registrar</Button>
+          {/* cambio onClick={nuevoUsuario} */}
+          <Button as={Col} md={3} className="boton-crear" onClick={toggleVentana} type="submit" variant="info">Registrar</Button>
         </Form>
+        <Col className="ventana" sm={12}>
+          <Toast show={ventana} onClose={linkAcceder}>
+            <Toast.Header>
+              <i className="fas fa-check-circle mr-2" />
+              <strong className="mr-auto">Cuenta Creada</strong>
+              <small>cerrar</small>
+            </Toast.Header>
+            <Toast.Body>Su cuenta se ha creado correctamente.</Toast.Body>
+          </Toast>
+        </Col>
       </Row>
     </>
   );
