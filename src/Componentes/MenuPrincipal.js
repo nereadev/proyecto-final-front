@@ -14,7 +14,8 @@ const MenuPrincipal = () => (
           <Nav.Link href="/como-funciona" className="navItem"> Cómo funciona?</Nav.Link>
           <Nav.Link href="/mi-cuenta" className="navItem">Configuración</Nav.Link>
           <Nav.Link href="/contacto" className="navItem">Contacto</Nav.Link>
-          <Button variant="dark" href="registro" className="navItem registroBoton">Registro</Button>
+          <Button variant="dark" href="/registro/acceder" className="navItem registroBoton">Acceder</Button>
+          <Button variant="dark" href="/registro/crear-cuenta" className="navItem registroBoton">Crear cuenta</Button>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

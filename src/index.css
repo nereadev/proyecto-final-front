@@ -38,23 +38,36 @@ padding-bottom: 10px;
   transition: 0.6s;
 }
 
-@media(min-width: 992px) {
-  .menuCabecera {
-    align-items: center;
-    justify-content: center;
-  }
-}
-
 .registroBoton {
   color: white;
   background-color: #445448;
   border: 0;
   font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.registroBoton:last-of-type {
+  background-color: #5e8869;
+  margin-top: 10px;
 }
 
 .registroBoton:hover {
   color: white;
   background-color: #445448af;
+}
+
+@media(min-width: 992px) {
+  .menuCabecera {
+    align-items: center;
+    justify-content: center;
+  }
+  .registroBoton {
+    margin-left: 10px;
+    margin-top: 0px;
+  }
+  .registroBoton:last-of-type {
+    margin-top: 0px;
+  }
 }
 
 .pie {
