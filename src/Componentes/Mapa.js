@@ -35,10 +35,18 @@ const Mapa = props => {
   return (
     <>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url={mapaBarrios ? urlMapboxBarris : urlMapbox}
-        />
+        {!mapaBarrios || (
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url={urlMapboxBarris}
+          />
+        )}
+        {mapaBarrios || (
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url={urlMapbox}
+          />
+        )}
         <Marker position={coordsBCN}>
           <Popup>
             Tonto quien lo lea
