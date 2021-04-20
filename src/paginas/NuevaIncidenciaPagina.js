@@ -5,7 +5,11 @@ import {
 
 const NuevaIncidenciaPagina = () => {
   const [ventana, setVentana] = useState(false);
+  const [marcar, setMarcar] = useState(false);
   const toggleVentana = () => setVentana(!ventana);
+  const marcarCheck = () => {
+    setMarcar(!marcar);
+  };
   return (
     <Row as="main">
       <Col>
@@ -39,25 +43,27 @@ const NuevaIncidenciaPagina = () => {
             </Form.Group>
             <Form.Group>
               <Form.Label>Localización:</Form.Label>
-              <Form.Check type="checkbox" label="Introducir datos" />
-              <Form.Group>
-                <Form.Label className="introducir-datos">Código Postal:</Form.Label>
-                <Form.Control
-                  required
-                  type="text"
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label className="introducir-datos">Dirección</Form.Label>
-                <Form.Control
-                  required
-                  type="text"
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label className="introducir-datos">Comentario:</Form.Label>
-                <Form.Control as="textarea" />
-              </Form.Group>
+              <Form.Check type="checkbox" label="Introducir datos" onChange={marcarCheck} />
+              <Col className={`introducir-datos ${marcar ? "" : "off"}`}>
+                <Form.Group>
+                  <Form.Label>Código Postal:</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Dirección</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Comentario:</Form.Label>
+                  <Form.Control as="textarea" />
+                </Form.Group>
+              </Col>
               <Form.Check type="checkbox" label="Usar ubicación" />
             </Form.Group>
             <Button className="boton-crear" type="submit" variant="info" onClick={toggleVentana}>Registrar</Button>
