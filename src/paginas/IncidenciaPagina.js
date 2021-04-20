@@ -15,7 +15,7 @@ const IncidenciaPagina = () => {
     <Row as="main">
       <Col>
         <Row as="h2">Incidencia nºX</Row>
-        <Col className={`estado-info ${info ? "desactivada" : ""}`}>
+        <Col className={`estado-info ${info ? "" : "desactivada"}`}>
           El estado azul indica que la incidencia se ha registrado.
           El estado verde indica que la incidencia se ha gestionado.
         </Col>

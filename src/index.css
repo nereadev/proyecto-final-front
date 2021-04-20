@@ -127,7 +127,7 @@ padding-bottom: 10px;
 } */
 
 
-/* registroPagina */
+/* Acceder */
 h2 {
  padding: 15px;
 }
@@ -147,12 +147,16 @@ a.contrasenya, a.contrasenya:hover {
  color: #17a2b8;
  cursor: pointer;
 }
+/* Crear Cuenta */
+.boton-crear {
+  margin-bottom: 10px;
+}
 
 /* Nueva incidencia */
 .nueva-incidencia {
   padding-bottom: 20px;
 }
-.formulario.oculto {
+.formulario.oculto, .crear-cuenta.oculto {
   filter: blur(1.5px);
 }
 .form-file-label {
@@ -235,6 +239,8 @@ a.contrasenya, a.contrasenya:hover {
   color:white;
   border-radius: 10px;
   width: 500px;
+  position: relative;
+  margin: auto;
 }
 .estado-info.desactivada {
   display: none;

@@ -2,11 +2,12 @@ import { useState } from "react";
 import {
   Button, Col, Form, Row, Toast
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const NuevaIncidenciaPagina = () => {
   const [ventana, setVentana] = useState(false);
   const [marcar, setMarcar] = useState(false);
+  const history = useHistory();
   const toggleVentana = () => setVentana(!ventana);
   const marcarCheck = () => {
     setMarcar(!marcar);
@@ -20,6 +21,9 @@ const NuevaIncidenciaPagina = () => {
     navigator.geolocation.getCurrentPosition(success);
   }
 
+  const linkInicio = () => {
+    history.push("/mis-incidencias");
+  };
   return (
     <Row as="main">
       <Col>
@@ -86,7 +90,7 @@ const NuevaIncidenciaPagina = () => {
             <Button className="boton-crear" type="submit" variant="info" onClick={toggleVentana}>Registrar</Button>
           </Form>
           <Col className="ventana" sm={12}>
-            <Toast show={ventana} onClose={toggleVentana}>
+            <Toast show={ventana} onClose={linkInicio}>
               <Toast.Header>
                 <i className="fas fa-check-circle mr-2" />
                 <strong className="mr-auto">Incidencia Registrada</strong>

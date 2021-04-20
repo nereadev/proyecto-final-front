@@ -3,6 +3,8 @@ import { icon } from "leaflet";
 import {
   MapContainer, TileLayer, Marker, Popup
 } from "react-leaflet";
+import { useContext } from "react";
+import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 /* Info mapbox:
 https://docs.mapbox.com/help/getting-started/ */
 /* Reverse geocoding per trobar barri o districte a partir de coordenades:
@@ -37,6 +39,9 @@ const getIcon = (iconSize) => icon({
 
 const Mapa = props => {
   const { mapaBarrios } = props;
+  const { getIncidencias } = useContext(ContextoIncidencias);
+  const incidencias = getIncidencias.incidencias;
+  console.log(incidencias);
   return (
     <>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
