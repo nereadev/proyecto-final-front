@@ -5,6 +5,7 @@ import {
 } from "react-leaflet";
 import { useContext } from "react";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
+
 /* Info mapbox:
 https://docs.mapbox.com/help/getting-started/ */
 /* Reverse geocoding per trobar barri o districte a partir de coordenades:
