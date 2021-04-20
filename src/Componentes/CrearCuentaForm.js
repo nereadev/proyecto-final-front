@@ -6,7 +6,7 @@ import useForm from "../hooks/useForm";
 import useFetch from "../hooks/useFetch";
 import usuariosJson from "../img/usuarios.json";
 
-const RegistroCuenta = () => {
+const CrearCuentaForm = () => {
   // Esta es una forma cutre de realizar el formulario, abajo del export se encuentra el código a refactorizar para dejarlo funcionando
   const [usuario, setUsuario] = useState([]);
   const [nombre, setNombre] = useState("");
@@ -116,7 +116,7 @@ const RegistroCuenta = () => {
     </>
   );
 };
-export default RegistroCuenta;
+export default CrearCuentaForm;
 
 /* const [usuario, setUsuario] = useState("");
 const [formUsuario, setFormUsuario] = useState({
