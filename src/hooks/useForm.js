@@ -6,10 +6,9 @@ const useForm = (datosFormInicial) => {
     const nombrePropiedad = e.target.name;
     setFormDatos({
       ...formDatos,
-      [nombrePropiedad]: e.target.type === "checkbox" ? e.target.checked : e.target.value,
+      [nombrePropiedad]: e.target.value,
     });
   };
-
   return {
     formDatos,
     modificarDatos
