@@ -1,64 +1,81 @@
+import { useState } from "react";
 import {
-  Button, Col, Form, Row
+  Button, Col, Form, Row, Toast
 } from "react-bootstrap";
 
-const NuevaIncidenciaPagina = () => (
-  <Row as="main">
-    <Row as="h2">Formulario Incidencia</Row>
-    <Row as="section" className="formulario incidencia">
-      <Form as={Col} md={10}>
-        <Form.Group>
-          <Form.Label>Nombre Incidencia:</Form.Label>
-          <Form.Control
-            required
-            type="text"
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Tipo:</Form.Label>
-          <Form.Control as="select">
-            <option>Elige...</option>
-            <option>Medio Ambiente</option>
-            <option>Civismo</option>
-            <option>Infraestrucutra</option>
-            <option>Otros:</option>
-          </Form.Control>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Descripción:</Form.Label>
-          <Form.Control as="textarea" />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Fotografía:</Form.Label>
-          <Form.File label="(Formato perimitido: jpng .png | Tamaño 3 Mb)" />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Localización:</Form.Label>
-          <Form.Check type="checkbox" label="Introducir datos" />
-          <Form.Group>
-            <Form.Label className="introducir-datos">Código Postal:</Form.Label>
-            <Form.Control
-              required
-              type="text"
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="introducir-datos">Dirección</Form.Label>
-            <Form.Control
-              required
-              type="text"
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="introducir-datos">Comentario:</Form.Label>
-            <Form.Control as="textarea" />
-          </Form.Group>
-          <Form.Check type="checkbox" label="Usar ubicación" />
-        </Form.Group>
-        <Button className="boton-crear" type="submit" variant="info">Registrar</Button>
-      </Form>
+const NuevaIncidenciaPagina = () => {
+  const [ventana, setVentana] = useState(false);
+  const toggleVentana = () => setVentana(!ventana);
+  return (
+    <Row as="main">
+      <Col>
+        <Row as="h2">Formulario Incidencia</Row>
+        <Row as="section" className="nueva-incidencia">
+          <Form className={`formulario ${!ventana ? "" : "oculto"}`} as={Col} md={10}>
+            <Form.Group>
+              <Form.Label>Nombre Incidencia:</Form.Label>
+              <Form.Control
+                required
+                type="text"
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Tipo:</Form.Label>
+              <Form.Control as="select">
+                <option>Elige...</option>
+                <option>Medio Ambiente</option>
+                <option>Civismo</option>
+                <option>Infraestrucutra</option>
+                <option>Otros:</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Descripción:</Form.Label>
+              <Form.Control as="textarea" />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Fotografía:</Form.Label>
+              <Form.File label="(Formato perimitido: jpng .png | Tamaño 3 Mb)" />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Localización:</Form.Label>
+              <Form.Check type="checkbox" label="Introducir datos" />
+              <Form.Group>
+                <Form.Label className="introducir-datos">Código Postal:</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label className="introducir-datos">Dirección</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label className="introducir-datos">Comentario:</Form.Label>
+                <Form.Control as="textarea" />
+              </Form.Group>
+              <Form.Check type="checkbox" label="Usar ubicación" />
+            </Form.Group>
+            <Button className="boton-crear" type="submit" variant="info" onClick={toggleVentana}>Registrar</Button>
+          </Form>
+          <Col className="ventana" sm={12}>
+            <Toast show={ventana} onClose={toggleVentana}>
+              <Toast.Header>
+                <i className="fas fa-check-circle mr-2" />
+                <strong className="mr-auto">Incidencia Registrada</strong>
+                <small>cerrar</small>
+              </Toast.Header>
+              <Toast.Body>La nueva incidencia se ha enviado correctamente.</Toast.Body>
+            </Toast>
+          </Col>
+        </Row>
+      </Col>
     </Row>
-  </Row>
-);
+  );
+};
 
 export default NuevaIncidenciaPagina;
