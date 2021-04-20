@@ -275,3 +275,7 @@ a.contrasenya, a.contrasenya:hover {
 .mapa {
  height: 600px;
 }
+
+.puntoFuncionamiento {
+list-style:disc;
+}
