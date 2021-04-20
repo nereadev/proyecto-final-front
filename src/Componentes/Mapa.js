@@ -32,16 +32,19 @@ const fetchBarrio = () => {
   fetch(urlBarrios).then(resp => resp.json()).then(datos => console.log(datos));
 };
 
-const getIcon = (iconSize) => icon({
-  iconUrl: "/img/civismo.png",
-  iconSize: [iconSize],
+const getIcon = (tipoIncidencia) => icon({
+  iconUrl: `/img/${tipoIncidencia.split(" ").join("-")}.png`,
+  iconSize: [30],
 });
 
 const Mapa = props => {
   const { mapaBarrios } = props;
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
-  console.log(incidencias);
+  if (incidencias.length !== 0) {
+    console.log(incidencias);
+    console.log(incidencias.body.incidencias.map(incidencia => incidencia.tipoIncidencia.tipo));
+  }
   return (
     <>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
@@ -57,11 +60,19 @@ const Mapa = props => {
             url={urlMapbox}
           />
         )}
-        <Marker position={coordsBCN} icon={getIcon(30)}>
-          <Popup>
-            Tonto quien lo lea
-          </Popup>
-        </Marker>
+        {
+          incidencias.length !== 0 && (
+            incidencias.body.incidencias.map(incidencia => (
+              !incidencia.latitud || (
+                <Marker position={[incidencia.latitud, incidencia.longitud]} icon={getIcon(incidencia.tipoIncidencia.tipo)}>
+                  <Popup>
+                    Tonto quien lo lea
+                  </Popup>
+                </Marker>
+              )
+            ))
+          )
+        }
       </MapContainer>
     </>
   );
