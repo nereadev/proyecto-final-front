@@ -239,6 +239,8 @@ a.contrasenya, a.contrasenya:hover {
   color:white;
   border-radius: 10px;
   width: 500px;
+  position: relative;
+  margin: auto;
 }
 .estado-info.desactivada {
   display: none;
