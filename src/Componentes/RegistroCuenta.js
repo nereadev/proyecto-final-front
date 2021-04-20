@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import {
   Button, Col, Form, Row
 } from "react-bootstrap";
-import useFetch from "../hooks/useFetch";
-import useForm from "../hooks/useForm";
+import useFetch from "../utils/hooks/useFetch";
+import useForm from "../utils/hooks/useForm";
 
 const RegistroCuenta = () => {
   const [usuario, setUsuario] = useState("");
