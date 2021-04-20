@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
+import { icon } from "leaflet";
 import {
   MapContainer, TileLayer, Marker, Popup
 } from "react-leaflet";
+import civismo from "../img/civismo.png";
 /* Info mapbox:
 https://docs.mapbox.com/help/getting-started/ */
 /* Reverse geocoding per trobar barri o districte a partir de coordenades:
@@ -29,9 +31,13 @@ const fetchBarrio = () => {
   fetch(urlBarrios).then(resp => resp.json()).then(datos => console.log(datos));
 };
 
+const getIcon = (iconSize) => icon({
+  iconUrl: civismo,
+  iconSize: [iconSize],
+});
+
 const Mapa = props => {
   const { mapaBarrios } = props;
-  // console.log(mapaBarrios);
   return (
     <>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
@@ -47,7 +53,7 @@ const Mapa = props => {
             url={urlMapbox}
           />
         )}
-        <Marker position={coordsBCN}>
+        <Marker position={coordsBCN} icon={getIcon(30)}>
           <Popup>
             Tonto quien lo lea
           </Popup>
