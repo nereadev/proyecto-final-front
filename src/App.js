@@ -24,7 +24,7 @@ function App() {
           <Route path="/inicio" exact>
             <InicioPagina />
           </Route>
-          <Route path="/registro" exact>
+          <Route path="/registro/:accion" exact>
             <RegistroPagina />
           </Route>
           <Route path="/incidencia/:id" exact>
