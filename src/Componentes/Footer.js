@@ -1,6 +1,5 @@
 import { Col, Row } from "react-bootstrap";
 import MenuFooter from "./MenuFooter";
-import logo from "../img/logo.png";
 
 const Footer = () => (
   <Row as="footer" className="pie">
@@ -9,7 +8,7 @@ const Footer = () => (
       <span className="copyright">Aquí irá información del copyright</span>
     </Col>
     <Col as="span" className="espacioLogo">
-      <img src={logo} alt="Logotipo de SomDev" className="logoWeb" />
+      <img src="/img/logo.png" alt="Logotipo de SomDev" className="logoWeb" />
     </Col>
   </Row>
 );

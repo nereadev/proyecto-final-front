@@ -3,7 +3,6 @@ import { icon } from "leaflet";
 import {
   MapContainer, TileLayer, Marker, Popup
 } from "react-leaflet";
-import civismo from "../img/civismo.png";
 /* Info mapbox:
 https://docs.mapbox.com/help/getting-started/ */
 /* Reverse geocoding per trobar barri o districte a partir de coordenades:
@@ -32,7 +31,7 @@ const fetchBarrio = () => {
 };
 
 const getIcon = (iconSize) => icon({
-  iconUrl: civismo,
+  iconUrl: "/img/civismo.png",
   iconSize: [iconSize],
 });
 
