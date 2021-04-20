@@ -9,9 +9,12 @@ const AccederForm = () => {
   const linkCrearCuenta = () => {
     history.push("/registro/crear-cuenta");
   };
+  const linkInicio = () => {
+    history.push("/inicio");
+  };
   return (
     <>
-      <Row as="h2">Registro</Row>
+      <Row as="h2">Acceder</Row>
       <Row as="section" className="formulario registro-usuario">
         <Form as={Col} md={6}>
           <InputGroup>
@@ -34,7 +37,7 @@ const AccederForm = () => {
               placeholder="Contraseña"
             />
           </InputGroup>
-          <Button className="crear-cuenta" type="submit" variant="info">Entrar</Button>
+          <Button className="crear-cuenta" type="submit" onClick={linkInicio} variant="info">Entrar</Button>
           <Col className="contrasenya" as="a">¿Has olvidado la contraseña?</Col>
           <Col>- o -</Col>
           <Button className="crear-cuenta" type="submit" onClick={linkCrearCuenta} variant="outline-info">Crear Cuenta</Button>
