@@ -136,6 +136,12 @@ a.contrasenya, a.contrasenya:hover {
 }
 
 /* Nueva incidencia */
+.nueva-incidencia {
+  padding-bottom: 20px;
+}
+.formulario.oculto {
+  filter: blur(1.5px);
+}
 .form-file-label {
  color: rgb(153, 152, 152);
 }
@@ -150,6 +156,17 @@ a.contrasenya, a.contrasenya:hover {
 .introducir-datos {
  font-weight: normal;
  color: #445448;
+}
+.toast {
+  padding: 10px;
+  margin: auto;
+}
+.ventana {
+  position: absolute;
+  bottom: 50%;
+}
+.fa-check-circle {
+  color: green;
 }
 /* Lista incidencias */
 .filtro-incidencias .form-control {
