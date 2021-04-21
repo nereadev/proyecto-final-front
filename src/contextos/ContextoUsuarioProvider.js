@@ -1,24 +1,32 @@
+// eslint-disable-next-line camelcase
+import jwt_decode from "jwt-decode";
 import { useEffect, useReducer, useState } from "react";
-import useFetch from "../utils/hooks/useFetch2";
 import { usuarioReducer } from "../utils/reducers/usuarioReducer";
 import { ContextoUsuario } from "./ContextoUsuario";
+import useFetch from "../utils/hooks/useFetchToken";
 
 const ContextoUsuarioProvider = props => {
-  // bj@ceprene.com
   // eslint-disable-next-line react/prop-types
   const { children } = props;
-  const [usuarioEmail, setUsuarioEmail] = useState(null);
   const [usuario, dispatch] = useReducer(usuarioReducer, {});
   const { datos: usuarioFetch, pideDatos: pideUsuarioFetch } = useFetch();
+  const [existeToken, setExisteToken] = useState(false);
   const getUsuario = {
-    otraPropiedad: "Aquí puede ir otra propiedad relacionada con el usuario",
-    usuario
+    usuario,
+    setExisteToken
   };
   useEffect(() => {
-    if (usuarioEmail) {
-      pideUsuarioFetch(true, `usuarios/${usuarioEmail}`);
+    if (existeToken) {
+      const token = localStorage.getItem("token-usuario");
+      const idUsuario = jwt_decode(token).id;
+      const request = new Request(`http://localhost:5000/usuarios/${idUsuario}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      pideUsuarioFetch(request);
     }
-  }, [usuarioEmail, pideUsuarioFetch]);
+  }, [existeToken]);
   useEffect(() => {
     if (usuarioFetch) {
       console.log(usuarioFetch);
@@ -27,10 +35,12 @@ const ContextoUsuarioProvider = props => {
         usuario: usuarioFetch
       });
     }
-    console.log(usuario);
   }, [usuarioFetch]);
   return (
-    <ContextoUsuario.Provider value={{ dispatch, getUsuario, setUsuarioEmail }}>
+    <ContextoUsuario.Provider value={{
+      dispatch, getUsuario
+    }}
+    >
       {
         children
       }
