@@ -4,12 +4,10 @@ import { usuarioReducer } from "../utils/reducers/usuarioReducer";
 import { ContextoUsuario } from "./ContextoUsuario";
 
 const ContextoUsuarioProvider = props => {
+  // bj@ceprene.com
   // eslint-disable-next-line react/prop-types
   const { children } = props;
   const [usuarioEmail, setUsuarioEmail] = useState(null);
-  useEffect(() => {
-    setUsuarioEmail("bj@ceprene.com");
-  }, []);
   const [usuario, dispatch] = useReducer(usuarioReducer, {});
   const { datos: usuarioFetch, pideDatos: pideUsuarioFetch } = useFetch();
   const getUsuario = {
