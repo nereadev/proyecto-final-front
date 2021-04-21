@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import {
   Button,
   Col, Form, InputGroup, Row
 } from "react-bootstrap";
 import { useHistory } from "react-router";
+import { ContextoUsuario } from "../contextos/ContextoUsuario";
+import useFetch from "../utils/hooks/useFetch2";
 
 const AccederForm = () => {
+  const { setUsuarioEmail } = useContext(ContextoUsuario);
   const history = useHistory();
   const linkCrearCuenta = () => {
     history.push("/registro/crear-cuenta");
   };
-  const linkInicio = () => {
+  const linkInicio = async () => {
+    setUsuarioEmail(email);
     history.push("/inicio");
   };
   const [email, setEmail] = useState("");

@@ -68,7 +68,7 @@ const Mapa = props => {
           incidencias.length !== 0 && (
             incidencias.body.incidencias.map(incidencia => (
               !incidencia.latitud || (
-                <Marker position={[incidencia.latitud, incidencia.longitud]} icon={getIcon(incidencia.tipoIncidencia.tipo)}>
+                <Marker key={incidencia._id} position={[incidencia.latitud, incidencia.longitud]} icon={getIcon(incidencia.tipoIncidencia.tipo)}>
                   <Popup>
                     <Container>
                       <Col as="img" className="popimg" src={imgPopup("incidencia607fe20e74a98b1b987da264.png")} alt={incidencia.descripcion} />
