@@ -1,5 +1,5 @@
 import { Col, Form } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
+import PropTypes from "prop-types";
 
 const IncidenciaForm = (props) => {
   const { ventana } = props;
@@ -38,7 +38,7 @@ const IncidenciaForm = (props) => {
 };
 
 IncidenciaForm.propTypes = {
-  ventana: propTypes.bool.isRequired
+  ventana: PropTypes.bool.isRequired
 };
 
 export default IncidenciaForm;
