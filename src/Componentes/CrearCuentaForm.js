@@ -21,11 +21,11 @@ const CrearCuentaForm = () => {
     contrasenya: "",
     direccion: "",
     telefono: "",
-    codigoPostal: ""
+    codigoPostal: "",
   });
   const registraUsuario = e => {
     e.preventDefault();
-    pideDatos("https://api-incidencias.herokuapp.com/usuarios", {
+    pideDatos("https://localhost:5000/usuarios", {
       method: "POST",
       headers: {
         "Content-name= type": "application/json"
@@ -73,12 +73,12 @@ const CrearCuentaForm = () => {
             </Form.Group>
 
             <Form.Group as={Col}>
-              <Form.Label>Código Postal:</Form.Label>
-              <Form.Control name="codigopostal" type="text" value={datosForm.codigoPostal} onChange={modificarDatos} />
+              <Form.Label>Código postal</Form.Label>
+              <Form.Control id="codigoPostal" name="codigoPostal" type="text" required value={datosForm.codigoPostal} onChange={modificarDatos} />
             </Form.Group>
           </Form.Row>
+          <Button as={Col} md={3} className="boton-crear" onClick={registraUsuario} type="submit" variant="info">Registrar</Button>
           {/* cambio onClick={nuevoUsuario} */}
-          <Button as={Col} md={3} className="boton-crear" onClick={toggleVentana} type="submit" variant="info">Registrar</Button>
         </Form>
         <Col className="ventana" sm={12}>
           <Toast show={ventana} onClose={linkAcceder}>
