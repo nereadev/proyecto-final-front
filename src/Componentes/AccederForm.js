@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   Col, Form, InputGroup, Row
@@ -12,6 +13,16 @@ const AccederForm = () => {
   const linkInicio = () => {
     history.push("/inicio");
   };
+  const [email, setEmail] = useState("");
+  const [contrasenya, setContrasenya] = useState("");
+  const modificaValor = e => {
+    e.preventDefault();
+    if (e.target.name === "email") {
+      setEmail(e.target.value);
+    } else {
+      setContrasenya(e.target.value);
+    }
+  };
   return (
     <>
       <Row as="h2">Acceder</Row>
@@ -25,6 +36,9 @@ const AccederForm = () => {
               required
               type="text"
               placeholder="Email"
+              name="email"
+              value={email}
+              onChange={modificaValor}
             />
           </InputGroup>
           <InputGroup>
@@ -35,6 +49,9 @@ const AccederForm = () => {
               required
               type="text"
               placeholder="Contraseña"
+              name="contraseña"
+              value={contrasenya}
+              onChange={modificaValor}
             />
           </InputGroup>
           <Button className="crear-cuenta" type="submit" onClick={linkInicio} variant="info">Entrar</Button>
