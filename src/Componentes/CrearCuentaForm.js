@@ -151,7 +151,7 @@ const { formDatos, modificarDatos } = useForm(formUsuario);
 console.log(usuario);
 const nuevoUsuario = (e) => {
   e.preventDefault();
-  setUsuario([...usuario, {
+  setUsuario({...usuario, {
     nombre: formDatos.nombre,
     apellidos: formDatos.apellidos,
     email: formDatos.email,
@@ -159,5 +159,5 @@ const nuevoUsuario = (e) => {
     direccion: formDatos.direccion,
     telefono: formDatos.telefono,
     codigoPostal: formDatos.codigoPostal
-  }]);
+  }});
 }; */
