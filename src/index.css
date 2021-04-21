@@ -200,6 +200,10 @@ a.contrasenya, a.contrasenya:hover {
 .fa-check-circle {
   color: green;
 }
+.boton-nueva {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
 /* Lista incidencias */
 .filtro-incidencias .form-control {
  border-radius: 100px;
