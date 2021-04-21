@@ -102,7 +102,7 @@ margin-top: 5px;
   color: #445448;
 }
 
-.menuFooter .nav-item:last-of-type, .nav-item:nth-child(6) {
+.menuFooter .nav-item:last-of-type a {
   border-right: 0;
 }
 
@@ -129,10 +129,6 @@ margin-top: 5px;
   font-size: 0.8em;
   display: block;
 }
-
-/* .navegadorInicio {
-} */
-
 
 /* Acceder */
 h2 {
