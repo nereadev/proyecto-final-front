@@ -5,26 +5,53 @@ import {
 } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
-import useFetch from "../utils/hooks/useFetch2";
+import useFetch from "../utils/hooks/useFetchToken";
 
 const AccederForm = () => {
-  const { setUsuarioEmail } = useContext(ContextoUsuario);
   const history = useHistory();
-  const linkCrearCuenta = () => {
+  const [emailInput, setEmailInput] = useState("");
+  const [contrasenyaInput, setContrasenyaInput] = useState("");
+  const [emailFetch, setEmailFetch] = useState("");
+  const [contrasenyaFetch, setContrasenyaFetch] = useState("");
+  const { datos: tokenFetch, pideDatos: pideTokenFetch } = useFetch();
+  const { getUsuario } = useContext(ContextoUsuario);
+  useEffect(() => {
+    if (emailFetch) {
+      const request = new Request("http://localhost:5000/usuarios/login", {
+        method: "POST",
+        /* este header que hace? */
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email: emailFetch, contrasenya: contrasenyaFetch })
+      });
+      pideTokenFetch(request);
+    }
+  }, [emailFetch, pideTokenFetch]);
+  useEffect(() => {
+    if (tokenFetch) {
+      if (tokenFetch.error) {
+        /* manejar el error */
+      } else if (tokenFetch.tokenUsuario) {
+        localStorage.setItem("token-usuario", tokenFetch.tokenUsuario);
+        getUsuario.setExisteToken(true);
+        history.push("/inicio");
+      }
+    }
+  }, [tokenFetch]);
+  const irACrearCuenta = () => {
     history.push("/registro/crear-cuenta");
   };
-  const linkInicio = async () => {
-    setUsuarioEmail(email);
-    history.push("/inicio");
+  const checkLoginYToken = () => {
+    setEmailFetch(emailInput);
+    setContrasenyaFetch(contrasenyaInput);
   };
-  const [email, setEmail] = useState("");
-  const [contrasenya, setContrasenya] = useState("");
   const modificaValor = e => {
     e.preventDefault();
     if (e.target.name === "email") {
-      setEmail(e.target.value);
+      setEmailInput(e.target.value);
     } else {
-      setContrasenya(e.target.value);
+      setContrasenyaInput(e.target.value);
     }
   };
   return (
@@ -41,7 +68,7 @@ const AccederForm = () => {
               type="text"
               placeholder="Email"
               name="email"
-              value={email}
+              value={emailInput}
               onChange={modificaValor}
             />
           </InputGroup>
@@ -54,14 +81,14 @@ const AccederForm = () => {
               type="text"
               placeholder="Contraseña"
               name="contraseña"
-              value={contrasenya}
+              value={contrasenyaInput}
               onChange={modificaValor}
             />
           </InputGroup>
-          <Button className="crear-cuenta" type="submit" onClick={linkInicio} variant="info">Entrar</Button>
+          <Button className="crear-cuenta" type="submit" onClick={checkLoginYToken} variant="info">Entrar</Button>
           <Col className="contrasenya" as="a">¿Has olvidado la contraseña?</Col>
           <Col>- o -</Col>
-          <Button className="crear-cuenta" type="submit" onClick={linkCrearCuenta} variant="outline-info">Crear Cuenta</Button>
+          <Button className="crear-cuenta" type="submit" onClick={irACrearCuenta} variant="outline-info">Crear Cuenta</Button>
         </Form>
       </Row>
     </>

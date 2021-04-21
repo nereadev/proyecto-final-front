@@ -76,7 +76,7 @@ const Mapa = props => {
                         <h4>
                           {incidencia.nombre}
                           {"    "}
-                          <Link href={(`/incidencia/:${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link>
+                          {/* <Link href={(`/incidencia/:${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link> */}
                         </h4>
                         <h6>{incidencia.tipoIncidencia.tipo}</h6>
                       </Col>
