@@ -1,16 +1,31 @@
+import { useState, useContext, useEffect } from "react";
 import {
   Button,
   Col, Form, InputGroup, Row
 } from "react-bootstrap";
 import { useHistory } from "react-router";
+import { ContextoUsuario } from "../contextos/ContextoUsuario";
+import useFetch from "../utils/hooks/useFetch2";
 
 const AccederForm = () => {
+  const { setUsuarioEmail } = useContext(ContextoUsuario);
   const history = useHistory();
   const linkCrearCuenta = () => {
     history.push("/registro/crear-cuenta");
   };
-  const linkInicio = () => {
+  const linkInicio = async () => {
+    setUsuarioEmail(email);
     history.push("/inicio");
+  };
+  const [email, setEmail] = useState("");
+  const [contrasenya, setContrasenya] = useState("");
+  const modificaValor = e => {
+    e.preventDefault();
+    if (e.target.name === "email") {
+      setEmail(e.target.value);
+    } else {
+      setContrasenya(e.target.value);
+    }
   };
   return (
     <>
@@ -25,6 +40,9 @@ const AccederForm = () => {
               required
               type="text"
               placeholder="Email"
+              name="email"
+              value={email}
+              onChange={modificaValor}
             />
           </InputGroup>
           <InputGroup>
@@ -35,6 +53,9 @@ const AccederForm = () => {
               required
               type="text"
               placeholder="Contraseña"
+              name="contraseña"
+              value={contrasenya}
+              onChange={modificaValor}
             />
           </InputGroup>
           <Button className="crear-cuenta" type="submit" onClick={linkInicio} variant="info">Entrar</Button>

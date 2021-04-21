@@ -15,14 +15,14 @@ import NuevaIncidenciaPagina from "./paginas/NuevaIncidenciaPagina";
 import Cabecera from "./componentes/Cabecera";
 import Footer from "./componentes/Footer";
 import ContextoIncidenciasProvider from "./contextos/ContextoIncidenciasProvider";
-import ContextoUsuariosProvider from "./contextos/ContextoUsuariosProvider";
+import ContextoUsuarioProvider from "./contextos/ContextoUsuarioProvider";
 
 function App() {
   return (
     <Container fluid>
       <Cabecera />
       <ContextoIncidenciasProvider>
-        <ContextoUsuariosProvider>
+        <ContextoUsuarioProvider>
           <Router>
             <Switch>
               <Route path="/inicio" exact>
@@ -57,7 +57,7 @@ function App() {
               </Route>
             </Switch>
           </Router>
-        </ContextoUsuariosProvider>
+        </ContextoUsuarioProvider>
       </ContextoIncidenciasProvider>
       <Footer />
     </Container>
