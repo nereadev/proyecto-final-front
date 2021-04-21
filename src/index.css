@@ -1,5 +1,7 @@
 main {
   min-height: 69vh;
+  align-items: center;
+  margin: auto;
 }
 
 .cabecera, .pie {
@@ -296,4 +298,47 @@ a.contrasenya, a.contrasenya:hover {
 
 .puntoFuncionamiento {
 list-style:disc;
+}
+
+/* Como Funciona */
+.como-funciona {
+  height: fit-content;
+}
+.lista-tips li {
+/* border: 1px dotted; */
+  text-align:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.lista-tips {
+  justify-content: space-evenly;
+}
+
+.lista-tips .tips-titulos {
+  font-size: 25px;
+  color:#5e8869;
+  font-weight: bolder;
+}
+.lista-tips li:nth-child(3) {
+  margin-top: 15px;
+  font-weight: 300;
+  font-size: 30px;
+}
+
+.lista-tips li:nth-child(4) {
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.lista-tips li:nth-child(7), .lista-tips li:nth-child(8) {
+  color:#ac6125;
+}
+
+.lista-tips li:nth-child(9), .lista-tips li:nth-child(10) {
+  font-weight: 300;
+  font-size: 15px;
 }
