@@ -4,6 +4,8 @@ import {
   MapContainer, TileLayer, Marker, Popup
 } from "react-leaflet";
 import { useContext } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 
 /* Info mapbox:
@@ -27,6 +29,7 @@ const urlDefault = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 const urlBarrios = `https://api.mapbox.com/geocoding/v5/mapbox.places/2.167612130848904,41.38993034972496.json?access_token=${token}`;
 const coordsBCN = [41.38993034972496, 2.167612130848904];
 const coordsEUA = [39.58943721614868, -100.591495305186];
+const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
 
 // para localizar barrio/distrito de cada incidencia
 const fetchBarrio = () => {
@@ -67,7 +70,17 @@ const Mapa = props => {
               !incidencia.latitud || (
                 <Marker position={[incidencia.latitud, incidencia.longitud]} icon={getIcon(incidencia.tipoIncidencia.tipo)}>
                   <Popup>
-                    Tonto quien lo lea
+                    <Container>
+                      <Col as="img" className="popimg" src={imgPopup("incidencia607fe20e74a98b1b987da264.png")} alt={incidencia.descripcion} />
+                      <Col as="div">
+                        <h4>
+                          {incidencia.nombre}
+                          {"    "}
+                          <Link href={(`/incidencia/:${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link>
+                        </h4>
+                        <h6>{incidencia.tipoIncidencia.tipo}</h6>
+                      </Col>
+                    </Container>
                   </Popup>
                 </Marker>
               )

@@ -13,13 +13,13 @@ const NuevaIncidenciaPagina = () => {
     setMarcar(!marcar);
   };
 
-  function geoUsuario() {
-    function success(position) {
+  const geoUsuario = () => {
+    const success = (position) => {
       const latitud = position.coords.latitude;
       const longitud = position.coords.longitude;
-    }
+    };
     navigator.geolocation.getCurrentPosition(success);
-  }
+  };
 
   const linkInicio = () => {
     history.push("/mis-incidencias");
