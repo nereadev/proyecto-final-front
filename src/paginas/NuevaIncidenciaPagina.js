@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-  Button, Col, Form, Row, Toast
+  Button, Col, Row, Toast
 } from "react-bootstrap";
 import { useHistory } from "react-router";
 import IncidenciaForm from "../componentes/IncidenciaForm";
@@ -15,6 +15,7 @@ const NuevaIncidenciaPagina = () => {
     console.log(contenidoBoton);
   };
   const toggleVentana = () => setVentana(!ventana);
+  console.log(ventana);
   const linkInicio = () => {
     history.push("/mis-incidencias");
   };
@@ -23,7 +24,7 @@ const NuevaIncidenciaPagina = () => {
       <Col>
         <Row as="h2">Formulario Incidencia</Row>
         <Row as="section" className="nueva-incidencia">
-          {contenidoBoton ? <LocalizacionForm /> : <IncidenciaForm />}
+          {contenidoBoton ? <LocalizacionForm /> : <IncidenciaForm ventana={ventana} />}
         </Row>
         <Row>
           <Col>

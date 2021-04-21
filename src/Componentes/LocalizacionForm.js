@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  Col, Form, Row, Button, Toast
-} from "react-bootstrap";
-import { useHistory } from "react-router";
-import IncidenciaForm from "./IncidenciaForm";
+import { Col, Form } from "react-bootstrap";
 
 const LocalizacionForm = () => {
   const [marcar, setMarcar] = useState(false);
@@ -50,11 +46,6 @@ const LocalizacionForm = () => {
           </Form.Group>
         </Col>
         <Form.Check type="checkbox" onChange={geoUsuario} label="Usar mi ubicación actual" />
-        {/* <Button className="siguiente" type="submit" variant="info">
-          <i className="fas fa-arrow-right" />
-          {" "}
-          Siguiente
-        </Button> */}
       </Form>
     </>
   );
