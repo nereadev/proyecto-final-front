@@ -2,7 +2,7 @@ import {
   BrowserRouter as Router, Redirect, Route, Switch
 } from "react-router-dom";
 import { Container } from "react-bootstrap";
-
+import { RutaProtegida } from "./componentes/RutaProtegida";
 import RegistroPagina from "./paginas/RegistroPagina";
 import IncidenciaPagina from "./paginas/IncidenciaPagina";
 import MiCuentaPagina from "./paginas/MiCuentaPagina";
