@@ -13,6 +13,7 @@ const ContextoUsuarioProvider = props => {
   const [existeToken, setExisteToken] = useState(false);
   const getUsuario = {
     usuario,
+    existeToken,
     setExisteToken
   };
   useEffect(() => {
