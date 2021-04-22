@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 import { useEffect, useReducer, useState } from "react";
 import { usuarioReducer } from "../utils/reducers/usuarioReducer";
 import { ContextoUsuario } from "./ContextoUsuario";
-import useFetch from "../utils/hooks/useFetchToken";
+import useFetch from "../utils/hooks/useFetch";
 
 const ContextoUsuarioProvider = props => {
   // eslint-disable-next-line react/prop-types
@@ -20,12 +20,11 @@ const ContextoUsuarioProvider = props => {
     if (existeToken) {
       const token = localStorage.getItem("token-usuario");
       const idUsuario = jwt_decode(token).id;
-      const request = new Request(`http://localhost:5000/usuarios/${idUsuario}`, {
+      pideUsuarioFetch(true, `usuarios/${idUsuario}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       });
-      pideUsuarioFetch(request);
     }
   }, [existeToken]);
   useEffect(() => {

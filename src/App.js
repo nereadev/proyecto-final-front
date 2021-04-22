@@ -25,6 +25,7 @@ function App() {
         <Cabecera />
         <ContextoIncidenciasProvider>
           <Router>
+            <Cabecera />
             <Switch>
               <Route path="/inicio" exact>
                 <InicioPagina />

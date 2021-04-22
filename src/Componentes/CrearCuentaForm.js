@@ -9,11 +9,12 @@ import useFetch from "../utils/hooks/useFetch";
 const CrearCuentaForm = () => {
   const [ventana, setVentana] = useState(false);
   const toggleVentana = () => setVentana(!ventana);
+  const [error, setError] = useState("");
   const history = useHistory();
   const linkAcceder = () => {
     history.push("/registro/acceder");
   };
-  const { datos, pideDatos } = useFetch();
+  const { datos, pideDatos: postNuevoUsuario } = useFetch();
   const { datosForm, modificarDatos } = useForm({
     nombre: "",
     apellidos: "",
@@ -25,19 +26,26 @@ const CrearCuentaForm = () => {
   });
   const registraUsuario = e => {
     e.preventDefault();
-    pideDatos("https://localhost:5000/usuarios", {
+    postNuevoUsuario(true, "usuarios", {
       method: "POST",
       headers: {
-        "Content-name= type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(datosForm)
     });
   };
+  useEffect(() => {
+    if (datos?.error) {
+      setError("Revisa tus datos y vuelve a introducirlos correctamente");
+    } else if (datos) {
+      toggleVentana();
+    }
+  }, [datos]);
   return (
     <>
       <Row as="h2">Crea tu cuenta</Row>
       <Row as="section" className="formulario-incidencia">
-        <Form className={`crear-cuenta ${!ventana ? "" : "oculto"}`} as={Col} onSubmit={registraUsuario}>
+        <Form className={`crear-cuenta ${!ventana ? "" : "oculto"} col`} onSubmit={registraUsuario}>
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label>Nombre:</Form.Label>
@@ -57,7 +65,7 @@ const CrearCuentaForm = () => {
 
             <Form.Group as={Col}>
               <Form.Label>Contraseña:</Form.Label>
-              <Form.Control name="contrasenya" type="password" id="contrasenya" required value={datosForm.contrasenya} onChange={modificarDatos} />
+              <Form.Control name="contrasenya" type="password" placeholder="min 8 caracteres" id="contrasenya" required value={datosForm.contrasenya} onChange={modificarDatos} />
             </Form.Group>
           </Form.Row>
 
@@ -77,7 +85,8 @@ const CrearCuentaForm = () => {
               <Form.Control id="codigoPostal" name="codigoPostal" type="text" required value={datosForm.codigoPostal} onChange={modificarDatos} />
             </Form.Group>
           </Form.Row>
-          <Button as={Col} md={3} className="boton-crear" onClick={registraUsuario} type="submit" variant="info">Registrar</Button>
+          <Button className="boton-crear" type="submit" variant="info">Registrar</Button>
+          <p className="error">{error}</p>
           {/* cambio onClick={nuevoUsuario} */}
         </Form>
         <Col className="ventana" sm={12}>
