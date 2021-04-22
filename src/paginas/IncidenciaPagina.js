@@ -5,6 +5,7 @@ import {
   Button, ButtonGroup, Col, Overlay, Row
 } from "react-bootstrap";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
 import useFetch from "../utils/hooks/useFetch";
 
@@ -13,6 +14,7 @@ const pruebaResuelta = false;
 
 const IncidenciaPagina = () => {
   const { id } = useParams();
+  const imgUrl = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
   const [incidenciaElegida, setIncidenciaElegida] = useState("");
   const { getUsuario: { existeToken } } = useContext(ContextoUsuario);
   const [info, setInfo] = useState(false);
@@ -41,9 +43,9 @@ const IncidenciaPagina = () => {
     <Row as="main">
       <Col>
         <Row as="h2">
-          Incidencia
+          Incidencia N°
           {" "}
-          {incidenciaElegida._id}
+          {incidenciaElegida ? incidenciaElegida._id.slice(0, 3) : ""}
         </Row>
         <Col className={`estado-info ${info ? "" : "desactivada"}`}>
           El estado azul indica que la incidencia se ha registrado.
@@ -90,7 +92,7 @@ const IncidenciaPagina = () => {
               <Col>{fecha}</Col>
             </Row>
             <Row>
-              <Col>Favoritos:</Col>
+              <Col>Votos:</Col>
               <Col>
                 <i className="fas fa-star" />
                 {" "}
@@ -98,6 +100,12 @@ const IncidenciaPagina = () => {
               </Col>
             </Row>
           </Col>
+        </Row>
+      </Col>
+      <Col>
+        <Row>
+          <Col as="img" src={incidencia ? imgUrl(incidenciaElegida.fotoIncidencia) : ""} alt={incidenciaElegida.descripcion} />
+          <Col as="a" href={imgUrl(incidenciaElegida.fotoIncidencia)} className="text-right">ampliar imagen</Col>
         </Row>
       </Col>
     </Row>

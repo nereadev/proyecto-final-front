@@ -45,6 +45,7 @@ const Mapa = props => {
   const { mapaBarrios } = props;
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
+  console.log(incidencias);
   return (
     <>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
@@ -67,7 +68,7 @@ const Mapa = props => {
                 <Marker key={incidencia._id} position={[incidencia.latitud, incidencia.longitud]} icon={getIcon(incidencia.tipoIncidencia.tipo)}>
                   <Popup>
                     <Container>
-                      <Col as="img" className="popimg" src={imgPopup("incidencia607fe20e74a98b1b987da264.png")} alt={incidencia.descripcion} />
+                      <Col as="img" className="popimg" src={imgPopup(incidencia.fotoIncidencia)} alt={incidencia.descripcion} />
                       <Col as="div">
                         <h4>
                           {incidencia.nombre}
