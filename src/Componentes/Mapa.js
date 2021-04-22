@@ -45,7 +45,6 @@ const Mapa = props => {
   const { mapaBarrios } = props;
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
-  console.log(incidencias);
   return (
     <>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">

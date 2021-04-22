@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
 import useFetch from "../utils/hooks/useFetch";
 
-// falta linkar con datosAPI, es una prueba
-const pruebaResuelta = false;
+const token = "pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw";
+const urlMapbox = (longitud, latitud, token) => (`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitud},${latitud}.json?types=address&access_token=${token}`);
 
 const IncidenciaPagina = () => {
   const { id } = useParams();
@@ -19,6 +19,14 @@ const IncidenciaPagina = () => {
   const { getUsuario: { existeToken } } = useContext(ContextoUsuario);
   const [info, setInfo] = useState(false);
   const fecha = incidenciaElegida ? new Date(incidenciaElegida.registrada).toLocaleDateString() : "";
+  const { datos: datosGPS, pideDatos: pideDireccion } = useFetch();
+
+  useEffect(() => {
+    if (incidenciaElegida) {
+      pideDireccion(false, urlMapbox(incidenciaElegida.longitud, incidenciaElegida.latitud, token));
+    }
+  }, [incidenciaElegida]);
+
   const mostrarInfo = () => {
     setInfo(!info);
   };
@@ -59,7 +67,7 @@ const IncidenciaPagina = () => {
               </Col>
               <Col>
                 <i className={`fas fa-circle
-            ${pruebaResuelta ? "incidencia-resuelta" : "incidencia-recibida"}`}
+            ${incidenciaElegida.resulta ? "incidencia-resuelta" : "incidencia-recibida"}`}
                 />
                 <Button className="boton-info" variant="light" onClick={() => mostrarInfo()}>
                   {" "}
@@ -85,7 +93,7 @@ const IncidenciaPagina = () => {
             </Row>
             <Row>
               <Col>Localización:</Col>
-              <Col>{incidenciaElegida.direccion}</Col>
+              <Col>{datosGPS?.features[0].place_name}</Col>
             </Row>
             <Row>
               <Col>Fecha:</Col>
