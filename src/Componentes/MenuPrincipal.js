@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useContext } from "react";
 import {
   Col, Button, Nav, Navbar, NavLink
 } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import { ContextoToken } from "../contextos/ContextoToken";
 
 const MenuPrincipal = () => {
-  const [logeado, setLogeado] = useState(false);
+  const { existeToken, setExisteToken } = useContext(ContextoToken);
+  const cerrarSesion = () => {
+    localStorage.removeItem("token-usuario");
+    setExisteToken(false);
+  };
+  console.log(existeToken);
   return (
     <Col xs={10} className="navegacion">
       <Navbar expand="lg" className="navegacion">
@@ -12,14 +19,14 @@ const MenuPrincipal = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="menuCabecera">
             <NavLink to="/inicio" className="navItem">Mapa / Incidencias</NavLink>
-            {logeado && <NavLink to="/nueva-incidencia" className="navItem">Nueva Incidencia</NavLink>}
-            {logeado && <NavLink to="/mis-incidencias" className="navItem"> Mis incidencias</NavLink>}
+            {existeToken && <NavLink to="/nueva-incidencia" className="navItem">Nueva Incidencia</NavLink>}
+            {existeToken && <NavLink to="/mis-incidencias" className="navItem"> Mis incidencias</NavLink>}
             <NavLink to="/como-funciona" className="navItem"> Cómo funciona?</NavLink>
-            {logeado && <NavLink to="/mi-cuenta" className="navItem">Mi cuenta</NavLink>}
+            {existeToken && <NavLink to="/mi-cuenta" className="navItem">Mi cuenta</NavLink>}
             <NavLink to="/contacto" className="navItem">Contacto</NavLink>
-            {!logeado && <Button variant="dark" href="/registro/acceder" className="navItem registroBoton acceder">Acceder</Button>}
-            {!logeado && <Button variant="dark" href="/registro/crear-cuenta" className="navItem registroBoton crearCuenta">Crear cuenta</Button>}
-            {logeado && <Button variant="dark" className="navItem registroBoton logoutBoton">Cerrar sesión</Button>}
+            {!existeToken && <Button variant="dark" href="/registro/acceder" className="navItem registroBoton acceder">Acceder</Button>}
+            {!existeToken && <Button variant="dark" href="/registro/crear-cuenta" className="navItem registroBoton crearCuenta">Crear cuenta</Button>}
+            {existeToken && <Button variant="dark" onClick={cerrarSesion} className="navItem registroBoton logoutBoton">Cerrar sesión</Button>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
