@@ -1,6 +1,8 @@
 // eslint-disable-next-line camelcase
 import jwt_decode from "jwt-decode";
-import { useEffect, useReducer, useState, useContext } from "react";
+import {
+  useEffect, useReducer, useState, useContext
+} from "react";
 import { useHistory } from "react-router";
 import { usuarioReducer } from "../utils/reducers/usuarioReducer";
 import { ContextoUsuario } from "./ContextoUsuario";

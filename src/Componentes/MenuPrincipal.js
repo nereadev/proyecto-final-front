@@ -24,8 +24,8 @@ const MenuPrincipal = () => {
             <NavLink to="/como-funciona" className="navItem"> Cómo funciona?</NavLink>
             {existeToken && <NavLink to="/mi-cuenta" className="navItem">Mi cuenta</NavLink>}
             <NavLink to="/contacto" className="navItem">Contacto</NavLink>
-            {!existeToken && <Button variant="dark" to="/registro/acceder" className="navItem registroBoton acceder">Acceder</Button>}
-            {!existeToken && <Button variant="dark" to="/registro/crear-cuenta" className="navItem registroBoton crearCuenta">Crear cuenta</Button>}
+            {!existeToken && <Button variant="dark" href="/registro/acceder" className="navItem registroBoton acceder">Acceder</Button>}
+            {!existeToken && <Button variant="dark" href="/registro/crear-cuenta" className="navItem registroBoton crearCuenta">Crear cuenta</Button>}
             {existeToken && <Button variant="dark" onClick={cerrarSesion} className="navItem registroBoton logoutBoton">Cerrar sesión</Button>}
           </Nav>
         </Navbar.Collapse>
