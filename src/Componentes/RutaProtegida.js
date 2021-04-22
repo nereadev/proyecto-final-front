@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useContext } from "react";
-import { Route, useParams } from "react-router";
+import { Route } from "react-router";
 import { ContextoToken } from "../contextos/ContextoToken";
 
 export const RutaProtegida = (props) => {
