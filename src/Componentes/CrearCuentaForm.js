@@ -25,7 +25,8 @@ const CrearCuentaForm = () => {
   });
   const registraUsuario = e => {
     e.preventDefault();
-    pideDatos("https://localhost:5000/usuarios", {
+    console.log("hola");
+    pideDatos("https://api-incidencias.herokuapp.com/usuarios", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -37,7 +38,7 @@ const CrearCuentaForm = () => {
     <>
       <Row as="h2">Crea tu cuenta</Row>
       <Row as="section" className="formulario-incidencia">
-        <Form className={`crear-cuenta ${!ventana ? "" : "oculto"}`} as={Col} onSubmit={registraUsuario}>
+        <Form className={`crear-cuenta ${!ventana ? "" : "oculto"} col`} onSubmit={registraUsuario}>
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label>Nombre:</Form.Label>
@@ -77,7 +78,7 @@ const CrearCuentaForm = () => {
               <Form.Control id="codigoPostal" name="codigoPostal" type="text" required value={datosForm.codigoPostal} onChange={modificarDatos} />
             </Form.Group>
           </Form.Row>
-          <Button as={Col} md={3} className="boton-crear" onClick={toggleVentana} type="submit" variant="info">Registrar</Button>
+          <Button className="boton-crear" type="submit" variant="info">Registrar</Button>
           {/* cambio onClick={nuevoUsuario} */}
         </Form>
         <Col className="ventana" sm={12}>
