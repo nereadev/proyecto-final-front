@@ -29,9 +29,9 @@ function App() {
               <Route path="/inicio" exact>
                 <InicioPagina />
               </Route>
-              <Route path="/registro/:accion" exact>
+              <RutaProtegida path="/registro/:accion" exact>
                 <RegistroPagina />
-              </Route>
+              </RutaProtegida>
               <Route path="/incidencia/:id" exact>
                 <IncidenciaPagina />
               </Route>
@@ -39,9 +39,9 @@ function App() {
               <Route path="/mi-cuenta" exact>
                 <MiCuentaPagina />
               </Route>
-              <Route path="/mis-incidencias" exact>
+              <RutaProtegida path="/mis-incidencias" exact>
                 <MisIncidenciasPagina />
-              </Route>
+              </RutaProtegida>
               <Route path="/contacto" exact>
                 <ContactoPagina />
               </Route>
