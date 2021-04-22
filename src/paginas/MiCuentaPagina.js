@@ -3,7 +3,8 @@ import { useContext } from "react";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
 
 const MiCuentaPagina = () => {
-  const { getUsuario } = useContext(ContextoUsuario);
+  const a = 3;
+  // const { getUsuario } = useContext(ContextoUsuario);
   // const usuario = getUsuario.usuario;
   return (
     <Row as="main">

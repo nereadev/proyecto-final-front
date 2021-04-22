@@ -5,7 +5,7 @@ import {
 } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { ContextoUsuario } from "../contextos/ContextoUsuario";
+import { ContextoToken } from "../contextos/ContextoToken";
 import useFetch from "../utils/hooks/useFetch";
 
 const token = "pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw";
@@ -15,7 +15,7 @@ const IncidenciaPagina = () => {
   const { id } = useParams();
   const imgUrl = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
   const [incidenciaElegida, setIncidenciaElegida] = useState("");
-  const { getUsuario: { existeToken } } = useContext(ContextoUsuario);
+  const { existeToken } = useContext(ContextoToken);
   const [info, setInfo] = useState(false);
   const fecha = incidenciaElegida ? new Date(incidenciaElegida.registrada).toLocaleDateString() : "";
   const { datos: datosGPS, pideDatos: pideDireccion } = useFetch();
