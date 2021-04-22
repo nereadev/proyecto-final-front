@@ -41,6 +41,8 @@ const getIcon = (tipoIncidencia) => icon({
   iconSize: [30],
 });
 
+const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+
 const Mapa = props => {
   const { mapaBarrios } = props;
   const { getIncidencias } = useContext(ContextoIncidencias);
@@ -74,7 +76,10 @@ const Mapa = props => {
                           {"    "}
                           <Link to={(`/incidencia/${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link>
                         </h4>
-                        <h6>{incidencia.tipoIncidencia.tipo}</h6>
+                        <Row>
+                          <Col as="h6">{incidencia.tipoIncidencia.tipo}</Col>
+                          <Col as="img" className="circular" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
+                        </Row>
                       </Col>
                     </Container>
                   </Popup>

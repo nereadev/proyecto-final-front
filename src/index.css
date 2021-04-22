@@ -140,7 +140,13 @@ margin-top: 5px;
   font-size: 0.8em;
   display: block;
 }
-
+.circular {
+  position: absolute;
+  right: 0px;
+  max-width: 50px;
+  max-height: 50px;
+  padding: 0;
+}
 /* Acceder */
 h2 {
  padding: 15px;
