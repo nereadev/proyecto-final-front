@@ -25,7 +25,6 @@ const CrearCuentaForm = () => {
   });
   const registraUsuario = e => {
     e.preventDefault();
-    console.log("hola");
     pideDatos("https://api-incidencias.herokuapp.com/usuarios", {
       method: "POST",
       headers: {
@@ -34,6 +33,11 @@ const CrearCuentaForm = () => {
       body: JSON.stringify(datosForm)
     });
   };
+  useEffect(() => {
+    if (datos) {
+      toggleVentana();
+    }
+  }, [datos]);
   return (
     <>
       <Row as="h2">Crea tu cuenta</Row>
