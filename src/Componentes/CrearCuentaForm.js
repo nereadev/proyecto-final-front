@@ -96,7 +96,7 @@ const CrearCuentaForm = () => {
               <strong className="mr-auto">Cuenta Creada</strong>
               <small>cerrar</small>
             </Toast.Header>
-            <Toast.Body>Su cuenta se ha creado correctamente. Por favor diríjase a la bandeja de entrada de su correo para confirmar el registro</Toast.Body>
+            <Toast.Body>Su cuenta se ha creado correctamente. Por favor diríjase a la bandeja de entrada de su email para confirmar el registro</Toast.Body>
           </Toast>
         </Col>
       </Row>
