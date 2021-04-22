@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-  Col, Button, Nav, Navbar
+  Col, Button, Nav, Navbar, NavLink
 } from "react-bootstrap";
 
 const MenuPrincipal = () => {
@@ -11,12 +11,12 @@ const MenuPrincipal = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="menuCabecera">
-            <Nav.Link href="/inicio" className="navItem">Mapa / Incidencias</Nav.Link>
-            {logeado && <Nav.Link href="/nueva-incidencia" className="navItem">Nueva Incidencia</Nav.Link>}
-            {logeado && <Nav.Link href="/mis-incidencias" className="navItem"> Mis incidencias</Nav.Link>}
-            <Nav.Link href="/como-funciona" className="navItem"> Cómo funciona?</Nav.Link>
-            {logeado && <Nav.Link href="/mi-cuenta" className="navItem">Mi cuenta</Nav.Link>}
-            <Nav.Link href="/contacto" className="navItem">Contacto</Nav.Link>
+            <NavLink to="/inicio" className="navItem">Mapa / Incidencias</NavLink>
+            {logeado && <NavLink to="/nueva-incidencia" className="navItem">Nueva Incidencia</NavLink>}
+            {logeado && <NavLink to="/mis-incidencias" className="navItem"> Mis incidencias</NavLink>}
+            <NavLink to="/como-funciona" className="navItem"> Cómo funciona?</NavLink>
+            {logeado && <NavLink to="/mi-cuenta" className="navItem">Mi cuenta</NavLink>}
+            <NavLink to="/contacto" className="navItem">Contacto</NavLink>
             {!logeado && <Button variant="dark" href="/registro/acceder" className="navItem registroBoton acceder">Acceder</Button>}
             {!logeado && <Button variant="dark" href="/registro/crear-cuenta" className="navItem registroBoton crearCuenta">Crear cuenta</Button>}
             {logeado && <Button variant="dark" className="navItem registroBoton logoutBoton">Cerrar sesión</Button>}

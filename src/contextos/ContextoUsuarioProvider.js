@@ -10,9 +10,10 @@ const ContextoUsuarioProvider = props => {
   const { children } = props;
   const [usuario, dispatch] = useReducer(usuarioReducer, {});
   const { datos: usuarioFetch, pideDatos: pideUsuarioFetch } = useFetch();
-  const [existeToken, setExisteToken] = useState(false);
+  const [existeToken, setExisteToken] = useState(true);
   const getUsuario = {
     usuario,
+    existeToken,
     setExisteToken
   };
   useEffect(() => {
@@ -28,7 +29,6 @@ const ContextoUsuarioProvider = props => {
   }, [existeToken]);
   useEffect(() => {
     if (usuarioFetch) {
-      console.log(usuarioFetch);
       dispatch({
         type: "cargarUsuario",
         usuario: usuarioFetch
