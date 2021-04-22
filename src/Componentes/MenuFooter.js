@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import {
-  Col, Nav, NavLink
+  Col, Nav
 } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { ContextoToken } from "../contextos/ContextoToken";
 
 const MenuFooter = () => {
