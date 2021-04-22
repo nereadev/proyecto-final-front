@@ -20,10 +20,10 @@ import ContextoUsuarioProvider from "./contextos/ContextoUsuarioProvider";
 function App() {
   return (
     <Container fluid>
-      <Cabecera />
-      <ContextoIncidenciasProvider>
-        <ContextoUsuarioProvider>
-          <Router>
+      <Router>
+        <Cabecera />
+        <ContextoIncidenciasProvider>
+          <ContextoUsuarioProvider>
             <Switch>
               <Route path="/inicio" exact>
                 <InicioPagina />
@@ -56,10 +56,10 @@ function App() {
                 <NotFoundPagina />
               </Route>
             </Switch>
-          </Router>
-        </ContextoUsuarioProvider>
-      </ContextoIncidenciasProvider>
-      <Footer />
+          </ContextoUsuarioProvider>
+        </ContextoIncidenciasProvider>
+        <Footer />
+      </Router>
     </Container>
   );
 }
