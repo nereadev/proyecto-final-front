@@ -9,6 +9,7 @@ import useFetch from "../utils/hooks/useFetch";
 const CrearCuentaForm = () => {
   const [ventana, setVentana] = useState(false);
   const toggleVentana = () => setVentana(!ventana);
+  const [error, setError] = useState("");
   const history = useHistory();
   const linkAcceder = () => {
     history.push("/registro/acceder");
@@ -25,7 +26,6 @@ const CrearCuentaForm = () => {
   });
   const registraUsuario = e => {
     e.preventDefault();
-    console.log("hola");
     postNuevoUsuario(true, "usuarios", {
       method: "POST",
       headers: {
@@ -34,6 +34,13 @@ const CrearCuentaForm = () => {
       body: JSON.stringify(datosForm)
     });
   };
+  useEffect(() => {
+    if (datos?.error) {
+      setError("Revisa tus datos y vuelve a introducirlos correctamente");
+    } else if (datos) {
+      toggleVentana();
+    }
+  }, [datos]);
   return (
     <>
       <Row as="h2">Crea tu cuenta</Row>
@@ -58,7 +65,7 @@ const CrearCuentaForm = () => {
 
             <Form.Group as={Col}>
               <Form.Label>Contraseña:</Form.Label>
-              <Form.Control name="contrasenya" type="password" id="contrasenya" required value={datosForm.contrasenya} onChange={modificarDatos} />
+              <Form.Control name="contrasenya" type="password" placeholder="min 8 caracteres" id="contrasenya" required value={datosForm.contrasenya} onChange={modificarDatos} />
             </Form.Group>
           </Form.Row>
 
@@ -79,6 +86,7 @@ const CrearCuentaForm = () => {
             </Form.Group>
           </Form.Row>
           <Button className="boton-crear" type="submit" variant="info">Registrar</Button>
+          <p className="error">{error}</p>
           {/* cambio onClick={nuevoUsuario} */}
         </Form>
         <Col className="ventana" sm={12}>
