@@ -10,6 +10,7 @@ const LocalizacionForm = () => {
   const [marcar, setMarcar] = useState(false);
   const [introducirDatos, setintroducirDatos] = useState(false);
   const [lista, setLista] = useState(false);
+  const [direccion, setDireccion] = useState({});
   const [ocultarIntroducirDatos, setOcultarIntroducirDatos] = useState(true);
   const [siguiente, setSiguiente] = useState(false);
   const [activarBoton, setActivarBoton] = useState(false);
@@ -24,14 +25,16 @@ const LocalizacionForm = () => {
   const marcarCheck = () => {
     setMarcar(!marcar);
   };
-  function geoUsuario() {
-    function success(position) {
-      const latitud = position.coords.latitude;
-      const longitud = position.coords.longitude;
-    }
+  const geoUsuario = () => {
+    const success = (position) => {
+      setDireccion({
+        latitud: position.coords.latitude,
+        longitud: position.coords.longitude
+      });
+    };
     navigator.geolocation.getCurrentPosition(success);
     setOcultarIntroducirDatos(!ocultarIntroducirDatos);
-  }
+  };
   const mostrarLista = () => {
     setLista(!lista);
   };
@@ -125,7 +128,7 @@ const LocalizacionForm = () => {
             </Col>
           </>
         )
-        : <IncidenciaForm />}
+        : <IncidenciaForm direccionGeo={direccion} />}
     </>
   );
 };
