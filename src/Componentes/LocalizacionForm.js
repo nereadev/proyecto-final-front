@@ -2,7 +2,9 @@ import { useState } from "react";
 import {
   Button, Col, Form, Row
 } from "react-bootstrap";
+import { useHistory } from "react-router";
 import IncidenciaForm from "./IncidenciaForm";
+import ListaIncidencias from "./ListaIncidencias";
 
 const LocalizacionForm = () => {
   const [marcar, setMarcar] = useState(false);
@@ -11,6 +13,7 @@ const LocalizacionForm = () => {
   const [ocultarIntroducirDatos, setOcultarIntroducirDatos] = useState(true);
   const [siguiente, setSiguiente] = useState(false);
   const [activarBoton, setActivarBoton] = useState(false);
+  const history = useHistory();
   const mostrarDesplegable = (e) => {
     if (e.target.checked) {
       setintroducirDatos(!introducirDatos);
@@ -38,6 +41,9 @@ const LocalizacionForm = () => {
   const cambiarBoton = () => {
     setActivarBoton(!activarBoton);
   };
+  const linkInicio = () => {
+    history.push("/inicio");
+  };
   return (
     <>
       {!activarBoton
@@ -57,7 +63,7 @@ const LocalizacionForm = () => {
                 type="checkbox"
                 onClick={marcarCheck}
                 onChange={mostrarDesplegable}
-                label="Introducir Datos"
+                label="Introducir localización manual"
               />
               <Col className={`introducir-datos ${introducirDatos ? "" : "off"}`}>
                 <Form.Group>
@@ -89,10 +95,10 @@ const LocalizacionForm = () => {
               <Col className={`${marcar ? "" : "off"}`}>
                 <Button variant="outline-danger" onClick={mostrarLista}>Comprobar</Button>
                 <Col className={`${lista || "off"}`}>
-                  <Row>aquí va la lista</Row>
-                  <Row>
+                  <ListaIncidencias />
+                  <Row className="comprobar-incidencia">
                     ¿Has visto tu incidencia?
-                    <Button variant="light">Sí</Button>
+                    <Button variant="light" onClick={linkInicio}>Sí</Button>
                     /
                     <Button variant="light" onClick={mostrarBotonSiguiente}>No</Button>
                   </Row>
@@ -100,8 +106,9 @@ const LocalizacionForm = () => {
               </Col>
             </Form>
             <Col>
-              <Row>
+              <Row className="footer-nueva-incidencia">
                 <Col>(1/2)</Col>
+                <Col />
                 <Col>
                   <Button
                     className="boton-nueva"
