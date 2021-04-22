@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-  Col, Nav, Button
+  Col, Nav, Button, NavLink
 } from "react-bootstrap";
 import Listado from "./Listado";
 import Mapa from "./Mapa";
@@ -13,14 +13,14 @@ const Inicio = () => {
       <Col sm={12} className="mapa-lista">
         <Nav activeKey="mapa">
           <Nav.Item>
-            <Nav.Link className="navLink" eventKey="mapa" onSelect={() => setListado(false)}>
+            <NavLink className="navLink" eventKey="mapa" onSelect={() => setListado(false)}>
               Mapa
-            </Nav.Link>
+            </NavLink>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link className="navLink" eventKey="listado" onSelect={() => setListado(true)}>
+            <NavLink className="navLink" eventKey="listado" onSelect={() => setListado(true)}>
               Listado
-            </Nav.Link>
+            </NavLink>
           </Nav.Item>
         </Nav>
       </Col>
