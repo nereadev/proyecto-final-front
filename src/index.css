@@ -4,6 +4,13 @@ main {
   margin: auto;
 }
 
+.leaflet-popup-content {
+  padding: 0;
+}
+.container {
+  padding-left: 0;
+}
+
 .cabecera, .pie {
 background-color: #b6c9b9;
 padding-top: 10px;
@@ -50,8 +57,8 @@ padding-bottom: 10px;
   font-size: 0.9em;
 }
 .acceder {
-background-color: #445448;
-margin-top: 5px;
+  background-color: #445448;
+  margin-top: 5px;
 }
 
 .crearCuenta {
@@ -93,25 +100,18 @@ margin-top: 5px;
 }
 
 .menuFooter {
-  line-height: 0.1em;
   justify-content: center;
-}
-.leaflet-popup-content {
-  padding: 0;
-}
-.container {
-  padding-left: 0;
+  line-height: 1.7em;
 }
 
 .menuFooter .navItem {
   font-size: 0.8em;
   color:#445448;
   border-right: 1px solid;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  padding: 0 10px;
 }
 .menuFooter .navItem:hover{
-  color: #445448;
+  text-decoration: none;
 }
 
 .menuFooter .nav-item:last-of-type a {
