@@ -46,8 +46,8 @@ const IncidenciaForm = (props) => {
           <Col>
             (2/2)
             {" "}
-            <Button variant="light">Volver</Button>
           </Col>
+          <Col />
           <Col>
             <Button className="boton-nueva" variant="info" onClick={toggleVentana}>Registrar</Button>
           </Col>
