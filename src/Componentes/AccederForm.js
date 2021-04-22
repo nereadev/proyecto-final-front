@@ -14,7 +14,7 @@ const AccederForm = () => {
   const [emailFetch, setEmailFetch] = useState("");
   const [contrasenyaFetch, setContrasenyaFetch] = useState("");
   const { datos: tokenFetch, pideDatos: pideTokenFetch } = useFetch();
-  const { setExisteToken } = useContext(ContextoToken);
+  const { existeToken, setExisteToken } = useContext(ContextoToken);
   useEffect(() => {
     if (emailFetch) {
       pideTokenFetch(true, "usuarios/login", {
