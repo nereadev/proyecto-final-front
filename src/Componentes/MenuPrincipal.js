@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import {
   Col, Button, Nav, Navbar
 } from "react-bootstrap";
