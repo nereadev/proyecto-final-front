@@ -15,9 +15,11 @@ const ContextoUsuarioProvider = props => {
   const history = useHistory();
   const [usuario, dispatch] = useReducer(usuarioReducer, {});
   const { datos: usuarioFetch, pideDatos: pideUsuarioFetch } = useFetch();
-  const { existeToken, setExisteToken } = useContext(ContextoToken);
+  const [existeToken, setExisteToken] = useState(true);
   const getUsuario = {
-    usuario
+    usuario,
+    existeToken,
+    setExisteToken
   };
   useEffect(() => {
     const token = localStorage.getItem("token-usuario");
@@ -38,7 +40,6 @@ const ContextoUsuarioProvider = props => {
   }, [existeToken]);
   useEffect(() => {
     if (usuarioFetch) {
-      console.log(usuarioFetch);
       dispatch({
         type: "cargarUsuario",
         usuario: usuarioFetch
