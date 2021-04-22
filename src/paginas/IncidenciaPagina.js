@@ -93,7 +93,7 @@ const IncidenciaPagina = () => {
             </Row>
             <Row>
               <Col>Localización:</Col>
-              <Col>{datosGPS?.features[0].place_name}</Col>
+              <Col>{datosGPS ? datosGPS.features[0].place_name : incidenciaElegida.direccion}</Col>
             </Row>
             <Row>
               <Col>Fecha:</Col>
