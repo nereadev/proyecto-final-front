@@ -261,6 +261,47 @@ a.contrasenya, a.contrasenya:hover {
 .fa-circle.incidencia-resuelta {
   color: rgb(19, 252, 19);
 }
+.targeta-incidencia {
+ align-items: center;
+ border-bottom: #d6d4d4bd 1px solid;
+}
+.targeta-incidencia:first-of-type {
+ border-top: #d6d4d4bd 1px solid;
+}
+.lateral-targeta-incidencia {
+  justify-content: center;
+}
+.elemento-targeta-incidencia {
+  padding: 5px 10px;
+}
+.elemento-targeta-incidencia.descripcion-targeta {
+  background-color: #e7e1e1bd;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.elemento-targeta-incidencia.tipo-targeta {
+  display: inline-block;
+  background-color: #a39d9dbd;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 15px;
+  font-size: 10px;
+}
+.elemento-targeta-incidencia.direccion-targeta {
+  color: #645f5fbd;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 10px;
+}
+.targeta-tipo {
+  position: absolute;
+  top: 11px;
+  left: 31px;
+  max-width: 20px;
+  max-height: 20px;
+  padding: 0;
+}
 .incidencia-lista, .titulo-lista {
  align-items: center;
  text-align: center;
