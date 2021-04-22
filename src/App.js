@@ -16,6 +16,7 @@ import Cabecera from "./componentes/Cabecera";
 import Footer from "./componentes/Footer";
 import ContextoIncidenciasProvider from "./contextos/ContextoIncidenciasProvider";
 import ContextoUsuarioProvider from "./contextos/ContextoUsuarioProvider";
+import { RutaProtegida } from "./componentes/RutaProtegida";
 
 function App() {
   return (
@@ -34,9 +35,7 @@ function App() {
               <Route path="/incidencia/:id" exact>
                 <IncidenciaPagina />
               </Route>
-              <Route path="/nueva-incidencia" exact>
-                <NuevaIncidenciaPagina />
-              </Route>
+              <RutaProtegida path="/nueva-incidencia" component={NuevaIncidenciaPagina} exact />
               <Route path="/mi-cuenta" exact>
                 <MiCuentaPagina />
               </Route>
