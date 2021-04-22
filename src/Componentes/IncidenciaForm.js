@@ -1,8 +1,16 @@
-import { Col, Form } from "react-bootstrap";
-import PropTypes from "prop-types";
+import {
+  Button, Col, Form, Row, Toast
+} from "react-bootstrap";
+import { useState } from "react";
+import { useHistory } from "react-router";
 
 const IncidenciaForm = (props) => {
-  const { ventana } = props;
+  const [ventana, setVentana] = useState(false);
+  const history = useHistory();
+  const toggleVentana = () => setVentana(!ventana);
+  const linkInicio = () => {
+    history.push("/mis-incidencias");
+  };
   return (
     <>
       <Form className={`formulario ${!ventana ? "" : "oculto"}`} as={Col} md={10}>
@@ -33,12 +41,30 @@ const IncidenciaForm = (props) => {
         </Form.Group>
         <Form.Group />
       </Form>
+      <Col>
+        <Row>
+          <Col>
+            (2/2)
+            {" "}
+            <Button variant="light">Volver</Button>
+          </Col>
+          <Col>
+            <Button className="boton-nueva" variant="info" onClick={toggleVentana}>Registrar</Button>
+          </Col>
+        </Row>
+      </Col>
+      <Col className="ventana" sm={12}>
+        <Toast show={ventana} onClose={linkInicio}>
+          <Toast.Header>
+            <i className="fas fa-check-circle mr-2" />
+            <strong className="mr-auto">Incidencia Registrada</strong>
+            <small>cerrar</small>
+          </Toast.Header>
+          <Toast.Body>La nueva incidencia se ha enviado correctamente.</Toast.Body>
+        </Toast>
+      </Col>
     </>
   );
-};
-
-IncidenciaForm.propTypes = {
-  ventana: PropTypes.bool.isRequired
 };
 
 export default IncidenciaForm;

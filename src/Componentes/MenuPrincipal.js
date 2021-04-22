@@ -12,7 +12,7 @@ const MenuPrincipal = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="menuCabecera">
             <Nav.Link href="/inicio" className="navItem">Mapa / Incidencias</Nav.Link>
-            {logeado && <Nav.Link href="/nueva-incidencia" className="navItem">Nueva Incidencia</Nav.Link>}
+            {/* logeado &&  */<Nav.Link href="/nueva-incidencia" className="navItem">Nueva Incidencia</Nav.Link>}
             {logeado && <Nav.Link href="/mis-incidencias" className="navItem"> Mis incidencias</Nav.Link>}
             <Nav.Link href="/como-funciona" className="navItem"> Cómo funciona?</Nav.Link>
             {logeado && <Nav.Link href="/mi-cuenta" className="navItem">Mi cuenta</Nav.Link>}
