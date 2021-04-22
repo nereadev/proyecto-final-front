@@ -45,10 +45,6 @@ const Mapa = props => {
   const { mapaBarrios } = props;
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
-  if (incidencias.length !== 0) {
-    console.log(incidencias);
-    console.log(incidencias.body.incidencias.map(incidencia => incidencia.tipoIncidencia.tipo));
-  }
   return (
     <>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
@@ -76,7 +72,7 @@ const Mapa = props => {
                         <h4>
                           {incidencia.nombre}
                           {"    "}
-                          <Link href={(`/incidencia/:${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link>
+                          <Link to={(`/incidencia/:${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link>
                         </h4>
                         <h6>{incidencia.tipoIncidencia.tipo}</h6>
                       </Col>
