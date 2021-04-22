@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from "react";
-import useFetch from "../utils/hooks/useFetch2";
+import useFetch from "../utils/hooks/useFetch";
 import { incidenciasReducer } from "../utils/reducers/incidenciasReducer";
 import { ContextoIncidencias } from "./ContextoIncidencias";
 

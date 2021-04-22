@@ -13,7 +13,7 @@ const CrearCuentaForm = () => {
   const linkAcceder = () => {
     history.push("/registro/acceder");
   };
-  const { datos, pideDatos } = useFetch();
+  const { datos, pideDatos: postNuevoUsuario } = useFetch();
   const { datosForm, modificarDatos } = useForm({
     nombre: "",
     apellidos: "",
@@ -26,7 +26,7 @@ const CrearCuentaForm = () => {
   const registraUsuario = e => {
     e.preventDefault();
     console.log("hola");
-    pideDatos("https://api-incidencias.herokuapp.com/usuarios", {
+    postNuevoUsuario(true, "usuarios", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -5,7 +5,7 @@ import {
 } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
-import useFetch from "../utils/hooks/useFetchToken";
+import useFetch from "../utils/hooks/useFetch";
 
 const AccederForm = () => {
   const history = useHistory();
@@ -17,15 +17,13 @@ const AccederForm = () => {
   const { getUsuario } = useContext(ContextoUsuario);
   useEffect(() => {
     if (emailFetch) {
-      const request = new Request("http://localhost:5000/usuarios/login", {
+      pideTokenFetch(true, "usuarios/login", {
         method: "POST",
-        /* este header que hace? */
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ email: emailFetch, contrasenya: contrasenyaFetch })
       });
-      pideTokenFetch(request);
     }
   }, [emailFetch, pideTokenFetch]);
   useEffect(() => {
