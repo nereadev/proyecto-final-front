@@ -4,14 +4,11 @@ import {
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { ContextoToken } from "../contextos/ContextoToken";
+import useSesion from "../utils/hooks/useSesion";
 
 const MenuPrincipal = () => {
-  const { existeToken, setExisteToken } = useContext(ContextoToken);
-  const cerrarSesion = () => {
-    localStorage.removeItem("token-usuario");
-    setExisteToken(false);
-  };
-  console.log(existeToken);
+  const { existeToken } = useContext(ContextoToken);
+  const cerrarSesion = useSesion();
   return (
     <Col xs={10} className="navegacion">
       <Navbar expand="lg" className="navegacion">
