@@ -11,10 +11,9 @@ import useForm from "../utils/hooks/useForm";
 import { ContextoToken } from "../contextos/ContextoToken";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
 
-const token = localStorage.getItem("token-usuario");
-const idUsuario = jwt_decode(token).id;
-
 const IncidenciaForm = props => {
+  const token = localStorage.getItem("token-usuario");
+  const idUsuario = jwt_decode(token).id;
   const { direccionGeo } = props;
   const { existeToken } = useContext(ContextoToken);
   const [ventana, setVentana] = useState(false);

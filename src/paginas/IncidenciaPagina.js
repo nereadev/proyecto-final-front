@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 // eslint-disable-next-line camelcase
-import jwt_decode from "jwt-decode";
 import {
   Button, ButtonGroup, Col, Overlay, Row
 } from "react-bootstrap";
