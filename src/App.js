@@ -21,11 +21,10 @@ import { RutaProtegida } from "./componentes/RutaProtegida";
 function App() {
   return (
     <Container fluid>
-      <ContextoUsuarioProvider>
-        <Cabecera />
-        <ContextoIncidenciasProvider>
-          <Router>
-            <Cabecera />
+      <Router>
+        <ContextoUsuarioProvider>
+          <Cabecera />
+          <ContextoIncidenciasProvider>
             <Switch>
               <Route path="/inicio" exact>
                 <InicioPagina />
@@ -58,10 +57,10 @@ function App() {
                 <NotFoundPagina />
               </Route>
             </Switch>
-          </Router>
-        </ContextoIncidenciasProvider>
-        <Footer />
-      </ContextoUsuarioProvider>
+          </ContextoIncidenciasProvider>
+          <Footer />
+        </ContextoUsuarioProvider>
+      </Router>
     </Container>
   );
 }
