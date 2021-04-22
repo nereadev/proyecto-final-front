@@ -16,33 +16,35 @@ import Cabecera from "./componentes/Cabecera";
 import Footer from "./componentes/Footer";
 import ContextoIncidenciasProvider from "./contextos/ContextoIncidenciasProvider";
 import ContextoUsuarioProvider from "./contextos/ContextoUsuarioProvider";
+import { RutaProtegida } from "./componentes/RutaProtegida";
 
 function App() {
   return (
     <Container fluid>
-      <ContextoIncidenciasProvider>
-        <ContextoUsuarioProvider>
+      <ContextoUsuarioProvider>
+        <Cabecera />
+        <ContextoIncidenciasProvider>
           <Router>
             <Cabecera />
             <Switch>
               <Route path="/inicio" exact>
                 <InicioPagina />
               </Route>
-              <Route path="/registro/:accion" exact>
+              <RutaProtegida path="/registro/:accion" exact>
                 <RegistroPagina />
-              </Route>
+              </RutaProtegida>
               <Route path="/incidencia/:id" exact>
                 <IncidenciaPagina />
               </Route>
-              <Route path="/nueva-incidencia" exact>
+              <RutaProtegida path="/nueva-incidencia" exact>
                 <NuevaIncidenciaPagina />
-              </Route>
+              </RutaProtegida>
               <Route path="/mi-cuenta" exact>
                 <MiCuentaPagina />
               </Route>
-              <Route path="/mis-incidencias" exact>
+              <RutaProtegida path="/mis-incidencias" exact>
                 <MisIncidenciasPagina />
-              </Route>
+              </RutaProtegida>
               <Route path="/contacto" exact>
                 <ContactoPagina />
               </Route>
@@ -57,9 +59,9 @@ function App() {
               </Route>
             </Switch>
           </Router>
-        </ContextoUsuarioProvider>
-      </ContextoIncidenciasProvider>
-      <Footer />
+        </ContextoIncidenciasProvider>
+        <Footer />
+      </ContextoUsuarioProvider>
     </Container>
   );
 }
