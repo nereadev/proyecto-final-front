@@ -1,18 +1,18 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useContext } from "react";
 import { Route, useParams } from "react-router";
-import { ContextoUsuario } from "../contextos/ContextoUsuario";
+import { ContextoToken } from "../contextos/ContextoToken";
 
 export const RutaProtegida = (props) => {
   const { props: { path } } = { props };
-  const { getUsuario } = useContext(ContextoUsuario);
+  const { existeToken } = useContext(ContextoToken);
 
   return (
     <>
       {
         path.includes("registro")
-          ? !getUsuario.existeToken && <Route {...props} />
-          : getUsuario.existeToken && <Route {...props} />
+          ? existeToken && <Route {...props} />
+          : existeToken && <Route {...props} />
       }
     </>
   );

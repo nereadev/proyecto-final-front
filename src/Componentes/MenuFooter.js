@@ -2,10 +2,10 @@ import { useContext } from "react";
 import {
   Col, Nav
 } from "react-bootstrap";
-import { ContextoUsuario } from "../contextos/ContextoUsuario";
+import { ContextoToken } from "../contextos/ContextoToken";
 
 const MenuFooter = () => {
-  const { getUsuario: { existeToken } } = useContext(ContextoUsuario);
+  const { existeToken } = useContext(ContextoToken);
   return (
     <Col xs={12}>
       <Nav className="menuFooter">

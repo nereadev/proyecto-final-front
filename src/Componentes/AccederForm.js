@@ -4,7 +4,7 @@ import {
   Col, Form, InputGroup, Row
 } from "react-bootstrap";
 import { useHistory } from "react-router";
-import { ContextoUsuario } from "../contextos/ContextoUsuario";
+import { ContextoToken } from "../contextos/ContextoToken";
 import useFetch from "../utils/hooks/useFetch";
 
 const AccederForm = () => {
@@ -14,7 +14,7 @@ const AccederForm = () => {
   const [emailFetch, setEmailFetch] = useState("");
   const [contrasenyaFetch, setContrasenyaFetch] = useState("");
   const { datos: tokenFetch, pideDatos: pideTokenFetch } = useFetch();
-  const { getUsuario } = useContext(ContextoUsuario);
+  const { setExisteToken } = useContext(ContextoToken);
   useEffect(() => {
     if (emailFetch) {
       pideTokenFetch(true, "usuarios/login", {
@@ -32,7 +32,7 @@ const AccederForm = () => {
         /* manejar el error */
       } else if (tokenFetch.tokenUsuario) {
         localStorage.setItem("token-usuario", tokenFetch.tokenUsuario);
-        getUsuario.setExisteToken(true);
+        setExisteToken(true);
         history.push("/inicio");
       }
     }
