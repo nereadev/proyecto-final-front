@@ -11,7 +11,7 @@ export const RutaProtegida = (props) => {
     <>
       {
         path.includes("registro")
-          ? existeToken && <Route {...props} />
+          ? !existeToken && <Route {...props} />
           : existeToken && <Route {...props} />
       }
     </>
