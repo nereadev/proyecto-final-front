@@ -187,7 +187,7 @@ a.contrasenya, a.contrasenya:hover {
  font-weight: bold;
  color:  #17a2b8;
 }
-.introducir-datos.off {
+.off {
   display: none;
 }
 .introducir-datos .form-label {
@@ -209,6 +209,19 @@ a.contrasenya, a.contrasenya:hover {
   margin-right: 10px;
   margin-bottom: 10px;
 }
+.comprobar-incidencia {
+  margin-top: 20px;
+  color: rgb(153, 16, 16);
+  font-weight: bold;
+}
+.comprobar-incidencia .btn {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.footer-nueva-incidencia {
+  margin-top: 50px;
+}
+
 /* Lista incidencias */
 .filtro-incidencias .form-control {
  border-radius: 100px;

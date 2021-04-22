@@ -6,7 +6,11 @@ import { NavLink } from "react-router-dom";
 import { ContextoToken } from "../contextos/ContextoToken";
 
 const MenuPrincipal = () => {
-  const { existeToken } = useContext(ContextoToken);
+  const { existeToken, setExisteToken } = useContext(ContextoToken);
+  const cerrarSesion = () => {
+    localStorage.removeItem("token-usuario");
+    setExisteToken(false);
+  };
   console.log(existeToken);
   return (
     <Col xs={10} className="navegacion">
@@ -22,7 +26,7 @@ const MenuPrincipal = () => {
             <NavLink to="/contacto" className="navItem">Contacto</NavLink>
             {!existeToken && <Button variant="dark" to="/registro/acceder" className="navItem registroBoton acceder">Acceder</Button>}
             {!existeToken && <Button variant="dark" to="/registro/crear-cuenta" className="navItem registroBoton crearCuenta">Crear cuenta</Button>}
-            {existeToken && <Button variant="dark" className="navItem registroBoton logoutBoton">Cerrar sesión</Button>}
+            {existeToken && <Button variant="dark" onClick={cerrarSesion} className="navItem registroBoton logoutBoton">Cerrar sesión</Button>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -17,7 +17,6 @@ import Footer from "./componentes/Footer";
 import ContextoTokenProvider from "./contextos/ContextoTokenProvider";
 import ContextoIncidenciasProvider from "./contextos/ContextoIncidenciasProvider";
 import ContextoUsuarioProvider from "./contextos/ContextoUsuarioProvider";
-import { RutaProtegida } from "./componentes/RutaProtegida";
 
 function App() {
   return (
