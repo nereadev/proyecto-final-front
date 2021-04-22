@@ -28,7 +28,7 @@ const CrearCuentaForm = () => {
     pideDatos("https://localhost:5000/usuarios", {
       method: "POST",
       headers: {
-        "Content-name= type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(datosForm)
     });
@@ -77,7 +77,7 @@ const CrearCuentaForm = () => {
               <Form.Control id="codigoPostal" name="codigoPostal" type="text" required value={datosForm.codigoPostal} onChange={modificarDatos} />
             </Form.Group>
           </Form.Row>
-          <Button as={Col} md={3} className="boton-crear" onClick={registraUsuario} type="submit" variant="info">Registrar</Button>
+          <Button as={Col} md={3} className="boton-crear" onClick={toggleVentana} type="submit" variant="info">Registrar</Button>
           {/* cambio onClick={nuevoUsuario} */}
         </Form>
         <Col className="ventana" sm={12}>
