@@ -35,7 +35,9 @@ function App() {
               <Route path="/incidencia/:id" exact>
                 <IncidenciaPagina />
               </Route>
-              <RutaProtegida path="/nueva-incidencia" component={NuevaIncidenciaPagina} exact />
+              <RutaProtegida path="/nueva-incidencia" exact>
+                <NuevaIncidenciaPagina />
+              </RutaProtegida>
               <Route path="/mi-cuenta" exact>
                 <MiCuentaPagina />
               </Route>
