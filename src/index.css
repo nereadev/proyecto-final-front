@@ -1,7 +1,7 @@
 main {
-  min-height: 69vh;
-  align-items: center;
-  margin: auto;
+  min-height: 73vh;
+  align-content: start;
+  justify-content: center;
 }
 
 .leaflet-popup-content {
@@ -163,11 +163,17 @@ padding-bottom: 10px;
   padding: 0;
 }
 /* Acceder */
-h2 {
- padding: 15px;
+.registro-pagina {
+  text-align: center;
 }
-section.formulario {
- justify-content: center;
+.titulo-acceder {
+  justify-content: center;
+  padding-bottom: 30px;
+  padding-top: 40px;
+}
+.formulario-acceso {
+  display: flex;
+  justify-content: center;
 }
 .input-group {
  padding-bottom: 20px;
@@ -178,7 +184,8 @@ section.formulario {
 .btn.crear-cuenta {
  width: 100%;
 }
-a.contrasenya, a.contrasenya:hover {
+.registro-pagina .contrasenya, .registro-pagina .contrasenya:hover {
+  display: block;
  color: #17a2b8;
  cursor: pointer;
 }
@@ -186,7 +193,9 @@ a.contrasenya, a.contrasenya:hover {
 .boton-crear {
   margin-bottom: 10px;
 }
-
+.crear-cuenta {
+  text-align: left;
+}
 /* Nueva incidencia */
 .nueva-incidencia {
   padding-bottom: 20px;

@@ -43,8 +43,8 @@ const CrearCuentaForm = () => {
   }, [datos]);
   return (
     <>
-      <Row as="h2">Crea tu cuenta</Row>
-      <Row as="section" className="formulario-incidencia">
+      <Col sm={12} as="h2" className="pt-4 text-left">Crea tu cuenta</Col>
+      <Col sm={12} as="section" className="crear-cuenta">
         <Form className={`crear-cuenta ${!ventana ? "" : "oculto"} col`} onSubmit={registraUsuario}>
           <Form.Row>
             <Form.Group as={Col}>
@@ -89,7 +89,7 @@ const CrearCuentaForm = () => {
           <p className="error">{error}</p>
           {/* cambio onClick={nuevoUsuario} */}
         </Form>
-        <Col className="ventana" sm={12}>
+        <Form className="ventana" sm={12}>
           <Toast show={ventana} onClose={linkAcceder}>
             <Toast.Header>
               <i className="fas fa-check-circle mr-2" />
@@ -98,8 +98,8 @@ const CrearCuentaForm = () => {
             </Toast.Header>
             <Toast.Body>Su cuenta se ha creado correctamente. Por favor diríjase a la bandeja de entrada de su email para confirmar el registro</Toast.Body>
           </Toast>
-        </Col>
-      </Row>
+        </Form>
+      </Col>
     </>
   );
 };

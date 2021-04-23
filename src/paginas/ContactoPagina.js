@@ -4,8 +4,8 @@ import {
 
 const ContactoPagina = () => (
   <Row as="main">
-    <Row as="h2">Contacto</Row>
-    <Accordion>
+    <Col sm={12} as="h2" className="pt-4">Contacto</Col>
+    <Col as={Accordion}>
       <Card>
         <Card.Header>
           <Accordion.Toggle as={Button} variant="link" eventKey="0">
@@ -46,7 +46,7 @@ const ContactoPagina = () => (
           </Card.Body>
         </Accordion.Collapse>
       </Card>
-    </Accordion>
+    </Col>
   </Row>
 );
 
