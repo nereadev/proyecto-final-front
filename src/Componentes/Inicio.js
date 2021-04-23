@@ -13,12 +13,12 @@ const Inicio = () => {
         <Nav activeKey="mapa">
           <Nav.Item>
             <NavLink className="navLink" eventKey="mapa" onSelect={() => setListado(false)}>
-              Mapa
+              Mapas
             </NavLink>
           </Nav.Item>
           <Nav.Item>
             <NavLink className="navLink" eventKey="listado" onSelect={() => setListado(true)}>
-              Listado
+              Listado de Incidencias
             </NavLink>
           </Nav.Item>
         </Nav>

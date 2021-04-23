@@ -2,21 +2,34 @@ import { useContext, useState, useEffect } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
+import useFetch from "../utils/hooks/useFetch";
+
+const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
+const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+const realizaVoto = (idIncidencia, usuario, votaIncidencia) => {
+  console.log(usuario.body.usuario.incidenciasVotadas);
+  console.log(idIncidencia);
+  console.log(!usuario.body.usuario.incidenciasVotadas.find(incidencia => incidencia._id === idIncidencia));
+  const token = localStorage.getItem("token-usuario");
+  votaIncidencia(true, "incidencias/votar", {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ idIncidencia, sumaVoto: !usuario.body.usuario.incidenciasVotadas.find(incidencia => incidencia._id === idIncidencia) })
+  });
+};
 
 const Incidencia = () => {
-  const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
-  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
-  /* Este realizaVoto realmente si se puede triggear sin token, ya que sin hace cerrar sesion estando
-  aqui aun le saldra el botoncito, asi haz fetch solo si existe token (aunque realmente sino no creo
-  que pasara nada, seguramente saldria lo de las credenciales erroneas) */
-  const realizaVoto = () => console.log("hola");
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
   const { getUsuario } = useContext(ContextoUsuario);
   const usuario = getUsuario.usuario;
+  const { datos: voto, pideDatos: votaIncidencia } = useFetch();
   useEffect(() => {
     if (usuario.length !== 0) {
-      console.log(usuario.body.usuario.incidenciasVotadas);
+      console.log(usuario.body);
     }
   }, [usuario]);
   useEffect(() => {
@@ -34,11 +47,15 @@ const Incidencia = () => {
                 {
                   usuario.length !== 0 && (
                     <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
-                      <Button onClick={realizaVoto}><i className={usuario.body.usuario.incidenciasVotadas.includes(incidencia._id) ? "fas fa-angle-double-down" : "fas fa-angle-double-up"} /></Button>
+                      <Button onClick={() => realizaVoto(incidencia._id, usuario, votaIncidencia, voto)}>
+                        <i className={!usuario.body.usuario.incidenciasVotadas.find(incidenciaVotada => incidenciaVotada._id === incidencia._id) ? "fas fa-angle-double-up" : "fas fa-angle-double-down"} />
+                      </Button>
                     </Row>
                   )
                 }
-                <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">{incidencia.votos}</Row>
+                {/* esto de abajo no vale porque el id del voto cambia cada vez que das un voto nuevo,
+                lo que tienes que hacer es usar el DISPATCH de incidencias, seteando las incidencias */}
+                <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">{(voto && voto.body.incidencia._id === incidencia._id) ? voto.body.incidencia.votos : incidencia.votos}</Row>
                 <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
                   <i className={`fas fa-circle ${incidencia.resuelta
                     ? "incidencia-resuelta"

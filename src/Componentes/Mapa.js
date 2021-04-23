@@ -53,10 +53,10 @@ const Mapa = () => {
     <>
       <Nav fill defaultActiveKey="incidencias" className="navTiposMapa">
         <Nav.Item>
-          <NavLink eventKey="incidencias" className="tiposMapa" onSelect={() => setMapaBarrios(false)}>Incidencias</NavLink>
+          <NavLink eventKey="incidencias" className="tiposMapa" onSelect={() => setMapaBarrios(false)}>Puntos de incidencia</NavLink>
         </Nav.Item>
         <Nav.Item>
-          <NavLink eventKey="barrios" className="tiposMapa" onSelect={() => setMapaBarrios(true)}>Barrios</NavLink>
+          <NavLink eventKey="barrios" className="tiposMapa" onSelect={() => setMapaBarrios(true)}>Incidencias por barrios</NavLink>
         </Nav.Item>
       </Nav>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">

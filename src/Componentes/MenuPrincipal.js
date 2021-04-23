@@ -15,7 +15,7 @@ const MenuPrincipal = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggle" />
         <Navbar.Collapse id="basic-navbar-nav" className="toggle2">
           <Nav className="menuCabecera">
-            <NavLink to="/inicio" className="navItem">Mapa / Incidencias</NavLink>
+            <NavLink to="/inicio" className="navItem">Inicio</NavLink>
             {existeToken && <NavLink to="/nueva-incidencia" className="navItem">Nueva Incidencia</NavLink>}
             {existeToken && <NavLink to="/mis-incidencias" className="navItem"> Mis incidencias</NavLink>}
             <NavLink to="/como-funciona" className="navItem"> Cómo funciona?</NavLink>
