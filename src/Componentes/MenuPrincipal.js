@@ -12,8 +12,8 @@ const MenuPrincipal = () => {
   return (
     <Col xs={10} className="navegacion">
       <Navbar expand="lg" className="navegacion">
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggle" />
+        <Navbar.Collapse id="basic-navbar-nav" className="toggle2">
           <Nav className="menuCabecera">
             <NavLink to="/inicio" className="navItem">Mapa / Incidencias</NavLink>
             {existeToken && <NavLink to="/nueva-incidencia" className="navItem">Nueva Incidencia</NavLink>}
