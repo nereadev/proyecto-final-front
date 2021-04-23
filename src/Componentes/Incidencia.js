@@ -39,6 +39,7 @@ const Incidencia = () => {
                       </Row>
                     </Col>
                     <Col className="elemento-targeta-incidencia direccion-targeta">{incidencia.direccion}</Col>
+                    <Col className="elemento-targeta-incidencia direccion-targeta">{new Date(incidencia.registrada).toLocaleDateString()}</Col>
                   </Row>
                 </Col>
                 <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />

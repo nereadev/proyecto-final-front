@@ -8,15 +8,17 @@ const ContextoIncidenciasProvider = props => {
   const { children } = props;
   const [incidencias, dispatch] = useReducer(incidenciasReducer, []);
   const [query, setQuery] = useState(null);
+  const [query2, setQuery2] = useState(null);
   const { datos: incidenciasFetch, pideDatos: pideIncidenciasFetch } = useFetch();
   const getIncidencias = {
     otraPropiedad: "Aquí puede ir otra propiedad relacionada con las incidencias",
     incidencias,
-    setQuery
+    setQuery,
+    setQuery2
   };
   useEffect(() => {
-    pideIncidenciasFetch(true, `incidencias${query ? `?tipo=${query}` : ""}`);
-  }, [pideIncidenciasFetch, query]);
+    pideIncidenciasFetch(true, `incidencias${query ? `?tipo=${query}` : ""}${query2 ? `&ordenPor=${query2}` : ""}`);
+  }, [pideIncidenciasFetch, query, query2]);
   useEffect(() => {
     if (incidenciasFetch) {
       dispatch({
