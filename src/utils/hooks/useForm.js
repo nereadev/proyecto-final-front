@@ -9,6 +9,9 @@ const useForm = datosFormInicial => {
         [e.target.name]: e.target.files[0]
       });
     } else {
+      if (e.target.name === "tipoIncidencia") {
+        console.log(e.target.value);
+      }
       setDatosForm({
         ...datosForm,
         [e.target.name]: e.target.value

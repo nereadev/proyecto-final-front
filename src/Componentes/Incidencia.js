@@ -11,7 +11,7 @@ const Incidencia = () => {
         incidencias.length !== 0 && (
           incidencias.body.incidencias.map(incidencia => (
             <>
-              <Row className="incidencia-lista">
+              <Row className="incidencia-lista" key={incidencia._id}>
                 <Col>{incidencia._id}</Col>
                 <Col>
                   <i className={`fas fa-circle ${incidencia.resuelta

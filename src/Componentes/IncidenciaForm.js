@@ -11,11 +11,10 @@ import useForm from "../utils/hooks/useForm";
 import { ContextoToken } from "../contextos/ContextoToken";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
 
-const token = localStorage.getItem("token-usuario");
-const idUsuario = jwt_decode(token).id;
-
 const IncidenciaForm = props => {
   const { direccionGeo } = props;
+  const token = localStorage.getItem("token-usuario");
+  const idUsuario = jwt_decode(token).id;
   const { existeToken } = useContext(ContextoToken);
   const [ventana, setVentana] = useState(false);
   const history = useHistory();
@@ -47,10 +46,10 @@ const IncidenciaForm = props => {
       datos.append("direccion", datosForm.direccion);
       datos.append("latitud", datosForm.latitud);
       datos.append("longitud", datosForm.longitud);
-      postUsuario(false, "http://localhost/5000/incidencias", {
+      postUsuario(false, "http://localhost:5000/incidencias", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`
         },
         body: datos
       });
@@ -73,10 +72,10 @@ const IncidenciaForm = props => {
           <Form.Label>Tipo:</Form.Label>
           <Form.Control as="select" name="tipoIncidencia" value={datosForm.tipoIncidencia} onChange={modificarDatos}>
             <option>Elige...</option>
-            <option>Medio Ambiente</option>
-            <option>Civismo</option>
-            <option>Infraestrucutra</option>
-            <option>Otros:</option>
+            <option value="Medio Ambiente">Medio ambiente</option>
+            <option value="civismo">Civismo</option>
+            <option value="Infraestructura">Infraestructura</option>
+            <option value="otros">Otros:</option>
           </Form.Control>
         </Form.Group>
         <Form.Group>
@@ -85,7 +84,7 @@ const IncidenciaForm = props => {
         </Form.Group>
         <Form.Group>
           <Form.Label>Fotografía:</Form.Label>
-          <Form.File name="fotografia" label="(Formato permitido: jpg, jpeg o png | Tamaño máximo 3 Mb)" onChange={modificarDatos} />
+          <Form.File name="fotoIncidencia" label="(Formato permitido: jpg, jpeg o png | Tamaño máximo 3 Mb)" onChange={modificarDatos} />
         </Form.Group>
         <Form.Group />
         <Col>
