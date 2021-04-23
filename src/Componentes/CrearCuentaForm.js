@@ -43,9 +43,9 @@ const CrearCuentaForm = () => {
   }, [datos]);
   return (
     <>
-      <Row as="h2">Crea tu cuenta</Row>
-      <Row as="section" className="formulario-incidencia">
-        <Form className={`crear-cuenta ${!ventana ? "" : "oculto"} col`} onSubmit={registraUsuario}>
+      <Row as="h2" className="pt-4">Crea tu cuenta</Row>
+      <Row as="section">
+        <Col as={Form} className={`crear-cuenta ${!ventana ? "" : "oculto"} col`} onSubmit={registraUsuario}>
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label>Nombre:</Form.Label>
@@ -88,7 +88,7 @@ const CrearCuentaForm = () => {
           <Button className="boton-crear" type="submit" variant="info">Registrar</Button>
           <p className="error">{error}</p>
           {/* cambio onClick={nuevoUsuario} */}
-        </Form>
+        </Col>
         <Col className="ventana" sm={12}>
           <Toast show={ventana} onClose={linkAcceder}>
             <Toast.Header>

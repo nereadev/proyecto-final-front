@@ -1,5 +1,5 @@
 main {
-  min-height: 69vh;
+  min-height: 73vh;
   align-items: center;
   margin: auto;
 }
@@ -163,8 +163,10 @@ padding-bottom: 10px;
   padding: 0;
 }
 /* Acceder */
-h2 {
- padding: 15px;
+.titulo-acceder {
+  justify-content: center;
+  padding-bottom: 30px;
+  padding-top: 40px;
 }
 section.formulario {
  justify-content: center;
@@ -183,6 +185,7 @@ a.contrasenya, a.contrasenya:hover {
  cursor: pointer;
 }
 /* Crear Cuenta */
+.
 .boton-crear {
   margin-bottom: 10px;
 }

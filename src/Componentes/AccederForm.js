@@ -54,9 +54,9 @@ const AccederForm = () => {
   };
   return (
     <>
-      <Row as="h2">Acceder</Row>
+      <Row as="h2" className="titulo-acceder">Acceder</Row>
       <Row as="section" className="formulario registro-usuario">
-        <Form as={Col} md={6}>
+        <Col xs={12} sm={8} md={5} as={Form}>
           <InputGroup>
             <InputGroup.Prepend>
               <InputGroup.Text><i className="far fa-envelope" /></InputGroup.Text>
@@ -87,7 +87,7 @@ const AccederForm = () => {
           <Col className="contrasenya" as="a">¿Has olvidado la contraseña?</Col>
           <Col>- o -</Col>
           <Button className="crear-cuenta" type="submit" onClick={irACrearCuenta} variant="outline-info">Crear Cuenta</Button>
-        </Form>
+        </Col>
       </Row>
     </>
   );
