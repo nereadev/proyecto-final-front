@@ -10,7 +10,7 @@ import MisIncidenciasPagina from "./paginas/MisIncidenciasPagina";
 import ContactoPagina from "./paginas/ContactoPagina";
 import NotFoundPagina from "./paginas/NotFoundPagina";
 import InicioPagina from "./paginas/InicioPagina";
-import ComoFunciona from "./paginas/ComoFunciona";
+import ComoFuncionaPagina from "./paginas/ComoFuncionaPagina";
 import NuevaIncidenciaPagina from "./paginas/NuevaIncidenciaPagina";
 import Cabecera from "./componentes/Cabecera";
 import Footer from "./componentes/Footer";
@@ -26,9 +26,14 @@ function App() {
           <Cabecera />
           <Switch>
             <ContextoIncidenciasProvider>
-              <Route path="/inicio" exact>
-                <InicioPagina />
-              </Route>
+              <ContextoUsuarioProvider>
+                <Route path="/inicio" exact>
+                  <InicioPagina />
+                </Route>
+                <Route path="/mi-cuenta" exact>
+                  <MiCuentaPagina />
+                </Route>
+              </ContextoUsuarioProvider>
               <RutaProtegida path="/nueva-incidencia" exact>
                 <NuevaIncidenciaPagina />
               </RutaProtegida>
@@ -36,13 +41,6 @@ function App() {
                 <MisIncidenciasPagina />
               </RutaProtegida>
             </ContextoIncidenciasProvider>
-          </Switch>
-          <Switch>
-            <ContextoUsuarioProvider>
-              <Route path="/mi-cuenta" exact>
-                <MiCuentaPagina />
-              </Route>
-            </ContextoUsuarioProvider>
           </Switch>
           <Switch>
             {/* para si la encuentra, que no renderice nada */}
@@ -57,7 +55,7 @@ function App() {
               <RegistroPagina />
             </RutaProtegida>
             <Route path="/como-funciona" exact>
-              <ComoFunciona />
+              <ComoFuncionaPagina />
             </Route>
             <Route path="/contacto" exact>
               <ContactoPagina />

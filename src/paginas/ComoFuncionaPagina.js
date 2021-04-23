@@ -2,7 +2,7 @@ import {
   Row, Col
 } from "react-bootstrap";
 
-const ComoFunciona = () => (
+const ComoFuncionaPagina = () => (
   <Row as="main">
     <Col sm={12} as="h2" className="como-funciona text-center">Cómo funciona?</Col>
     {/* <Row>
@@ -44,4 +44,4 @@ const ComoFunciona = () => (
   </Row>
 );
 
-export default ComoFunciona;
+export default ComoFuncionaPagina;
