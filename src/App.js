@@ -23,44 +23,48 @@ function App() {
     <Container fluid>
       <Router>
         <ContextoTokenProvider>
-          <ContextoUsuarioProvider>
-            <Cabecera />
+          <Cabecera />
+          <Switch>
             <ContextoIncidenciasProvider>
-              <Switch>
-                <Route path="/inicio" exact>
-                  <InicioPagina />
-                </Route>
-                <RutaProtegida path="/registro/:accion" exact>
-                  <RegistroPagina />
-                </RutaProtegida>
-                <Route path="/incidencia/:id" exact>
-                  <IncidenciaPagina />
-                </Route>
-                <RutaProtegida path="/nueva-incidencia" exact>
-                  <NuevaIncidenciaPagina />
-                </RutaProtegida>
-                <Route path="/mi-cuenta" exact>
-                  <MiCuentaPagina />
-                </Route>
-                <RutaProtegida path="/mis-incidencias" exact>
-                  <MisIncidenciasPagina />
-                </RutaProtegida>
-                <Route path="/contacto" exact>
-                  <ContactoPagina />
-                </Route>
-                <Route path="/como-funciona">
-                  <ComoFunciona />
-                </Route>
-                <Route path="/" exact>
-                  <Redirect to="/inicio" />
-                </Route>
-                <Route path="*">
-                  <NotFoundPagina />
-                </Route>
-              </Switch>
+              <Route path="/inicio" exact>
+                <InicioPagina />
+              </Route>
+              <RutaProtegida path="/nueva-incidencia" exact>
+                <NuevaIncidenciaPagina />
+              </RutaProtegida>
+              <RutaProtegida path="/mis-incidencias" exact>
+                <MisIncidenciasPagina />
+              </RutaProtegida>
             </ContextoIncidenciasProvider>
-            <Footer />
-          </ContextoUsuarioProvider>
+          </Switch>
+          <Switch>
+            <ContextoUsuarioProvider>
+              <Route path="/mi-cuenta" exact>
+                <MiCuentaPagina />
+              </Route>
+            </ContextoUsuarioProvider>
+          </Switch>
+          <Switch>
+            <Route path="/incidencia/:id" exact>
+              <IncidenciaPagina />
+            </Route>
+            <RutaProtegida path="/registro/:accion" exact>
+              <RegistroPagina />
+            </RutaProtegida>
+            <Route path="/como-funciona" exact>
+              <ComoFunciona />
+            </Route>
+            <Route path="/contacto" exact>
+              <ContactoPagina />
+            </Route>
+            <Route path="/" exact>
+              <Redirect to="/inicio" />
+            </Route>
+            <Route path="*">
+              <NotFoundPagina />
+            </Route>
+          </Switch>
+          <Footer />
         </ContextoTokenProvider>
       </Router>
     </Container>

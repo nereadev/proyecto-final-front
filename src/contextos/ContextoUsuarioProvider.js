@@ -16,13 +16,13 @@ const ContextoUsuarioProvider = props => {
   const [usuario, dispatch] = useReducer(usuarioReducer, {});
   const { datos: usuarioFetch, pideDatos: pideUsuarioFetch } = useFetch();
   const [existeToken, setExisteToken] = useState(true);
+  // const { existeToken, setExisteToken } = useContext(ContextoToken);
   const getUsuario = {
-    usuario,
-    existeToken,
-    setExisteToken
+    usuario
   };
   useEffect(() => {
     const token = localStorage.getItem("token-usuario");
+    console.log(existeToken);
     if (token) {
       if (!existeToken) {
         setExisteToken(true);
