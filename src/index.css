@@ -1,7 +1,5 @@
 main {
   min-height: 73vh;
-  align-items: center;
-  margin: auto;
 }
 
 .leaflet-popup-content {
@@ -163,13 +161,17 @@ padding-bottom: 10px;
   padding: 0;
 }
 /* Acceder */
+.registro-pagina {
+  text-align: center;
+}
 .titulo-acceder {
   justify-content: center;
   padding-bottom: 30px;
   padding-top: 40px;
 }
-section.formulario {
- justify-content: center;
+.formulario-acceso {
+  display: flex;
+  justify-content: center;
 }
 .input-group {
  padding-bottom: 20px;
@@ -180,16 +182,15 @@ section.formulario {
 .btn.crear-cuenta {
  width: 100%;
 }
-a.contrasenya, a.contrasenya:hover {
+.registro-pagina .contrasenya, .registro-pagina .contrasenya:hover {
+  display: block;
  color: #17a2b8;
  cursor: pointer;
 }
 /* Crear Cuenta */
-.
 .boton-crear {
   margin-bottom: 10px;
 }
-
 /* Nueva incidencia */
 .nueva-incidencia {
   padding-bottom: 20px;
