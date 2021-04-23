@@ -162,39 +162,75 @@ padding-bottom: 10px;
   max-height: 50px;
   padding: 0;
 }
-/* Acceder */
+
+/* Forms */
+.form-label {
+  color: #648C6E;
+  font-weight: bold;
+}
 .registro-pagina {
   text-align: center;
 }
+
+/* Acceder */
+
 .titulo-acceder {
   justify-content: center;
   padding-bottom: 30px;
   padding-top: 40px;
 }
-.formulario-acceso {
+.acceso {
   display: flex;
   justify-content: center;
 }
-.input-group {
+.acceso .input-group {
  padding-bottom: 20px;
 }
-.registro-usuario {
- text-align: center;
-}
-.btn.crear-cuenta {
+.acceso .btn {
  width: 100%;
 }
-.registro-pagina .contrasenya, .registro-pagina .contrasenya:hover {
+.acceso .contrasenya, .acceso .contrasenya:hover {
   display: block;
- color: #17a2b8;
  cursor: pointer;
+ color:#648C6E;
+ margin-top: 10px;
 }
+.acceso .btn:first-of-type {
+  background-color: #648C6E;
+  border-color: #648C6E;
+  transition: 0.5s;
+}
+.acceso .btn:first-of-type:hover {
+  background-color: #B0BFB2;
+  border-color: #B0BFB2;
+  color:#48594B;
+}
+.acceso .btn:last-of-type {
+  margin-top: 10px;
+  border-color: #648C6E;
+  color:#648C6E;
+  transition: 0.5s;
+}
+.acceso .btn:last-of-type:hover {
+  background-color: #B0BFB2;
+  border-color: #B0BFB2;
+}
+
 /* Crear Cuenta */
-.boton-crear {
-  margin-bottom: 10px;
-}
+
 .crear-cuenta {
   text-align: left;
+}
+.boton-crear {
+  margin-bottom: 10px;
+  background-color: #648C6E;
+  border-color: #648C6E;
+  transition: 0.5s;
+}
+.boton-crear:hover, .boton-crear:active {
+  background-color: #B0BFB2;
+  border-color: #B0BFB2;
+  color:#48594B;
 }
 /* Nueva incidencia */
 .nueva-incidencia {
@@ -213,16 +249,8 @@ padding-bottom: 10px;
  padding-bottom: 15px;
  padding-top: 15px;
 }
-.form-label {
- font-weight: bold;
- color:  #17a2b8;
-}
 .off {
   display: none;
-}
-.introducir-datos .form-label {
- font-weight: normal;
- color: #445448;
 }
 .toast {
   padding: 10px;
@@ -255,9 +283,6 @@ padding-bottom: 10px;
 /* Lista incidencias */
 .filtro-incidencias .form-control {
  border-radius: 100px;
-}
-.form-label {
- padding-right: 10px;
 }
 .filtro-buscar {
  width: 40%;
