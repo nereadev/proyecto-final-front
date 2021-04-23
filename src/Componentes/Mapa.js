@@ -3,8 +3,10 @@ import { icon } from "leaflet";
 import {
   MapContainer, TileLayer, Marker, Popup
 } from "react-leaflet";
-import { useContext } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { useContext, useState } from "react";
+import {
+  Button, Col, Container, Row, Nav, NavLink
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 
@@ -43,12 +45,24 @@ const getIcon = (tipoIncidencia) => icon({
 
 const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
 
-const Mapa = props => {
-  const { mapaBarrios } = props;
+const Mapa = () => {
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
+  const [mapaBarrios, setMapaBarrios] = useState(false);
   return (
     <>
+      {/*    <Col sm={12} className="mapa-opciones">
+        <Button variant="secondary" onClick={() => setMapaBarrios(false)} className="botonMapaLista">Incidencias</Button>
+        <Button variant="secondary" onClick={() => setMapaBarrios(true)} className="botonMapaLista">Barrios</Button>
+      </Col> */}
+      <Nav fill defaultActiveKey="incidencias">
+        <Nav.Item>
+          <NavLink eventKey="incidencias" className="prueba" onSelect={() => setMapaBarrios(false)}>Incidencias</NavLink>
+        </Nav.Item>
+        <Nav.Item>
+          <NavLink eventKey="barrios" onSelect={() => setMapaBarrios(true)}>Barrios</NavLink>
+        </Nav.Item>
+      </Nav>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
         {!mapaBarrios || (
           <TileLayer
@@ -91,10 +105,6 @@ const Mapa = props => {
       </MapContainer>
     </>
   );
-};
-
-Mapa.propTypes = {
-  mapaBarrios: PropTypes.bool.isRequired
 };
 
 export default Mapa;
