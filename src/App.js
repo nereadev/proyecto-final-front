@@ -45,6 +45,11 @@ function App() {
             </ContextoUsuarioProvider>
           </Switch>
           <Switch>
+            {/* para si la encuentra, que no renderice nada */}
+            <Route path="/inicio" exact />
+            <Route path="/nueva-incidencia" exact />
+            <Route path="/mis-incidencias" exact />
+            <Route path="/mi-cuenta" exact />
             <Route path="/incidencia/:id" exact>
               <IncidenciaPagina />
             </Route>
