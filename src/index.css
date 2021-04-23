@@ -1,5 +1,7 @@
 main {
   min-height: 73vh;
+  align-content: start;
+  justify-content: center;
 }
 
 .leaflet-popup-content {

@@ -10,11 +10,11 @@ const RegistroPagina = () => {
     history.push("/inicio");
   }
   return (
-    <Col sm={12} as="main" className="registro-pagina">
+    <Row as="main" className="registro-pagina">
       {accion === "acceder"
         ? <AccederForm />
         : <CrearCuentaForm />}
-    </Col>
+    </Row>
   );
 };
 
