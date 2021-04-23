@@ -12,6 +12,8 @@ import { ContextoToken } from "../contextos/ContextoToken";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
 
 const IncidenciaForm = props => {
+  const token = localStorage.getItem("token-usuario");
+  const idUsuario = jwt_decode(token).id;
   const { direccionGeo } = props;
   const token = localStorage.getItem("token-usuario");
   const idUsuario = jwt_decode(token).id;
