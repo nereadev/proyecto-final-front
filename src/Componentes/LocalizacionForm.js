@@ -3,6 +3,7 @@ import {
   Button, Col, Form, Row
 } from "react-bootstrap";
 import { useHistory } from "react-router";
+import Incidencia from "./Incidencia";
 import IncidenciaForm from "./IncidenciaForm";
 import Listado from "./Listado";
 
@@ -98,7 +99,7 @@ const LocalizacionForm = () => {
               <Col className={`${marcar ? "" : "off"}`}>
                 <Button variant="outline-danger" onClick={mostrarLista}>Comprobar</Button>
                 <Col className={`${lista || "off"}`}>
-                  <Listado />
+                  <Incidencia />
                   <Row className="comprobar-incidencia">
                     ¿Has visto tu incidencia?
                     <Button variant="light" onClick={linkInicio}>Sí</Button>
