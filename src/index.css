@@ -352,21 +352,37 @@ a.contrasenya, a.contrasenya:hover {
  padding-bottom: 10px;
 }
 /* Contenido inicio */
-.mapa-lista, .mapa-opciones {
+.mapa-lista {
   display: flex;
+  justify-content: space-around;
+  background-color: #62926d2f;
+}
+.mapa-lista div {
   justify-content: center;
-  border-bottom: rgba(128, 128, 128, 0.74) 1px solid;
-  height: 45px;
-
 }
 .mapa-lista .navLink {
-  color: black;
+  border-radius: 30px;
+  transition: 0.9s;
+  color:#434744;
+  margin: 0.5em 40px;
 }
 .mapa-lista .navLink:hover {
-  color: #445448;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.808);
 }
 
 /* Componente Mapa */
+.tiposMapa {
+  border-radius: 20px;
+  color: #434744;
+  transition: 0.6s;
+  margin: 0.5em 2em;
+  padding: 0.3em 0;
+}
+.tiposMapa:hover {
+  color: rgb(75, 95, 74);
+  background-color: #62926d2f;
+}
 .mapa {
  height: 30rem;
 }
