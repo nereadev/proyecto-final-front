@@ -4,7 +4,7 @@ import {
 } from "react-bootstrap";
 import { useHistory } from "react-router";
 import IncidenciaForm from "./IncidenciaForm";
-import ListaIncidencias from "./ListaIncidencias";
+import Listado from "./Listado";
 
 const LocalizacionForm = () => {
   const [codigoPostal, setCodigoPostal] = useState("");
@@ -101,7 +101,7 @@ const LocalizacionForm = () => {
               <Col className={`${marcar ? "" : "off"}`}>
                 <Button variant="outline-danger" onClick={mostrarLista}>Comprobar</Button>
                 <Col className={`${lista || "off"}`}>
-                  <ListaIncidencias />
+                  <Listado />
                   <Row className="comprobar-incidencia">
                     ¿Has visto tu incidencia?
                     <Button variant="light" onClick={linkInicio}>Sí</Button>
