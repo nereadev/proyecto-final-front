@@ -55,7 +55,7 @@ const AccederForm = () => {
   return (
     <>
       <Col sm={12} as="h2" className="titulo-acceder">Acceder</Col>
-      <Col xs={11} sm={8} md={5} as="section" className="formulario registro-usuario">
+      <Col xs={11} sm={8} md={5} as="section" className="acceso">
         <Row as={Form}>
           <InputGroup>
             <InputGroup.Prepend>
@@ -83,10 +83,10 @@ const AccederForm = () => {
               onChange={modificaValor}
             />
           </InputGroup>
-          <Button className="crear-cuenta" type="submit" onClick={checkLoginYToken} variant="info">Entrar</Button>
+          <Button type="submit" onClick={checkLoginYToken} variant="info">Entrar</Button>
           <Col sm={12} className="contrasenya" as="a">¿Has olvidado la contraseña?</Col>
           <Col>- o -</Col>
-          <Button className="crear-cuenta" type="submit" onClick={irACrearCuenta} variant="outline-info">Crear Cuenta</Button>
+          <Button type="submit" onClick={irACrearCuenta} variant="outline-info">Crear Cuenta</Button>
         </Row>
       </Col>
     </>
