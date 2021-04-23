@@ -51,16 +51,12 @@ const Mapa = () => {
   const [mapaBarrios, setMapaBarrios] = useState(false);
   return (
     <>
-      {/*    <Col sm={12} className="mapa-opciones">
-        <Button variant="secondary" onClick={() => setMapaBarrios(false)} className="botonMapaLista">Incidencias</Button>
-        <Button variant="secondary" onClick={() => setMapaBarrios(true)} className="botonMapaLista">Barrios</Button>
-      </Col> */}
-      <Nav fill defaultActiveKey="incidencias">
+      <Nav fill defaultActiveKey="incidencias" className="navTiposMapa">
         <Nav.Item>
-          <NavLink eventKey="incidencias" className="prueba" onSelect={() => setMapaBarrios(false)}>Incidencias</NavLink>
+          <NavLink eventKey="incidencias" className="tiposMapa" onSelect={() => setMapaBarrios(false)}>Incidencias</NavLink>
         </Nav.Item>
         <Nav.Item>
-          <NavLink eventKey="barrios" onSelect={() => setMapaBarrios(true)}>Barrios</NavLink>
+          <NavLink eventKey="barrios" className="tiposMapa" onSelect={() => setMapaBarrios(true)}>Barrios</NavLink>
         </Nav.Item>
       </Nav>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
