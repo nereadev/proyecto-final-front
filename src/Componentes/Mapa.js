@@ -3,7 +3,7 @@ import { icon } from "leaflet";
 import {
   MapContainer, TileLayer, Marker, Popup
 } from "react-leaflet";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import {
   Button, Col, Container, Row, Nav, NavLink
 } from "react-bootstrap";

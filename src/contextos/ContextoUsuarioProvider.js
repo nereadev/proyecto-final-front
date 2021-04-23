@@ -13,16 +13,15 @@ const ContextoUsuarioProvider = props => {
   // eslint-disable-next-line react/prop-types
   const { children } = props;
   const history = useHistory();
-  const [usuario, dispatch] = useReducer(usuarioReducer, {});
+  const [usuario, dispatch] = useReducer(usuarioReducer, []);
   const { datos: usuarioFetch, pideDatos: pideUsuarioFetch } = useFetch();
-  const [existeToken, setExisteToken] = useState(true);
-  // const { existeToken, setExisteToken } = useContext(ContextoToken);
+  // const [existeToken, setExisteToken] = useState(true);
+  const { existeToken, setExisteToken } = useContext(ContextoToken);
   const getUsuario = {
     usuario
   };
   useEffect(() => {
     const token = localStorage.getItem("token-usuario");
-    console.log(existeToken);
     if (token) {
       if (!existeToken) {
         setExisteToken(true);
@@ -47,10 +46,7 @@ const ContextoUsuarioProvider = props => {
     }
   }, [usuarioFetch]);
   return (
-    <ContextoUsuario.Provider value={{
-      dispatch, getUsuario
-    }}
-    >
+    <ContextoUsuario.Provider value={{ dispatch, getUsuario }}>
       {
         children
       }

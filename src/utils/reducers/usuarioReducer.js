@@ -1,4 +1,4 @@
-export const usuarioReducer = async (usuario, action) => {
+export const usuarioReducer = (usuario, action) => {
   switch (action.type) {
     case "cargarUsuario":
       return { ...action.usuario };

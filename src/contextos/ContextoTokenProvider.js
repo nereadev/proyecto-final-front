@@ -7,7 +7,6 @@ const ContextoTokenProvider = props => {
   const token = localStorage.getItem("token-usuario");
   const [existeToken, setExisteToken] = useState(false);
   useEffect(() => {
-    console.log(existeToken);
     if (token) {
       setExisteToken(true);
     } else {
