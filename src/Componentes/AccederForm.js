@@ -40,7 +40,8 @@ const AccederForm = () => {
   const irACrearCuenta = () => {
     history.push("/registro/crear-cuenta");
   };
-  const checkLoginYToken = () => {
+  const checkLoginYToken = e => {
+    e.preventDefault();
     setEmailFetch(emailInput);
     setContrasenyaFetch(contrasenyaInput);
   };
