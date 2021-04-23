@@ -3,11 +3,11 @@ import { Button, Col, Row } from "react-bootstrap";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 
 const Incidencia = () => {
-const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
-const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
-const hazAlgo = () => console.log("hola");
-const { getIncidencias } = useContext(ContextoIncidencias);
-const incidenciasApi = getIncidencias.incidencias.body.incidencias;
+  const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
+  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+  const hazAlgo = () => console.log("hola");
+  const { getIncidencias } = useContext(ContextoIncidencias);
+  const incidenciasApi = getIncidencias.incidencias.body.incidencias;
   return (
     <Col>
       {

@@ -15,8 +15,6 @@ const IncidenciaForm = props => {
   const token = localStorage.getItem("token-usuario");
   const idUsuario = jwt_decode(token).id;
   const { direccionGeo } = props;
-  const token = localStorage.getItem("token-usuario");
-  const idUsuario = jwt_decode(token).id;
   const { existeToken } = useContext(ContextoToken);
   const [ventana, setVentana] = useState(false);
   const history = useHistory();
@@ -48,7 +46,7 @@ const IncidenciaForm = props => {
       datos.append("direccion", datosForm.direccion);
       datos.append("latitud", datosForm.latitud);
       datos.append("longitud", datosForm.longitud);
-      postUsuario(false, "http://localhost:5000/incidencias", {
+      postUsuario(false, "incidencias", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`

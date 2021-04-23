@@ -6,7 +6,6 @@ const useFetch = () => {
   const [datos, setDatos] = useState(null);
   const pideDatos = useCallback(async (apiPropia, endpoint, opciones = {}) => {
     const resp = await fetch(apiPropia ? `${urlLocal}/${endpoint}` : endpoint, opciones);
-    console.log(resp);
     const datosAPI = await resp.json();
     setDatos(datosAPI);
   }, []);
