@@ -36,22 +36,26 @@ function App() {
                 <MisIncidenciasPagina />
               </RutaProtegida>
             </ContextoIncidenciasProvider>
+          </Switch>
+          <Switch>
             <ContextoUsuarioProvider>
               <Route path="/mi-cuenta" exact>
                 <MiCuentaPagina />
               </Route>
             </ContextoUsuarioProvider>
+          </Switch>
+          <Switch>
             <Route path="/incidencia/:id" exact>
               <IncidenciaPagina />
             </Route>
             <RutaProtegida path="/registro/:accion" exact>
               <RegistroPagina />
             </RutaProtegida>
-            <Route path="/contacto" exact>
-              <ContactoPagina />
-            </Route>
             <Route path="/como-funciona" exact>
               <ComoFunciona />
+            </Route>
+            <Route path="/contacto" exact>
+              <ContactoPagina />
             </Route>
             <Route path="/" exact>
               <Redirect to="/inicio" />
