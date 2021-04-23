@@ -1,17 +1,21 @@
+import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 
-const Incidencia = () => {
+const Incidencia = (props) => {
+  const {
+    incidenciasFiltro
+  } = props;
   const { getIncidencias } = useContext(ContextoIncidencias);
-  const incidencias = getIncidencias.incidencias;
+  const incidenciasApi = getIncidencias.incidencias.body.incidencias;
   return (
     <Col>
       {
-        incidencias.length !== 0 && (
-          incidencias.body.incidencias.map(incidencia => (
+        incidenciasApi.length !== 0 && (
+          incidenciasApi.map(incidencia => (
             <>
-              <Row className="incidencia-lista">
+              <Row key={incidencia._id} className="incidencia-lista">
                 <Col>{incidencia._id}</Col>
                 <Col>
                   <i className={`fas fa-circle ${incidencia.resuelta
@@ -30,6 +34,10 @@ const Incidencia = () => {
       }
     </Col>
   );
+};
+
+Incidencia.propTypes = {
+  incidenciasFiltro: PropTypes.func.isRequired
 };
 
 export default Incidencia;
