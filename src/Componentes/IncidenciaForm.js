@@ -9,7 +9,6 @@ import { useHistory } from "react-router";
 import useFetch from "../utils/hooks/useFetch";
 import useForm from "../utils/hooks/useForm";
 import { ContextoToken } from "../contextos/ContextoToken";
-import { ContextoUsuario } from "../contextos/ContextoUsuario";
 
 const IncidenciaForm = props => {
   const token = localStorage.getItem("token-usuario");
@@ -18,7 +17,7 @@ const IncidenciaForm = props => {
   const { existeToken } = useContext(ContextoToken);
   const [ventana, setVentana] = useState(false);
   const history = useHistory();
-  const { datos, pideDatos: postUsuario } = useFetch();
+  const { pideDatos: postUsuario } = useFetch();
   const toggleVentana = () => setVentana(!ventana);
   const linkInicio = () => {
     history.push("/mis-incidencias");
