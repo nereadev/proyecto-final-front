@@ -1,5 +1,4 @@
 import { Col, Row } from "react-bootstrap";
-import Incidencia from "./Incidencia";
 
 const ListaIncidencias = () => (
   <>
@@ -14,7 +13,6 @@ const ListaIncidencias = () => (
           <Col><i className="fas fa-star" /></Col>
           <Col>+Info</Col>
         </Row> */}
-        <Incidencia />
       </Col>
     </Row>
   </>

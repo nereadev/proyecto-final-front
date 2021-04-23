@@ -1,20 +1,18 @@
-/* eslint-disable no-useless-escape */
 import { useContext, useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 
+const Incidencia = () => {
 const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
 const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
 const hazAlgo = () => console.log("hola");
-
-const Incidencia = () => {
-  const { getIncidencias } = useContext(ContextoIncidencias);
-  const incidencias = getIncidencias.incidencias;
+const { getIncidencias } = useContext(ContextoIncidencias);
+const incidenciasApi = getIncidencias.incidencias.body.incidencias;
   return (
     <Col>
       {
-        incidencias.length !== 0 && (
-          incidencias.body.incidencias.map(incidencia => (
+        incidenciasApi.length !== 0 && (
+          incidenciasApi.map(incidencia => (
             <>
               <Row key={incidencia._id} className="targeta-incidencia">
                 <Col sm={2}>
@@ -44,37 +42,13 @@ const Incidencia = () => {
                   </Row>
                 </Col>
                 <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />
-              </Row>
-            </>
-          )))
-      }
-    </Col>
-  );
-  /* return (
-    <Col>
-      {
-        incidencias.length !== 0 && (
-          incidencias.body.incidencias.map(incidencia => (
-            <>
-              <Row className="incidencia-lista">
-                <Col>{incidencia._id}</Col>
-                <Col>
-                  <i className={`fas fa-circle ${incidencia.resuelta
-                    ? "incidencia-resuelta"
-                    : "incidencia-recibida"}`}
-                  />
-                </Col>
-                <Col>{incidencia.nombre}</Col>
-                <Col>{incidencia.tipoIncidencia.tipo}</Col>
-                <Col>{incidencia.codigoPostal}</Col>
-                <Col>{incidencia.votos}</Col>
                 <Col><a href="./incidencia/:id"><i className="fas fa-plus" aria-label="Detalle incidencia" /></a></Col>
               </Row>
             </>
           )))
       }
     </Col>
-  ); */
+  );
 };
 
 export default Incidencia;
