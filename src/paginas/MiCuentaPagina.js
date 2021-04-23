@@ -7,9 +7,6 @@ const MiCuentaPagina = () => {
   const usuario = getUsuario.usuario;
   useEffect(() => {
     console.log(usuario);
-    if (usuario.length !== 0) {
-      console.log(usuario.body);
-    }
   }, [usuario]);
   return (
     <Row as="main">
@@ -17,22 +14,22 @@ const MiCuentaPagina = () => {
       <Col className="mi-cuenta" as="ul">
         <Row>
           <Col>Nombre:</Col>
-          <Col>Risquetto</Col>
+          <Col>{(usuario.length !== 0) ? usuario.body.usuario.nombre : ""}</Col>
           <Col />
         </Row>
         <Row>
           <Col>Apellidos:</Col>
-          <Col>Panchi</Col>
+          <Col>{(usuario.length !== 0) ? usuario.body.usuario.apellidos : ""}</Col>
           <Col />
         </Row>
         <Row>
           <Col>Email:</Col>
-          <Col>risquettopanchi@gmail.com</Col>
+          <Col>{(usuario.length !== 0) ? usuario.body.usuario.email : ""}</Col>
           <Button as={Col} className="modificar-cuenta" type="submit" variant="light">Modificar</Button>
         </Row>
         <Row>
           <Col>Contraseña:</Col>
-          <Col>******************************</Col>
+          <Col>***********</Col>
           <Button as={Col} className="modificar-cuenta" type="submit" variant="light">Modificar</Button>
         </Row>
         <Row>

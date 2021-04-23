@@ -1,13 +1,29 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
+import { ContextoUsuario } from "../contextos/ContextoUsuario";
 
 const Incidencia = () => {
   const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
   const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
-  const hazAlgo = () => console.log("hola");
+  /* Este realizaVoto realmente si se puede triggear sin token, ya que sin hace cerrar sesion estando
+  aqui aun le saldra el botoncito, asi haz fetch solo si existe token (aunque realmente sino no creo
+  que pasara nada, seguramente saldria lo de las credenciales erroneas) */
+  const realizaVoto = () => console.log("hola");
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
+  const { getUsuario } = useContext(ContextoUsuario);
+  const usuario = getUsuario.usuario;
+  useEffect(() => {
+    if (usuario.length !== 0) {
+      console.log(usuario.body.usuario.incidenciasVotadas);
+    }
+  }, [usuario]);
+  useEffect(() => {
+    if (incidencias.length !== 0) {
+      console.log(incidencias.body.incidencias);
+    }
+  }, [incidencias]);
   return (
     <Col>
       {
@@ -15,9 +31,13 @@ const Incidencia = () => {
           incidencias.body.incidencias.map(incidencia => (
             <Row key={incidencia._id} className="targeta-incidencia">
               <Col sm={2}>
-                <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
-                  <Button onClick={hazAlgo}><i className="fas fa-angle-double-up" /></Button>
-                </Row>
+                {
+                  usuario.length !== 0 && (
+                    <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
+                      <Button onClick={realizaVoto}><i className={usuario.body.usuario.incidenciasVotadas.includes(incidencia._id) ? "fas fa-angle-double-down" : "fas fa-angle-double-up"} /></Button>
+                    </Row>
+                  )
+                }
                 <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">{incidencia.votos}</Row>
                 <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
                   <i className={`fas fa-circle ${incidencia.resuelta
