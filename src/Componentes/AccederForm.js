@@ -76,7 +76,7 @@ const AccederForm = () => {
             </InputGroup.Prepend>
             <Form.Control
               required
-              type="text"
+              type="password"
               placeholder="Contraseña"
               name="contraseña"
               value={contrasenyaInput}
