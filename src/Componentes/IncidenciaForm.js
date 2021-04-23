@@ -13,7 +13,7 @@ import { ContextoToken } from "../contextos/ContextoToken";
 const IncidenciaForm = props => {
   const token = localStorage.getItem("token-usuario");
   const idUsuario = jwt_decode(token).id;
-  const { direccionGeo } = props;
+  const { direccionGeo, direccion: direccionPostal } = props;
   const { existeToken } = useContext(ContextoToken);
   const [ventana, setVentana] = useState(false);
   const history = useHistory();
@@ -22,17 +22,19 @@ const IncidenciaForm = props => {
   const linkInicio = () => {
     history.push("/mis-incidencias");
   };
+  console.log(direccionPostal);
 
   const { datosForm, modificarDatos } = useForm({
     nombre: "",
     tipoIncidencia: "",
     descripcion: "",
-    direccion: "",
+    direccion: direccionPostal,
     latitud: direccionGeo.latitud,
     longitud: direccionGeo.longitud,
     resuelta: "",
     fotoIncidencia: null
   });
+  console.log(datosForm);
   const enviaIncidencia = e => {
     e.preventDefault();
     if (existeToken) {
@@ -56,7 +58,7 @@ const IncidenciaForm = props => {
   };
   return (
     <>
-      <Form className={`formulario ${!ventana ? "" : "oculto"}`} md={10} onSubmit={enviaIncidencia}>
+      <Form className={`formulario ${!ventana ? "" : "oculto"} p-3`} md={10} onSubmit={enviaIncidencia}>
         <Form.Group>
           <Form.Label>Nombre Incidencia:</Form.Label>
           <Form.Control
@@ -115,7 +117,8 @@ const IncidenciaForm = props => {
 
 IncidenciaForm.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  direccionGeo: PropTypes.object.isRequired
+  direccionGeo: PropTypes.object.isRequired,
+  direccion: PropTypes.string.isRequired
 };
 
 export default IncidenciaForm;
