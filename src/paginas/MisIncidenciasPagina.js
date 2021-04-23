@@ -1,10 +1,10 @@
 import { Col, Row } from "react-bootstrap";
-import ListaIncidencias from "../componentes/ListaIncidencias";
+import Listado from "../componentes/Listado";
 
 const MisIncidenciasPagina = () => (
   <Row as="main">
     <Col>
-      <ListaIncidencias />
+      <Listado />
     </Col>
   </Row>
 );

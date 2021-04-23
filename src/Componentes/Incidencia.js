@@ -3,11 +3,11 @@ import { Button, Col, Row } from "react-bootstrap";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 
 const Incidencia = () => {
-const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
-const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
-const hazAlgo = () => console.log("hola");
-const { getIncidencias } = useContext(ContextoIncidencias);
-const incidenciasApi = getIncidencias.incidencias.body.incidencias;
+  const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
+  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+  const hazAlgo = () => console.log("hola");
+  const { getIncidencias } = useContext(ContextoIncidencias);
+  const incidenciasApi = getIncidencias.incidencias.body.incidencias;
   return (
     <Col>
       {
@@ -30,7 +30,7 @@ const incidenciasApi = getIncidencias.incidencias.body.incidencias;
                 <Col sm={7}>
                   <Row as="h3" className="elemento-targeta-incidencia">{incidencia.nombre}</Row>
                   <Row className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Row>
-                  <Row justify-content-between>
+                  <Row>
                     <Col>
                       <Row className="elemento-targeta-incidencia tipo-targeta">
                         <img className="targeta-tipo" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
@@ -38,7 +38,7 @@ const incidenciasApi = getIncidencias.incidencias.body.incidencias;
                         {incidencia.tipoIncidencia.tipo}
                       </Row>
                     </Col>
-                    <Col text-right className="elemento-targeta-incidencia direccion-targeta">{incidencia.direccion}</Col>
+                    <Col className="elemento-targeta-incidencia direccion-targeta">{incidencia.direccion}</Col>
                   </Row>
                 </Col>
                 <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />
