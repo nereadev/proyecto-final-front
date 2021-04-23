@@ -31,17 +31,23 @@ const ContactoPagina = () => (
             <Row>
               <Col><i className="fas fa-mobile-alt" /></Col>
               <Col>Llámanos:</Col>
-              <Col>(+34) 656 542 325</Col>
+              <Col as="a" href="tel:+34656542325">(+34) 656 542 325</Col>
             </Row>
             <Row>
               <Col><i className="fas fa-map-marker-alt" /></Col>
               <Col>Visita nuestras oficinas:</Col>
-              <Col>Aquí!</Col>
+              <Col as="a" href="https://goo.gl/maps/xrGurtUGopDUcz3o7">Aquí!</Col>
             </Row>
             <Row>
               <Col><i className="far fa-envelope" /></Col>
               <Col>Escríbenos un email:</Col>
-              <Col>ciutadaverd@info.com</Col>
+              <Col
+                as="a"
+                href="mailto:puntociudadano@info.com"
+              >
+                puntociudadano@info.com
+
+              </Col>
             </Row>
           </Card.Body>
         </Accordion.Collapse>
