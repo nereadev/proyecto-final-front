@@ -7,10 +7,13 @@ import IncidenciaForm from "./IncidenciaForm";
 import ListaIncidencias from "./ListaIncidencias";
 
 const LocalizacionForm = () => {
+  const [codigoPostal, setCodigoPostal] = useState("");
+  const [direccion, setDireccion] = useState("");
+  const [comentario, setComentario] = useState("");
   const [marcar, setMarcar] = useState(false);
   const [introducirDatos, setintroducirDatos] = useState(false);
   const [lista, setLista] = useState(false);
-  const [direccion, setDireccion] = useState({});
+  const [direccionGeo, setDireccionGeo] = useState({});
   const [ocultarIntroducirDatos, setOcultarIntroducirDatos] = useState(true);
   const [siguiente, setSiguiente] = useState(false);
   const [activarBoton, setActivarBoton] = useState(false);
@@ -27,7 +30,7 @@ const LocalizacionForm = () => {
   };
   const geoUsuario = () => {
     const success = (position) => {
-      setDireccion({
+      setDireccionGeo({
         latitud: position.coords.latitude,
         longitud: position.coords.longitude
       });
@@ -128,7 +131,7 @@ const LocalizacionForm = () => {
             </Col>
           </>
         )
-        : <IncidenciaForm direccionGeo={direccion} />}
+        : <IncidenciaForm direccionGeo={direccionGeo} />}
     </>
   );
 };
