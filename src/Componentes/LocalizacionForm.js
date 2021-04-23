@@ -7,9 +7,6 @@ import IncidenciaForm from "./IncidenciaForm";
 import Listado from "./Listado";
 
 const LocalizacionForm = () => {
-  const [codigoPostal, setCodigoPostal] = useState("");
-  const [direccion, setDireccion] = useState("");
-  const [comentario, setComentario] = useState("");
   const [marcar, setMarcar] = useState(false);
   const [introducirDatos, setintroducirDatos] = useState(false);
   const [lista, setLista] = useState(false);
