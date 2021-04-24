@@ -30,8 +30,8 @@ const IncidenciaForm = props => {
     tipoIncidencia: "",
     descripcion: "",
     direccion: direccionPostal,
-    latitud: latitudApi || direccionGeo.latitud,
-    longitud: longitudApi || direccionGeo.longitud,
+    latitud: latitudApi || direccionGeo.latitud || 0,
+    longitud: longitudApi || direccionGeo.longitud || 0,
     resuelta: "",
     fotoIncidencia: null
   });
