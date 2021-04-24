@@ -13,7 +13,9 @@ import { ContextoToken } from "../contextos/ContextoToken";
 const IncidenciaForm = props => {
   const token = localStorage.getItem("token-usuario");
   const idUsuario = jwt_decode(token).id;
-  const { direccionGeo, direccion: direccionPostal, coordenadas } = props;
+  const {
+    direccionGeo, direccion: direccionPostal, coordenadas, datosGeo
+  } = props;
   const { existeToken } = useContext(ContextoToken);
   const [ventana, setVentana] = useState(false);
   const history = useHistory();
@@ -29,12 +31,13 @@ const IncidenciaForm = props => {
     nombre: "",
     tipoIncidencia: "",
     descripcion: "",
-    direccion: direccionPostal,
+    direccion: direccionPostal || datosGeo.features[0].place_name,
     latitud: latitudApi || direccionGeo.latitud || 0,
     longitud: longitudApi || direccionGeo.longitud || 0,
     resuelta: "",
     fotoIncidencia: null
   });
+  console.log(datosForm);
 
   const enviaIncidencia = e => {
     e.preventDefault();
@@ -119,9 +122,12 @@ const IncidenciaForm = props => {
 IncidenciaForm.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   direccionGeo: PropTypes.object.isRequired,
-  direccion: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  direccion: PropTypes.string,
   // eslint-disable-next-line react/forbid-prop-types
-  coordenadas: PropTypes.object.isRequired
+  coordenadas: PropTypes.object.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  datosGeo: PropTypes.string
 };
 
 export default IncidenciaForm;
