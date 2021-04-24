@@ -37,7 +37,6 @@ const IncidenciaForm = props => {
     resuelta: "",
     fotoIncidencia: null
   });
-  console.log(datosForm);
 
   const enviaIncidencia = e => {
     e.preventDefault();
