@@ -21,6 +21,7 @@ const IncidenciaForm = props => {
   const toggleVentana = () => setVentana(!ventana);
   const linkInicio = () => {
     history.push("/mis-incidencias");
+    window.location.reload();
   };
   const longitudApi = coordenadas?.features[0].geometry.coordinates[0];
   const latitudApi = coordenadas?.features[0].geometry.coordinates[1];

@@ -12,7 +12,6 @@ import useFetch from "../utils/hooks/useFetch";
 const MisIncidenciasPagina = () => {
   const token = localStorage.getItem("token-usuario");
   const idUsuario = jwt_decode(token).id;
-  const history = useHistory();
   const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
   const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
   const { getIncidencias } = useContext(ContextoIncidencias);
@@ -20,16 +19,14 @@ const MisIncidenciasPagina = () => {
   const [ventana, setVentana] = useState(false);
   const toggleVentana = () => setVentana(!ventana);
   const { datos, pideDatos: deleteDatos } = useFetch();
-  const linkInicio = () => {
-    history.push("/inicio");
-  };
+
   const eliminaIncidencia = (idIncidencia) => {
     deleteDatos(false, (`http://localhost:5000/incidencias/${idIncidencia}`), {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
       }
-    });
+    }); window.location.reload();
   };
 
   return (
@@ -68,7 +65,7 @@ const MisIncidenciasPagina = () => {
                 <Button className="boton-nueva btn-danger" type="button" variant="info" onClick={toggleVentana}>Eliminar incidencia</Button>
               </Row>
               <Col className="ventana" sm={12}>
-                <Toast show={ventana} onClose={linkInicio}>
+                <Toast show={ventana} onClose={toggleVentana}>
                   <Toast.Header>
                     <i className="fas fa-check-circle mr-2" />
                     <strong className="mr-auto">¡Cuidado!</strong>
@@ -77,7 +74,6 @@ const MisIncidenciasPagina = () => {
                   <Toast.Body>¿Está seguro que quiere eliminar esta incidencia?</Toast.Body>
                   <Col>
                     {" "}
-                    {console.log(incidencia)}
                     <Button className="boton-nueva btn-danger btn-sm offset-4" onClick={() => eliminaIncidencia(incidencia._id)} type="button" variant="info">Eliminar</Button>
                   </Col>
                 </Toast>
