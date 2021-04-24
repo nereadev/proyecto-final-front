@@ -87,7 +87,7 @@ const Incidencia = () => {
                   <Col dm={4} className="elemento-targeta-incidencia direccion-targeta">{new Date(incidencia.registrada).toLocaleDateString()}</Col>
                 </Row>
               </Col>
-              <Col sm={3} as="img" className="elemento-targeta-incidencia" src={`${incidencia.fotoIncidencia.length > 16 ? imgPopup(incidencia.fotoIncidencia) : "/img/no-foto.png"}`} alt=" " />
+              <Col sm={3} as="img" className="elemento-targeta-incidencia" src={`${incidencia.fotoIncidencia.length > 16 ? imgPopup(incidencia.fotoIncidencia) : "/img/no-foto.png "}`} alt=" " />
             </Row>
           )))
       }
