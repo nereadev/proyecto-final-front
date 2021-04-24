@@ -4,20 +4,22 @@ import {
 } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import Incidencia from "./Incidencia";
+import useFetch from "../utils/hooks/useFetch";
 import IncidenciaForm from "./IncidenciaForm";
-import Listado from "./Listado";
 
 const LocalizacionForm = () => {
+  const tokenMapBox = "pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw";
+  const urlMapbox = (direccion, token) => (`https://api.mapbox.com/geocoding/v5/mapbox.places/${direccion.split(" ").join("")}.json?types=address&access_token=${token}`);
   const [codigoPostal, setCodigoPostal] = useState("");
   const [direccion, setDireccion] = useState("");
   const formDireccion = (`${direccion}, ${codigoPostal}`);
   const [marcar, setMarcar] = useState(false);
+  const { datos: coordenadas, pideDatos: pideDireccion } = useFetch();
   const [introducirDatos, setintroducirDatos] = useState(false);
-  const [lista, setLista] = useState(false);
+  // const [lista, setLista] = useState(false);
   const [direccionGeo, setDireccionGeo] = useState({});
   const [ocultarIntroducirDatos, setOcultarIntroducirDatos] = useState(true);
-  const [siguiente, setSiguiente] = useState(false);
+  //  const [siguiente, setSiguiente] = useState(false);
   const [activarBoton, setActivarBoton] = useState(false);
   const history = useHistory();
   const mostrarDesplegable = (e) => {
@@ -60,6 +62,11 @@ const LocalizacionForm = () => {
   const linkInicio = () => {
     history.push("/inicio");
   };
+  useEffect(() => {
+    if (direccion) {
+      pideDireccion(false, urlMapbox(direccion, tokenMapBox));
+    }
+  }, [direccion]);
   return (
     <>
       {!activarBoton
@@ -146,7 +153,7 @@ const LocalizacionForm = () => {
 
           </>
         )
-        : <IncidenciaForm direccionGeo={direccionGeo} direccion={formDireccion} />}
+        : <IncidenciaForm direccionGeo={direccionGeo} direccion={formDireccion} coordenadas={coordenadas} />}
     </>
   );
 };

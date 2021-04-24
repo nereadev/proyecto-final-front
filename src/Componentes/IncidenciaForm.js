@@ -13,7 +13,7 @@ import { ContextoToken } from "../contextos/ContextoToken";
 const IncidenciaForm = props => {
   const token = localStorage.getItem("token-usuario");
   const idUsuario = jwt_decode(token).id;
-  const { direccionGeo, direccion: direccionPostal } = props;
+  const { direccionGeo, direccion: direccionPostal, coordenadas } = props;
   const { existeToken } = useContext(ContextoToken);
   const [ventana, setVentana] = useState(false);
   const history = useHistory();
@@ -22,19 +22,19 @@ const IncidenciaForm = props => {
   const linkInicio = () => {
     history.push("/mis-incidencias");
   };
-  console.log(direccionPostal);
-
+  const longitudApi = coordenadas?.features[0].geometry.coordinates[0];
+  const latitudApi = coordenadas?.features[0].geometry.coordinates[1];
   const { datosForm, modificarDatos } = useForm({
     nombre: "",
     tipoIncidencia: "",
     descripcion: "",
     direccion: direccionPostal,
-    latitud: direccionGeo.latitud,
-    longitud: direccionGeo.longitud,
+    latitud: latitudApi || direccionGeo.latitud,
+    longitud: longitudApi || direccionGeo.longitud,
     resuelta: "",
     fotoIncidencia: null
   });
-  console.log(datosForm);
+
   const enviaIncidencia = e => {
     e.preventDefault();
     if (existeToken) {
@@ -73,9 +73,9 @@ const IncidenciaForm = props => {
           <Form.Label>Tipo:</Form.Label>
           <Form.Control as="select" name="tipoIncidencia" value={datosForm.tipoIncidencia} onChange={modificarDatos}>
             <option>Elige...</option>
-            <option value="Medio Ambiente">Medio ambiente</option>
+            <option value="medio ambiente">Medio ambiente</option>
             <option value="civismo">Civismo</option>
-            <option value="Infraestructura">Infraestructura</option>
+            <option value="infraestructura">Infraestructura</option>
             <option value="otros">Otros:</option>
           </Form.Control>
         </Form.Group>
@@ -118,7 +118,9 @@ const IncidenciaForm = props => {
 IncidenciaForm.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   direccionGeo: PropTypes.object.isRequired,
-  direccion: PropTypes.string.isRequired
+  direccion: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  coordenadas: PropTypes.object.isRequired
 };
 
 export default IncidenciaForm;
