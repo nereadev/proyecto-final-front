@@ -3,8 +3,6 @@ main {
   align-content: start;
   justify-content: center;
 }
-
-
 .leaflet-popup-content {
   padding: 0;
 }
@@ -453,59 +451,51 @@ img.elemento-targeta-incidencia {
 }
 
 /* Como Funciona */
-.tips {
-  margin-bottom: 10px;
+.lista-titulos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.tips-titulos {
+  margin-top: 1em;
+  color: #648C6E;
+  text-align: center;
+}
+li.tips-titulos {
+  display: inline-block;
+  color: #48594B;
+  width: 45%;
+}
+.tips-solo {
+  margin-top: 1em;
+  font-weight: bold;
+  list-style: none;
+  font-size: 1.2em;
 }
 .mini-lista {
     display: flex;
     margin-bottom: 10px;
 }
 .mini-tips {
-  display: inline-block;
   width: 45%;
+  font-weight: 500;
+  color: #48594B;
+  list-style: disc;
+  margin-top: 0.6em;
 }
-.tips:nth-child(3), .tips:nth-child(4), .tips:nth-child(5), .tips:nth-child(6){
-  display: inline-block;
-  width: 20%;
-  margin: 0 10px;
-}
-/* .lista-tips li {
-  text-align:center;
+.ultimos-pasos {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
 }
-.lista-tips {
-  justify-content: space-evenly;
+.ultimos-pasos .tips{
+  display: inline-block;
+  color: #F2F2F2;
+  width: 20%;
+  margin: 1em 0.8em;
+  background-color: #B0BFB2;
+  border-radius: 30px;
+  padding: 1em;
+  text-align: center;
 }
-
-.lista-tips .tips-titulos {
-  font-size: 25px;
-  color:#5e8869;
-  font-weight: bolder;
-}
-.lista-tips li:nth-child(3) {
-  margin-top: 15px;
-  font-weight: 300;
-  font-size: 30px;
-}
-
-.lista-tips li:nth-child(4) {
-  font-weight: 400;
-  font-size: 25px;
-}
-
-.lista-tips li:nth-child(7), .lista-tips li:nth-child(8) {
-  color:#ac6125;
-}
-
-.lista-tips li:nth-child(9), .lista-tips li:nth-child(10) {
-  font-weight: 300;
-  font-size: 15px;
-} */
 
 /* Contacto */
 
