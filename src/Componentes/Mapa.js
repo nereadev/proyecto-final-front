@@ -51,12 +51,38 @@ const Mapa = () => {
   const [mapaBarrios, setMapaBarrios] = useState(false);
   return (
     <>
-      <Nav fill defaultActiveKey="incidencias" className="navTiposMapa">
+      <Nav fill defaultActiveKey="incidencias">
         <Nav.Item>
           <NavLink eventKey="incidencias" className="tiposMapa" onSelect={() => setMapaBarrios(false)}>Puntos de incidencia</NavLink>
         </Nav.Item>
         <Nav.Item>
           <NavLink eventKey="barrios" className="tiposMapa" onSelect={() => setMapaBarrios(true)}>Incidencias por barrios</NavLink>
+        </Nav.Item>
+      </Nav>
+      <Nav fill className="filtros-mapa">
+        <Nav.Item>
+          <NavLink eventKey="civismo" className="filtro-iconos">
+            <img src="img/civismo-circular.png" alt="icono civismo" />
+            Civismo
+          </NavLink>
+        </Nav.Item>
+        <Nav.Item>
+          <NavLink eventKey="medio-ambiente" className="filtro-iconos">
+            <img src="img/medio-ambiente-circular.png" alt="icono civismo" />
+            Medio Ambiente
+          </NavLink>
+        </Nav.Item>
+        <Nav.Item>
+          <NavLink eventKey="infraestructura" className="filtro-iconos">
+            <img src="img/infraestructura-circular.png" alt="icono civismo" />
+            Infraestructura
+          </NavLink>
+        </Nav.Item>
+        <Nav.Item>
+          <NavLink eventKey="otros" className="filtro-iconos">
+            <img src="img/otros-circular.png" alt="icono civismo" />
+            Otros
+          </NavLink>
         </Nav.Item>
       </Nav>
       <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
