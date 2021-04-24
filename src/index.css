@@ -427,16 +427,25 @@ padding-bottom: 10px;
 .mapa {
  height: 30rem;
 }
-.puntoFuncionamiento {
-list-style:disc;
-}
 
 /* Como Funciona */
-.como-funciona {
-  height: fit-content;
+.tips {
+  margin-bottom: 10px;
 }
-.lista-tips li {
-/* border: 1px dotted; */
+.mini-lista {
+    display: flex;
+    margin-bottom: 10px;
+}
+.mini-tips {
+  display: inline-block;
+  width: 45%;
+}
+.tips:nth-child(3), .tips:nth-child(4), .tips:nth-child(5), .tips:nth-child(6){
+  display: inline-block;
+  width: 20%;
+  margin: 0 10px;
+}
+/* .lista-tips li {
   text-align:center;
   display: flex;
   align-items: center;
@@ -472,4 +481,5 @@ list-style:disc;
 .lista-tips li:nth-child(9), .lista-tips li:nth-child(10) {
   font-weight: 300;
   font-size: 15px;
-}
+} */
+
