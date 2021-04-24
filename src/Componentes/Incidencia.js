@@ -53,7 +53,7 @@ const Incidencia = () => {
                   usuario.length !== 0 && (
                     <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
                       <Button variant="outline-info" onClick={() => realizaVoto(incidencia, usuario, votaIncidencia, dispatch)}>
-                       <i className={!usuario.body.usuario.incidenciasVotadas.find(incidenciaVotada => incidenciaVotada._id === incidencia._id) ? "fas fa-angle-double-up" : "fas fa-angle-double-down"} />
+                        <i className={!usuario.body.usuario.incidenciasVotadas.find(incidenciaVotada => incidenciaVotada._id === incidencia._id) ? "fas fa-angle-double-up" : "fas fa-angle-double-down"} />
                       </Button>
                     </Row>
                   )
@@ -61,12 +61,6 @@ const Incidencia = () => {
                 {/* esto de abajo no vale porque el id del voto cambia cada vez que das un voto nuevo,
                 lo que tienes que hacer es usar el DISPATCH de incidencias, seteando las incidencias */}
                 <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">{(voto && voto.body && voto.body.incidencia._id === incidencia._id) ? voto.body.incidencia.votos : incidencia.votos}</Row>
-                <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
-                  <i className={`fas fa-circle ${incidencia.resuelta
-                    ? "incidencia-resuelta"
-                    : "incidencia-recibida"}`}
-                  />
-                </Row>
               </Col>
               <Col sm={7} className="info-general">
                 <Row>
