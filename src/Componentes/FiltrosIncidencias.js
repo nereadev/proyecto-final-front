@@ -31,11 +31,12 @@ const FiltroIncidencias = () => {
   return (
     <>
       <Form className="filtro-incidencias" as={Col} md={12}>
-        <Row>
+        <Row className="filtros d-flex">
           <Form.Group as={Col} className="filtro-filtrar">
-            <Form.Label>Filtrar:</Form.Label>
-            <Form.Control as="select" defaultValue="Tipo...">
-              <option>Tipo...</option>
+            <Form.Control as="select" defaultValue="Filtar por...">
+              <option>
+                Filtrar por...
+              </option>
               <option value="medio ambiente" onClick={activarTipo}> Medio Ambiente</option>
               <option value="civismo" onClick={activarTipo}>Civismo</option>
               <option value="infraestructura" onClick={activarTipo}> Infraestrucutra</option>
@@ -43,14 +44,13 @@ const FiltroIncidencias = () => {
             </Form.Control>
           </Form.Group>
           <Form.Group as={Col} className="filtro-ordenar-por">
-            <Form.Label>Ordenar Por:</Form.Label>
-            <Form.Control as="select" defaultValue="Elige...">
-              <option>Elige...</option>
+            <Form.Control as="select" defaultValue="Ordenar por...">
+              <option>Ordenar por...</option>
               <option>Relevancia</option>
               <option onClick={activarOrdenar}>Fecha</option>
             </Form.Control>
           </Form.Group>
-          <InputGroup as={Col} className="filtro-buscar">
+          {/*           <InputGroup as={Col} className="filtro-buscar">
             <InputGroup.Prepend>
               <InputGroup.Text><i className="fas fa-search" /></InputGroup.Text>
             </InputGroup.Prepend>
@@ -59,10 +59,8 @@ const FiltroIncidencias = () => {
               type="text"
               placeholder="Buscar..."
             />
-          </InputGroup>
-        </Row>
-        <Row>
-          <Button onClick={aplicarFiltro}>Aplicar</Button>
+          </InputGroup> */}
+          <Button variant="outline-info" onClick={aplicarFiltro}>Aplicar</Button>
         </Row>
       </Form>
     </>
