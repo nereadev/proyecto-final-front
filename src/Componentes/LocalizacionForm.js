@@ -10,7 +10,7 @@ import IncidenciaForm from "./IncidenciaForm";
 const LocalizacionForm = () => {
   const tokenMapBox = "pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw";
   const urlMapboxReverse = (longitud, latitud, token) => (`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitud},${latitud}.json?types=address&access_token=${token}`);
-  const urlMapbox = (direccion, token) => (`https://api.mapbox.com/geocoding/v5/mapbox.places/${direccion.split(" ").join("")}.json?types=address&access_token=${token}`);
+  const urlMapbox = (direccion, token) => (`https://api.mapbox.com/geocoding/v5/mapbox.places/${direccion}.json?types=address&access_token=${token}`);
   const [codigoPostal, setCodigoPostal] = useState("");
   const [direccion, setDireccion] = useState("");
   const formDireccion = direccion ? (`${direccion}, ${codigoPostal}`) : null;

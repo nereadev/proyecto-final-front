@@ -35,8 +35,8 @@ const MisIncidenciasPagina = () => {
         incidencias.length !== 0 && (
           incidencias.body.incidencias.filter(incidencia => (incidencia.usuarioCreador ? incidencia.usuarioCreador._id === idUsuario : false)).map(incidencia => (
             <>
-              <Row key={incidencia._id} className={`targeta-incidencia formulario ${!ventana ? "" : "oculto"} p-3`}>
-                <Col sm={2}>
+              <Row className={`targeta-incidencia formulario ${!ventana ? "" : "oculto"} p-3`}>
+                <Col sm={2} key={incidencia._id}>
                   <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">{incidencia.votos}</Row>
                   <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
                     <i className={`fas fa-circle ${incidencia.resuelta
