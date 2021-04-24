@@ -6,9 +6,9 @@ const ContactoPagina = () => (
   <Row as="main">
     <Col sm={12} as="h2" className="pt-4">Contacto</Col>
     <Col as={Accordion}>
-      <Card>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="0">
+      <Card className="contacto-secciones">
+        <Card.Header className="contacto-cabecera">
+          <Accordion.Toggle as={Button} variant="link" eventKey="0" className="contacto-boton">
             Quiénes somos
           </Accordion.Toggle>
         </Card.Header>
@@ -20,9 +20,9 @@ const ContactoPagina = () => (
           </Card.Body>
         </Accordion.Collapse>
       </Card>
-      <Card>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="1">
+      <Card className="contacto-secciones">
+        <Card.Header className="contacto-cabecera">
+          <Accordion.Toggle as={Button} variant="link" eventKey="1" className="contacto-boton">
             ¿Quiéres contactarnos?
           </Accordion.Toggle>
         </Card.Header>
@@ -52,9 +52,9 @@ const ContactoPagina = () => (
           </Card.Body>
         </Accordion.Collapse>
       </Card>
-      <Card>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="2">
+      <Card className="contacto-secciones">
+        <Card.Header className="contacto-cabecera">
+          <Accordion.Toggle as={Button} variant="link" eventKey="2" className="contacto-boton">
             Objetivos de Desarrollo Sostenible
           </Accordion.Toggle>
         </Card.Header>
@@ -65,9 +65,9 @@ const ContactoPagina = () => (
           </Card.Body>
         </Accordion.Collapse>
       </Card>
-      <Card>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="3">
+      <Card className="contacto-secciones">
+        <Card.Header className="contacto-cabecera">
+          <Accordion.Toggle as={Button} variant="link" eventKey="3" className="contacto-boton">
             Ciudades y comunidades sostenibles
           </Accordion.Toggle>
         </Card.Header>
