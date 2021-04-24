@@ -415,7 +415,7 @@ img.elemento-targeta-incidencia {
 .incidencia .col {
  padding-bottom: 10px;
 }
-/* Contenido inicio */
+/* Contenido menus mapa */
 .mapa-lista {
   display: flex;
   justify-content: space-around;
@@ -433,6 +433,13 @@ img.elemento-targeta-incidencia {
 .mapa-lista .navLink:hover {
   color: black;
   background-color: rgba(255, 255, 255, 0.808);
+}
+.filtro-iconos img {
+  height: 3em;
+  margin-top:0.3em;
+}
+.filtros-mapa {
+  height: 3.8em;
 }
 
 /* Componente Mapa */
