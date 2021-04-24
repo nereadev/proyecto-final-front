@@ -9,15 +9,17 @@ import IncidenciaForm from "./IncidenciaForm";
 
 const LocalizacionForm = () => {
   const tokenMapBox = "pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw";
+  const urlMapboxReverse = (longitud, latitud, token) => (`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitud},${latitud}.json?types=address&access_token=${token}`);
   const urlMapbox = (direccion, token) => (`https://api.mapbox.com/geocoding/v5/mapbox.places/${direccion.split(" ").join("")}.json?types=address&access_token=${token}`);
   const [codigoPostal, setCodigoPostal] = useState("");
   const [direccion, setDireccion] = useState("");
-  const formDireccion = (`${direccion}, ${codigoPostal}`);
+  const formDireccion = direccion ? (`${direccion}, ${codigoPostal}`) : null;
   const [marcar, setMarcar] = useState(false);
-  const { datos: coordenadas, pideDatos: pideDireccion } = useFetch();
+  const { datos: coordenadas, pideDatos: pideCoordenadas } = useFetch();
+  const { datos: datosGeo, pideDatos: pideDireccion } = useFetch();
   const [introducirDatos, setintroducirDatos] = useState(false);
   // const [lista, setLista] = useState(false);
-  const [direccionGeo, setDireccionGeo] = useState({});
+  const [direccionGeo, setDireccionGeo] = useState(null);
   const [ocultarIntroducirDatos, setOcultarIntroducirDatos] = useState(true);
   //  const [siguiente, setSiguiente] = useState(false);
   const [activarBoton, setActivarBoton] = useState(false);
@@ -64,9 +66,14 @@ const LocalizacionForm = () => {
   };
   useEffect(() => {
     if (direccion) {
-      pideDireccion(false, urlMapbox(direccion, tokenMapBox));
+      pideCoordenadas(false, urlMapbox(direccion, tokenMapBox));
     }
   }, [direccion]);
+  useEffect((e) => {
+    if (direccionGeo) {
+      pideDireccion(false, urlMapboxReverse(direccionGeo.longitud, direccionGeo.latitud, tokenMapBox));
+    }
+  }, [direccionGeo]);
   return (
     <>
       {!activarBoton
@@ -153,7 +160,7 @@ const LocalizacionForm = () => {
 
           </>
         )
-        : <IncidenciaForm direccionGeo={direccionGeo} direccion={formDireccion} coordenadas={coordenadas} />}
+        : <IncidenciaForm direccionGeo={direccionGeo} direccion={formDireccion} coordenadas={coordenadas} datosGeo={datosGeo} />}
     </>
   );
 };
