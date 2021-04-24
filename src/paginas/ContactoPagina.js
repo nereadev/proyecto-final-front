@@ -6,9 +6,9 @@ const ContactoPagina = () => (
   <Row as="main">
     <Col sm={12} as="h2" className="pt-4">Contacto</Col>
     <Col as={Accordion}>
-      <Card>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="0">
+      <Card className="contacto-secciones">
+        <Card.Header className="contacto-cabecera">
+          <Accordion.Toggle as={Button} variant="link" eventKey="0" className="contacto-boton">
             Quiénes somos
           </Accordion.Toggle>
         </Card.Header>
@@ -20,28 +20,36 @@ const ContactoPagina = () => (
           </Card.Body>
         </Accordion.Collapse>
       </Card>
-      <Card>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="1">
+      <Card className="contacto-secciones">
+        <Card.Header className="contacto-cabecera">
+          <Accordion.Toggle as={Button} variant="link" eventKey="1" className="contacto-boton">
             ¿Quiéres contactarnos?
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="1">
           <Card.Body>
             <Row>
-              <Col><i className="fas fa-mobile-alt" /></Col>
-              <Col>Llámanos:</Col>
-              <Col as="a" href="tel:+34656542325">(+34) 656 542 325</Col>
+              <Col sm={1} as="a" href="tel:+34656542325"><i className="fas fa-mobile-alt" /></Col>
+              <Col sm={5}>Llámanos:</Col>
+              <Col sm={5} as="a" href="tel:+34656542325">(+34) 656 542 325</Col>
             </Row>
-            <Row>
+            {/*  <Row>
               <Col><i className="fas fa-map-marker-alt" /></Col>
               <Col>Visita nuestras oficinas:</Col>
               <Col as="a" href="https://goo.gl/maps/xrGurtUGopDUcz3o7">Aquí!</Col>
-            </Row>
+            </Row> */}
             <Row>
-              <Col><i className="far fa-envelope" /></Col>
-              <Col>Escríbenos un email:</Col>
               <Col
+                sm={1}
+                as="a"
+                href="mailto:puntociudadano@info.com"
+              >
+                <i className="far fa-envelope" />
+
+              </Col>
+              <Col sm={5}>Escríbenos un email:</Col>
+              <Col
+                sm={5}
                 as="a"
                 href="mailto:puntociudadano@info.com"
               >
@@ -52,9 +60,9 @@ const ContactoPagina = () => (
           </Card.Body>
         </Accordion.Collapse>
       </Card>
-      <Card>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="2">
+      <Card className="contacto-secciones">
+        <Card.Header className="contacto-cabecera">
+          <Accordion.Toggle as={Button} variant="link" eventKey="2" className="contacto-boton">
             Objetivos de Desarrollo Sostenible
           </Accordion.Toggle>
         </Card.Header>
@@ -65,9 +73,9 @@ const ContactoPagina = () => (
           </Card.Body>
         </Accordion.Collapse>
       </Card>
-      <Card>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="3">
+      <Card className="contacto-secciones">
+        <Card.Header className="contacto-cabecera">
+          <Accordion.Toggle as={Button} variant="link" eventKey="3" className="contacto-boton">
             Ciudades y comunidades sostenibles
           </Accordion.Toggle>
         </Card.Header>

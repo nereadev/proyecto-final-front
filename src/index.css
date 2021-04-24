@@ -483,3 +483,32 @@ padding-bottom: 10px;
   font-size: 15px;
 } */
 
+/* Contacto */
+
+.contacto-secciones {
+  border:none;
+  margin-bottom: 0.8em;
+}
+.contacto-cabecera {
+  text-align: center;
+  border: none;
+  background-color: #b0bfb248;
+  box-shadow: 0.2em 0.2em 0.2em 0 rgba(211, 211, 211, 0.349);
+  transition: 0.2s;
+}
+.contacto-boton {
+  color: #353f38;
+  transition: 0.2s;
+}
+.contacto-boton:hover {
+  color: #353f38;
+  text-decoration: none;
+}
+.contacto-boton:focus {
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: none;
+}
+.contacto-secciones a {
+  color: #353f38;
+}

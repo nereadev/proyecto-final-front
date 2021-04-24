@@ -7,8 +7,8 @@ const ComoFuncionaPagina = () => (
     <Col sm={12} as="h2" className="text-center">Cómo funciona?</Col>
     <Col sm={12} as="section" className="">
       <ul className="list-unstyled text-center d-flex">
-        <li clasaName="tips-titulos"><h3>Infórmate sobre qué incidencias hay en tu zona</h3></li>
-        <li clasaName="tips-titulos"><h3>Regístrate para votar incidencias o regístrarlas tú mismo</h3></li>
+        <li className="tips-titulos"><h3>Infórmate sobre qué incidencias hay en tu zona</h3></li>
+        <li className="tips-titulos"><h3>Regístrate para votar incidencias o regístrarlas tú mismo</h3></li>
       </ul>
       <h3>¿Quieres registrar una incidencia?</h3>
       <ul>
