@@ -446,8 +446,9 @@ background-color: #b6c9b9;
   background-color: rgba(255, 255, 255, 0.808);
 }
 .filtro-iconos img {
-  height: 3em;
-  margin-top:0.4em;
+  height: 2em;
+  margin-right: 0.4em;
+  margin-bottom: 0.1em;
 }
 .filtro-iconos {
   color: #648C6E;
