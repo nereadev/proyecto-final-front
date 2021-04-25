@@ -48,6 +48,10 @@ const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").jo
 const Mapa = () => {
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
+  const setQuery = getIncidencias.setQuery;
+  const filtrarTipo = tipo => {
+    setQuery(tipo);
+  };
   const [mapaBarrios, setMapaBarrios] = useState(false);
   return (
     <>
@@ -61,25 +65,25 @@ const Mapa = () => {
       </Nav>
       <Nav fill className="filtros-mapa">
         <Nav.Item>
-          <NavLink eventKey="civismo" className="filtro-iconos">
+          <NavLink onClick={() => filtrarTipo("civismo")} eventKey="civismo" className="filtro-iconos">
             <img src="img/civismo-circular.png" alt="icono civismo" />
             Civismo
           </NavLink>
         </Nav.Item>
         <Nav.Item>
-          <NavLink eventKey="medio-ambiente" className="filtro-iconos">
+          <NavLink onClick={() => filtrarTipo("medio ambiente")} eventKey="medio-ambiente" className="filtro-iconos">
             <img src="img/medio-ambiente-circular.png" alt="icono civismo" />
             Medio Ambiente
           </NavLink>
         </Nav.Item>
         <Nav.Item>
-          <NavLink eventKey="infraestructura" className="filtro-iconos">
+          <NavLink onClick={() => filtrarTipo("infraestructura")} eventKey="infraestructura" className="filtro-iconos">
             <img src="img/infraestructura-circular.png" alt="icono civismo" />
             Infraestructura
           </NavLink>
         </Nav.Item>
         <Nav.Item>
-          <NavLink eventKey="otros" className="filtro-iconos">
+          <NavLink onClick={() => filtrarTipo("otros")} eventKey="otros" className="filtro-iconos">
             <img src="img/otros-circular.png" alt="icono civismo" />
             Otros
           </NavLink>
