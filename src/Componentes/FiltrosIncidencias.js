@@ -25,8 +25,6 @@ const FiltroIncidencias = () => {
       setQuery(tipo);
     }
     if (filtroOrdenar) {
-      console.log(tipo);
-      console.log(orden);
       setQuery2(orden);
     }
   };
