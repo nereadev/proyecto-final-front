@@ -17,13 +17,13 @@ const MenuPrincipal = () => {
           <Nav className="menuCabecera">
             <NavLink to="/inicio" className="navItem">Inicio</NavLink>
             {existeToken && <NavLink to="/nueva-incidencia" className="navItem">Nueva Incidencia</NavLink>}
-            {existeToken && <NavLink to="/mis-incidencias" className="navItem"> Mis incidencias</NavLink>}
-            <NavLink to="/como-funciona" className="navItem"> Cómo funciona?</NavLink>
-            {existeToken && <NavLink to="/mi-cuenta" className="navItem">Mi cuenta</NavLink>}
+            {existeToken && <NavLink to="/mis-incidencias" className="navItem"> Mis Incidencias</NavLink>}
+            <NavLink to="/como-funciona" className="navItem"> ¿Cómo Funciona?</NavLink>
+            {existeToken && <NavLink to="/mi-cuenta" className="navItem">Mi Cuenta</NavLink>}
             <NavLink to="/contacto" className="navItem">Contacto</NavLink>
             {!existeToken && <Button variant="dark" href="/registro/acceder" className="navItem registroBoton acceder">Acceder</Button>}
-            {!existeToken && <Button variant="dark" href="/registro/crear-cuenta" className="navItem registroBoton crearCuenta">Crear cuenta</Button>}
-            {existeToken && <Button variant="dark" onClick={cerrarSesion} className="navItem registroBoton logoutBoton">Cerrar sesión</Button>}
+            {!existeToken && <Button variant="dark" href="/registro/crear-cuenta" className="navItem registroBoton crearCuenta">Crear Cuenta</Button>}
+            {existeToken && <Button variant="dark" onClick={cerrarSesion} className="navItem registroBoton logoutBoton">Cerrar Sesión</Button>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

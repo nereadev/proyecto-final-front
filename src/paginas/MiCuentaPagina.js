@@ -11,38 +11,36 @@ const MiCuentaPagina = () => {
     console.log(usuario);
   }, [usuario]);
   return (
-    <Container as="main">
-      <Row as="h2">Mi cuenta</Row>
-      <Row>
-        <Col className="mi-cuenta" as="ul">
-          <Row>
-            <Col>Nombre:</Col>
-            <Col>{(usuario.length !== 0) ? usuario.body.usuario.nombre : ""}</Col>
-            <Col />
-          </Row>
-          <Row>
-            <Col>Apellidos:</Col>
-            <Col>{(usuario.length !== 0) ? usuario.body.usuario.apellidos : ""}</Col>
-            <Col />
-          </Row>
-          <Row>
-            <Col>Email:</Col>
-            <Col>{(usuario.length !== 0) ? usuario.body.usuario.email : ""}</Col>
-            <Button as={Col} className="modificar-cuenta" type="submit" variant="light">Modificar</Button>
-          </Row>
-          <Row>
-            <Col>Contraseña:</Col>
-            <Col>***********</Col>
-            <Button as={Col} className="modificar-cuenta" type="submit" variant="light">Modificar</Button>
-          </Row>
-          <Row>
-            <Col>Mis incidencias</Col>
-            <Col><a href="./mis-incidencias"><i className="fas fa-plus" aria-label="Mis incidencias" /></a></Col>
-            <Col />
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+    <Row as="main">
+      <Col as="h2">Mi Cuenta</Col>
+      <Col md={12} className="mi-cuenta" as="ul">
+        <Row>
+          <Col>Nombre:</Col>
+          <Col className="mx-4">{(usuario.length !== 0) ? usuario.body.usuario.nombre : ""}</Col>
+          <Col />
+        </Row>
+        <Row>
+          <Col>Apellidos:</Col>
+          <Col className="mx-4">{(usuario.length !== 0) ? usuario.body.usuario.apellidos : ""}</Col>
+          <Col />
+        </Row>
+        <Row>
+          <Col>Email:</Col>
+          <Col>{(usuario.length !== 0) ? usuario.body.usuario.email : ""}</Col>
+          <Button as={Col} className="modificar-cuenta" type="submit" variant="light">Modificar</Button>
+        </Row>
+        <Row>
+          <Col>Contraseña:</Col>
+          <Col>***********</Col>
+          <Button as={Col} className="modificar-cuenta" type="submit" variant="light">Modificar</Button>
+        </Row>
+        <Row>
+          <Col>Mis incidencias</Col>
+          <Col className="mx-4"><a href="./mis-incidencias"><i className="fas fa-plus" aria-label="Mis incidencias" /></a></Col>
+          <Col />
+        </Row>
+      </Col>
+    </Row>
   );
 };
 
