@@ -265,8 +265,8 @@ background-color: #b6c9b9;
   margin: auto;
 }
 .ventana {
-  position: absolute;
-  bottom: 50%;
+  position:fixed;
+  top: 35%;
 }
 .fa-check-circle {
   color: green;
@@ -391,16 +391,19 @@ background-color: #b6c9b9;
  padding-bottom: 10px;
  padding-top: 10px;
 }
-.boton-info {
-  padding: 0;
+.boton-info, .boton-info:hover, .boton-info:focus {
+  padding: 0.4em;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
 }
 .estado-info {
-  background-color: rgb(0, 0, 0, 0.6);
-  color:white;
+  background-color: #48594ba6;
+  color: white;
   border-radius: 10px;
   width: 500px;
   position: relative;
-  margin: auto;
+  margin: 0.7em 0.5em 0 0;
+  padding: 0.1em 0.5em;
 }
 .estado-info.desactivada {
   display: none;
@@ -419,11 +422,30 @@ background-color: #b6c9b9;
 }
 
 /* Detalle incidencia */
-.detalle-incidencia {
- padding: 15px
+.carta-incidencia {
+  background-color: #b0bfb24b;
+  margin: 0;
+  border-radius: 30px;
 }
-.incidencia .col {
- padding-bottom: 10px;
+.detalle-incidencia {
+ padding: 15px;
+}
+ul.incidencia {
+   border-right: 0.1em solid #4f725823;
+}
+.incidencia li {
+  margin-bottom: 0.6em;
+}
+
+.incidencia .campo {
+  color: #4f7258;
+  font-weight: bold;
+}
+.detalle-imagen {
+  top: 1em;
+}
+.detalle-imagen a {
+  color: black;
 }
 /* Contenido menus mapa */
 .mapa-lista {
