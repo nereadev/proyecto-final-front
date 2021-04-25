@@ -5,7 +5,9 @@ import MenuPrincipal from "./MenuPrincipal";
 const Cabecera = () => (
   <Row as="header" className="cabecera">
     <Col xs={2} as="h2" className="titulo">
-      <Link to="/inicio">Ciutadà Verd</Link>
+      <Link to="/inicio">
+        <img src="img/logo-punto-ciudadano.png" alt="Logo Punto Ciudadano" />
+      </Link>
     </Col>
     <MenuPrincipal />
   </Row>
