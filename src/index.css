@@ -6,25 +6,24 @@ main {
 .leaflet-popup-content {
   padding: 0;
 }
-.container {
-  padding-left: 0;
-}
 
 .cabecera, .pie {
-background-color: #b6c9b9;
 padding-top: 10px;
 padding-bottom: 10px;
+background-color: #b6c9b9;
 }
 
 .popimg {
   padding-left: 0;
   padding-right: 0;
 }
+
 .cabecera {
   display: flex;
   align-items: center;
+  background-image: url("/src/img/fondo-verdes.png");
+  background-size:cover;
 }
-
 .titulo {
   font-size: 2.6em;
 }
