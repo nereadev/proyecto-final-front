@@ -5,7 +5,7 @@ const NuevaIncidenciaPagina = () => (
   <>
     <Row as="main">
       <Col>
-        <Row as="h2">Formulario Incidencia</Row>
+        <Row as="h2">Nueva Incidencia</Row>
         <Row as="section" className="nueva-incidencia">
           <LocalizacionForm />
         </Row>

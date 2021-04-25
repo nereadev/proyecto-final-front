@@ -6,6 +6,9 @@ main {
   align-content: start;
   justify-content: center;
 }
+h2 {
+  padding: 24px 15px 0px 15px ;
+}
 .leaflet-popup-content {
   padding: 0;
 }
@@ -393,9 +396,6 @@ background-color: #b6c9b9;
 /* MicuentaPagina */
 .btn.modificar-cuenta {
  padding: 0;
-}
-.mi-cuenta .col {
- padding-bottom: 10px;
 }
 
 /* Detalle incidencia */

@@ -4,7 +4,7 @@ import {
 
 const ComoFuncionaPagina = () => (
   <Row as="main">
-    <Col sm={12} as="h2" className="text-center pt-4">Cómo funciona?</Col>
+    <Col sm={12} as="h2" className="text-center pt-4">¿Cómo Funciona?</Col>
     <Col sm={12} as="section" className="">
       <ul className="list-unstyled lista-titulos">
         <li className="tips-titulos"><h3>Infórmate sobre qué incidencias hay en tu zona</h3></li>
