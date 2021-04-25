@@ -85,7 +85,7 @@ const Incidencia = () => {
                 </Row>
               </Col>
               <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />
-              <Col sm={1}><a href="./incidencia/:id"><i className="fas fa-plus" aria-label="Detalle incidencia" /></a></Col>
+              <Col sm={1}><a href={`./incidencia/${incidencia._id}`}><i className="fas fa-plus" aria-label="Detalle incidencia" /></a></Col>
             </Row>
           )))
       }
