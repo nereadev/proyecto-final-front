@@ -67,7 +67,7 @@ const MisIncidenciasPagina = () => {
                   </Col>
                   <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />
                   <Col sm={1} className="text-center">
-                    <a href={`./incidencia/${incidencia._id}`}><i className="fas fa-plus" aria-label="Detalle incidencia" /></a>
+                    <a href={`./incidencia/${incidencia._id}`}><i className="fas fa-plus d-block" aria-label="Detalle incidencia" /></a>
                     <Button className="boton-nueva btn-danger" type="button" variant="info" onClick={toggleVentana}><i className="far fa-trash-alt" /></Button>
                   </Col>
                   {incidencia.descripcion && <Col sm={12} className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Col>}
@@ -82,7 +82,14 @@ const MisIncidenciasPagina = () => {
                     <Toast.Body>¿Está seguro que quiere eliminar esta incidencia?</Toast.Body>
                     <Col>
                       {" "}
-                      <Button className="boton-nueva btn-danger btn-sm offset-4" onClick={() => eliminaIncidencia(incidencia._id)} type="button" variant="info">Eliminar</Button>
+                      <Button
+                        className="boton-nueva btn-danger btn-sm offset-4"
+                        onClick={() => eliminaIncidencia(incidencia._id)}
+                        type="button"
+                        variant="info"
+                      >
+                        Eliminar
+                      </Button>
                     </Col>
                   </Toast>
                 </Col>
