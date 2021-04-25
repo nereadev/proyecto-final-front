@@ -47,7 +47,7 @@ const Incidencia = () => {
     }
   }, [incidencias]);
   return (
-    <Col>
+    <Col as="section">
       {
         incidencias.length !== 0 && (
           incidencias.body.incidencias.map(incidencia => (
@@ -71,14 +71,14 @@ const Incidencia = () => {
                 </Row>
               </Col>
               <Col sm={6}>
-                <Row as="h3" className="elemento-targeta-incidencia">{incidencia.nombre}</Row>
+                <Row as="h3" className="elemento-targeta-incidencia d-block">{incidencia.nombre}</Row>
                 {incidencia.descripcion && <Row className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Row>}
+
                 <Row>
-                  <Col>
+                  <Col sm={12}>
                     <Row className="elemento-targeta-incidencia tipo-targeta">
-                      <img className="targeta-tipo" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
-                      Tipo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      {incidencia.tipoIncidencia.tipo}
+                      <img className="targeta-tipo" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="icono tipo de incidencia" />
+                      <span>{incidencia.tipoIncidencia.tipo}</span>
                     </Row>
                   </Col>
                   <Col className="elemento-targeta-incidencia direccion-targeta">{incidencia.direccion}</Col>

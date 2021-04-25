@@ -97,7 +97,7 @@ background-color: #b6c9b9;
   background-color: #2d382f;
 }
 
-@media(min-width: 992px) {
+@media(min-width: 1200px) {
   .menuCabecera {
     align-items: center;
     justify-content: center;
@@ -289,12 +289,33 @@ background-color: #b6c9b9;
 }
 
 /* Lista incidencias */
+
+.filtro-incidencias button,  .filtro-incidencias button:focus {
+  background-color:white;
+  color:#648C6E;
+  border-color: #648C6E;
+  box-shadow: none;
+}
+.filtro-incidencias button:hover{
+  background-color:#648C6E;
+  color: white;
+  border: none;
+}
 .filtro-incidencias .form-control {
- border-radius: 100px;
+  border-radius: 20px;
 }
 .filtro-buscar {
  width: 40%;
  padding-top: 30px;
+}
+.lateral-targeta-incidencia button {
+  background-color: #648C6E;
+  border-color: #648C6E;
+}
+.lateral-targeta-incidencia button:hover, .lateral-targeta-incidencia button:focus {
+  background-color: #B0BFB2;
+  border-color: #B0BFB2;
+  box-shadow: none;
 }
 .input-group-text {
  background-color: white;
@@ -320,44 +341,42 @@ background-color: #b6c9b9;
 }
 .targeta-incidencia {
  align-items: center;
- border-bottom: #d6d4d4bd 1px solid;
-}
-.targeta-incidencia:first-of-type {
- border-top: #d6d4d4bd 1px solid;
+ background-color: #f0f2f0;
+ margin: 1em 0;
+ border-radius: 0.4em;
+ box-shadow: 0.2em 0.3em 0.4em rgba(211, 211, 211, 0.452);
 }
 .lateral-targeta-incidencia {
   justify-content: center;
+  margin: 0.3em 0;
 }
-.elemento-targeta-incidencia {
-  padding: 5px 10px;
+.elemento-targeta-incidencia:first-of-type {
+  margin-bottom: 0;
+}
+.targeta-incidencia h3{
+  font-size: 1.4em;
 }
 .elemento-targeta-incidencia.descripcion-targeta {
   background-color: #e7e1e1bd;
   border-radius: 5px;
-  font-size: 13px;
+  font-size: 1em;
 }
 .elemento-targeta-incidencia.tipo-targeta {
-  display: inline-block;
-  background-color: #a39d9dbd;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-radius: 15px;
-  font-size: 10px;
+  display: flex;
+  align-items:center;
 }
 .elemento-targeta-incidencia.direccion-targeta {
   color: #645f5fbd;
-  margin-left: auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-size: 10px;
+  padding-left: 0;
+}
+.targeta-incidencia img {
+  margin: 0.6em 0;
+  border-radius: 20px;
 }
 .targeta-tipo {
-  position: absolute;
-  top: 10px;
-  left: 32px;
-  max-width: 20px;
-  max-height: 20px;
-  padding: 0;
+  height: 2.2em;
+  padding-right: 0.5em;
+  margin: 0;
 }
 .incidencia-lista, .titulo-lista {
  align-items: center;
@@ -388,10 +407,8 @@ background-color: #b6c9b9;
   margin-right: 15px;
 }
 .filtros {
-  margin-top: 30px;
+  margin-top: 2em;
 }
-
-/* Lista incidencias */
 .boton-nueva.btn-danger {
   position: relative;
   left: 70%;
