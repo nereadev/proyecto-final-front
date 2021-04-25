@@ -51,75 +51,77 @@ const IncidenciaPagina = () => {
       { existeToken
         ? (
           <>
-            <Col md={12} as="h2">
-              Incidencia N°
-              {" "}
-              {incidenciaElegida ? incidenciaElegida._id.slice(0, 3) : ""}
-            </Col>
-            <Col md={6}>
-              <Row className={`estado-info ${info ? "" : "desactivada"}`}>
-                El estado azul indica que la incidencia se ha registrado.
-                El estado verde indica que la incidencia se ha gestionado.
+            <Col>
+              <Row as="h2">
+                Incidencia N°
+                {" "}
+                {incidenciaElegida ? incidenciaElegida._id.slice(0, 3) : ""}
               </Row>
-              <Row className="detalle-incidencia">
-                <Col className="incidencia" as="ul">
-                  <Row>
-                    <Col>
-                      Estado:
-                    </Col>
-                    <Col>
-                      <i className={`fas fa-circle
+              <Row>
+                <Col md={8}>
+                  <Row className={`estado-info ${info ? "" : "desactivada"}`}>
+                    El estado azul indica que la incidencia se ha registrado.
+                    El estado verde indica que la incidencia se ha gestionado.
+                  </Row>
+                  <Row className="detalle-incidencia">
+                    <Col className="incidencia" as="ul">
+                      <Row>
+                        <Col>
+                          Estado:
+                        </Col>
+                        <Col>
+                          <i className={`fas fa-circle
             ${incidenciaElegida.resulta ? "incidencia-resuelta" : "incidencia-recibida"}`}
-                      />
-                      <Button className="boton-info" variant="light" onClick={() => mostrarInfo()}>
-                        {" "}
-                        {incidenciaElegida.resuelta !== true ? "  Registrada" : "  Resuelta"}
-                      </Button>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      Nombre:
-                    </Col>
-                    <Col>
-                      {incidenciaElegida.nombre}
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>Descripción:</Col>
-                    <Col>{incidenciaElegida.descripcion}</Col>
-                  </Row>
-                  <Row>
-                    <Col>Tipo:</Col>
-                    <Col>{incidenciaElegida.tipoIncidencia?.tipo}</Col>
-                  </Row>
-                  <Row>
-                    <Col>Localización:</Col>
-                    <Col>{datosGPS ? datosGPS.features[0].place_name : incidenciaElegida.direccion}</Col>
-                  </Row>
-                  <Row>
-                    <Col>Fecha:</Col>
-                    <Col>{fecha}</Col>
-                  </Row>
-                  <Row>
-                    <Col>Votos:</Col>
-                    <Col>
-                      <i className="fas fa-star" />
-                      {" "}
-                      7
+                          />
+                          <Button className="boton-info" variant="light" onClick={() => mostrarInfo()}>
+                            {" "}
+                            {incidenciaElegida.resuelta !== true ? "  Registrada" : "  Resuelta"}
+                          </Button>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col>
+                          Nombre:
+                        </Col>
+                        <Col>
+                          {incidenciaElegida.nombre}
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col>Descripción:</Col>
+                        <Col>{incidenciaElegida.descripcion}</Col>
+                      </Row>
+                      <Row>
+                        <Col>Tipo:</Col>
+                        <Col>{incidenciaElegida.tipoIncidencia?.tipo}</Col>
+                      </Row>
+                      <Row>
+                        <Col>Localización:</Col>
+                        <Col>{datosGPS ? datosGPS.features[0].place_name : incidenciaElegida.direccion}</Col>
+                      </Row>
+                      <Row>
+                        <Col>Fecha:</Col>
+                        <Col>{fecha}</Col>
+                      </Row>
+                      <Row>
+                        <Col>Votos:</Col>
+                        <Col>
+                          <i className="fas fa-star" />
+                          {" "}
+                          7
+                        </Col>
+                      </Row>
                     </Col>
                   </Row>
                 </Col>
+                <Col md={4} className="detalle-imagen">
+                  <Row className="p-2">
+                    <Col as="img" src={incidencia ? imgUrl(incidenciaElegida.fotoIncidencia) : ""} alt={incidenciaElegida.descripcion} />
+                  </Row>
+                  <Row as="a" href={imgUrl(incidenciaElegida.fotoIncidencia)} className="text-right pl-4">ampliar imagen</Row>
+                </Col>
               </Row>
             </Col>
-            <Col md={6}>
-              <Row />
-              <Row className="p-2 mt-5">
-                <Col as="img" src={incidencia ? imgUrl(incidenciaElegida.fotoIncidencia) : ""} alt={incidenciaElegida.descripcion} />
-              </Row>
-              <Row as="a" href={imgUrl(incidenciaElegida.fotoIncidencia)} className="text-right pl-4">ampliar imagen</Row>
-            </Col>
-            {" "}
 
           </>
         ) : <h5>Uppss... Para ver esta incidencia debes estar registrado con nosotros!</h5>}
