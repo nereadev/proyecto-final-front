@@ -353,13 +353,16 @@ background-color: #b6c9b9;
 .elemento-targeta-incidencia:first-of-type {
   margin-bottom: 0;
 }
+.targeta-incidencia {
+  padding: 1em;
+}
 .targeta-incidencia h3{
   font-size: 1.4em;
 }
 .elemento-targeta-incidencia.descripcion-targeta {
-  background-color: #e7e1e1bd;
   border-radius: 5px;
   font-size: 1em;
+  padding: 0.5em 0 0 3em;
 }
 .elemento-targeta-incidencia.tipo-targeta {
   display: flex;
