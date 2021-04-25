@@ -42,8 +42,8 @@ const FiltroIncidencias = () => {
             </Form.Control>
           </Form.Group>
           <Form.Group as={Col} className="filtro-ordenar-por">
-            <Form.Control as="select" onClick={activarOrdenar} defaultValue="fecha">
-              <option>Ordenar por...</option>
+            <Form.Control as="select" onClick={activarOrdenar} defaultValue="ordenar por">
+              <option value="ordenar por">Ordenar por...</option>
               <option value="relevancia">Relevancia</option>
               <option value="fecha">Fecha</option>
             </Form.Control>
