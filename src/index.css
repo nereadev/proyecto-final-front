@@ -13,6 +13,7 @@ h2 {
   padding: 0;
 }
 
+
 .cabecera, .pie {
 background-color: #b6c9b9;
 }
@@ -265,8 +266,8 @@ background-color: #b6c9b9;
   margin: auto;
 }
 .ventana {
-  position: absolute;
-  bottom: 50%;
+  position: fixed;
+  top: 20vh;
 }
 .fa-check-circle {
   color: green;
