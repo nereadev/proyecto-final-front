@@ -12,9 +12,6 @@ const Copyright = () => (
         <Nav.Item><NavLink to="/contacto" className="navItem">España</NavLink></Nav.Item>
       </Nav>
     </Col>
-    <Col as="span" className="espacioLogo">
-      <img src="/img/logo.png" alt="Logotipo de SomDev" className="logoWeb" />
-    </Col>
   </>
 );
 
