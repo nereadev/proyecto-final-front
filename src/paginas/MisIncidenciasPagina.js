@@ -16,9 +16,14 @@ const MisIncidenciasPagina = () => {
   const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
+  const setQuery = getIncidencias.setQuery;
   const [ventana, setVentana] = useState(false);
   const toggleVentana = () => setVentana(!ventana);
   const { datos, pideDatos: deleteDatos } = useFetch();
+
+  useEffect(() => {
+    setQuery(false);
+  }, [getIncidencias]);
 
   const eliminaIncidencia = (idIncidencia) => {
     deleteDatos(false, (`http://localhost:5000/incidencias/${idIncidencia}`), {
