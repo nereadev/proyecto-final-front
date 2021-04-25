@@ -44,7 +44,7 @@ const MisIncidenciasPagina = () => {
             incidencias.body.incidencias.filter(incidencia => (incidencia.usuarioCreador ? incidencia.usuarioCreador._id === idUsuario : false)).map(incidencia => (
               <>
                 <Row className={`targeta-incidencia formulario ${!ventana ? "" : "oculto"} p-3`} key={incidencia._id}>
-                  <Col sm={2}>
+                  <Col sm={1}>
                     <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">{incidencia.votos}</Row>
                     <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
                       <i className={`fas fa-circle ${incidencia.resuelta
@@ -53,19 +53,15 @@ const MisIncidenciasPagina = () => {
                       />
                     </Row>
                   </Col>
-                  <Col sm={6}>
-                    <Row as="h3" className="elemento-targeta-incidencia">{incidencia.nombre}</Row>
-                    {incidencia.descripcion && <Row className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Row>}
+                  <Col sm={7}>
+                    <Row as="h3" className="elemento-targeta-incidencia mb-2 d-block">{incidencia.nombre}</Row>
                     <Row>
-                      <Col>
-                        <Row className="elemento-targeta-incidencia tipo-targeta">
-                          <img className="targeta-tipo" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
-                          Tipo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          {incidencia.tipoIncidencia.tipo}
-                        </Row>
+                      <Col xs={4} className="elemento-targeta-incidencia tipo-targeta">
+                        <img className="targeta-tipo" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
+                        {incidencia.tipoIncidencia.tipo}
                       </Col>
-                      <Col className="elemento-targeta-incidencia direccion-targeta">{incidencia.direccion}</Col>
-                      <Col className="elemento-targeta-incidencia direccion-targeta">{new Date(incidencia.registrada).toLocaleDateString()}</Col>
+                      <Col xs={6} className="elemento-targeta-incidencia direccion-targeta">{incidencia.direccion}</Col>
+                      <Col xs={2} className="elemento-targeta-incidencia direccion-targeta">{new Date(incidencia.registrada).toLocaleDateString()}</Col>
                     </Row>
                   </Col>
                   <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />
@@ -73,6 +69,7 @@ const MisIncidenciasPagina = () => {
                   <Col className="d-flex">
                     <Button className="boton-nueva btn-danger mt-1" type="button" variant="info" onClick={() => toggleVentana(incidencia._id)}>Eliminar Incidencia</Button>
                   </Col>
+                  {incidencia.descripcion && <Col sm={12} className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Col>}
                 </Row>
               </>
             )))
