@@ -11,19 +11,23 @@ const FiltroIncidencias = () => {
   const [filtroTipo, setFiltroTipo] = useState(false);
   const [filtroOrdenar, setFiltroOrdenar] = useState(false);
   const [tipo, setTipo] = useState(false);
-  const activarTipo = (e) => {
+  const [orden, setOrden] = useState(false);
+  const activarTipo = e => {
     setFiltroTipo(true);
     setTipo(e.target.value);
   };
-  const activarOrdenar = () => {
-    setFiltroOrdenar(!filtroOrdenar);
+  const activarOrdenar = e => {
+    setFiltroOrdenar(true);
+    setOrden(e.target.value);
   };
   const aplicarFiltro = () => {
     if (filtroTipo) {
       setQuery(tipo);
     }
     if (filtroOrdenar) {
-      setQuery2("fecha");
+      console.log(tipo);
+      console.log(orden);
+      setQuery2(orden);
     }
   };
   return (
