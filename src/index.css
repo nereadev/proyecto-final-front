@@ -451,8 +451,12 @@ background-color: #b6c9b9;
   color: rgb(75, 95, 74);
   background-color: #62926d2f;
 }
+.mapa-padre {
+ justify-content: center;
+}
 .mapa {
  height: 30rem;
+ width: 60rem;
 }
 
 /* Como Funciona */

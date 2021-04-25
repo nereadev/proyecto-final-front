@@ -91,46 +91,48 @@ const Mapa = () => {
           </Nav.Item>
         </Nav>
       )}
-      <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
-        {!mapaDistritos || (
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url={urlMapboxDistritos}
-          />
-        )}
-        {mapaDistritos || (
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url={urlMapbox}
-          />
-        )}
-        {
-          (incidencias.length !== 0 && !mapaDistritos) && (
-            incidencias.body.incidencias.map(incidencia => (
-              !incidencia.latitud || (
-                <Marker key={incidencia._id} position={[incidencia.latitud, incidencia.longitud]} icon={getIcon(incidencia.tipoIncidencia.tipo)}>
-                  <Popup>
-                    <Container>
-                      <Col as="img" className="popimg" src={imgPopup(incidencia.fotoIncidencia)} alt={incidencia.descripcion} />
-                      <Col as="div">
-                        <h4>
-                          {incidencia.nombre}
-                          {"    "}
-                          <Link to={(`/incidencia/${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link>
-                        </h4>
-                        <Row>
-                          <Col as="h6">{incidencia.tipoIncidencia.tipo}</Col>
-                          <Col as="img" className="circular" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
-                        </Row>
-                      </Col>
-                    </Container>
-                  </Popup>
-                </Marker>
-              )
-            ))
-          )
-        }
-      </MapContainer>
+      <Row className="mapa-padre">
+        <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
+          {!mapaDistritos || (
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url={urlMapboxDistritos}
+            />
+          )}
+          {mapaDistritos || (
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url={urlMapbox}
+            />
+          )}
+          {
+            (incidencias.length !== 0 && !mapaDistritos) && (
+              incidencias.body.incidencias.map(incidencia => (
+                !incidencia.latitud || (
+                  <Marker key={incidencia._id} position={[incidencia.latitud, incidencia.longitud]} icon={getIcon(incidencia.tipoIncidencia.tipo)}>
+                    <Popup>
+                      <Container>
+                        <Col as="img" className="popimg" src={imgPopup(incidencia.fotoIncidencia)} alt={incidencia.descripcion} />
+                        <Col as="div">
+                          <h4>
+                            {incidencia.nombre}
+                            {"    "}
+                            <Link to={(`/incidencia/${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link>
+                          </h4>
+                          <Row>
+                            <Col as="h6">{incidencia.tipoIncidencia.tipo}</Col>
+                            <Col as="img" className="circular" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
+                          </Row>
+                        </Col>
+                      </Container>
+                    </Popup>
+                  </Marker>
+                )
+              ))
+            )
+          }
+        </MapContainer>
+      </Row>
     </>
   );
 };
