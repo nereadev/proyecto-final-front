@@ -500,7 +500,8 @@ ul.incidencia {
 }
 .mapa {
  height: 30rem;
- width: 60rem;
+ width: 90vw;
+ margin-bottom: 1em;
 }
 
 /* Como Funciona */
