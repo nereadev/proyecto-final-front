@@ -47,7 +47,7 @@ const MisIncidenciasPagina = () => {
                       />
                     </Row>
                   </Col>
-                  <Col sm={7}>
+                  <Col sm={6}>
                     <Row as="h3" className="elemento-targeta-incidencia">{incidencia.nombre}</Row>
                     <Row className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Row>
                     <Row>
@@ -63,8 +63,10 @@ const MisIncidenciasPagina = () => {
                     </Row>
                   </Col>
                   <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />
-                  <Col><a href="./incidencia/:id"><i className="fas fa-plus" aria-label="Detalle incidencia" /></a></Col>
-                  <Button className="boton-nueva btn-danger" type="button" variant="info" onClick={toggleVentana}>Eliminar incidencia</Button>
+                  <Col sm={1}><a href={`./incidencia/${incidencia._id}`}><i className="fas fa-plus" aria-label="Detalle incidencia" /></a></Col>
+                  <Col className="d-flex">
+                    <Button className="boton-nueva btn-danger" type="button" variant="info" onClick={toggleVentana}>Eliminar Incidencia</Button>
+                  </Col>
                 </Row>
                 <Col className="ventana" sm={12}>
                   <Toast show={ventana} onClose={toggleVentana}>
