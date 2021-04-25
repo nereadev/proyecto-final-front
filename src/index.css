@@ -272,8 +272,8 @@ background-color: #b6c9b9;
   color: green;
 }
 .boton-nueva {
-  margin-right: 10px;
-  margin-bottom: 10px;
+  padding: 0.3em 0.6em;
+  margin-top: 0.5em;
 }
 .comprobar-incidencia {
   margin-top: 20px;
@@ -411,10 +411,6 @@ background-color: #b6c9b9;
 }
 .filtros {
   margin-top: 2em;
-}
-.boton-nueva.btn-danger {
-  position: relative;
-  left: 70%;
 }
 
 /* MicuentaPagina */
