@@ -30,7 +30,7 @@ const FiltroIncidencias = () => {
   };
   return (
     <>
-      <Form className="filtro-incidencias" as={Col} md={12}>
+      <Form className="filtro-incidencias">
         <Row className="filtros d-flex">
           <Form.Group as={Col} className="filtro-filtrar">
             <Form.Control as="select" onClick={activarTipo} defaultValue="Filtar por...">
@@ -50,7 +50,7 @@ const FiltroIncidencias = () => {
               <option value="fecha">Fecha</option>
             </Form.Control>
           </Form.Group>
-          <Button variant="outline-primary" onClick={aplicarFiltro}>Aplicar</Button>
+          <Button variant="light" onClick={aplicarFiltro}>Aplicar</Button>
         </Row>
       </Form>
     </>
