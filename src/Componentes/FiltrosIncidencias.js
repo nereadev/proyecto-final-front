@@ -41,7 +41,7 @@ const FiltroIncidencias = () => {
               </option>
               <option value="medio ambiente"> Medio Ambiente</option>
               <option value="civismo">Civismo</option>
-              <option value="infraestructura"> Infraestrucutra</option>
+              <option value="infraestructura"> Infraestructura</option>
               <option value="otros">Otros</option>
             </Form.Control>
           </Form.Group>
