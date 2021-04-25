@@ -17,12 +17,14 @@ const MisIncidenciasPagina = () => {
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
   const setQuery = getIncidencias.setQuery;
+  const setQuery2 = getIncidencias.setQuery2;
   const [ventana, setVentana] = useState(false);
   const toggleVentana = () => setVentana(!ventana);
   const { datos, pideDatos: deleteDatos } = useFetch();
 
   useEffect(() => {
     setQuery(false);
+    setQuery2(false);
   }, [getIncidencias]);
 
   const eliminaIncidencia = (idIncidencia) => {
