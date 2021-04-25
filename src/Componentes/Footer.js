@@ -7,7 +7,7 @@ const Footer = () => (
     <MenuFooter />
     <Copyright />
     <Col as="span" className="espacioLogo">
-      <img src="/img/logo.png" alt="Logotipo de SomDev" className="logoWeb" />
+      <img src="/img/logo-blanco.png" alt="Logotipo de SomDev" className="logoWeb" />
     </Col>
   </Row>
 );
