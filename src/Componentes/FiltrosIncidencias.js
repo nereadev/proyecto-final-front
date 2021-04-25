@@ -13,7 +13,6 @@ const FiltroIncidencias = () => {
   const [tipo, setTipo] = useState(false);
   const activarTipo = (e) => {
     setFiltroTipo(true);
-    console.log(filtroTipo);
     setTipo(e.target.value);
   };
   const activarOrdenar = () => {
@@ -22,7 +21,6 @@ const FiltroIncidencias = () => {
   const aplicarFiltro = () => {
     if (filtroTipo) {
       setQuery(tipo);
-      console.log(tipo);
     }
     if (filtroOrdenar) {
       setQuery2("fecha");
@@ -33,21 +31,21 @@ const FiltroIncidencias = () => {
       <Form className="filtro-incidencias" as={Col} md={12}>
         <Row className="filtros d-flex">
           <Form.Group as={Col} className="filtro-filtrar">
-            <Form.Control as="select" defaultValue="Filtar por...">
+            <Form.Control as="select" onClick={activarTipo} defaultValue="Filtar por...">
               <option>
                 Filtrar por...
               </option>
-              <option value="medio ambiente" onClick={activarTipo}> Medio Ambiente</option>
-              <option value="civismo" onClick={activarTipo}>Civismo</option>
-              <option value="infraestructura" onClick={activarTipo}> Infraestrucutra</option>
-              <option value="otros" onClick={activarTipo}>Otros</option>
+              <option value="medio ambiente"> Medio Ambiente</option>
+              <option value="civismo">Civismo</option>
+              <option value="infraestructura"> Infraestrucutra</option>
+              <option value="otros">Otros</option>
             </Form.Control>
           </Form.Group>
           <Form.Group as={Col} className="filtro-ordenar-por">
-            <Form.Control as="select" defaultValue="Ordenar por...">
+            <Form.Control as="select" onClick={activarOrdenar} defaultValue="fecha">
               <option>Ordenar por...</option>
-              <option>Relevancia</option>
-              <option onClick={activarOrdenar}>Fecha</option>
+              <option value="relevancia">Relevancia</option>
+              <option value="fecha">Fecha</option>
             </Form.Control>
           </Form.Group>
           <Button variant="outline-primary" onClick={aplicarFiltro}>Aplicar</Button>
