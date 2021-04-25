@@ -56,40 +56,36 @@ const Incidencia = () => {
                 {
                   usuario.length !== 0 && (
                     <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
-                      <Button variant="outline-info" onClick={() => realizaVoto(incidencia, usuario, votaIncidencia, dispatchUsuario, dispatchIncidencias)}>
+                      <Button onClick={() => realizaVoto(incidencia, usuario, votaIncidencia, dispatchUsuario, dispatchIncidencias)}>
                         <i className={!usuario.body.usuario.incidenciasVotadas.find(incidenciaVotada => incidenciaVotada._id === incidencia._id) ? "fas fa-angle-double-up" : "fas fa-angle-double-down"} />
                       </Button>
                     </Row>
                   )
                 }
-                <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">{incidencia.votos}</Row>
+                <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">{(voto && voto.body.incidencia._id === incidencia._id) ? voto.body.incidencia.votos : incidencia.votos}</Row>
+                <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
+                  <i className={`fas fa-circle ${incidencia.resuelta
+                    ? "incidencia-resuelta"
+                    : "incidencia-recibida"}`}
+                  />
+                </Row>
               </Col>
-              <Col sm={7} className="info-general">
+              <Col sm={6}>
+                <Row as="h3" className="elemento-targeta-incidencia">{incidencia.nombre}</Row>
+                <Row className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Row>
                 <Row>
-                  <Col sm={10} as="h3" className="elemento-targeta-incidencia">{incidencia.nombre}</Col>
-                  <Col sm={2} className="icono-mas">
-                    <a href={`./incidencia/${incidencia._id}`}>
-                      <i className="fas fa-plus" aria-label="Detalle incidencia" />
-                    </a>
+                  <Col>
+                    <Row className="elemento-targeta-incidencia tipo-targeta">
+                      <img className="targeta-tipo" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
+                      Tipo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      {incidencia.tipoIncidencia.tipo}
+                    </Row>
                   </Col>
-                </Row>
-                <Row className="info-especifica">
-                  <Col dm={1} className="elemento-targeta-incidencia lateral-targeta-incidencia">
-                    <i className={`fas fa-circle ${incidencia.resuelta
-                      ? "incidencia-resuelta"
-                      : "incidencia-recibida"}`}
-                    />
-                  </Col>
-                  <Col dm={3} className="imagen-icono">
-                    <img className="targeta-tipo" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
-                  </Col>
-                  <Col dm={4} className="elemento-targeta-incidencia tipo-targeta">
-                    {incidencia.tipoIncidencia.tipo}
-                  </Col>
-                  <Col dm={4} className="elemento-targeta-incidencia direccion-targeta">{new Date(incidencia.registrada).toLocaleDateString()}</Col>
+                  <Col className="elemento-targeta-incidencia direccion-targeta">{new Date(incidencia.registrada).toLocaleDateString()}</Col>
                 </Row>
               </Col>
-              <Col sm={3} as="img" className="elemento-targeta-incidencia" src={`${incidencia.fotoIncidencia.length > 16 ? imgPopup(incidencia.fotoIncidencia) : "/img/no-foto.png "}`} alt=" " />
+              <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />
+              <Col sm={1}><a href="./incidencia/:id"><i className="fas fa-plus" aria-label="Detalle incidencia" /></a></Col>
             </Row>
           )))
       }

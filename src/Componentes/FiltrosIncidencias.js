@@ -50,17 +50,7 @@ const FiltroIncidencias = () => {
               <option onClick={activarOrdenar}>Fecha</option>
             </Form.Control>
           </Form.Group>
-          {/*           <InputGroup as={Col} className="filtro-buscar">
-            <InputGroup.Prepend>
-              <InputGroup.Text><i className="fas fa-search" /></InputGroup.Text>
-            </InputGroup.Prepend>
-            <Form.Control
-              required
-              type="text"
-              placeholder="Buscar..."
-            />
-          </InputGroup> */}
-          <Button variant="outline-info" onClick={aplicarFiltro}>Aplicar</Button>
+          <Button variant="outline-primary" onClick={aplicarFiltro}>Aplicar</Button>
         </Row>
       </Form>
     </>
