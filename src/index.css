@@ -426,7 +426,14 @@ background-color: #b6c9b9;
 }
 .filtro-iconos img {
   height: 3em;
-  margin-top:0.3em;
+  margin-top:0.4em;
+}
+.filtro-iconos {
+  color: #648C6E;
+}
+.filtro-iconos:hover, .filtro-iconos:focus {
+  text-decoration: underline;
+  color: #48594B;
 }
 .filtros-mapa {
   height: 3.8em;
