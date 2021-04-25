@@ -14,8 +14,6 @@ h2 {
 }
 
 .cabecera, .pie {
-padding-top: 10px;
-padding-bottom: 13px;
 background-color: #b6c9b9;
 }
 
@@ -94,9 +92,9 @@ background-color: #b6c9b9;
   margin-top: 10px;
 }
 
-.menuCabecera .registroBoton:hover {
+.menuCabecera .registroBoton:hover, .menuCabecera .registroBoton:focus{
   color: white;
-  background-color: #434744af;
+  background-color: #2d382f;
 }
 
 @media(min-width: 992px) {
@@ -114,6 +112,7 @@ background-color: #b6c9b9;
 }
 
 .pie {
+  padding: 0.6em 0;
   bottom: 0;
   height: max-content;
   font-size: 0.9em;
