@@ -51,16 +51,16 @@ const IncidenciaPagina = () => {
       { existeToken
         ? (
           <>
-            <Col>
-              <Row as="h2">
-                Incidencia N°
-                {" "}
-                {incidenciaElegida ? incidenciaElegida._id.slice(0, 3) : ""}
-              </Row>
-              <Col className={`estado-info ${info ? "" : "desactivada"}`}>
+            <Col md={12} as="h2">
+              Incidencia N°
+              {" "}
+              {incidenciaElegida ? incidenciaElegida._id.slice(0, 3) : ""}
+            </Col>
+            <Col md={6}>
+              <Row className={`estado-info ${info ? "" : "desactivada"}`}>
                 El estado azul indica que la incidencia se ha registrado.
                 El estado verde indica que la incidencia se ha gestionado.
-              </Col>
+              </Row>
               <Row className="detalle-incidencia">
                 <Col className="incidencia" as="ul">
                   <Row>
@@ -112,11 +112,12 @@ const IncidenciaPagina = () => {
                 </Col>
               </Row>
             </Col>
-            <Col>
-              <Row>
+            <Col md={6}>
+              <Row />
+              <Row className="p-2 mt-5">
                 <Col as="img" src={incidencia ? imgUrl(incidenciaElegida.fotoIncidencia) : ""} alt={incidenciaElegida.descripcion} />
-                <Col as="a" href={imgUrl(incidenciaElegida.fotoIncidencia)} className="text-right">ampliar imagen</Col>
               </Row>
+              <Row as="a" href={imgUrl(incidenciaElegida.fotoIncidencia)} className="text-right pl-4">ampliar imagen</Row>
             </Col>
             {" "}
 
