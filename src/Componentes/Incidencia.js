@@ -70,8 +70,10 @@ const Incidencia = () => {
                   />
                 </Row>
               </Col>
-              <Col sm={6} className="my-3">
+              <Col sm={6}>
                 <Row as="h3" className="elemento-targeta-incidencia d-block">{incidencia.nombre}</Row>
+                {incidencia.descripcion && <Row className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Row>}
+
                 <Row>
                   <Col sm={12}>
                     <Row className="elemento-targeta-incidencia tipo-targeta">

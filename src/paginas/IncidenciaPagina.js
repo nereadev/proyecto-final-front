@@ -19,7 +19,7 @@ const IncidenciaPagina = () => {
   const [info, setInfo] = useState(false);
   const fecha = incidenciaElegida ? new Date(incidenciaElegida.registrada).toLocaleDateString() : "";
   const { datos: datosGPS, pideDatos: pideDireccion } = useFetch();
-
+  console.log(incidenciaElegida);
   useEffect(() => {
     if (incidenciaElegida) {
       pideDireccion(false, urlMapbox(incidenciaElegida.longitud, incidenciaElegida.latitud, token));

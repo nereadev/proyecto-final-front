@@ -46,6 +46,7 @@ const IncidenciaForm = props => {
       datos.append("usuarioCreador", idUsuario);
       datos.append("fotoIncidencia", datosForm.fotoIncidencia);
       datos.append("nombre", datosForm.nombre);
+      datos.append("descripcion", datosForm.descripcion);
       datos.append("resuelta", "false");
       datos.append("tipoIncidencia", datosForm.tipoIncidencia);
       datos.append("direccion", datosForm.direccion);
