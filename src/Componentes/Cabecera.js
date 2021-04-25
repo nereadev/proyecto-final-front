@@ -6,7 +6,7 @@ const Cabecera = () => (
   <Row as="header" className="cabecera">
     <Col xs={2} as="h2" className="titulo">
       <Link to="/inicio">
-        <img src="img/logo-punto-ciudadano.png" alt="Logo Punto Ciudadano" />
+        <img src="/img/logo-punto-ciudadano.png" alt="Logo Punto Ciudadano" />
       </Link>
     </Col>
     <MenuPrincipal />
