@@ -25,7 +25,11 @@ background-color: #b6c9b9;
   display: flex;
   align-items: center;
   background-image: url("/src/img/fondo-verdes.png");
+  background-position: inherit;
   background-size:cover;
+}
+.cabecera img{
+  height: 1.8em;
 }
 .titulo {
   font-size: 2.6em;
