@@ -4,6 +4,8 @@ import { useContext, useEffect, useState } from "react";
 import {
   Col, Row, Button, Toast
 } from "react-bootstrap";
+import { useHistory } from "react-router";
+import Listado from "../componentes/Listado";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 import useFetch from "../utils/hooks/useFetch";
 
@@ -16,10 +18,9 @@ const MisIncidenciasPagina = () => {
   const incidencias = getIncidencias.incidencias;
   const setQuery = getIncidencias.setQuery;
   const setQuery2 = getIncidencias.setQuery2;
-  const [idIncidencia, setIdIncidencia] = useState("");
   const [ventana, setVentana] = useState(false);
-  const toggleVentana = (id) => { setVentana(!ventana); setIdIncidencia(id); };
-  const { datos: datosEliminados, pideDatos: deleteDatos } = useFetch();
+  const toggleVentana = () => setVentana(!ventana);
+  const { datos, pideDatos: deleteDatos } = useFetch();
 
   useEffect(() => {
     setQuery(false);
@@ -27,7 +28,7 @@ const MisIncidenciasPagina = () => {
   }, [getIncidencias]);
 
   const eliminaIncidencia = (idIncidencia) => {
-    deleteDatos(true, (`incidencias/${idIncidencia}`), {
+    deleteDatos(false, (`http://localhost:5000/incidencias/${idIncidencia}`), {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
@@ -65,29 +66,36 @@ const MisIncidenciasPagina = () => {
                     </Row>
                   </Col>
                   <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />
-                  <Col sm={1}><a href={`./incidencia/${incidencia._id}`}><i className="fas fa-plus" aria-label="Detalle incidencia" /></a></Col>
-                  <Col className="d-flex">
-                    <Button className="boton-nueva btn-danger mt-1" type="button" variant="info" onClick={() => toggleVentana(incidencia._id)}>Eliminar Incidencia</Button>
+                  <Col sm={1} className="text-center">
+                    <a href={`./incidencia/${incidencia._id}`}><i className="fas fa-plus d-block" aria-label="Detalle incidencia" /></a>
+                    <Button className="boton-nueva btn-danger" type="button" variant="info" onClick={toggleVentana}><i className="far fa-trash-alt" /></Button>
                   </Col>
                   {incidencia.descripcion && <Col sm={12} className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Col>}
                 </Row>
+                <Col className="ventana" sm={12}>
+                  <Toast show={ventana} onClose={toggleVentana}>
+                    <Toast.Header>
+                      <i className="fas fa-check-circle mr-2" />
+                      <strong className="mr-auto">¡Cuidado!</strong>
+                      <small>cerrar</small>
+                    </Toast.Header>
+                    <Toast.Body>¿Está seguro que quiere eliminar esta incidencia?</Toast.Body>
+                    <Col>
+                      {" "}
+                      <Button
+                        className="boton-nueva btn-danger btn-sm offset-4"
+                        onClick={() => eliminaIncidencia(incidencia._id)}
+                        type="button"
+                        variant="info"
+                      >
+                        Eliminar
+                      </Button>
+                    </Col>
+                  </Toast>
+                </Col>
               </>
             )))
         }
-        <Col className="ventana" sm={12}>
-          <Toast show={ventana} onClose={toggleVentana}>
-            <Toast.Header>
-              <i className="fas fa-check-circle mr-2" />
-              <strong className="mr-auto">¡Cuidado!</strong>
-              <small>cerrar</small>
-            </Toast.Header>
-            <Toast.Body>¿Está seguro que quiere eliminar esta incidencia?</Toast.Body>
-            <Col>
-              {" "}
-              <Button className="boton-nueva btn-danger btn-sm offset-1" onClick={() => eliminaIncidencia(idIncidencia)} type="button" variant="info">Eliminar</Button>
-            </Col>
-          </Toast>
-        </Col>
       </Col>
     </Row>
   );

@@ -57,7 +57,7 @@ const IncidenciaPagina = () => {
                 {" "}
                 {incidenciaElegida ? incidenciaElegida._id.slice(0, 3) : ""}
               </Row>
-              <Row>
+              <Row className="carta-incidencia">
                 <Col md={8}>
                   <Row className={`estado-info ${info ? "" : "desactivada"}`}>
                     El estado azul indica que la incidencia se ha registrado.
@@ -65,8 +65,8 @@ const IncidenciaPagina = () => {
                   </Row>
                   <Row className="detalle-incidencia">
                     <Col className="incidencia" as="ul">
-                      <Row>
-                        <Col>
+                      <Row as="li">
+                        <Col sm={3} className="campo">
                           Estado:
                         </Col>
                         <Col>
@@ -79,32 +79,32 @@ const IncidenciaPagina = () => {
                           </Button>
                         </Col>
                       </Row>
-                      <Row>
-                        <Col>
+                      <Row as="li">
+                        <Col sm={3} className="campo">
                           Nombre:
                         </Col>
                         <Col>
                           {incidenciaElegida.nombre}
                         </Col>
                       </Row>
-                      <Row>
-                        <Col>Descripción:</Col>
+                      <Row as="li">
+                        <Col sm={3} className="campo">Descripción:</Col>
                         <Col>{incidenciaElegida.descripcion}</Col>
                       </Row>
-                      <Row>
-                        <Col>Tipo:</Col>
-                        <Col>{incidenciaElegida.tipoIncidencia?.tipo}</Col>
+                      <Row as="li">
+                        <Col sm={3} className="campo">Tipo:</Col>
+                        <Col>{incidenciaElegida.tipoIncidencia?.tipo.toUpperCase()}</Col>
                       </Row>
-                      <Row>
-                        <Col>Localización:</Col>
+                      <Row as="li">
+                        <Col sm={3} className="campo">Localización:</Col>
                         <Col>{datosGPS ? datosGPS.features[0].place_name : incidenciaElegida.direccion}</Col>
                       </Row>
-                      <Row>
-                        <Col>Fecha:</Col>
+                      <Row as="li">
+                        <Col sm={3} className="campo">Fecha:</Col>
                         <Col>{fecha}</Col>
                       </Row>
-                      <Row>
-                        <Col>Votos:</Col>
+                      <Row as="li">
+                        <Col sm={3} className="campo">Votos:</Col>
                         <Col>
                           <i className="fas fa-star" />
                           {" "}
@@ -118,7 +118,7 @@ const IncidenciaPagina = () => {
                   <Row className="p-2">
                     <Col as="img" src={incidencia ? imgUrl(incidenciaElegida.fotoIncidencia) : ""} alt={incidenciaElegida.descripcion} />
                   </Row>
-                  <Row as="a" href={imgUrl(incidenciaElegida.fotoIncidencia)} className="text-right pl-4">ampliar imagen</Row>
+                  <Row as="a" href={imgUrl(incidenciaElegida.fotoIncidencia)} className="pl-4">Ampliar imagen</Row>
                 </Col>
               </Row>
             </Col>
