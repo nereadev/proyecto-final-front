@@ -72,6 +72,7 @@ const Incidencia = () => {
               </Col>
               <Col sm={6}>
                 <Row as="h3" className="elemento-targeta-incidencia">{incidencia.nombre}</Row>
+                {incidencia.descripcion && <Row className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Row>}
                 <Row>
                   <Col>
                     <Row className="elemento-targeta-incidencia tipo-targeta">
