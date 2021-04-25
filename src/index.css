@@ -392,6 +392,11 @@ background-color: #b6c9b9;
   margin-top: 30px;
 }
 
+/* Lista incidencias */
+.boton-nueva.btn-danger {
+  position: relative;
+  left: 70%;
+}
 
 /* MicuentaPagina */
 .btn.modificar-cuenta {
