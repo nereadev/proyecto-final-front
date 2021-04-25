@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 // eslint-disable-next-line camelcase
 import jwt_decode from "jwt-decode";
 import PropTypes from "prop-types";
@@ -90,10 +91,9 @@ const IncidenciaForm = props => {
           <Form.Label>Fotografía:</Form.Label>
           <Form.File name="fotoIncidencia" label="(Formato permitido: jpg, jpeg o png | Tamaño máximo 3 Mb)" onChange={modificarDatos} />
         </Form.Group>
+        <Button className="boton-nueva" type="submit" variant="info" onClick={toggleVentana}>Registrar</Button>
         <Form.Group />
-        <Col>
-          <Button className="boton-nueva" type="submit" variant="info" onClick={toggleVentana}>Registrar</Button>
-        </Col>
+
       </Form>
       <Col>
         <Row>
@@ -124,7 +124,7 @@ IncidenciaForm.propTypes = {
   // eslint-disable-next-line react/require-default-props
   direccion: PropTypes.string,
   // eslint-disable-next-line react/forbid-prop-types
-  coordenadas: PropTypes.object.isRequired,
+  coordenadas: PropTypes.object,
   // eslint-disable-next-line react/require-default-props
   datosGeo: PropTypes.string
 };

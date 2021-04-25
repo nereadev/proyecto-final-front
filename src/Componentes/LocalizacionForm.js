@@ -141,23 +141,22 @@ const LocalizacionForm = () => {
                     </Row>
                   </Col>
                 </Col> */}
+                <Button
+                  className="boton-nueva"
+                  variant="info"
+                  // disabled={!siguiente}
+                  onClick={cambiarBoton}
+                >
+                  <i className="fas fa-arrow-right" />
+                  {" "}
+                  Siguiente
+                </Button>
               </Form.Group>
             </Form>
             <Row className="footer-nueva-incidencia p-3">
               <Col>(1/2)</Col>
               <Col />
-              <Button
-                className="boton-nueva"
-                variant="info"
-                // disabled={!siguiente}
-                onClick={cambiarBoton}
-              >
-                <i className="fas fa-arrow-right" />
-                {" "}
-                Siguiente
-              </Button>
             </Row>
-
           </>
         )
         : <IncidenciaForm direccionGeo={direccionGeo} direccion={formDireccion} coordenadas={coordenadas} datosGeo={datosGeo} />}
