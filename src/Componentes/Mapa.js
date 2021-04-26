@@ -111,7 +111,7 @@ const Mapa = () => {
                 !incidencia.latitud || (
                   <Marker key={incidencia._id} position={[incidencia.latitud, incidencia.longitud]} icon={getIcon(incidencia.tipoIncidencia.tipo)}>
                     <Popup>
-                      <Row>
+                      <Row className="align-items-center">
                         <Col sm={12} as="img" className="popimg" src={imgPopup(incidencia.fotoIncidencia)} alt={incidencia.descripcion} />
                         <Col sm={2}>
                           <img className="circular" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
