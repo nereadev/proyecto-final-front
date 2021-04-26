@@ -646,8 +646,12 @@ li.tips-titulos {
   border-radius: 120px;
 }
 .caja-linkedin .nombre {
-  background-color: rgb(143, 140, 112);
-  color: white;
+  font-style: italic;
   justify-content: center;
   margin-right: 10px;
+  width: 200px;
+}
+.contacto-linkedin {
+  width: 1000px;
+  justify-content: center;
 }
