@@ -57,7 +57,7 @@ const AccederForm = () => {
     <>
       <Col sm={12} as="h2" className="titulo-acceder">Acceder</Col>
       <Col xs={11} sm={8} md={5} as="section" className="acceso">
-        <Row as={Form}>
+        <Row as={Form} onSubmit={checkLoginYToken}>
           <InputGroup>
             <InputGroup.Prepend>
               <InputGroup.Text><i className="far fa-envelope" /></InputGroup.Text>
