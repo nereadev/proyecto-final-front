@@ -433,8 +433,25 @@ a.importante:hover {
 }
 
 /* Mi cuenta Pagina */
-.btn.modificar-cuenta {
- padding: 0;
+.mi-cuenta {
+  background-color: #b0bfb22f;
+  border-radius: 1.5em;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+}
+.mi-cuenta li{
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px dotted #b0bfb26c;
+  align-items: center;
+}
+.mi-cuenta li:last-of-type{
+  border-bottom: none;
+}
+.mi-cuenta .etiqueta {
+  font-weight: bold;
+  color:#48594B;
+  font-size: 1.1em;
 }
 
 /* Mis incidencias */
