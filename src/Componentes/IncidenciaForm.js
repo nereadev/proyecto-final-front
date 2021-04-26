@@ -62,8 +62,8 @@ const IncidenciaForm = props => {
     }
   };
   return (
-    <>
-      <Form className={`formulario ${!ventana ? "" : "oculto"} p-3`} md={10} onSubmit={enviaIncidencia}>
+    <Col as="section">
+      <Form className={`formulario ${!ventana ? "" : "oculto"} p-3`} onSubmit={enviaIncidencia}>
         <Form.Group>
           <Form.Label>Nombre Incidencia:</Form.Label>
           <Form.Control
@@ -94,28 +94,19 @@ const IncidenciaForm = props => {
         </Form.Group>
         <Button className="boton-nueva" type="submit" variant="info" onClick={toggleVentana}>Registrar</Button>
         <Form.Group />
-
       </Form>
-      <Col>
-        <Row>
-          <Col>
-            (2/2)
-            {" "}
-          </Col>
-          <Col />
-        </Row>
-      </Col>
-      <Col className="ventana" sm={12}>
-        <Toast show={ventana} onClose={linkInicio}>
-          <Toast.Header>
-            <i className="fas fa-check-circle mr-2" />
-            <strong className="mr-auto">Incidencia Registrada</strong>
-            <small>cerrar</small>
-          </Toast.Header>
-          <Toast.Body>La nueva incidencia se ha enviado correctamente.</Toast.Body>
-        </Toast>
-      </Col>
-    </>
+      <span>
+        (2/2)
+      </span>
+      <Toast show={ventana} onClose={linkInicio} className="ventana">
+        <Toast.Header>
+          <i className="fas fa-check-circle mr-2" />
+          <strong className="mr-auto">Incidencia Registrada</strong>
+          <small>cerrar</small>
+        </Toast.Header>
+        <Toast.Body>La nueva incidencia se ha enviado correctamente.</Toast.Body>
+      </Toast>
+    </Col>
   );
 };
 

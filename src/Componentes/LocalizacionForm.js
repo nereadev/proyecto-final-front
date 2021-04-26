@@ -78,17 +78,12 @@ const LocalizacionForm = () => {
     <>
       {!activarBoton
         ? (
-          <>
-            <Form className="formulario" as={Col} md={10}>
-              <p>
-                Antes de registrar tu nueva incidencia, por favor comprueba que ya
-                {" "}
-                <strong>no</strong>
-                {" "}
-                haya sido creada por otro usuario.
-                {" "}
-                <Link to="/inicio">¡Comprueba!</Link>
-              </p>
+          <Col as="section">
+            <p>
+              Antes de registrar tu nueva incidencia, por favor comprueba que no haya sido creada por otro usuario.
+              <Link to="/inicio" className="importante">¡Compruébalo aquí!</Link>
+            </p>
+            <Form className="formulario">
               <Form.Label>Localización:</Form.Label>
               <Form.Group controlId="formBasicCheckbox">
                 <Form.Check
@@ -153,11 +148,10 @@ const LocalizacionForm = () => {
                 </Button>
               </Form.Group>
             </Form>
-            <Row className="footer-nueva-incidencia p-3">
-              <Col>(1/2)</Col>
-              <Col />
-            </Row>
-          </>
+            <span className="numero-pie">
+              1/2
+            </span>
+          </Col>
         )
         : <IncidenciaForm direccionGeo={direccionGeo} direccion={formDireccion} coordenadas={coordenadas} datosGeo={datosGeo} />}
     </>

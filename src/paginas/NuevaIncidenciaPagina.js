@@ -4,12 +4,8 @@ import LocalizacionForm from "../componentes/LocalizacionForm";
 const NuevaIncidenciaPagina = () => (
   <>
     <Row as="main">
-      <Col>
-        <Row as="h2">Nueva Incidencia</Row>
-        <Row as="section" className="nueva-incidencia">
-          <LocalizacionForm />
-        </Row>
-      </Col>
+      <Col sm={12} as="h2">Nueva Incidencia</Col>
+      <LocalizacionForm />
     </Row>
   </>
 );
