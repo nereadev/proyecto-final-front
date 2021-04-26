@@ -374,7 +374,8 @@ background-color: #b6c9b9;
 .elemento-targeta-incidencia.descripcion-targeta {
   border-radius: 5px;
   font-size: 1em;
-  padding: 0.5em 0 0 3em;
+  padding: 0.5em 2em 0 3em;
+  text-align: justify;
 }
 .elemento-targeta-incidencia.tipo-targeta {
   display: flex;

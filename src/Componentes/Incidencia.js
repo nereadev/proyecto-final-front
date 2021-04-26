@@ -71,7 +71,7 @@ const Incidencia = () => {
                 </Row>
               </Col>
               <Col sm={6}>
-                <Row as="h3" className="elemento-targeta-incidencia d-block">{incidencia.nombre}</Row>
+                <Row as="h3" className="elemento-targeta-incidencia d-block"><a href={`./incidencia/${incidencia._id}`}>{incidencia.nombre}</a></Row>
                 <Row>
                   <Col sm={12}>
                     <Row className="elemento-targeta-incidencia tipo-targeta">
