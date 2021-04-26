@@ -34,12 +34,11 @@ const MisIncidenciasPagina = () => {
       }
     });
   };
-  console.log(datosEliminados);
   useEffect(() => {
     if (datosEliminados) {
       window.location.reload();
     }
-  });
+  }, [datosEliminados]);
 
   return (
     <Row as="main">
