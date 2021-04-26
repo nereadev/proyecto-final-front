@@ -84,7 +84,7 @@ const LocalizacionForm = () => {
               <Link to="/inicio" className="importante">¡Compruébalo aquí!</Link>
             </p>
             <Form className="formulario">
-              <Form.Label>Localización:</Form.Label>
+              <Form.Label className="localizacion">Localización:</Form.Label>
               <Form.Group controlId="formBasicCheckbox">
                 <Form.Check
                   className={`${ocultarIntroducirDatos || "off"}`}
@@ -143,7 +143,6 @@ const LocalizacionForm = () => {
                   onClick={cambiarBoton}
                 >
                   <i className="fas fa-arrow-right" />
-                  {" "}
                   Siguiente
                 </Button>
               </Form.Group>

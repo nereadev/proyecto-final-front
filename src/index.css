@@ -240,6 +240,9 @@ background-color: #b6c9b9;
   color:#293b2b;
 }
 .formulario .form-label {
+  font-size: 1em;
+}
+.formulario .localizacion {
   font-size: 1.4em;
 }
 .formulario .form-check {
@@ -248,7 +251,7 @@ background-color: #b6c9b9;
   margin: 0;
   background-color: #b0bfb28e;
   border-radius: 3em;
- width: fit-content;
+  width: fit-content;
 }
 .boton-nueva {
   margin-top: 2em;
@@ -260,6 +263,8 @@ background-color: #b6c9b9;
   background-color: #b0bfb22a;
   padding: 0.5em;
   border-radius: 0.4em;
+  display: inline-block;
+  margin-bottom: 1em;
 }
 .formulario.oculto, .crear-cuenta.oculto {
   filter: blur(1.5px);
@@ -280,11 +285,12 @@ background-color: #b6c9b9;
 .ventana {
   position:fixed;
   top: 35%;
+  align-self: center;
 }
 .fa-check-circle {
   color: green;
 }
-.comprobar-incidencia {
+/* .comprobar-incidencia {
   margin-top: 20px;
   color: rgb(153, 16, 16);
   font-weight: bold;
@@ -292,7 +298,7 @@ background-color: #b6c9b9;
 .comprobar-incidencia .btn {
   padding-top: 0;
   padding-bottom: 0;
-}
+} */
 
 /* Lista incidencias */
 
