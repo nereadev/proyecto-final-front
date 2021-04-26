@@ -428,9 +428,14 @@ background-color: #b6c9b9;
   margin-top: 2em;
 }
 
-/* MicuentaPagina */
+/* Mi cuenta Pagina */
 .btn.modificar-cuenta {
  padding: 0;
+}
+
+/* Mis incidencias */
+.boton-borrar {
+  margin: 1em 0;
 }
 
 /* Detalle incidencia */
