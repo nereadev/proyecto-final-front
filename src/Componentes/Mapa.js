@@ -111,20 +111,18 @@ const Mapa = () => {
                 !incidencia.latitud || (
                   <Marker key={incidencia._id} position={[incidencia.latitud, incidencia.longitud]} icon={getIcon(incidencia.tipoIncidencia.tipo)}>
                     <Popup>
-                      <Container>
-                        <Col as="img" className="popimg" src={imgPopup(incidencia.fotoIncidencia)} alt={incidencia.descripcion} />
-                        <Col as="div">
-                          <h4>
-                            {incidencia.nombre}
-                            {"    "}
-                            <Link to={(`/incidencia/${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link>
-                          </h4>
-                          <Row>
-                            <Col as="h6">{incidencia.tipoIncidencia.tipo}</Col>
-                            <Col as="img" className="circular" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
-                          </Row>
+                      <Row>
+                        <Col sm={12} as="img" className="popimg" src={imgPopup(incidencia.fotoIncidencia)} alt={incidencia.descripcion} />
+                        <Col sm={2}>
+                          <img className="circular" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
                         </Col>
-                      </Container>
+                        <Col sm={10}>
+                          <h4 className="titulo-popup d-inline mr-2">
+                            {incidencia.nombre}
+                          </h4>
+                          <Link to={(`/incidencia/${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link>
+                        </Col>
+                      </Row>
                     </Popup>
                   </Marker>
                 )

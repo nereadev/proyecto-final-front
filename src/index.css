@@ -9,20 +9,10 @@ main {
 h2 {
   padding: 24px 15px 0px 15px ;
 }
-.leaflet-popup-content {
-  padding: 0;
-}
-
 
 .cabecera, .pie {
 background-color: #b6c9b9;
 }
-
-.popimg {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .cabecera {
   display: flex;
   align-items: center;
@@ -162,13 +152,6 @@ background-color: #b6c9b9;
   text-align: center;
   font-size: 0.8em;
   display: block;
-}
-.circular {
-  position: absolute;
-  right: 0px;
-  max-width: 50px;
-  max-height: 50px;
-  padding: 0;
 }
 
 /* Forms */
@@ -504,6 +487,19 @@ ul.incidencia {
  margin-bottom: 1em;
 }
 
+/* Pop up incidencia mapa */
+.leaflet-popup-content {
+  padding: 0;
+}
+.popimg{
+  margin-bottom: 1em;
+}
+.titulo-popup {
+  font-size: 1.4em;
+}
+.circular {
+  height: 3em;
+}
 /* Como Funciona */
 .lista-titulos {
   display: flex;
