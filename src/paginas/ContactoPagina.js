@@ -17,7 +17,7 @@ const ContactoPagina = () => (
             Somos Bernat, Malena, Nerea y Santiago y juntos formamos somDev.
             Con Punto Ciudadano queremos que los ciudadanos y ciudadanas sean
             partícipes de su ciudad. ¡Creando ciudades más limpias y seguras!
-            <Row className="mt-4">
+            <Row className="contacto-linkedin">
               <Col sm={3} className="caja-linkedin">
                 <Row><img src="/img/bernat.jpg" alt="Bernat Jorquera Vinyals" /></Row>
                 <Row className="nombre">Bernat Jorquera Vinyals</Row>
