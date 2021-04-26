@@ -406,10 +406,19 @@ background-color: #b6c9b9;
 }
 
 /* Detalle incidencia */
+.titulo-incidencia {
+  padding-left: 1.35em;
+}
 .carta-incidencia {
   background-color: #b0bfb24b;
   margin: 0;
   border-radius: 30px;
+}
+.carta-tipo-icono {
+  height: 2.2em;
+  padding-right: 0.5em;
+  padding-left: 0.8em;
+  margin: 0;
 }
 .detalle-incidencia {
  padding: 15px;
