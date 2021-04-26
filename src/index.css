@@ -392,6 +392,16 @@ a.importante:hover {
   color: #645f5fbd;
   padding-left: 0;
 }
+.targeta-incidencia img {
+  max-height: 20vh;
+  object-fit: cover;
+  margin: 0.6em 0;
+  border-radius: 20px;
+}
+.img-incidencia {
+  max-height: 30vh;
+  object-fit: cover;
+}
 .targeta-tipo {
   height: 2.2em;
   padding-right: 0.5em;
@@ -688,3 +698,5 @@ li.tips-titulos {
   width: 1000px;
   justify-content: center;
 }
+
+
