@@ -540,6 +540,7 @@ ul.incidencia {
   height: 3.8em;
 }
 
+
 /* Componente Mapa */
 .tiposMapa {
   border-radius: 20px;
@@ -554,11 +555,30 @@ ul.incidencia {
 }
 .mapa-padre {
  justify-content: center;
+
 }
 .mapa {
  height: 30rem;
  width: 90vw;
  margin-bottom: 1em;
+ position: relative;
+ z-index: 1;
+}
+.nueva-incidencia.inicio {
+  position: absolute;
+  z-index: 2;
+}
+.nueva-incidencia {
+  background-color: rgb(110, 85, 89);
+  border-color: transparent;
+}
+.nueva-incidencia:hover  {
+  background-color: rgb(85, 15, 26);
+  border-color: transparent;
+}
+.nueva-incidencia.btn-primary:not(:disabled):active {
+  background-color: rgb(110, 85, 89);
+  border-color: transparent;
 }
 
 /* Pop up incidencia mapa */

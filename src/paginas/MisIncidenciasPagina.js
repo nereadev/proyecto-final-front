@@ -42,7 +42,9 @@ const MisIncidenciasPagina = () => {
 
   return (
     <Row as="main">
-      <Col as="h2">Mis Incidencias</Col>
+      <Col as="h2">
+        Mis Incidencias
+      </Col>
       <Col md={12}>
         {
           incidencias.length !== 0 && (
