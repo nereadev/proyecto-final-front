@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import {
   Col, Form, InputGroup, Row, Button
 } from "react-bootstrap";
@@ -12,6 +12,10 @@ const FiltroIncidencias = () => {
   const [filtroOrdenar, setFiltroOrdenar] = useState(false);
   const [tipo, setTipo] = useState(false);
   const [orden, setOrden] = useState(false);
+  useEffect(() => {
+    setQuery(false);
+    setQuery2(false);
+  }, [getIncidencias]);
   const activarTipo = e => {
     setFiltroTipo(true);
     setTipo(e.target.value);
@@ -22,6 +26,11 @@ const FiltroIncidencias = () => {
   };
   const aplicarFiltro = () => {
     if (filtroTipo) {
+      if (tipo === "todos") {
+        setQuery(false);
+        setQuery2(false);
+        return;
+      }
       setQuery(tipo);
     }
     if (filtroOrdenar) {
@@ -37,6 +46,7 @@ const FiltroIncidencias = () => {
               <option>
                 Filtrar por...
               </option>
+              <option value="todos"> Todos los tipos</option>
               <option value="medio ambiente"> Medio Ambiente</option>
               <option value="civismo">Civismo</option>
               <option value="infraestructura"> Infraestructura</option>
