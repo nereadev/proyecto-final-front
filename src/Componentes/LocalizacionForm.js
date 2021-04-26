@@ -76,55 +76,54 @@ const LocalizacionForm = () => {
   }, [direccionGeo]);
   return (
     <>
-      {!activarBoton
-        ? (
-          <Col as="section">
-            <p>
-              Antes de registrar tu nueva incidencia, por favor comprueba que no haya sido creada por otro usuario.
-              <Link to="/inicio" className="importante">¡Compruébalo aquí!</Link>
-            </p>
-            <Form className="formulario">
-              <Form.Label className="localizacion">Localización:</Form.Label>
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  className={`${ocultarIntroducirDatos || "off"}`}
-                  onClick={marcarCheck}
-                  onChange={mostrarDesplegable}
-                  label="Introducir localización manual"
+      {!activarBoton && (
+        <Col as="section">
+          <p>
+            Antes de registrar tu nueva incidencia, por favor comprueba que no haya sido creada por otro usuario.
+            <Link to="/inicio" className="importante">¡Compruébalo aquí!</Link>
+          </p>
+          <Form className="formulario">
+            <Form.Label className="localizacion">Localización:</Form.Label>
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check
+                className={`${ocultarIntroducirDatos || "off"}`}
+                onClick={marcarCheck}
+                onChange={mostrarDesplegable}
+                label="Introducir localización manual"
+              />
+            </Form.Group>
+            <Col className={`introducir-datos ${introducirDatos ? "" : "off"}`}>
+              <Form.Group>
+                <Form.Label>Código Postal:</Form.Label>
+                <Form.Control
+                  required
+                  name="codigo"
+                  type="label"
+                  value={codigoPostal}
+                  onChange={modificaValor}
                 />
               </Form.Group>
-              <Col className={`introducir-datos ${introducirDatos ? "" : "off"}`}>
-                <Form.Group>
-                  <Form.Label>Código Postal:</Form.Label>
-                  <Form.Control
-                    required
-                    name="codigo"
-                    type="label"
-                    value={codigoPostal}
-                    onChange={modificaValor}
-                  />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Dirección</Form.Label>
-                  <Form.Control
-                    required
-                    name="direccion"
-                    type="label"
-                    value={direccion}
-                    onChange={modificaValor}
-                  />
-                </Form.Group>
-              </Col>
               <Form.Group>
-                <Form.Check
-                  id="formBasic"
-                  className={`${introducirDatos && "off"}`}
-                  type="checkbox"
-                  onChange={geoUsuario}
-                  label="Usar mi ubicación actual"
-                  onClick={marcarCheck}
+                <Form.Label>Dirección</Form.Label>
+                <Form.Control
+                  required
+                  name="direccion"
+                  type="label"
+                  value={direccion}
+                  onChange={modificaValor}
                 />
-                {/* Por ahora lo dejaremos desactivado sin comprobacion
+              </Form.Group>
+            </Col>
+            <Form.Group>
+              <Form.Check
+                id="formBasic"
+                className={`${introducirDatos && "off"}`}
+                type="checkbox"
+                onChange={geoUsuario}
+                label="Usar mi ubicación actual"
+                onClick={marcarCheck}
+              />
+              {/* Por ahora lo dejaremos desactivado sin comprobacion
                 <Col className={`${marcar ? "" : "off"}`}>
                   <Button variant="outline-danger" onClick={mostrarLista}>Comprobar</Button>
                   <Col className={`${lista || "off"}`}>
@@ -136,23 +135,23 @@ const LocalizacionForm = () => {
                     </Row>
                   </Col>
                 </Col> */}
-                <Button
-                  className="boton-nueva"
-                  variant="info"
-                  // disabled={!siguiente}
-                  onClick={cambiarBoton}
-                >
-                  <i className="fas fa-arrow-right" />
-                  Siguiente
-                </Button>
-              </Form.Group>
-            </Form>
-            <span className="numero-pie">
-              1/2
-            </span>
-          </Col>
-        )
-        : <IncidenciaForm direccionGeo={direccionGeo} direccion={formDireccion} coordenadas={coordenadas} datosGeo={datosGeo} />}
+              <Button
+                className="boton-nueva"
+                variant="info"
+                // disabled={!siguiente}
+                onClick={cambiarBoton}
+              >
+                <i className="fas fa-arrow-right" />
+                Siguiente
+              </Button>
+            </Form.Group>
+          </Form>
+          <span className="numero-pie">
+            1/2
+          </span>
+        </Col>
+      )}
+      {activarBoton && <IncidenciaForm direccionGeo={direccionGeo} direccion={formDireccion} coordenadas={coordenadas} datosGeo={datosGeo} />}
     </>
   );
 };
