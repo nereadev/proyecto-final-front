@@ -98,7 +98,7 @@ const IncidenciaForm = props => {
         </Form>
         <span className="numero-pie">2/2</span>
       </Col>
-      <Col sm={12} as={Toast} show={!ventana} onClose={linkInicio} className="ventana">
+      <Col sm={12} as={Toast} show={ventana} onClose={linkInicio} className="ventana">
         <Toast.Header>
           <i className="fas fa-check-circle mr-2" />
           <strong className="mr-auto">Incidencia Registrada</strong>
