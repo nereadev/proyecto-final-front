@@ -65,7 +65,7 @@ const ContactoPagina = () => (
       <Card className="contacto-secciones">
         <Card.Header className="contacto-cabecera">
           <Accordion.Toggle as={Button} variant="link" eventKey="1" className="contacto-boton">
-            ¿Quiéres contactarnos?
+            ¿Quiéres Contactarnos?
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="1">
@@ -118,7 +118,7 @@ const ContactoPagina = () => (
       <Card className="contacto-secciones">
         <Card.Header className="contacto-cabecera">
           <Accordion.Toggle as={Button} variant="link" eventKey="3" className="contacto-boton">
-            Ciudades y comunidades sostenibles
+            Ciudades y Comunidades Sostenibles
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="3">
