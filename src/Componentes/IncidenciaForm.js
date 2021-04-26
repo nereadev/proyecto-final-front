@@ -63,57 +63,48 @@ const IncidenciaForm = props => {
   };
   return (
     <>
-      <Form className={`formulario ${!ventana ? "" : "oculto"} p-3`} md={10} onSubmit={enviaIncidencia}>
-        <Form.Group>
-          <Form.Label>Nombre Incidencia:</Form.Label>
-          <Form.Control
-            required
-            name="nombre"
-            type="text"
-            value={datosForm.nombre}
-            onChange={modificarDatos}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Tipo:</Form.Label>
-          <Form.Control as="select" name="tipoIncidencia" value={datosForm.tipoIncidencia} onChange={modificarDatos}>
-            <option>Elige...</option>
-            <option value="medio ambiente">Medio ambiente</option>
-            <option value="civismo">Civismo</option>
-            <option value="infraestructura">Infraestructura</option>
-            <option value="otros">Otros:</option>
-          </Form.Control>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Descripción:</Form.Label>
-          <Form.Control as="textarea" name="descripcion" value={datosForm.descripcion} onChange={modificarDatos} />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Fotografía:</Form.Label>
-          <Form.File name="fotoIncidencia" label="(Formato permitido: jpg, jpeg o png | Tamaño máximo 3 Mb)" onChange={modificarDatos} />
-        </Form.Group>
-        <Button className="boton-nueva" type="submit" variant="info" onClick={toggleVentana}>Registrar</Button>
-        <Form.Group />
-
-      </Form>
-      <Col>
-        <Row>
-          <Col>
-            (2/2)
-            {" "}
-          </Col>
-          <Col />
-        </Row>
+      <Col as="section">
+        <Form className={`formulario ${!ventana ? "" : "oculto"} p-3`} onSubmit={enviaIncidencia}>
+          <Form.Group>
+            <Form.Label>Nombre Incidencia:</Form.Label>
+            <Form.Control
+              required
+              name="nombre"
+              type="text"
+              value={datosForm.nombre}
+              onChange={modificarDatos}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Tipo:</Form.Label>
+            <Form.Control as="select" name="tipoIncidencia" value={datosForm.tipoIncidencia} onChange={modificarDatos}>
+              <option>Elige...</option>
+              <option value="medio ambiente">Medio ambiente</option>
+              <option value="civismo">Civismo</option>
+              <option value="infraestructura">Infraestructura</option>
+              <option value="otros">Otros:</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Descripción:</Form.Label>
+            <Form.Control as="textarea" name="descripcion" value={datosForm.descripcion} onChange={modificarDatos} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Fotografía:</Form.Label>
+            <Form.File name="fotoIncidencia" label="(Formato permitido: jpg, jpeg o png | Tamaño máximo 3 Mb)" onChange={modificarDatos} />
+          </Form.Group>
+          <Button className="boton-nueva" type="submit" variant="info" onClick={toggleVentana}>Registrar</Button>
+          <Form.Group />
+        </Form>
+        <span className="numero-pie">2/2</span>
       </Col>
-      <Col className="ventana" sm={12}>
-        <Toast show={ventana} onClose={linkInicio}>
-          <Toast.Header>
-            <i className="fas fa-check-circle mr-2" />
-            <strong className="mr-auto">Incidencia Registrada</strong>
-            <small>cerrar</small>
-          </Toast.Header>
-          <Toast.Body>La nueva incidencia se ha enviado correctamente.</Toast.Body>
-        </Toast>
+      <Col sm={12} as={Toast} show={!ventana} onClose={linkInicio} className="ventana">
+        <Toast.Header>
+          <i className="fas fa-check-circle mr-2" />
+          <strong className="mr-auto">Incidencia Registrada</strong>
+          <small>cerrar</small>
+        </Toast.Header>
+        <Toast.Body>La nueva incidencia se ha enviado correctamente.</Toast.Body>
       </Col>
     </>
   );
