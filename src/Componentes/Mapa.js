@@ -40,7 +40,7 @@ const fetchBarrio = () => {
 
 const getIcon = (tipoIncidencia) => icon({
   iconUrl: `/img/${tipoIncidencia.split(" ").join("-")}.png`,
-  iconSize: [30],
+  iconSize: [40],
 });
 
 const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
