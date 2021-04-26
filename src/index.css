@@ -466,6 +466,8 @@ ul.incidencia {
 }
 .detalle-imagen {
   align-self: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 .detalle-imagen a {
   color: black;
