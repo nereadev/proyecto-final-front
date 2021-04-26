@@ -374,7 +374,8 @@ background-color: #b6c9b9;
 .elemento-targeta-incidencia.descripcion-targeta {
   border-radius: 5px;
   font-size: 1em;
-  padding: 0.5em 0 0 3em;
+  padding: 0.5em 7em 0 3em;
+  text-align: justify;
 }
 .elemento-targeta-incidencia.tipo-targeta {
   display: flex;
@@ -383,10 +384,6 @@ background-color: #b6c9b9;
 .elemento-targeta-incidencia.direccion-targeta {
   color: #645f5fbd;
   padding-left: 0;
-}
-.targeta-incidencia img {
-  margin: 0.6em 0;
-  border-radius: 20px;
 }
 .targeta-tipo {
   height: 2.2em;
