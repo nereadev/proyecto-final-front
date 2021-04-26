@@ -540,6 +540,11 @@ ul.incidencia {
 .circular {
   height: 3em;
 }
+.popup-votos {
+  color: #645f5fbd;
+  padding-left: 5.5em;
+}
+
 /* Como Funciona */
 .lista-titulos {
   display: flex;

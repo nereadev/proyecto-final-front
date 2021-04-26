@@ -25,18 +25,10 @@ https://github.com/martgnz/bcn-geodata */
 
 const token = "pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw";
 const urlMapbox = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${token}`;
-const urlMapboxEUA = `https://api.mapbox.com/styles/v1/bernatjv/cknouqecv5hu017s5twegcpys/tiles/256/{z}/{x}/{y}@2x?access_token=${token}`;
 const urlMapboxDistritos = `https://api.mapbox.com/styles/v1/bernatjv/cknow7tl91o6l17o1awn9zgcf/tiles/256/{z}/{x}/{y}@2x?access_token=${token}`;
-const urlDefault = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 const urlDistritos = `https://api.mapbox.com/geocoding/v5/mapbox.places/2.167612130848904,41.38993034972496.json?access_token=${token}`;
-const coordsBCN = [41.38993034972496, 2.167612130848904];
-const coordsEUA = [39.58943721614868, -100.591495305186];
+const coordsBCN = [41.39993034972496, 2.147612130848904];
 const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
-
-// para localizar barrio/distrito de cada incidencia
-const fetchBarrio = () => {
-  fetch(urlDistritos).then(resp => resp.json()).then(datos => console.log(datos));
-};
 
 const getIcon = (tipoIncidencia) => icon({
   iconUrl: `/img/${tipoIncidencia.split(" ").join("-")}.png`,
@@ -121,6 +113,9 @@ const Mapa = () => {
                             {incidencia.nombre}
                           </h4>
                           <Link to={(`/incidencia/${incidencia._id}`)}><i className="fas fa-chevron-right" /></Link>
+                        </Col>
+                        <Col className="popup-votos">
+                          {`${incidencia.votos} ${incidencia.votos !== 1 ? "votos" : "voto"}`}
                         </Col>
                       </Row>
                     </Popup>
