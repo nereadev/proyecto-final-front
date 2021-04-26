@@ -1,5 +1,5 @@
 import {
-  Button, Col, Container, Row
+  Button, Col, Row
 } from "react-bootstrap";
 import { useContext, useEffect } from "react";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
@@ -32,7 +32,7 @@ const MiCuentaPagina = () => {
         <Row>
           <Col>Contraseña:</Col>
           <Col>***********</Col>
-          <Button as={Col} className="modificar-cuenta" type="submit" variant="light">Modificar</Button>
+          <Col as={Button} className="modificar-cuenta" type="submit" variant="light">Modificar</Col>
         </Row>
         <Row>
           <Col>Mis incidencias</Col>

@@ -224,7 +224,7 @@ background-color: #b6c9b9;
   color:#48594B;
 }
 /* Nueva incidencia */
-.importante {
+a.importante {
   display: inline-block;
   font-size: 1em;
   color:white;
@@ -234,7 +234,7 @@ background-color: #b6c9b9;
   border-radius: 2em;
   transition: 0.5s;
 }
-.importante:hover {
+a.importante:hover {
   text-decoration: none;
   background-color: #648c6e8f;
   color:#293b2b;
@@ -281,6 +281,13 @@ background-color: #b6c9b9;
 .toast {
   padding: 10px;
   margin: auto;
+}
+.toast .creada {
+  color: green;
+}
+.toast .importante {
+  font-weight: bold;
+  text-decoration: underline;
 }
 .ventana {
   position:fixed;
@@ -374,7 +381,7 @@ background-color: #b6c9b9;
 .elemento-targeta-incidencia.descripcion-targeta {
   border-radius: 5px;
   font-size: 1em;
-  padding: 0.5em 2em 0 3em;
+  padding: 0.5em 7em 0 3em;
   text-align: justify;
 }
 .elemento-targeta-incidencia.tipo-targeta {
@@ -384,10 +391,6 @@ background-color: #b6c9b9;
 .elemento-targeta-incidencia.direccion-targeta {
   color: #645f5fbd;
   padding-left: 0;
-}
-.targeta-incidencia img {
-  margin: 0.6em 0;
-  border-radius: 20px;
 }
 .targeta-tipo {
   height: 2.2em;
@@ -429,9 +432,14 @@ background-color: #b6c9b9;
   margin-top: 2em;
 }
 
-/* MicuentaPagina */
+/* Mi cuenta Pagina */
 .btn.modificar-cuenta {
  padding: 0;
+}
+
+/* Mis incidencias */
+.boton-borrar {
+  margin: 1em 0;
 }
 
 /* Detalle incidencia */
@@ -440,7 +448,7 @@ background-color: #b6c9b9;
 }
 .carta-incidencia {
   background-color: #b0bfb24b;
-  margin: 0;
+  margin: 0 0 1em 0;
   border-radius: 30px;
 }
 .carta-tipo-icono {
@@ -465,6 +473,8 @@ ul.incidencia {
 }
 .detalle-imagen {
   align-self: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 .detalle-imagen a {
   color: black;
