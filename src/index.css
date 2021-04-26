@@ -426,7 +426,7 @@ ul.incidencia {
   font-weight: bold;
 }
 .detalle-imagen {
-  top: 1em;
+  align-self: center;
 }
 .detalle-imagen a {
   color: black;
@@ -488,8 +488,11 @@ ul.incidencia {
 }
 
 /* Pop up incidencia mapa */
+.leaflet-popup {
+  min-width: 250px;
+}
 .leaflet-popup-content {
-  padding: 0;
+  width: 100%;
 }
 .popimg{
   margin-bottom: 1em;
