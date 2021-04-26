@@ -13,17 +13,59 @@ const ContactoPagina = () => (
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="0">
-          <Card.Body>
-            Somos Bernat, Malena, Nerea y Santiago y juntos formamos SomDev.
+          <Card.Body className="d-flex-block">
+            Somos Bernat, Malena, Nerea y Santiago y juntos formamos somDev.
             Con Punto Ciudadano queremos que los ciudadanos y ciudadanas sean
             partícipes de su ciudad. ¡Creando ciudades más limpias y seguras!
+            <Row className="contacto-linkedin">
+              <Col sm={3} className="caja-linkedin">
+                <Row><img src="/img/bernat.jpg" alt="Bernat Jorquera Vinyals" /></Row>
+                <Row className="nombre">Bernat Jorquera Vinyals</Row>
+                <Row className="linkedin">
+                  <a href="https://www.linkedin.com/in/bernat-jorquera-vinyals/">
+                    <i className="fab fa-linkedin mt-1 ml-1" />
+                    /bernat-jorquera-vinyals
+                  </a>
+                </Row>
+              </Col>
+              <Col sm={3} className="caja-linkedin">
+                <Row><img src="/img/malena.jpg" alt="Malena de Juan Arranz" /></Row>
+                <Row className="nombre">Malena de Juan Arranz</Row>
+                <Row className="linkedin">
+                  <a href="https://www.linkedin.com/in/malenadejuan/">
+                    <i className="fab fa-linkedin mt-1 ml-1" />
+                    /malenadejuan
+                  </a>
+                </Row>
+              </Col>
+              <Col sm={3} className="caja-linkedin">
+                <Row><img src="/img/nerea.jpg" alt="Nerea García Casas" /></Row>
+                <Row className="nombre">Nerea García Casas</Row>
+                <Row className="linkedin">
+                  <a href="https://www.linkedin.com/in/nerea-garcia-casas/">
+                    <i className="fab fa-linkedin mt-1 ml-1" />
+                    /nerea-garcia-casas
+                  </a>
+                </Row>
+              </Col>
+              <Col sm={3} className="caja-linkedin">
+                <Row><img src="/img/santiago.jpg" alt="Santiago Arnau Bailón" /></Row>
+                <Row className="nombre">Santiago Arnau Bailón</Row>
+                <Row className="linkedin">
+                  <a href="https://www.linkedin.com/in/santiago-arnau811/">
+                    <i className="fab fa-linkedin mt-1 ml-1" />
+                    /santiago-arnau811
+                  </a>
+                </Row>
+              </Col>
+            </Row>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
       <Card className="contacto-secciones">
         <Card.Header className="contacto-cabecera">
           <Accordion.Toggle as={Button} variant="link" eventKey="1" className="contacto-boton">
-            ¿Quiéres contactarnos?
+            ¿Quiéres Contactarnos?
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="1">
@@ -76,7 +118,7 @@ const ContactoPagina = () => (
       <Card className="contacto-secciones">
         <Card.Header className="contacto-cabecera">
           <Accordion.Toggle as={Button} variant="link" eventKey="3" className="contacto-boton">
-            Ciudades y comunidades sostenibles
+            Ciudades y Comunidades Sostenibles
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="3">
