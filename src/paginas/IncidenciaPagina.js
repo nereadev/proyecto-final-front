@@ -101,7 +101,7 @@ const IncidenciaPagina = () => {
               </Col>
               <Col md={4} className="detalle-imagen">
                 <Row className="p-2">
-                  <Col as="img" src={incidencia ? imgUrl(incidenciaElegida.fotoIncidencia) : ""} alt={incidenciaElegida.descripcion} />
+                  <Col as="img" className="img-incidencia" src={incidencia ? imgUrl(incidenciaElegida.fotoIncidencia) : ""} alt={incidenciaElegida.descripcion} />
                 </Row>
                 <Row as="a" href={imgUrl(incidenciaElegida.fotoIncidencia)} className="pl-4">Ampliar imagen</Row>
               </Col>

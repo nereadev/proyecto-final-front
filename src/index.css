@@ -391,6 +391,10 @@ background-color: #b6c9b9;
   margin: 0.6em 0;
   border-radius: 20px;
 }
+.img-incidencia {
+  max-height: 30vh;
+  object-fit: cover;
+}
 .targeta-tipo {
   height: 2.2em;
   padding-right: 0.5em;
