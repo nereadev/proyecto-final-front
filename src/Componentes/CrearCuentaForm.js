@@ -89,16 +89,22 @@ const CrearCuentaForm = () => {
           <p className="error">{error}</p>
           {/* cambio onClick={nuevoUsuario} */}
         </Form>
-        <Form className="ventana" sm={12}>
-          <Toast show={ventana} onClose={linkAcceder}>
-            <Toast.Header>
-              <i className="fas fa-check-circle mr-2" />
-              <strong className="mr-auto">Cuenta Creada</strong>
-              <small>cerrar</small>
-            </Toast.Header>
-            <Toast.Body>Su cuenta se ha creado correctamente. Por favor diríjase a la bandeja de entrada de su email para confirmar el registro</Toast.Body>
-          </Toast>
-        </Form>
+      </Col>
+      <Col sm={12} as={Toast} show={!ventana} className="ventana" onClose={linkAcceder}>
+        <Toast.Header>
+          <i className="fas fa-check-circle mr-2" />
+          <strong className="mr-auto">Cuenta Creada</strong>
+          <small>cerrar</small>
+        </Toast.Header>
+        <Toast.Body>
+          <p className="creada">Su cuenta se ha creado correctamente.</p>
+          <p>
+            Por favor
+            {" "}
+            <span className="importante">diríjase a la bandeja de entrada </span>
+            de su email para confirmar el registro.
+          </p>
+        </Toast.Body>
       </Col>
     </>
   );

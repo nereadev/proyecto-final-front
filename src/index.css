@@ -224,7 +224,7 @@ background-color: #b6c9b9;
   color:#48594B;
 }
 /* Nueva incidencia */
-.importante {
+a.importante {
   display: inline-block;
   font-size: 1em;
   color:white;
@@ -234,7 +234,7 @@ background-color: #b6c9b9;
   border-radius: 2em;
   transition: 0.5s;
 }
-.importante:hover {
+a.importante:hover {
   text-decoration: none;
   background-color: #648c6e8f;
   color:#293b2b;
@@ -281,6 +281,13 @@ background-color: #b6c9b9;
 .toast {
   padding: 10px;
   margin: auto;
+}
+.toast .creada {
+  color: green;
+}
+.toast .importante {
+  font-weight: bold;
+  text-decoration: underline;
 }
 .ventana {
   position:fixed;
