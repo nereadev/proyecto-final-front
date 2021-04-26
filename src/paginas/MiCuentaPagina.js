@@ -12,32 +12,29 @@ const MiCuentaPagina = () => {
   }, [usuario]);
   return (
     <Row as="main">
-      <Col as="h2">Mi Cuenta</Col>
-      <Col md={12} className="mi-cuenta" as="ul">
-        <Row>
-          <Col>Nombre:</Col>
-          <Col className="mx-4">{(usuario.length !== 0) ? usuario.body.usuario.nombre : ""}</Col>
-          <Col />
+      <Col as="h2" className="text-center">Mi Cuenta</Col>
+      <Col sm={11} className="mi-cuenta" as="ul">
+        <Row as="li">
+          <Col sm={3} className="etiqueta">Nombre:</Col>
+          <Col>{(usuario.length !== 0) ? usuario.body.usuario.nombre : ""}</Col>
         </Row>
-        <Row>
-          <Col>Apellidos:</Col>
-          <Col className="mx-4">{(usuario.length !== 0) ? usuario.body.usuario.apellidos : ""}</Col>
-          <Col />
+        <Row as="li">
+          <Col sm={3} className="etiqueta">Apellidos:</Col>
+          <Col>{(usuario.length !== 0) ? usuario.body.usuario.apellidos : ""}</Col>
         </Row>
-        <Row>
-          <Col>Email:</Col>
+        <Row as="li">
+          <Col sm={3} className="etiqueta">Email:</Col>
           <Col>{(usuario.length !== 0) ? usuario.body.usuario.email : ""}</Col>
-          <Button as={Col} className="modificar-cuenta" type="submit" variant="light">Modificar</Button>
+          <Col sm={2} className="modificar-cuenta"><Button variant="light">Modificar</Button></Col>
         </Row>
-        <Row>
-          <Col>Contraseña:</Col>
+        <Row as="li">
+          <Col sm={3} className="etiqueta">Contraseña:</Col>
           <Col>***********</Col>
-          <Col as={Button} className="modificar-cuenta" type="submit" variant="light">Modificar</Col>
+          <Col sm={2} className="modificar-cuenta"><Button variant="light">Modificar</Button></Col>
         </Row>
-        <Row>
-          <Col>Mis incidencias</Col>
-          <Col className="mx-4"><a href="./mis-incidencias"><i className="fas fa-plus" aria-label="Mis incidencias" /></a></Col>
-          <Col />
+        <Row as="li">
+          <Col sm={3} className="etiqueta">Mis incidencias</Col>
+          <Col><a href="./mis-incidencias"><i className="fas fa-plus" aria-label="Mis incidencias" /></a></Col>
         </Row>
       </Col>
     </Row>
