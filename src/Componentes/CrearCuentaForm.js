@@ -90,7 +90,7 @@ const CrearCuentaForm = () => {
           {/* cambio onClick={nuevoUsuario} */}
         </Form>
       </Col>
-      <Col sm={12} as={Toast} show={!ventana} className="ventana" onClose={linkAcceder}>
+      <Col sm={12} as={Toast} show={ventana} className="ventana" onClose={linkAcceder}>
         <Toast.Header>
           <i className="fas fa-check-circle mr-2" />
           <strong className="mr-auto">Cuenta Creada</strong>

@@ -40,17 +40,21 @@ const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").jo
 
 const Mapa = () => {
   const { getIncidencias } = useContext(ContextoIncidencias);
+  const { existeToken } = useContext(ContextoToken);
   const incidencias = getIncidencias.incidencias;
   const setQuery = getIncidencias.setQuery;
+  const [mapaDistritos, setMapaDistritos] = useState(false);
+  const history = useHistory();
   const filtrarTipo = tipo => {
     setQuery(tipo);
   };
-  const [mapaDistritos, setMapaDistritos] = useState(false);
-  const history = useHistory();
   const linkNuevaIncidencia = () => {
-    history.push("/nueva-incidencia");
+    if (existeToken) {
+      history.push("/nueva-incidencia");
+    } else {
+      history.push("/registro/crear-cuenta");
+    }
   };
-  const { existeToken } = useContext(ContextoToken);
 
   return (
     <>
@@ -91,11 +95,9 @@ const Mapa = () => {
         </Nav>
       )}
       <Row className="mapa-padre">
-        {existeToken && (
-          <Button onClick={linkNuevaIncidencia} className="nueva-incidencia inicio">
-            + Incidencia
-          </Button>
-        )}
+        <Button onClick={linkNuevaIncidencia} className="nueva-incidencia inicio">
+          + Incidencia
+        </Button>
         <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
           {!mapaDistritos || (
             <TileLayer
