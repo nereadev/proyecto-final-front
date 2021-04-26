@@ -7,8 +7,9 @@ import { useContext, useState, useEffect } from "react";
 import {
   Button, Col, Container, Row, Nav, NavLink
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
+import { ContextoToken } from "../contextos/ContextoToken";
 
 /* Info mapbox:
 https://docs.mapbox.com/help/getting-started/ */
@@ -53,6 +54,12 @@ const Mapa = () => {
     setQuery(tipo);
   };
   const [mapaDistritos, setMapaDistritos] = useState(false);
+  const history = useHistory();
+  const linkNuevaIncidencia = () => {
+    history.push("/nueva-incidencia");
+  };
+  const { existeToken } = useContext(ContextoToken);
+
   return (
     <>
       <Nav fill defaultActiveKey="incidencias">
@@ -92,6 +99,11 @@ const Mapa = () => {
         </Nav>
       )}
       <Row className="mapa-padre">
+        {existeToken && (
+          <Button onClick={linkNuevaIncidencia} className="nueva-incidencia inicio">
+            + Incidencia
+          </Button>
+        )}
         <MapContainer center={coordsBCN} zoom={13} scrollWheelZoom={false} className="mapa">
           {!mapaDistritos || (
             <TileLayer
