@@ -588,3 +588,38 @@ li.tips-titulos {
 .contacto-secciones a {
   color: #353f38;
 }
+.linkedin {
+  padding: 90px 0px;
+  background-color:  rgb(0, 0, 0, 0.7);
+  border-radius: 100px;
+  position: absolute;
+  bottom: 10%;
+  opacity: 0;
+  font-size: 15px;
+}
+.linkedin:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.linkedin a {
+  color: white;
+  width: 200px;
+  text-align: center;
+}
+.linkedin i {
+  color: black;
+}
+.caja-linkedin {
+  width: 190px;
+  position: relative;
+  position: block;
+}
+.caja-linkedin img {
+  border-radius: 120px;
+}
+.caja-linkedin .nombre {
+  background-color: rgb(143, 140, 112);
+  color: white;
+  justify-content: center;
+  margin-right: 10px;
+}
