@@ -441,7 +441,7 @@ background-color: #b6c9b9;
 }
 .carta-incidencia {
   background-color: #b0bfb24b;
-  margin: 0;
+  margin: 0 0 1em 0;
   border-radius: 30px;
 }
 .carta-tipo-icono {
