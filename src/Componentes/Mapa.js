@@ -52,7 +52,7 @@ const Mapa = () => {
     if (existeToken) {
       history.push("/nueva-incidencia");
     } else {
-      history.push("/registro/crear-cuenta");
+      history.push("/registro/acceder");
     }
   };
 

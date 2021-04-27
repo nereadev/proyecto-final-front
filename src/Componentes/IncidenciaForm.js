@@ -19,9 +19,13 @@ const IncidenciaForm = props => {
   } = props;
   const { existeToken } = useContext(ContextoToken);
   const [ventana, setVentana] = useState(false);
+  const [cargando, setCargando] = useState(false);
   const history = useHistory();
-  const { pideDatos: postUsuario } = useFetch();
-  const toggleVentana = () => setVentana(!ventana);
+  const { pideDatos: postUsuario, statusApi } = useFetch();
+  const toggleCargando = () => setCargando(!cargando);
+  useEffect(() => {
+    if (statusApi === 201) { setVentana(!ventana); }
+  }, [statusApi]);
   const linkInicio = () => {
     history.push("/mis-incidencias");
     window.location.reload();
@@ -64,7 +68,7 @@ const IncidenciaForm = props => {
   return (
     <>
       <Col as="section">
-        <Form className={`formulario ${!ventana ? "" : "oculto"} p-3`} onSubmit={enviaIncidencia}>
+        <Form className={`formulario ${!cargando ? "" : "oculto"} p-3`} autoComplete="off" onSubmit={enviaIncidencia}>
           <Form.Group>
             <Form.Label>Nombre Incidencia:</Form.Label>
             <Form.Control
@@ -93,10 +97,17 @@ const IncidenciaForm = props => {
             <Form.Label>Fotografía:</Form.Label>
             <Form.File name="fotoIncidencia" label="(Formato permitido: jpg, jpeg o png | Tamaño máximo 3 Mb)" onChange={modificarDatos} />
           </Form.Group>
-          <Button className="boton-nueva" type="submit" variant="info" onClick={toggleVentana}>Registrar</Button>
+          <Button className="boton-nueva" type="submit" variant="info" onClick={toggleCargando}>Registrar</Button>
           <Form.Group />
         </Form>
         <span className="numero-pie">2/2</span>
+      </Col>
+      <Col sm={12} as={Toast} show={cargando} onClose={toggleCargando} className="ventana">
+        <Toast.Header>
+          <strong className="mr-auto">Cargando la incidencia</strong>
+          <small>cerrar</small>
+        </Toast.Header>
+        <Toast.Body>Por favor espere un momento.</Toast.Body>
       </Col>
       <Col sm={12} as={Toast} show={ventana} onClose={linkInicio} className="ventana">
         <Toast.Header>
