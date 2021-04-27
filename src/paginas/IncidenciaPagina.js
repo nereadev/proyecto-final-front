@@ -93,7 +93,7 @@ const IncidenciaPagina = () => {
                       <Col>
                         {/* <i className="fas fa-star" />
                           {" "} */}
-                        7
+                        {incidenciaElegida.votos}
                       </Col>
                     </Row>
                   </Col>
