@@ -346,6 +346,7 @@ a.importante:hover {
 }
 .fa-plus {
  color: grey;
+ padding: 0;
 }
 .fa-plus:hover {
  cursor: pointer;
@@ -378,11 +379,22 @@ a.importante:hover {
 .targeta-incidencia h3{
   font-size: 1.4em;
 }
+.elemento-targeta-incidencia a{
+  color: #212529;
+  transition: 0.2s;
+}
+.elemento-targeta-incidencia a:hover{
+  color: #48594B;
+  text-decoration: none;
+}
+
 .elemento-targeta-incidencia.descripcion-targeta {
   border-radius: 5px;
   font-size: 1em;
-  padding: 0.5em 7em 0 3em;
+  padding-top: 0.5em;
+  padding-left: 0;
   text-align: justify;
+  color:#354137;
 }
 .elemento-targeta-incidencia.tipo-targeta {
   display: flex;
@@ -400,6 +412,9 @@ a.importante:hover {
 .img-incidencia {
   max-height: 30vh;
   object-fit: cover;
+}
+.datos-incidencia {
+  align-items: center;
 }
 .targeta-tipo {
   height: 2.2em;
