@@ -24,7 +24,8 @@ const FiltroIncidencias = () => {
     setFiltroOrdenar(true);
     setOrden(e.target.value);
   };
-  const aplicarFiltro = () => {
+  const aplicarFiltro = e => {
+    e.preventDefault();
     if (filtroTipo) {
       if (tipo === "todos") {
         setQuery(false);
@@ -39,10 +40,10 @@ const FiltroIncidencias = () => {
   };
   return (
     <>
-      <Form className="filtro-incidencias">
+      <Form className="filtro-incidencias" onSubmit={aplicarFiltro}>
         <Row className="filtros d-flex">
           <Form.Group as={Col} className="filtro-filtrar">
-            <Form.Control as="select" onClick={activarTipo} defaultValue="Filtar por...">
+            <Form.Control as="select" onChange={activarTipo} defaultValue="Filtar por...">
               <option>
                 Filtrar por...
               </option>
@@ -54,13 +55,13 @@ const FiltroIncidencias = () => {
             </Form.Control>
           </Form.Group>
           <Form.Group as={Col} className="filtro-ordenar-por">
-            <Form.Control as="select" onClick={activarOrdenar} defaultValue="ordenar por">
+            <Form.Control as="select" onChange={activarOrdenar} defaultValue="ordenar por">
               <option value="ordenar por">Ordenar por...</option>
               <option value="relevancia">Relevancia</option>
               <option value="fecha">Fecha</option>
             </Form.Control>
           </Form.Group>
-          <Button variant="light" onClick={aplicarFiltro}>Aplicar</Button>
+          <Button variant="light" type="sumbit" onClick={aplicarFiltro}>Aplicar</Button>
         </Row>
       </Form>
     </>
