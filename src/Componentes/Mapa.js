@@ -1,9 +1,8 @@
-import PropTypes from "prop-types";
 import { icon } from "leaflet";
 import {
   MapContainer, TileLayer, Marker, Popup
 } from "react-leaflet";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import {
   Button, Col, Container, Row, Nav, NavLink
 } from "react-bootstrap";
@@ -24,19 +23,10 @@ https://w33.bcn.cat/geoBCN/exemples/1.0/capes.aspx
 https://github.com/martgnz/bcn-geodata */
 /* https://api.mapbox.com/styles/v1/bernatjv/cknouqecv5hu017s5twegcpys/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw */
 
-const token = "pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw";
-const urlMapbox = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${token}`;
-const urlMapboxDistritos = `https://api.mapbox.com/styles/v1/bernatjv/cknow7tl91o6l17o1awn9zgcf/tiles/256/{z}/{x}/{y}@2x?access_token=${token}`;
-const urlDistritos = `https://api.mapbox.com/geocoding/v5/mapbox.places/2.167612130848904,41.38993034972496.json?access_token=${token}`;
+const urlMapbox = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`;
+const urlMapboxDistritos = `https://api.mapbox.com/styles/v1/bernatjv/cknow7tl91o6l17o1awn9zgcf/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`;
+const urlDistritos = `https://api.mapbox.com/geocoding/v5/mapbox.places/2.167612130848904,41.38993034972496.json?access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`;
 const coordsBCN = [41.39993034972496, 2.147612130848904];
-const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
-
-const getIcon = (tipoIncidencia) => icon({
-  iconUrl: `/img/${tipoIncidencia.split(" ").join("-")}.png`,
-  iconSize: [40],
-});
-
-const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
 
 const Mapa = () => {
   const { getIncidencias } = useContext(ContextoIncidencias);
@@ -44,10 +34,18 @@ const Mapa = () => {
   const incidencias = getIncidencias.incidencias;
   const setQuery = getIncidencias.setQuery;
   const [mapaDistritos, setMapaDistritos] = useState(false);
+  const imgPopup = idIncidencia => (`${process.env.REACT_APP_FIREBOX_URL}${idIncidencia}?alt=media`);
   const history = useHistory();
+  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+  const getIcon = (tipoIncidencia) => icon({
+    iconUrl: `/img/${tipoIncidencia.split(" ").join("-")}.png`,
+    iconSize: [40],
+  });
+
   const filtrarTipo = tipo => {
     setQuery(tipo);
   };
+
   const linkNuevaIncidencia = () => {
     if (existeToken) {
       history.push("/nueva-incidencia");
