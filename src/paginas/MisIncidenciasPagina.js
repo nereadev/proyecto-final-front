@@ -5,12 +5,13 @@ import {
   Col, Row, Button, Toast
 } from "react-bootstrap";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
+import { ContextoToken } from "../contextos/ContextoToken";
 import useFetch from "../utils/hooks/useFetch";
 
 const MisIncidenciasPagina = () => {
-  const token = localStorage.getItem("token-usuario");
+  const { token } = useContext(ContextoToken);
   const idUsuario = jwt_decode(token).id;
-  const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
+  const imgPopup = idIncidencia => (`${process.env.REACT_APP_FIREBOX_URL}${idIncidencia}?alt=media`);
   const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;

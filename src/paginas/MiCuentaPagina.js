@@ -1,15 +1,13 @@
 import {
   Button, Col, Row
 } from "react-bootstrap";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
 
 const MiCuentaPagina = () => {
   const { getUsuario } = useContext(ContextoUsuario);
   const usuario = getUsuario.usuario;
-  useEffect(() => {
-    console.log(usuario);
-  }, [usuario]);
+
   return (
     <Row as="main">
       <Col as="h2" className="text-center">Mi Cuenta</Col>
