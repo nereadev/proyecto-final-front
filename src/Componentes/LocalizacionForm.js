@@ -8,9 +8,8 @@ import useFetch from "../utils/hooks/useFetch";
 import IncidenciaForm from "./IncidenciaForm";
 
 const LocalizacionForm = () => {
-  const tokenMapBox = "pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw";
-  const urlMapboxReverse = (longitud, latitud, token) => (`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitud},${latitud}.json?types=address&access_token=${token}`);
-  const urlMapbox = (direccion, token) => (`https://api.mapbox.com/geocoding/v5/mapbox.places/${direccion}.json?types=address&access_token=${token}`);
+  const urlMapboxReverse = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
+  const urlMapbox = direccion => (`${process.env.REACT_APP_API_MAPBOX}${direccion}.json?types=address&access_token=${process.env_REACT_APP_TOKEN_MAPBOX}`);
   const [codigoPostal, setCodigoPostal] = useState("");
   const [direccion, setDireccion] = useState("");
   const formDireccion = direccion ? (`${direccion}, ${codigoPostal}`) : null;
@@ -18,18 +17,11 @@ const LocalizacionForm = () => {
   const { datos: coordenadas, pideDatos: pideCoordenadas } = useFetch();
   const { datos: datosGeo, pideDatos: pideDireccion } = useFetch();
   const [introducirDatos, setintroducirDatos] = useState(false);
-  // const [lista, setLista] = useState(false);
   const [direccionGeo, setDireccionGeo] = useState(null);
   const [ocultarIntroducirDatos, setOcultarIntroducirDatos] = useState(true);
-  //  const [siguiente, setSiguiente] = useState(false);
   const [activarBoton, setActivarBoton] = useState(false);
-  const history = useHistory();
   const mostrarDesplegable = (e) => {
-    if (e.target.checked) {
-      setintroducirDatos(!introducirDatos);
-    } else {
-      setintroducirDatos(!introducirDatos);
-    }
+    setintroducirDatos(!introducirDatos);
   };
   const marcarCheck = () => {
     setMarcar(!marcar);
@@ -52,26 +44,17 @@ const LocalizacionForm = () => {
       setDireccion(e.target.value);
     }
   };
-  /*   const mostrarLista = () => {
-    setLista(!lista);
-  };
-  const mostrarBotonSiguiente = () => {
-    setSiguiente(!siguiente);
-  }; */
   const cambiarBoton = () => {
     setActivarBoton(!activarBoton);
   };
-  const linkInicio = () => {
-    history.push("/inicio");
-  };
   useEffect(() => {
     if (direccion) {
-      pideCoordenadas(false, urlMapbox(direccion, tokenMapBox));
+      pideCoordenadas(false, urlMapbox(direccion));
     }
   }, [direccion]);
   useEffect((e) => {
     if (direccionGeo) {
-      pideDireccion(false, urlMapboxReverse(direccionGeo.longitud, direccionGeo.latitud, tokenMapBox));
+      pideDireccion(false, urlMapboxReverse(direccionGeo.longitud, direccionGeo.latitud));
     }
   }, [direccionGeo]);
   return (
@@ -123,22 +106,9 @@ const LocalizacionForm = () => {
                 label="Usar mi ubicación actual"
                 onClick={marcarCheck}
               />
-              {/* Por ahora lo dejaremos desactivado sin comprobacion
-                <Col className={`${marcar ? "" : "off"}`}>
-                  <Button variant="outline-danger" onClick={mostrarLista}>Comprobar</Button>
-                  <Col className={`${lista || "off"}`}>
-                    <Row className="comprobar-incidencia">
-                      ¿Has visto tu incidencia?
-                      <Button variant="light" onClick={linkInicio}>Sí</Button>
-                      /
-                      <Button variant="light" onClick={mostrarBotonSiguiente}>No</Button>
-                    </Row>
-                  </Col>
-                </Col> */}
               <Button
                 className="boton-nueva"
                 variant="info"
-                // disabled={!siguiente}
                 onClick={cambiarBoton}
               >
                 <i className="fas fa-arrow-right" />
