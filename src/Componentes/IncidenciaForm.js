@@ -38,9 +38,9 @@ const IncidenciaForm = props => {
     nombre: "",
     tipoIncidencia: "",
     descripcion: "",
-    direccion: direccionPostal || datosGeo.features[0].place_name,
-    latitud: latitudApi || direccionGeo.latitud || 0,
-    longitud: longitudApi || direccionGeo.longitud || 0,
+    direccion: direccionPostal || datosGeo?.features[0].place_name,
+    latitud: latitudApi || direccionGeo?.latitud || 0,
+    longitud: longitudApi || direccionGeo?.longitud || 0,
     resuelta: "",
     fotoIncidencia: null
   });
