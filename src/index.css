@@ -137,6 +137,16 @@ background-color: #b6c9b9;
   width: max-content;
 }
 
+
+@media (max-width: 539px) {
+  .cabecera img {
+  max-width: 5em;
+}
+  .tiposMapa {
+    margin-left: 0 !important;
+    margin-right: 0   !important;
+ }
+}
 @media (min-width: 769px) {
   .espacioLogo {
     position: absolute;
@@ -297,18 +307,6 @@ a.importante:hover {
 .fa-check-circle {
   color: green;
 }
-/* .comprobar-incidencia {
-  margin-top: 20px;
-  color: rgb(153, 16, 16);
-  font-weight: bold;
-}
-.comprobar-incidencia .btn {
-  padding-top: 0;
-  padding-bottom: 0;
-} */
-
-/* Lista incidencias */
-
 .filtro-incidencias button,  .filtro-incidencias button:focus {
   background-color:white;
   color:#648C6E;
