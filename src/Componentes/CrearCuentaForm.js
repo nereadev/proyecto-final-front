@@ -15,6 +15,7 @@ const CrearCuentaForm = () => {
     history.push("/registro/acceder");
   };
   const { datos, pideDatos: postNuevoUsuario } = useFetch();
+
   const { datosForm, modificarDatos } = useForm({
     nombre: "",
     apellidos: "",
@@ -24,6 +25,7 @@ const CrearCuentaForm = () => {
     telefono: "",
     codigoPostal: "",
   });
+
   const registraUsuario = e => {
     e.preventDefault();
     postNuevoUsuario(true, "usuarios", {
@@ -41,6 +43,7 @@ const CrearCuentaForm = () => {
       toggleVentana();
     }
   }, [datos]);
+
   return (
     <>
       <Col sm={12} as="h2" className="pt-4 text-left">Crea tu cuenta</Col>
