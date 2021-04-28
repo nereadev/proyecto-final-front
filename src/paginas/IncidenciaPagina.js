@@ -4,35 +4,37 @@ import {
   Button, ButtonGroup, Col, Overlay, Row
 } from "react-bootstrap";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import useFetch from "../utils/hooks/useFetch";
 
-const token = "pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw";
-const urlMapbox = (longitud, latitud, token) => (`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitud},${latitud}.json?types=address&access_token=${token}`);
-const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+const urlMapbox = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
 
 const IncidenciaPagina = () => {
+  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
   const { id: idIncidencia } = useParams();
-  const imgUrl = fotoIncidencia => `https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${fotoIncidencia}?alt=media`;
+  const imgUrl = fotoIncidencia => `${process.env.REACT_APP_FIREBOX_URL}${fotoIncidencia}?alt=media`;
   const [incidenciaElegida, setIncidenciaElegida] = useState("");
   const [info, setInfo] = useState(false);
   const fecha = incidenciaElegida ? new Date(incidenciaElegida.registrada).toLocaleDateString() : "";
   const { datos: datosGPS, pideDatos: pideDireccion } = useFetch();
   const { datos: incidencia, pideDatos: pideIncidencia } = useFetch();
+
   const mostrarInfo = () => {
     setInfo(!info);
   };
+
   useEffect(() => {
     pideIncidencia(true, `incidencias/${idIncidencia}`);
   }, []);
+
   useEffect(() => {
     if (incidencia) {
       setIncidenciaElegida(incidencia.body.incidencia);
     }
   }, [incidencia]);
+
   useEffect(() => {
     if (incidenciaElegida) {
-      pideDireccion(false, urlMapbox(incidenciaElegida.longitud, incidenciaElegida.latitud, token));
+      pideDireccion(false, urlMapbox(incidenciaElegida.longitud, incidenciaElegida.latitud, process.env.REACT_APP_TOKEN_MAPBOX));
     }
   }, [incidenciaElegida]);
 

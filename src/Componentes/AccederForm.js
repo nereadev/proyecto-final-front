@@ -14,7 +14,8 @@ const AccederForm = () => {
   const [emailFetch, setEmailFetch] = useState("");
   const [contrasenyaFetch, setContrasenyaFetch] = useState("");
   const { datos: tokenFetch, pideDatos: pideTokenFetch } = useFetch();
-  const { existeToken, setExisteToken } = useContext(ContextoToken);
+  const { setExisteToken } = useContext(ContextoToken);
+
   useEffect(() => {
     if (emailFetch) {
       pideTokenFetch(true, "usuarios/login", {
@@ -26,6 +27,7 @@ const AccederForm = () => {
       });
     }
   }, [emailFetch, pideTokenFetch]);
+
   useEffect(() => {
     if (tokenFetch) {
       if (tokenFetch.error) {
@@ -37,14 +39,17 @@ const AccederForm = () => {
       }
     }
   }, [tokenFetch]);
+
   const irACrearCuenta = () => {
     history.push("/registro/crear-cuenta");
   };
+
   const checkLoginYToken = e => {
     e.preventDefault();
     setEmailFetch(emailInput);
     setContrasenyaFetch(contrasenyaInput);
   };
+
   const modificaValor = e => {
     e.preventDefault();
     if (e.target.name === "email") {

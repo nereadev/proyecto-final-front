@@ -75,11 +75,6 @@ const ContactoPagina = () => (
               <Col sm={5}>Llámanos:</Col>
               <Col sm={5} as="a" href="tel:+34656542325">(+34) 656 542 325</Col>
             </Row>
-            {/*  <Row>
-              <Col><i className="fas fa-map-marker-alt" /></Col>
-              <Col>Visita nuestras oficinas:</Col>
-              <Col as="a" href="https://goo.gl/maps/xrGurtUGopDUcz3o7">Aquí!</Col>
-            </Row> */}
             <Row>
               <Col
                 sm={1}

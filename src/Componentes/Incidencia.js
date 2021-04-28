@@ -36,16 +36,19 @@ const Incidencia = () => {
   const { dispatch: dispatchUsuario, getUsuario } = useContext(ContextoUsuario);
   const usuario = getUsuario.usuario;
   const { datos: voto, pideDatos: votaIncidencia } = useFetch();
+
   useEffect(() => {
     if (usuario.length !== 0) {
       console.log(usuario.body);
     }
   }, [usuario]);
+
   useEffect(() => {
     if (incidencias.length !== 0) {
       console.log(incidencias.body.incidencias);
     }
   }, [incidencias]);
+
   return (
     <Col as="section">
       {
