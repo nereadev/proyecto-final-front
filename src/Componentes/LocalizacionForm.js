@@ -8,7 +8,7 @@ import IncidenciaForm from "./IncidenciaForm";
 
 const LocalizacionForm = () => {
   const urlMapboxReverse = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
-  const urlMapbox = direccion => (`${process.env.REACT_APP_API_MAPBOX}${direccion}.json?types=address&access_token=${process.env_REACT_APP_TOKEN_MAPBOX}`);
+  const urlMapbox = (direccion) => (`${process.env.REACT_APP_API_MAPBOX}${direccion}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
   const [codigoPostal, setCodigoPostal] = useState("");
   const [direccion, setDireccion] = useState("");
   const formDireccion = direccion ? (`${direccion}, ${codigoPostal}`) : null;
