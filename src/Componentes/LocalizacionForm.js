@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   Button, Col, Form, Row
 } from "react-bootstrap";
-import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import useFetch from "../utils/hooks/useFetch";
 import IncidenciaForm from "./IncidenciaForm";

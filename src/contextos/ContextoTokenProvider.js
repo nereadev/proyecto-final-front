@@ -15,6 +15,7 @@ const ContextoTokenProvider = props => {
   }, [token]);
   const existenciaToken = {
     existeToken,
+    token,
     setExisteToken
   };
   return (

@@ -12,26 +12,28 @@ import useForm from "../utils/hooks/useForm";
 import { ContextoToken } from "../contextos/ContextoToken";
 
 const IncidenciaForm = props => {
-  const token = localStorage.getItem("token-usuario");
-  const idUsuario = jwt_decode(token).id;
   const {
     direccionGeo, direccion: direccionPostal, coordenadas, datosGeo
   } = props;
-  const { existeToken } = useContext(ContextoToken);
+  const { existeToken, token } = useContext(ContextoToken);
+  const idUsuario = jwt_decode(token).id;
   const [ventana, setVentana] = useState(false);
   const [cargando, setCargando] = useState(false);
   const history = useHistory();
   const { pideDatos: postUsuario, statusApi } = useFetch();
   const toggleCargando = () => setCargando(!cargando);
+  const longitudApi = coordenadas?.features[0].geometry.coordinates[0];
+  const latitudApi = coordenadas?.features[0].geometry.coordinates[1];
+
   useEffect(() => {
     if (statusApi === 201) { setVentana(!ventana); }
   }, [statusApi]);
+
   const linkInicio = () => {
     history.push("/mis-incidencias");
     window.location.reload();
   };
-  const longitudApi = coordenadas?.features[0].geometry.coordinates[0];
-  const latitudApi = coordenadas?.features[0].geometry.coordinates[1];
+
   const { datosForm, modificarDatos } = useForm({
     nombre: "",
     tipoIncidencia: "",
@@ -65,6 +67,7 @@ const IncidenciaForm = props => {
       });
     }
   };
+
   return (
     <>
       <Col as="section">
