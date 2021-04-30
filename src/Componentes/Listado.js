@@ -6,11 +6,12 @@ import FiltrosIncidencias from "./FiltrosIncidencias";
 import Incidencia from "./Incidencia";
 
 const Listado = () => {
+  const { existeToken } = useContext(ContextoToken);
   const history = useHistory();
   const linkNuevaIncidencia = () => {
     history.push("/nueva-incidencia");
   };
-  const { existeToken } = useContext(ContextoToken);
+
   return (
     <>
       <Row as="h2">

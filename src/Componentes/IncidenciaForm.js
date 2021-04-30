@@ -21,10 +21,10 @@ const IncidenciaForm = props => {
   const [cargando, setCargando] = useState(false);
   const history = useHistory();
   const { pideDatos: postUsuario, statusApi } = useFetch();
-  const toggleCargando = () => setCargando(!cargando);
   const longitudApi = coordenadas?.features[0].geometry.coordinates[0];
   const latitudApi = coordenadas?.features[0].geometry.coordinates[1];
 
+  const toggleCargando = () => setCargando(!cargando);
   useEffect(() => {
     if (statusApi === 201) { setVentana(!ventana); }
   }, [statusApi]);

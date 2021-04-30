@@ -136,17 +136,6 @@ background-color: #b6c9b9;
   text-align: center;
   width: max-content;
 }
-
-
-@media (max-width: 539px) {
-  .cabecera img {
-  max-width: 5em;
-}
-  .tiposMapa {
-    margin-left: 0 !important;
-    margin-right: 0   !important;
- }
-}
 @media (min-width: 769px) {
   .espacioLogo {
     position: absolute;
@@ -730,5 +719,13 @@ li.tips-titulos {
   width: 1000px;
   justify-content: center;
 }
-
+@media (max-width: 539px) {
+  .cabecera img {
+  max-width: 5em;
+}
+  .tiposMapa {
+    margin-left: 0 !important;
+    margin-right: 0   !important;
+ }
+}
 

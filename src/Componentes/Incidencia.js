@@ -6,30 +6,6 @@ import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
 import useFetch from "../utils/hooks/useFetch";
 
-const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
-const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
-const realizaVoto = (incidenciaVotada, usuario, votaIncidencia, dispatchUsuario, dispatchIncidencias) => {
-  const token = localStorage.getItem("token-usuario");
-  const sumaVoto = !usuario.body.usuario.incidenciasVotadas.find(incidencia => incidencia._id === incidenciaVotada._id);
-  votaIncidencia(true, "incidencias/votar", {
-    method: "PATCH",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ idIncidencia: incidenciaVotada._id })
-  });
-  dispatchUsuario({
-    type: "cambiarVotos",
-    incidenciaVotada
-  });
-  dispatchIncidencias({
-    type: "cambiarVotos",
-    incidenciaVotada,
-    sumaVoto
-  });
-};
-
 const Incidencia = () => {
   const { dispatch: dispatchIncidencias, getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
@@ -37,17 +13,29 @@ const Incidencia = () => {
   const usuario = getUsuario.usuario;
   const { datos: voto, pideDatos: votaIncidencia } = useFetch();
 
-  useEffect(() => {
-    if (usuario.length !== 0) {
-      console.log(usuario.body);
-    }
-  }, [usuario]);
-
-  useEffect(() => {
-    if (incidencias.length !== 0) {
-      console.log(incidencias.body.incidencias);
-    }
-  }, [incidencias]);
+  const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
+  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+  const realizaVoto = (incidenciaVotada, usuario, votaIncidencia, dispatchUsuario, dispatchIncidencias) => {
+    const token = localStorage.getItem("token-usuario");
+    const sumaVoto = !usuario.body.usuario.incidenciasVotadas.find(incidencia => incidencia._id === incidenciaVotada._id);
+    votaIncidencia(true, "incidencias/votar", {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ idIncidencia: incidenciaVotada._id })
+    });
+    dispatchUsuario({
+      type: "cambiarVotos",
+      incidenciaVotada
+    });
+    dispatchIncidencias({
+      type: "cambiarVotos",
+      incidenciaVotada,
+      sumaVoto
+    });
+  };
 
   return (
     <Col as="section">

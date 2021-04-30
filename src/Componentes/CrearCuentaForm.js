@@ -11,6 +11,7 @@ const CrearCuentaForm = () => {
   const toggleVentana = () => setVentana(!ventana);
   const [error, setError] = useState("");
   const history = useHistory();
+
   const linkAcceder = () => {
     history.push("/registro/acceder");
   };

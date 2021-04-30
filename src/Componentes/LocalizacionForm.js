@@ -7,8 +7,6 @@ import useFetch from "../utils/hooks/useFetch";
 import IncidenciaForm from "./IncidenciaForm";
 
 const LocalizacionForm = () => {
-  const urlMapboxReverse = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
-  const urlMapbox = (direccion) => (`${process.env.REACT_APP_API_MAPBOX}${direccion}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
   const [codigoPostal, setCodigoPostal] = useState("");
   const [direccion, setDireccion] = useState("");
   const formDireccion = direccion ? (`${direccion}, ${codigoPostal}`) : null;
@@ -19,6 +17,9 @@ const LocalizacionForm = () => {
   const [direccionGeo, setDireccionGeo] = useState(null);
   const [ocultarIntroducirDatos, setOcultarIntroducirDatos] = useState(true);
   const [activarBoton, setActivarBoton] = useState(false);
+
+  const urlMapboxReverse = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
+  const urlMapbox = (direccion) => (`${process.env.REACT_APP_API_MAPBOX}${direccion}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
   const mostrarDesplegable = (e) => {
     setintroducirDatos(!introducirDatos);
   };
@@ -56,6 +57,7 @@ const LocalizacionForm = () => {
       pideDireccion(false, urlMapboxReverse(direccionGeo.longitud, direccionGeo.latitud));
     }
   }, [direccionGeo]);
+
   return (
     <>
       {!activarBoton && (
