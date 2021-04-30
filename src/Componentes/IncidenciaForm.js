@@ -126,7 +126,7 @@ const IncidenciaForm = props => {
 
 IncidenciaForm.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  direccionGeo: PropTypes.object.isRequired,
+  direccionGeo: PropTypes.object,
   // eslint-disable-next-line react/require-default-props
   direccion: PropTypes.string,
   // eslint-disable-next-line react/forbid-prop-types
