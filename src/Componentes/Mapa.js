@@ -34,17 +34,15 @@ const Mapa = () => {
   const incidencias = getIncidencias.incidencias;
   const setQuery = getIncidencias.setQuery;
   const [mapaDistritos, setMapaDistritos] = useState(false);
-  const imgPopup = idIncidencia => (`${process.env.REACT_APP_FIREBOX_URL}${idIncidencia}?alt=media`);
   const history = useHistory();
+
+  const filtrarTipo = tipo => { setQuery(tipo); };
+  const imgPopup = idIncidencia => (`${process.env.REACT_APP_FIREBOX_URL}${idIncidencia}?alt=media`);
   const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
   const getIcon = (tipoIncidencia) => icon({
     iconUrl: `/img/${tipoIncidencia.split(" ").join("-")}.png`,
     iconSize: [40],
   });
-
-  const filtrarTipo = tipo => {
-    setQuery(tipo);
-  };
 
   const linkNuevaIncidencia = () => {
     if (existeToken) {

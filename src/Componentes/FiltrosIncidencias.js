@@ -12,10 +12,12 @@ const FiltroIncidencias = () => {
   const [filtroOrdenar, setFiltroOrdenar] = useState(false);
   const [tipo, setTipo] = useState(false);
   const [orden, setOrden] = useState(false);
+
   useEffect(() => {
     setQuery(false);
     setQuery2(false);
   }, [getIncidencias]);
+
   const activarTipo = e => {
     setFiltroTipo(true);
     setTipo(e.target.value);

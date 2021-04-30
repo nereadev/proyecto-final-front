@@ -6,18 +6,17 @@ import {
 import { useParams } from "react-router";
 import useFetch from "../utils/hooks/useFetch";
 
-const urlMapbox = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
-
 const IncidenciaPagina = () => {
-  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
   const { id: idIncidencia } = useParams();
-  const imgUrl = fotoIncidencia => `${process.env.REACT_APP_FIREBOX_URL}${fotoIncidencia}?alt=media`;
   const [incidenciaElegida, setIncidenciaElegida] = useState("");
   const [info, setInfo] = useState(false);
   const fecha = incidenciaElegida ? new Date(incidenciaElegida.registrada).toLocaleDateString() : "";
   const { datos: datosGPS, pideDatos: pideDireccion } = useFetch();
   const { datos: incidencia, pideDatos: pideIncidencia } = useFetch();
 
+  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+  const imgUrl = fotoIncidencia => `${process.env.REACT_APP_FIREBOX_URL}${fotoIncidencia}?alt=media`;
+  const urlMapbox = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
   const mostrarInfo = () => {
     setInfo(!info);
   };

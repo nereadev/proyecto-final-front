@@ -9,6 +9,7 @@ import useSesion from "../utils/hooks/useSesion";
 const MenuFooter = () => {
   const { existeToken } = useContext(ContextoToken);
   const cerrarSesion = useSesion();
+
   return (
     <Col xs={12}>
       <Nav className="menuFooter">
