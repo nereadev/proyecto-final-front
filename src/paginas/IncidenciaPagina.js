@@ -1,10 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 // eslint-disable-next-line camelcase
 import {
-  Button, ButtonGroup, Col, Overlay, Row
+  Button, Col, Row
 } from "react-bootstrap";
 import { useParams } from "react-router";
 import useFetch from "../utils/hooks/useFetch";
+
+const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+const imgUrl = fotoIncidencia => `${process.env.REACT_APP_FIREBOX_URL}${fotoIncidencia}?alt=media`;
+const urlMapbox = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
 
 const IncidenciaPagina = () => {
   const { id: idIncidencia } = useParams();
@@ -14,9 +18,6 @@ const IncidenciaPagina = () => {
   const { datos: datosGPS, pideDatos: pideDireccion } = useFetch();
   const { datos: incidencia, pideDatos: pideIncidencia } = useFetch();
 
-  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
-  const imgUrl = fotoIncidencia => `${process.env.REACT_APP_FIREBOX_URL}${fotoIncidencia}?alt=media`;
-  const urlMapbox = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
   const mostrarInfo = () => {
     setInfo(!info);
   };
@@ -24,13 +25,11 @@ const IncidenciaPagina = () => {
   useEffect(() => {
     pideIncidencia(true, `incidencias/${idIncidencia}`);
   }, []);
-
   useEffect(() => {
     if (incidencia) {
       setIncidenciaElegida(incidencia.body.incidencia);
     }
   }, [incidencia]);
-
   useEffect(() => {
     if (incidenciaElegida) {
       pideDireccion(false, urlMapbox(incidenciaElegida.longitud, incidenciaElegida.latitud, process.env.REACT_APP_TOKEN_MAPBOX));
@@ -58,9 +57,7 @@ const IncidenciaPagina = () => {
                         Estado:
                       </Col>
                       <Col>
-                        <i className={`fas fa-circle
-            ${incidenciaElegida.resuelta ? "incidencia-resuelta" : "incidencia-recibida"}`}
-                        />
+                        <i className={`fas fa-circle ${incidenciaElegida.resuelta ? "incidencia-resuelta" : "incidencia-recibida"}`} />
                         <Button className="boton-info" variant="light" onClick={() => mostrarInfo()}>
                           {" "}
                           {incidenciaElegida.resuelta ? "  Resuelta" : "  Registrada"}
