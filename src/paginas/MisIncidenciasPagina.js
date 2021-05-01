@@ -19,22 +19,25 @@ const MisIncidenciasPagina = () => {
   const setQuery2 = getIncidencias.setQuery2;
   const [idIncidencia, setIdIncidencia] = useState("");
   const [ventana, setVentana] = useState(false);
-  const toggleVentana = (id) => { setVentana(!ventana); setIdIncidencia(id); };
   const { datos: datosEliminados, pideDatos: deleteDatos } = useFetch();
 
-  useEffect(() => {
-    setQuery(false);
-    setQuery2(false);
-  }, [getIncidencias]);
-
-  const eliminaIncidencia = (idIncidencia) => {
-    deleteDatos(true, (`incidencias/${idIncidencia}`), {
+  const toggleVentana = (idIncidenciaAEliminar) => {
+    setVentana(!ventana);
+    setIdIncidencia(idIncidenciaAEliminar);
+  };
+  const eliminaIncidencia = (idIncidenciaAEliminar) => {
+    deleteDatos(true, (`incidencias/${idIncidenciaAEliminar}`), {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
       }
     });
   };
+
+  useEffect(() => {
+    setQuery(false);
+    setQuery2(false);
+  }, [getIncidencias]);
   useEffect(() => {
     if (datosEliminados) {
       window.location.reload();
@@ -82,7 +85,7 @@ const MisIncidenciasPagina = () => {
         }
       </Col>
       <Col className="ventana text-center" sm={12}>
-        <Toast show={ventana} onClose={toggleVentana}>
+        <Toast show={ventana} onClose={() => toggleVentana("")}>
           <Toast.Header>
             <i className="fas fa-check-circle mr-2" />
             <strong className="mr-auto">¡Cuidado!</strong>

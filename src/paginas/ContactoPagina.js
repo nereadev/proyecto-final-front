@@ -82,7 +82,6 @@ const ContactoPagina = () => (
                 href="mailto:puntociudadano@info.com"
               >
                 <i className="far fa-envelope" />
-
               </Col>
               <Col sm={5}>Escríbenos un email:</Col>
               <Col
@@ -91,7 +90,6 @@ const ContactoPagina = () => (
                 href="mailto:puntociudadano@info.com"
               >
                 puntociudadano@info.com
-
               </Col>
             </Row>
           </Card.Body>
