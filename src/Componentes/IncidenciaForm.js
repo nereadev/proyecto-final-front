@@ -15,8 +15,7 @@ const IncidenciaForm = props => {
   const {
     direccionGeo, direccion: direccionPostal, coordenadas, datosGeo
   } = props;
-  const { existeToken, token } = useContext(ContextoToken);
-  const idUsuario = jwt_decode(token).id;
+  const { existeToken } = useContext(ContextoToken);
   const [ventana, setVentana] = useState(false);
   const [cargando, setCargando] = useState(false);
   const history = useHistory();
@@ -49,7 +48,6 @@ const IncidenciaForm = props => {
     e.preventDefault();
     if (existeToken) {
       const datos = new FormData();
-      datos.append("usuarioCreador", idUsuario);
       datos.append("fotoIncidencia", datosForm.fotoIncidencia);
       datos.append("nombre", datosForm.nombre);
       datos.append("descripcion", datosForm.descripcion);
