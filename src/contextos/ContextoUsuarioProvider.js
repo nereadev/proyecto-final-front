@@ -1,7 +1,7 @@
 // eslint-disable-next-line camelcase
 import jwt_decode from "jwt-decode";
 import {
-  useEffect, useReducer, useState, useContext
+  useEffect, useReducer, useContext
 } from "react";
 import { usuarioReducer } from "../utils/reducers/usuarioReducer";
 import { ContextoUsuario } from "./ContextoUsuario";
@@ -17,13 +17,14 @@ const ContextoUsuarioProvider = props => {
   const getUsuario = {
     usuario
   };
+
   useEffect(() => {
     if (token) {
       if (!existeToken) {
         setExisteToken(true);
       } else {
         const idUsuario = jwt_decode(token).id;
-        pideUsuarioFetch(true, `usuarios/${idUsuario}`, {
+        pideUsuarioFetch(true, `usuarios/${idUsuario}`, true, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -41,6 +42,7 @@ const ContextoUsuarioProvider = props => {
       });
     }
   }, [usuarioFetch]);
+
   return (
     <ContextoUsuario.Provider value={{ dispatch, getUsuario }}>
       {

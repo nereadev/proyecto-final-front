@@ -18,10 +18,9 @@ const Incidencia = () => {
   const realizaVoto = (incidenciaVotada, usuario, votaIncidencia, dispatchUsuario, dispatchIncidencias) => {
     const token = localStorage.getItem("token-usuario");
     const sumaVoto = !usuario.body.usuario.incidenciasVotadas.find(incidencia => incidencia._id === incidenciaVotada._id);
-    votaIncidencia(true, "incidencias/votar", {
+    votaIncidencia(true, "incidencias/votar", true, {
       method: "PATCH",
       headers: {
-        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ idIncidencia: incidenciaVotada._id })

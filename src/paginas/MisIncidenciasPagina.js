@@ -26,11 +26,8 @@ const MisIncidenciasPagina = () => {
     setIdIncidencia(idIncidenciaAEliminar);
   };
   const eliminaIncidencia = (idIncidenciaAEliminar) => {
-    deleteDatos(true, (`incidencias/${idIncidenciaAEliminar}`), {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+    deleteDatos(true, `incidencias/${idIncidenciaAEliminar}`, true, {
+      method: "DELETE"
     });
   };
 

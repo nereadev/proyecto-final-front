@@ -6,6 +6,12 @@ const ContextoTokenProvider = props => {
   const { children } = props;
   const token = localStorage.getItem("token-usuario");
   const [existeToken, setExisteToken] = useState(false);
+  const existenciaToken = {
+    existeToken,
+    token,
+    setExisteToken
+  };
+
   useEffect(() => {
     if (token) {
       setExisteToken(true);
@@ -13,11 +19,7 @@ const ContextoTokenProvider = props => {
       setExisteToken(false);
     }
   }, [token]);
-  const existenciaToken = {
-    existeToken,
-    token,
-    setExisteToken
-  };
+
   return (
     <ContextoToken.Provider value={existenciaToken}>
       {

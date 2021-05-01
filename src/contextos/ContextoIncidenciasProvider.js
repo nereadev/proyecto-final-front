@@ -11,11 +11,11 @@ const ContextoIncidenciasProvider = props => {
   const [query2, setQuery2] = useState(null);
   const { datos: incidenciasFetch, pideDatos: pideIncidenciasFetch } = useFetch();
   const getIncidencias = {
-    otraPropiedad: "Aquí puede ir otra propiedad relacionada con las incidencias",
     incidencias,
     setQuery,
     setQuery2
   };
+
   useEffect(() => {
     pideIncidenciasFetch(true, `incidencias${query ? `?tipo=${query}` : ""}${query2 ? `&ordenPor=${query2}` : ""}`);
   }, [pideIncidenciasFetch, query, query2]);
@@ -27,6 +27,7 @@ const ContextoIncidenciasProvider = props => {
       });
     }
   }, [incidenciasFetch]);
+
   return (
     <ContextoIncidencias.Provider value={{ dispatch, getIncidencias }}>
       {
