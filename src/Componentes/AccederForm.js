@@ -16,6 +16,23 @@ const AccederForm = () => {
   const { datos: tokenFetch, pideDatos: pideTokenFetch } = useFetch();
   const { setExisteToken } = useContext(ContextoToken);
 
+  const irACrearCuenta = () => {
+    history.push("/registro/crear-cuenta");
+  };
+  const checkLoginYToken = e => {
+    e.preventDefault();
+    setEmailFetch(emailInput);
+    setContrasenyaFetch(contrasenyaInput);
+  };
+  const modificaValor = e => {
+    e.preventDefault();
+    if (e.target.name === "email") {
+      setEmailInput(e.target.value);
+    } else {
+      setContrasenyaInput(e.target.value);
+    }
+  };
+
   useEffect(() => {
     if (emailFetch) {
       pideTokenFetch(true, "usuarios/login", false, {
@@ -27,7 +44,6 @@ const AccederForm = () => {
       });
     }
   }, [emailFetch, pideTokenFetch]);
-
   useEffect(() => {
     if (tokenFetch) {
       if (tokenFetch.error) {
@@ -40,24 +56,6 @@ const AccederForm = () => {
     }
   }, [tokenFetch]);
 
-  const irACrearCuenta = () => {
-    history.push("/registro/crear-cuenta");
-  };
-
-  const checkLoginYToken = e => {
-    e.preventDefault();
-    setEmailFetch(emailInput);
-    setContrasenyaFetch(contrasenyaInput);
-  };
-
-  const modificaValor = e => {
-    e.preventDefault();
-    if (e.target.name === "email") {
-      setEmailInput(e.target.value);
-    } else {
-      setContrasenyaInput(e.target.value);
-    }
-  };
   return (
     <>
       <Col sm={12} as="h2" className="titulo-acceder">Acceder</Col>

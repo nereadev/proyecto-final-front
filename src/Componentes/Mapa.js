@@ -28,6 +28,13 @@ const urlMapboxDistritos = `https://api.mapbox.com/styles/v1/bernatjv/cknow7tl91
 const urlDistritos = `https://api.mapbox.com/geocoding/v5/mapbox.places/2.167612130848904,41.38993034972496.json?access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`;
 const coordsBCN = [41.39993034972496, 2.147612130848904];
 
+const imgPopup = idIncidencia => (`${process.env.REACT_APP_FIREBOX_URL}${idIncidencia}?alt=media`);
+const getIconCircular = tipoIncidencia => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+const getIcon = tipoIncidencia => icon({
+  iconUrl: `/img/${tipoIncidencia.split(" ").join("-")}.png`,
+  iconSize: [40],
+});
+
 const Mapa = () => {
   const { getIncidencias } = useContext(ContextoIncidencias);
   const { existeToken } = useContext(ContextoToken);
@@ -37,13 +44,6 @@ const Mapa = () => {
   const history = useHistory();
 
   const filtrarTipo = tipo => { setQuery(tipo); };
-  const imgPopup = idIncidencia => (`${process.env.REACT_APP_FIREBOX_URL}${idIncidencia}?alt=media`);
-  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
-  const getIcon = (tipoIncidencia) => icon({
-    iconUrl: `/img/${tipoIncidencia.split(" ").join("-")}.png`,
-    iconSize: [40],
-  });
-
   const linkNuevaIncidencia = () => {
     if (existeToken) {
       history.push("/nueva-incidencia");

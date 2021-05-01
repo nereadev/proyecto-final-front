@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import useFetch from "../utils/hooks/useFetch";
 import IncidenciaForm from "./IncidenciaForm";
 
+const urlMapboxReverse = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
+const urlMapbox = direccion => (`${process.env.REACT_APP_API_MAPBOX}${direccion}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
+
 const LocalizacionForm = () => {
   const [codigoPostal, setCodigoPostal] = useState("");
   const [direccion, setDireccion] = useState("");
@@ -18,16 +21,14 @@ const LocalizacionForm = () => {
   const [ocultarIntroducirDatos, setOcultarIntroducirDatos] = useState(true);
   const [activarBoton, setActivarBoton] = useState(false);
 
-  const urlMapboxReverse = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
-  const urlMapbox = (direccion) => (`${process.env.REACT_APP_API_MAPBOX}${direccion}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
-  const mostrarDesplegable = (e) => {
+  const mostrarDesplegable = e => {
     setintroducirDatos(!introducirDatos);
   };
   const marcarCheck = () => {
     setMarcar(!marcar);
   };
   const geoUsuario = () => {
-    const success = (position) => {
+    const success = position => {
       setDireccionGeo({
         latitud: position.coords.latitude,
         longitud: position.coords.longitude
@@ -47,6 +48,7 @@ const LocalizacionForm = () => {
   const cambiarBoton = () => {
     setActivarBoton(!activarBoton);
   };
+
   useEffect(() => {
     if (direccion) {
       pideCoordenadas(false, urlMapbox(direccion));

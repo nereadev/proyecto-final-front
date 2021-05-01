@@ -13,11 +13,6 @@ const FiltroIncidencias = () => {
   const [tipo, setTipo] = useState(false);
   const [orden, setOrden] = useState(false);
 
-  useEffect(() => {
-    setQuery(false);
-    setQuery2(false);
-  }, [getIncidencias]);
-
   const activarTipo = e => {
     setFiltroTipo(true);
     setTipo(e.target.value);
@@ -40,6 +35,12 @@ const FiltroIncidencias = () => {
       setQuery2(orden);
     }
   };
+
+  useEffect(() => {
+    setQuery(false);
+    setQuery2(false);
+  }, [getIncidencias]);
+
   return (
     <>
       <Form className="filtro-incidencias" onSubmit={aplicarFiltro}>

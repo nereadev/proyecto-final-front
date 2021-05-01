@@ -11,12 +11,7 @@ const CrearCuentaForm = () => {
   const toggleVentana = () => setVentana(!ventana);
   const [error, setError] = useState("");
   const history = useHistory();
-
-  const linkAcceder = () => {
-    history.push("/registro/acceder");
-  };
   const { datos, pideDatos: postNuevoUsuario } = useFetch();
-
   const { datosForm, modificarDatos } = useForm({
     nombre: "",
     apellidos: "",
@@ -27,6 +22,9 @@ const CrearCuentaForm = () => {
     codigoPostal: "",
   });
 
+  const linkAcceder = () => {
+    history.push("/registro/acceder");
+  };
   const registraUsuario = e => {
     e.preventDefault();
     postNuevoUsuario(true, "usuarios", false, {
@@ -37,6 +35,7 @@ const CrearCuentaForm = () => {
       body: JSON.stringify(datosForm)
     });
   };
+
   useEffect(() => {
     if (datos?.error) {
       setError("Revisa tus datos y vuelve a introducirlos correctamente");

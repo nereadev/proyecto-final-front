@@ -22,17 +22,6 @@ const IncidenciaForm = props => {
   const { pideDatos: postUsuario, statusApi } = useFetch();
   const longitudApi = coordenadas?.features[0].geometry.coordinates[0];
   const latitudApi = coordenadas?.features[0].geometry.coordinates[1];
-
-  const toggleCargando = () => setCargando(!cargando);
-  useEffect(() => {
-    if (statusApi === 201) { setVentana(!ventana); }
-  }, [statusApi]);
-
-  const linkInicio = () => {
-    history.push("/mis-incidencias");
-    window.location.reload();
-  };
-
   const { datosForm, modificarDatos } = useForm({
     nombre: "",
     tipoIncidencia: "",
@@ -44,6 +33,11 @@ const IncidenciaForm = props => {
     fotoIncidencia: null
   });
 
+  const toggleCargando = () => setCargando(!cargando);
+  const linkInicio = () => {
+    history.push("/mis-incidencias");
+    window.location.reload();
+  };
   const enviaIncidencia = e => {
     e.preventDefault();
     if (existeToken) {
@@ -62,6 +56,10 @@ const IncidenciaForm = props => {
       });
     }
   };
+
+  useEffect(() => {
+    if (statusApi === 201) { setVentana(!ventana); }
+  }, [statusApi]);
 
   return (
     <>
