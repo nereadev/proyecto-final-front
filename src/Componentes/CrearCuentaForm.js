@@ -29,7 +29,7 @@ const CrearCuentaForm = () => {
 
   const registraUsuario = e => {
     e.preventDefault();
-    postNuevoUsuario(true, "usuarios", {
+    postNuevoUsuario(true, "usuarios", false, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -58,11 +58,8 @@ const IncidenciaForm = props => {
       datos.append("direccion", datosForm.direccion);
       datos.append("latitud", datosForm.latitud);
       datos.append("longitud", datosForm.longitud);
-      postUsuario(true, "incidencias", {
+      postUsuario(true, "incidencias", true, {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`
-        },
         body: datos
       });
     }
