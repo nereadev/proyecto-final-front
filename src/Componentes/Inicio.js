@@ -7,6 +7,7 @@ import Mapa from "./Mapa";
 
 const Inicio = () => {
   const [listado, setListado] = useState(false);
+
   return (
     <>
       <Col sm={12} className="mapa-lista">

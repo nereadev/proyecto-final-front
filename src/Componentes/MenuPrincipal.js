@@ -10,6 +10,7 @@ const MenuPrincipal = () => {
   const history = useHistory();
   const { existeToken } = useContext(ContextoToken);
   const cerrarSesion = useSesion();
+
   const irA = e => {
     e.preventDefault();
     if (e.target.value === "acceder") {
@@ -18,6 +19,7 @@ const MenuPrincipal = () => {
       history.push("/registro/crear-cuenta");
     }
   };
+
   return (
     <Col xs={10} className="navegacion">
       <Navbar expand="xl" className="navegacion">

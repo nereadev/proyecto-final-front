@@ -6,6 +6,9 @@ import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
 import useFetch from "../utils/hooks/useFetch";
 
+const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
+const getIconCircular = tipoIncidencia => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+
 const Incidencia = () => {
   const { dispatch: dispatchIncidencias, getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
@@ -13,9 +16,7 @@ const Incidencia = () => {
   const usuario = getUsuario.usuario;
   const { datos: voto, pideDatos: votaIncidencia } = useFetch();
 
-  const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
-  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
-  const realizaVoto = (incidenciaVotada, usuario, votaIncidencia, dispatchUsuario, dispatchIncidencias) => {
+  const realizaVoto = incidenciaVotada => {
     const sumaVoto = !usuario.body.usuario.incidenciasVotadas.find(incidencia => incidencia._id === incidenciaVotada._id);
     votaIncidencia(true, "incidencias/votar", true, {
       method: "PATCH",
@@ -45,7 +46,7 @@ const Incidencia = () => {
                 {
                   usuario.length !== 0 && (
                     <Row className="elemento-targeta-incidencia lateral-targeta-incidencia">
-                      <Button onClick={() => realizaVoto(incidencia, usuario, votaIncidencia, dispatchUsuario, dispatchIncidencias)}>
+                      <Button onClick={() => realizaVoto(incidencia)}>
                         <i className={!usuario.body.usuario.incidenciasVotadas.find(incidenciaVotada => incidenciaVotada._id === incidencia._id) ? "fas fa-angle-double-up" : "fas fa-angle-double-down"} />
                       </Button>
                     </Row>

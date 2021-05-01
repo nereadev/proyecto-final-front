@@ -8,8 +8,13 @@ import Incidencia from "./Incidencia";
 const Listado = () => {
   const { existeToken } = useContext(ContextoToken);
   const history = useHistory();
+
   const linkNuevaIncidencia = () => {
-    history.push("/nueva-incidencia");
+    if (existeToken) {
+      history.push("/nueva-incidencia");
+    } else {
+      history.push("/registro/acceder");
+    }
   };
 
   return (
