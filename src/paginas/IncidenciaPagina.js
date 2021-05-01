@@ -6,7 +6,7 @@ import {
 import { useParams } from "react-router";
 import useFetch from "../utils/hooks/useFetch";
 
-const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+const getIconCircular = tipoIncidencia => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
 const imgUrl = fotoIncidencia => `${process.env.REACT_APP_FIREBOX_URL}${fotoIncidencia}?alt=media`;
 const urlMapbox = (longitud, latitud) => (`${process.env.REACT_APP_API_MAPBOX}${longitud},${latitud}.json?types=address&access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`);
 
