@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import {
-  Button, Col, Image, Row
+  Button, Col, Row
 } from "react-bootstrap";
 import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 import { ContextoUsuario } from "../contextos/ContextoUsuario";
@@ -16,7 +16,6 @@ const Incidencia = () => {
   const imgPopup = idIncidencia => (`https://firebasestorage.googleapis.com/v0/b/proyecto-final-c019d.appspot.com/o/${idIncidencia}?alt=media`);
   const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
   const realizaVoto = (incidenciaVotada, usuario, votaIncidencia, dispatchUsuario, dispatchIncidencias) => {
-    const token = localStorage.getItem("token-usuario");
     const sumaVoto = !usuario.body.usuario.incidenciasVotadas.find(incidencia => incidencia._id === incidenciaVotada._id);
     votaIncidencia(true, "incidencias/votar", true, {
       method: "PATCH",
