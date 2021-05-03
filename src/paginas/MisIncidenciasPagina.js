@@ -8,11 +8,12 @@ import { ContextoIncidencias } from "../contextos/ContextoIncidencias";
 import { ContextoToken } from "../contextos/ContextoToken";
 import useFetch from "../utils/hooks/useFetch";
 
+const imgPopup = idIncidencia => (`${process.env.REACT_APP_FIREBOX_URL}${idIncidencia}?alt=media`);
+const getIconCircular = tipoIncidencia => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
+
 const MisIncidenciasPagina = () => {
   const { token } = useContext(ContextoToken);
   const idUsuario = jwt_decode(token).id;
-  const imgPopup = idIncidencia => (`${process.env.REACT_APP_FIREBOX_URL}${idIncidencia}?alt=media`);
-  const getIconCircular = (tipoIncidencia) => `/img/${tipoIncidencia.split(" ").join("-")}-circular.png`;
   const { getIncidencias } = useContext(ContextoIncidencias);
   const incidencias = getIncidencias.incidencias;
   const setQuery = getIncidencias.setQuery;
