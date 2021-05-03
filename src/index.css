@@ -21,7 +21,7 @@ background-color: #b6c9b9;
   background-size:cover;
 }
 .cabecera img{
-  height: 1.8em;
+  max-height: 1.8em;
 }
 .titulo {
   font-size: 2.6em;
@@ -42,27 +42,26 @@ background-color: #b6c9b9;
   align-items: flex-end;
   justify-content: flex-end;
   text-align: center;
+  font-size: 0.95em;
 }
 .toggle {
+  padding-right: 0;
   border: 0;
   transition: 1s ease-in-out;
 }
 .toggle:hover {
   border: 1px solid rgba(60, 85, 60, 0.219);
 }
-
 .menuCabecera .navItem {
   transition: 0.6s;
   color:#353f38;
   margin-top:5px;
 }
-
 .menuCabecera .navItem:hover {
   transition: 0.6s;
   text-decoration: none;
   color:#1f252188;
 }
-
 .menuCabecera .registroBoton {
   color: white;
   border: 0;
@@ -72,17 +71,14 @@ background-color: #b6c9b9;
   background-color: #445448;
   margin-top: 5px;
 }
-
 .crearCuenta {
   background-color: #5e8869;
   margin-top: 10px;
 }
-
 .logoutBoton {
   background-color: #332828;
   margin-top: 10px;
 }
-
 .menuCabecera .registroBoton:hover, .menuCabecera .registroBoton:focus{
   color: white;
   background-color: #2d382f;
@@ -507,7 +503,15 @@ ul.incidencia {
 .detalle-imagen a {
   color: black;
 }
+
 /* Contenido menus mapa */
+@media (max-width: 576px) {
+.filtros-mapa .nav-item  {
+  display: flex;
+  font-size: smaller;
+  width: 10rem;
+}
+}
 .mapa-lista {
   display: flex;
   justify-content: space-around;
@@ -539,7 +543,7 @@ ul.incidencia {
   color: #48594B;
 }
 .filtros-mapa {
-  height: 3.8em;
+  margin-bottom: 10px;
 }
 
 
