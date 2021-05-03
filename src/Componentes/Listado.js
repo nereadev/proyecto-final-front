@@ -21,7 +21,7 @@ const Listado = () => {
     <>
       <Row as="h2">
         Lista de Incidencias Generales
-        <Col>
+        <Col md={12} className="d-flex justify-content-center mt-3">
           {existeToken && (
             <Button onClick={linkNuevaIncidencia} className="nueva-incidencia ">
               + Incidencia

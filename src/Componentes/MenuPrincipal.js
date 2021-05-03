@@ -21,7 +21,7 @@ const MenuPrincipal = () => {
   };
 
   return (
-    <Col xs={10} className="navegacion">
+    <Col xs={8} className="navegacion">
       <Navbar expand="xl" className="navegacion">
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggle" />
         <Navbar.Collapse id="basic-navbar-nav" className="toggle2">

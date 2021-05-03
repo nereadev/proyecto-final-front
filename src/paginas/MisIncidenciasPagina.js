@@ -64,13 +64,13 @@ const MisIncidenciasPagina = () => {
                 <Col sm={7}>
                   <Row as="h3" className="elemento-targeta-incidencia mb-2 d-block">{incidencia.nombre}</Row>
                   <Row className="datos-incidencia">
-                    <Col xs={4} className="elemento-targeta-incidencia tipo-targeta">
+                    <Col xs={12} className="elemento-targeta-incidencia tipo-targeta">
                       <img className="targeta-tipo" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="" />
                       {incidencia.tipoIncidencia.tipo}
                     </Col>
-                    <Col xs={6} className="elemento-targeta-incidencia direccion-targeta">{incidencia.direccion}</Col>
-                    <Col xs={2} className="elemento-targeta-incidencia direccion-targeta">{new Date(incidencia.registrada).toLocaleDateString()}</Col>
-                    {incidencia.descripcion && <Col sm={12} className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Col>}
+                    <Col xs={9} className="elemento-targeta-incidencia direccion-targeta">{incidencia.direccion}</Col>
+                    <Col xs={3} className="elemento-targeta-incidencia direccion-targeta">{new Date(incidencia.registrada).toLocaleDateString()}</Col>
+                    {incidencia.descripcion && <Col xs={12} className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Col>}
                   </Row>
                 </Col>
                 <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />

@@ -42,7 +42,7 @@ background-color: #b6c9b9;
   align-items: flex-end;
   justify-content: flex-end;
   text-align: center;
-  font-size: 0.95em;
+  font-size: 0.90em;
 }
 .toggle {
   padding-right: 0;
@@ -337,6 +337,7 @@ a.importante:hover {
 .fa-plus {
  color: grey;
  padding: 0;
+ margin-top: 10px;
 }
 .fa-plus:hover {
  cursor: pointer;
