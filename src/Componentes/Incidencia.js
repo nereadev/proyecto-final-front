@@ -63,19 +63,23 @@ const Incidencia = () => {
               <Col sm={7}>
                 <Row as="h3" className="elemento-targeta-incidencia d-block"><a href={`./incidencia/${incidencia._id}`}>{incidencia.nombre}</a></Row>
                 <Row>
-                  <Col sm={12}>
+                  <Col xs={12}>
                     <Row className="elemento-targeta-incidencia tipo-targeta">
                       <img className="targeta-tipo" src={getIconCircular(incidencia.tipoIncidencia.tipo)} alt="icono tipo de incidencia" />
                       <span>{incidencia.tipoIncidencia.tipo}</span>
                     </Row>
                   </Col>
-                  <Col sm={9} className="elemento-targeta-incidencia direccion-targeta">{incidencia.direccion}</Col>
-                  <Col sm={3} className="elemento-targeta-incidencia direccion-targeta">{new Date(incidencia.registrada).toLocaleDateString()}</Col>
-                  {incidencia.descripcion && <Col sm={12} className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Col>}
+                  <Col xs={9} className="elemento-targeta-incidencia direccion-targeta">{incidencia.direccion}</Col>
+                  <Col xs={3} className="elemento-targeta-incidencia direccion-targeta">{new Date(incidencia.registrada).toLocaleDateString()}</Col>
+                  {incidencia.descripcion && <Col xs={12} className="elemento-targeta-incidencia descripcion-targeta">{incidencia.descripcion}</Col>}
                 </Row>
               </Col>
               <Col sm={3} as="img" className="elemento-targeta-incidencia" src={imgPopup(incidencia.fotoIncidencia)} alt=" " />
-              <Col sm={1}><a href={`./incidencia/${incidencia._id}`}><i className="fas fa-plus" aria-label="Detalle incidencia" /></a></Col>
+              <Col sm={1} className="text-center">
+                <a href={`./incidencia/${incidencia._id}`}>
+                  <i className="fas fa-plus" aria-label="Detalle incidencia" />
+                </a>
+              </Col>
             </Row>
           )))
       }
