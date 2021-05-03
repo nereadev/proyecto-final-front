@@ -9,16 +9,16 @@ const ContactoPagina = () => (
       <Card className="contacto-secciones">
         <Card.Header className="contacto-cabecera">
           <Accordion.Toggle as={Button} variant="link" eventKey="0" className="contacto-boton">
-            Quiénes somos
+            Quiénes Somos
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="0">
-          <Card.Body className="d-flex-block">
+          <Card.Body>
             Somos Bernat, Malena, Nerea y Santiago y juntos formamos somDev.
             Con Punto Ciudadano queremos que los ciudadanos y ciudadanas sean
             partícipes de su ciudad. ¡Creando ciudades más limpias y seguras!
-            <Row className="contacto-linkedin">
-              <Col sm={3} className="caja-linkedin">
+            <Row className="contacto-linkedin mt-3 ml-1">
+              <Col className="caja-linkedin">
                 <Row><img src="/img/bernat.jpg" alt="Bernat Jorquera Vinyals" /></Row>
                 <Row className="nombre">Bernat Jorquera Vinyals</Row>
                 <Row className="linkedin">
@@ -28,7 +28,7 @@ const ContactoPagina = () => (
                   </a>
                 </Row>
               </Col>
-              <Col sm={3} className="caja-linkedin">
+              <Col className="caja-linkedin">
                 <Row><img src="/img/malena.jpg" alt="Malena de Juan Arranz" /></Row>
                 <Row className="nombre">Malena de Juan Arranz</Row>
                 <Row className="linkedin">
@@ -38,7 +38,7 @@ const ContactoPagina = () => (
                   </a>
                 </Row>
               </Col>
-              <Col sm={3} className="caja-linkedin">
+              <Col className="caja-linkedin">
                 <Row><img src="/img/nerea.jpg" alt="Nerea García Casas" /></Row>
                 <Row className="nombre">Nerea García Casas</Row>
                 <Row className="linkedin">
@@ -48,7 +48,7 @@ const ContactoPagina = () => (
                   </a>
                 </Row>
               </Col>
-              <Col sm={3} className="caja-linkedin">
+              <Col className="caja-linkedin">
                 <Row><img src="/img/santiago.jpg" alt="Santiago Arnau Bailón" /></Row>
                 <Row className="nombre">Santiago Arnau Bailón</Row>
                 <Row className="linkedin">
