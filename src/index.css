@@ -692,13 +692,14 @@ li.tips-titulos {
   color: #353f38;
 }
 .linkedin {
-  padding: 90px 0px;
+  padding: 65px 0px;
   background-color:  rgb(0, 0, 0, 0.7);
   border-radius: 100px;
   position: absolute;
-  bottom: 10%;
+  bottom: 21%;
   opacity: 0;
   font-size: 15px;
+  margin-bottom: 5px;
 }
 .linkedin:hover {
   cursor: pointer;
@@ -706,30 +707,27 @@ li.tips-titulos {
 }
 .linkedin a {
   color: white;
-  width: 200px;
+  width: 150px;
   text-align: center;
+  font-size: 0.8em;
 }
 .linkedin i {
   color: black;
 }
 .caja-linkedin {
-  width: 190px;
   position: relative;
-  position: block;
 }
 .caja-linkedin img {
   border-radius: 120px;
+  height: 150px;
 }
 .caja-linkedin .nombre {
   font-style: italic;
   justify-content: center;
-  margin-right: 10px;
-  width: 200px;
+  width: 150px;
+  text-align: center;
 }
-.contacto-linkedin {
-  width: 1000px;
-  justify-content: center;
-}
+
 @media (max-width: 539px) {
   .cabecera img {
   max-width: 5em;
