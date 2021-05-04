@@ -23,7 +23,7 @@ const LocalizacionForm = () => {
   const formDireccion = direccion ? (`${direccion}, ${codigoPostal}`) : null;
   const [marcar, setMarcar] = useState(false);
   const { datos: coordenadas, pideDatos: pideCoordenadas } = useFetch();
-  const { datos: datosGeo, pideDatos: pideDireccion } = useFetch();
+  const { datos: datosGeo, statusApi: statusGeo, pideDatos: pideDireccion } = useFetch();
   const { datos: incidenciasSimilares, pideDatos: pideIncidenciasSimilares } = useFetch();
   const [introducirDatos, setintroducirDatos] = useState(false);
   const [direccionGeo, setDireccionGeo] = useState(null);
@@ -79,8 +79,16 @@ const LocalizacionForm = () => {
       })
     });
   };
+  useEffect(() => {
+    if (statusGeo === 200) {
+      fetchIncidenciasSimilares();
+    } else if (coordenadas?.features.length > 1) {
+      fetchIncidenciasSimilares();
+    }
+  }, [statusGeo, coordenadas?.features]);
 
   useEffect(() => {
+    console.log(coordenadas);
     if (direccion) {
       pideCoordenadas(false, urlMapbox(direccion));
     }
@@ -103,7 +111,6 @@ const LocalizacionForm = () => {
         <Col as="section">
           <p>
             Antes de registrar tu nueva incidencia, por favor comprueba que no haya sido creada por otro usuario.
-            <Link to="/inicio" className="importante">¡Compruébalo aquí!</Link>
           </p>
           <Row>
             <Col md={6}>
@@ -159,25 +166,15 @@ const LocalizacionForm = () => {
                 </Form.Group>
               </Form>
             </Col>
-            {!muestraIncidencias && (
-              <Col md={6}>
-                <Button
-                  className="boton-nueva"
-                  variant="info"
-                  onClick={fetchIncidenciasSimilares}
-                >
-                  Mostrar incidencias
-                </Button>
-              </Col>
-            )}
             {muestraIncidencias && (
               <Col md={6}>
-                <Row>
+                <Row className="ml-2">
                   ¿Tu incidencia se incluye en esta lista?
                 </Row>
                 <InfiniteScroll
                   dataLength={incidenciasScroll.length}
-                  height={200}
+                  height={250}
+                  className="m-2"
                 >
                   {incidenciasScroll.map(incidencia => (
                     <Row key={incidencia._id} className="incidencia-zona">
@@ -209,7 +206,7 @@ const LocalizacionForm = () => {
               </Col>
             )}
           </Row>
-          <span className="numero-pie">
+          <span className="numero-pie mt-3">
             1/2
           </span>
         </Col>
