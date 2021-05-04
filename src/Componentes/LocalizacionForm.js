@@ -82,12 +82,13 @@ const LocalizacionForm = () => {
   useEffect(() => {
     if (statusGeo === 200) {
       fetchIncidenciasSimilares();
-    } else if (coordenadas?.features) {
+    } else if (coordenadas?.features.length > 1) {
       fetchIncidenciasSimilares();
     }
   }, [statusGeo, coordenadas?.features]);
 
   useEffect(() => {
+    console.log(coordenadas);
     if (direccion) {
       pideCoordenadas(false, urlMapbox(direccion));
     }
