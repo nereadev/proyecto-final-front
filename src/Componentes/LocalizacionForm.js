@@ -23,7 +23,7 @@ const LocalizacionForm = () => {
   const formDireccion = direccion ? (`${direccion}, ${codigoPostal}`) : null;
   const [marcar, setMarcar] = useState(false);
   const { datos: coordenadas, pideDatos: pideCoordenadas } = useFetch();
-  const { datos: datosGeo, statusApi: statusCoordenadas, pideDatos: pideDireccion } = useFetch();
+  const { datos: datosGeo, statusApi: statusGeo, pideDatos: pideDireccion } = useFetch();
   const { datos: incidenciasSimilares, pideDatos: pideIncidenciasSimilares } = useFetch();
   const [introducirDatos, setintroducirDatos] = useState(false);
   const [direccionGeo, setDireccionGeo] = useState(null);
@@ -56,7 +56,6 @@ const LocalizacionForm = () => {
       setDireccion(e.target.value);
     }
   };
-
   const cambiarBoton = () => {
     setActivarBoton(!activarBoton);
   };
@@ -81,10 +80,12 @@ const LocalizacionForm = () => {
     });
   };
   useEffect(() => {
-    if (statusCoordenadas === 200) {
+    if (statusGeo === 200) {
+      fetchIncidenciasSimilares();
+    } else if (coordenadas?.features) {
       fetchIncidenciasSimilares();
     }
-  }, [statusCoordenadas]);
+  }, [statusGeo, coordenadas?.features]);
 
   useEffect(() => {
     if (direccion) {
