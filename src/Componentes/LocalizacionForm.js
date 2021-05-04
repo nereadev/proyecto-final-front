@@ -168,12 +168,13 @@ const LocalizacionForm = () => {
             </Col>
             {muestraIncidencias && (
               <Col md={6}>
-                <Row>
+                <Row className="ml-2">
                   ¿Tu incidencia se incluye en esta lista?
                 </Row>
                 <InfiniteScroll
                   dataLength={incidenciasScroll.length}
-                  height={200}
+                  height={250}
+                  className="m-2"
                 >
                   {incidenciasScroll.map(incidencia => (
                     <Row key={incidencia._id} className="incidencia-zona">
@@ -205,7 +206,7 @@ const LocalizacionForm = () => {
               </Col>
             )}
           </Row>
-          <span className="numero-pie">
+          <span className="numero-pie mt-3">
             1/2
           </span>
         </Col>
