@@ -23,7 +23,7 @@ const LocalizacionForm = () => {
   const formDireccion = direccion ? (`${direccion}, ${codigoPostal}`) : null;
   const [marcar, setMarcar] = useState(false);
   const { datos: coordenadas, pideDatos: pideCoordenadas } = useFetch();
-  const { datos: datosGeo, pideDatos: pideDireccion } = useFetch();
+  const { datos: datosGeo, statusApi: statusCoordenadas, pideDatos: pideDireccion } = useFetch();
   const { datos: incidenciasSimilares, pideDatos: pideIncidenciasSimilares } = useFetch();
   const [introducirDatos, setintroducirDatos] = useState(false);
   const [direccionGeo, setDireccionGeo] = useState(null);
@@ -56,6 +56,7 @@ const LocalizacionForm = () => {
       setDireccion(e.target.value);
     }
   };
+
   const cambiarBoton = () => {
     setActivarBoton(!activarBoton);
   };
@@ -79,6 +80,11 @@ const LocalizacionForm = () => {
       })
     });
   };
+  useEffect(() => {
+    if (statusCoordenadas === 200) {
+      fetchIncidenciasSimilares();
+    }
+  }, [statusCoordenadas]);
 
   useEffect(() => {
     if (direccion) {
@@ -103,7 +109,6 @@ const LocalizacionForm = () => {
         <Col as="section">
           <p>
             Antes de registrar tu nueva incidencia, por favor comprueba que no haya sido creada por otro usuario.
-            <Link to="/inicio" className="importante">¡Compruébalo aquí!</Link>
           </p>
           <Row>
             <Col md={6}>
@@ -159,17 +164,6 @@ const LocalizacionForm = () => {
                 </Form.Group>
               </Form>
             </Col>
-            {!muestraIncidencias && (
-              <Col md={6}>
-                <Button
-                  className="boton-nueva"
-                  variant="info"
-                  onClick={fetchIncidenciasSimilares}
-                >
-                  Mostrar incidencias
-                </Button>
-              </Col>
-            )}
             {muestraIncidencias && (
               <Col md={6}>
                 <Row>
