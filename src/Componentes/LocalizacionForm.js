@@ -88,7 +88,6 @@ const LocalizacionForm = () => {
   }, [statusGeo, coordenadas?.features]);
 
   useEffect(() => {
-    console.log(coordenadas);
     if (direccion) {
       pideCoordenadas(false, urlMapbox(direccion));
     }
