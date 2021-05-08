@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   Button, Col, Form, Row
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import useFetch from "../utils/hooks/useFetch";
 import IncidenciaForm from "./IncidenciaForm";
