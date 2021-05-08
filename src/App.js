@@ -2,7 +2,7 @@ import {
   BrowserRouter as Router, Redirect, Route, Switch
 } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import { RutaProtegida } from "./Componentes/RutaProtegida";
+import { RutaProtegida } from "./componentes/RutaProtegida";
 import RegistroPagina from "./paginas/RegistroPagina";
 import IncidenciaPagina from "./paginas/IncidenciaPagina";
 import MiCuentaPagina from "./paginas/MiCuentaPagina";
@@ -12,8 +12,8 @@ import NotFoundPagina from "./paginas/NotFoundPagina";
 import InicioPagina from "./paginas/InicioPagina";
 import ComoFuncionaPagina from "./paginas/ComoFuncionaPagina";
 import NuevaIncidenciaPagina from "./paginas/NuevaIncidenciaPagina";
-import Cabecera from "./Componentes/Cabecera";
-import Footer from "./Componentes/Footer";
+import Cabecera from "./componentes/Cabecera";
+import Footer from "./componentes/Footer";
 import ContextoTokenProvider from "./contextos/ContextoTokenProvider";
 import ContextoIncidenciasProvider from "./contextos/ContextoIncidenciasProvider";
 import ContextoUsuarioProvider from "./contextos/ContextoUsuarioProvider";
