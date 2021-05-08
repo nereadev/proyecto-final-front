@@ -1,5 +1,5 @@
 import { Row } from "react-bootstrap";
-import Inicio from "../componentes/Inicio";
+import Inicio from "../Componentes/Inicio";
 
 const InicioPagina = () => (
   <Row as="main">
