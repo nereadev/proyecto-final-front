@@ -1,7 +1,7 @@
 import { Row } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
-import AccederForm from "../componentes/AccederForm";
-import CrearCuentaForm from "../componentes/CrearCuentaForm";
+import AccederForm from "../Componentes/AccederForm";
+import CrearCuentaForm from "../Componentes/CrearCuentaForm";
 
 const RegistroPagina = () => {
   const { accion } = useParams();

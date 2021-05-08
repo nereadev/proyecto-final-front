@@ -22,6 +22,7 @@ const LocalizacionForm = () => {
   const [direccion, setDireccion] = useState("");
   const formDireccion = direccion ? (`${direccion}, ${codigoPostal}`) : null;
   const [marcar, setMarcar] = useState(false);
+  const [marcarGeo, setMarcarGeo] = useState(false);
   const { datos: coordenadas, pideDatos: pideCoordenadas } = useFetch();
   const { datos: datosGeo, statusApi: statusGeo, pideDatos: pideDireccion } = useFetch();
   const { datos: incidenciasSimilares, pideDatos: pideIncidenciasSimilares } = useFetch();
@@ -38,6 +39,10 @@ const LocalizacionForm = () => {
   const marcarCheck = () => {
     setMarcar(!marcar);
   };
+  const marcarCheckGeo = () => {
+    setMarcarGeo(!marcarGeo);
+  };
+
   const geoUsuario = () => {
     const success = position => {
       setDireccionGeo({
@@ -60,10 +65,10 @@ const LocalizacionForm = () => {
     setActivarBoton(!activarBoton);
   };
   const fetchIncidenciasSimilares = () => {
-    let coordenadasFetch;
-    if (direccionGeo) {
+    let coordenadasFetch = 0;
+    if (marcarGeo) {
       coordenadasFetch = direccionGeo;
-    } else if (coordenadas) {
+    } else if (marcar) {
       coordenadasFetch = {
         latitud: coordenadas.features[0].geometry.coordinates[1],
         longitud: coordenadas.features[0].geometry.coordinates[0]
@@ -79,10 +84,11 @@ const LocalizacionForm = () => {
       })
     });
   };
+
   useEffect(() => {
-    if (statusGeo === 200) {
+    if (marcarGeo) {
       fetchIncidenciasSimilares();
-    } else if (coordenadas?.features.length > 1) {
+    } else if (marcar) {
       fetchIncidenciasSimilares();
     }
   }, [statusGeo, coordenadas?.features]);
@@ -152,7 +158,7 @@ const LocalizacionForm = () => {
                     type="checkbox"
                     onChange={geoUsuario}
                     label="Usar mi ubicación actual"
-                    onClick={marcarCheck}
+                    onClick={marcarCheckGeo}
                   />
                   <Button
                     className="boton-nueva"
