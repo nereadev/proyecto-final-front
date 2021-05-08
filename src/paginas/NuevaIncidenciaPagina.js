@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import LocalizacionForm from "../Componentes/LocalizacionForm";
+import LocalizacionForm from "../componentes/LocalizacionForm";
 
 const NuevaIncidenciaPagina = () => (
   <Row as="main">
