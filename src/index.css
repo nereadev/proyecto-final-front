@@ -1,6 +1,17 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #212529;
+  }
+  .tiposMapa {
+    color: white !important;
+  }
+  .navLink {
+    color: white !important;
+  }
+}
 main {
   min-height: 77vh;
   align-content: start;
