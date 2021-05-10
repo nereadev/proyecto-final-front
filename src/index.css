@@ -5,11 +5,11 @@
   body {
     background-color: #212529;
   }
-  .tiposMapa {
-    color: white !important;
+  .navLink, .mi-cuenta, .tiposMapa, .mini-tips  {
+    color: #F2F2F2 !important;
   }
-  .navLink {
-    color: white !important;
+  .tips-titulos, .etiqueta {
+    color: #B0BFB2 !important;
   }
 }
 main {
