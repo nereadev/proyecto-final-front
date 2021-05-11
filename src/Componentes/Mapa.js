@@ -24,6 +24,7 @@ https://github.com/martgnz/bcn-geodata */
 /* https://api.mapbox.com/styles/v1/bernatjv/cknouqecv5hu017s5twegcpys/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYmVybmF0anYiLCJhIjoiY2tub2o2emxzMWVweTJxbnhicGxiejRvOCJ9.x-GGbqA5iOhR66FnJ4DWnw */
 
 const urlMapbox = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`;
+const urlMapboxDark = `https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`;
 const urlMapboxDistritos = `https://api.mapbox.com/styles/v1/bernatjv/cknow7tl91o6l17o1awn9zgcf/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`;
 const urlDistritos = `https://api.mapbox.com/geocoding/v5/mapbox.places/2.167612130848904,41.38993034972496.json?access_token=${process.env.REACT_APP_TOKEN_MAPBOX}`;
 const coordsBCN = [41.39993034972496, 2.147612130848904];
@@ -34,6 +35,7 @@ const getIcon = tipoIncidencia => icon({
   iconUrl: `/img/${tipoIncidencia.split(" ").join("-")}.png`,
   iconSize: [40],
 });
+const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
 
 const Mapa = () => {
   const { getIncidencias } = useContext(ContextoIncidencias);
@@ -104,7 +106,7 @@ const Mapa = () => {
           {mapaDistritos || (
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url={urlMapbox}
+              url={mediaQueryDark.matches === true ? urlMapboxDark : urlMapbox}
             />
           )}
           {
