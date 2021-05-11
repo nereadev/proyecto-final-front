@@ -632,11 +632,15 @@ ul.incidencia {
   color: #648C6E;
   text-align: center;
 }
-li.tips-titulos {
+.tips-titulos h3 {
+  margin-top: 1em;
+  font-size: 1.5em;
+}
+/* li.tips-titulos {
   display: inline-block;
   color: #48594B;
   width: 45%;
-}
+} */
 .tips-solo {
   margin-top: 1em;
   font-weight: bold;
@@ -646,6 +650,9 @@ li.tips-titulos {
 .mini-lista {
     display: flex;
     margin-bottom: 10px;
+}
+.mini-lista .fa-circle {
+  margin: 5px;
 }
 .mini-tips {
   width: 45%;
@@ -657,15 +664,42 @@ li.tips-titulos {
 .ultimos-pasos {
   display: flex;
 }
-.ultimos-pasos .tips{
+.ultimos-pasos.tips{
   display: inline-block;
   color: #F2F2F2;
   width: 20%;
-  margin: 1em 0.8em;
+  margin: 0.5em 0em;
   background-color: #B0BFB2;
   border-radius: 30px;
   padding: 1em;
   text-align: center;
+}
+.icono-punto {
+  max-width: 120px;
+  right: 3em;
+  bottom: 1em;
+}
+.icono-mapa {
+  max-width: 120px;
+}
+.icono-numero {
+  min-height: 200px;
+  opacity: 0.7;
+  margin-bottom: -60px;
+}
+.icono-voto {
+  max-height: 80px;
+  align-self: center;
+  opacity: 0.5;
+}
+.icono-voto-numero {
+  max-height: 70px;
+  align-self: center;
+  opacity: 0.5;
+}
+.icono-incidencia {
+    max-width: 180px;
+    opacity: 0.6;
 }
 
 /* Contacto */
