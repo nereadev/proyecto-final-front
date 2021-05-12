@@ -8,7 +8,7 @@
   .navLink, .mi-cuenta, .tiposMapa, .mini-tips  {
     color: #F2F2F2 !important;
   }
-  .tips-titulos, .etiqueta {
+  .tips-titulos, .etiqueta, h2 {
     color: #B0BFB2 !important;
   }
 }
