@@ -175,6 +175,8 @@ const LocalizacionForm = () => {
                 <Row className="ml-2">
                   ¿Tu incidencia se incluye en esta lista?
                 </Row>
+                <br />
+                {incidenciasSimilares.total === 0 && !marcar ? <Col as="p">No hemos podido encontrar tu ubicación, intenta introduciéndola manualmente</Col> : ""}
                 <InfiniteScroll
                   dataLength={incidenciasScroll.length}
                   height={250}
